@@ -31,7 +31,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className=" max-w-[1440px] mx-auto overflow-hidden w-full relative mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+      <div className=" max-w-[1440px] mt-8 mx-auto overflow-hidden w-full relative mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         <motion.div
           className="flex gap-4 w-fit px-8"
           animate={{ x: ["0%", "-50%"] }}
