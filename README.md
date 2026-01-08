@@ -1,15 +1,4 @@
-# Portfolio Website
-
-A premium, data-driven portfolio website built with React, Tailwind CSS, and Framer Motion.
-
-## Features
-
-- **Dynamic Project Rendering**: Projects are defined in `src/data/projects.js` and pages are generated automatically.
-- **Responsive Design**: Fully responsive layouts for all devices.
-- **Premium UI**: Glassmorphism, smooth animations, and modern typography.
-- **Special Sections**:
-  - **Redesign Explorations**: Dedicated page for Before/After comparisons.
-  - **Project Details**: Deep dive into case studies with sticky navigation.
+# Portfolio - Hamza Ziyard
 
 ## Getting Started
 
@@ -27,5 +16,3 @@ A premium, data-driven portfolio website built with React, Tailwind CSS, and Fra
    ```bash
    yarn build
    ```
-
-### hamza-ziyard
