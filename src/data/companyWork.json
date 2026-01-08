@@ -1,0 +1,1685 @@
+[
+{
+    "companyId": "zafer-work",
+    "companyName": "Zafer (Previously known as ZorroSign)",
+    "companyLogo": "/zafer/logos/logos_zafer-logo-full.svg",
+    "companyFavicon": "/zafer/logos/logos_zafer-favicon-logo.svg",
+    "companyDescription": "At Zafer AI, I worked on the redesign of the platform’s web and mobile interfaces, focusing on making complex blockchain and AI features accessible. I established separate, platform-specific design systems for iOS and Android to ensure a native feel for all users. Beyond visual design, I implemented WCAG 2.1 accessibility standards, delivered an enterprise-ready white-label application, and created scalable guidelines that improved the workflow between our design and development teams.",
+    "companyType": "Product",
+    "role": "UI/UX Designer",
+    "timePeriod": "March 2023 – Dec 2025",
+    "projects": {
+        "Web": [
+            {
+                "id": "web-project-1",
+                "title": "Dashboard Redesign",
+                "problemStatement": "The dashboard was confusing and lacked mobile responsiveness. Users were struggling to access their key actions at a single glance.",
+                "solution": "The dashboard was redesigned using a mobile-first approach, prioritizing and highlighting key user actions.",
+                "achievements": "This reduced user cognitive load, enabled users to achieve their goals more efficiently, and significantly decreased task completion time.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Dashboard-Redesign/2.webp",
+                        "caption": "New dashboard design"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-2",
+                "title": "Signing View Redesign",
+                "problemStatement": "The dashboard was confusing and lacked mobile responsiveness. Users were struggling to access their key actions at a single glance.",
+                "solution": "The dashboard was redesigned using a mobile-first approach, prioritizing and highlighting key user actions.",
+                "achievements": "This reduced user cognitive load, enabled users to achieve their goals more efficiently, and significantly decreased task completion time.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Signing-View/11.webp",
+                        "caption": "Signing View"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Signing-View/9.webp",
+                        "caption": "Signing View - Pagination"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Signing-View/8.webp",
+                        "caption": "Signing View - AI Options"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Signing-View/7.webp",
+                        "caption": "Signing View - Text Search"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Signing-View/1.webp",
+                        "caption": "Signing View - Download"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Signing-View/5.webp",
+                        "caption": "Signing View - Add Signature"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Signing-View/4.webp",
+                        "caption": "Signing View - Add Sticky Note"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Signing-View/6.webp",
+                        "caption": "Signing View - Add Attachments"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Signing-View/10.webp",
+                        "caption": "Signing View - Send Back Mode"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Signing-View/2.webp",
+                        "caption": "Signing View - Document Navigation (List view)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Signing-View/3.webp",
+                        "caption": "Signing View - Document Navigation (Tree view)"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-3",
+                "title": "Vault Redesign",
+                "problemStatement": "The Vault interface utilized an outdated design with inconsistent action naming and a fragmented layout, leading to user confusion and high cognitive load.",
+                "solution": "Redesigned the interface using a unified design system and brand guidelines. This included standardizing typography, harmonizing action labels, and restructuring table columns to prioritize the most relevant information.",
+                "achievements": "Significantly improved scanability and reduced user reaction time, enabling users to identify and execute key actions with greater speed and clarity.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Vault-Redesign/2.webp",
+                        "caption": "Vault Redesign"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Vault-Redesign/1.webp",
+                        "caption": "Vault Redesign (Conceptual)"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-4",
+                "title": "Project View",
+                "problemStatement": "Users needed a way to process high-volume document requests involving complex, nested folder hierarchies, which traditional flat-file signing workflows could not support.",
+                "solution": "Designed a seamless folder management and navigation system that allows users to upload entire directory structures and batch-sign documents while maintaining clear visibility of the file hierarchy.",
+                "achievements": "Enabled enterprise-scale document processing by simplifying complex data management, allowing users to execute high-volume signing tasks without the cognitive overhead of tracking individual files manually.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/12.webp",
+                        "caption": "Vault"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/6.webp",
+                        "caption": "Projects - Overview"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/5.webp",
+                        "caption": "Projects - Files"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/1.webp",
+                        "caption": "Projects - Attachments"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/11.webp",
+                        "caption": "Signing View - (First document)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/10.webp",
+                        "caption": "Signing View - Navigate Files (Tree view)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/7.webp",
+                        "caption": "Signing View - (Middle document)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/8.webp",
+                        "caption": "Signing View - (Last document)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/9.webp",
+                        "caption": "Files Status (List view)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/4.webp",
+                        "caption": "Approved document"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/2.webp",
+                        "caption": "Rejected document"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Project-Signing/3.webp",
+                        "caption": "Sent back document"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-5",
+                "title": "AI Support Bot",
+                "problemStatement": "The platform lacked an efficient way for users to resolve minor issues instantly, often requiring manual intervention from the support team.",
+                "solution": "Developed a custom AI-powered support bot utilizing modern AI design guidelines to ensure a seamless, intuitive, and conversational user experience.",
+                "achievements": "Enabled users to resolve minor issues independently and instantly, significantly reducing the volume of support tickets and improving the overall speed of resolution.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Support-Bot/2.webp",
+                        "caption": "AI Support Bot - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Support-Bot/1.webp",
+                        "caption": "AI Support Bot - II"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Support-Bot/4.webp",
+                        "caption": "AI Support Bot - III (Sources)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Support-Bot/5.webp",
+                        "caption": "AI Support Bot - IV"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Support-Bot/3.webp",
+                        "caption": "Chats History"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-6",
+                "title": "AI Envelope Summarizer - V1.0",
+                "problemStatement": "Users struggled to quickly understand the key points of complex documents, leading to delays and potential errors during the signing process.",
+                "solution": "Developed an AI-powered envelope summarizer that automatically extracts and presents the most relevant information from documents, such as dates, parties, and key clauses, in a concise and easy-to-read format.",
+                "achievements": "Enabled users to quickly grasp the essential details of documents, streamlining the signing process and reducing the time and effort required to review complex contracts.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Summarizer/3.webp",
+                        "caption": "Envelope Signing View - Summarize action"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Summarizer/2.webp",
+                        "caption": "Generating AI Summary"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Summarizer/1.webp",
+                        "caption": "Display AI Summary"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-7",
+                "title": "Add Reviewer Step",
+                "problemStatement": "Signers frequently required a verification step to validate envelope data, as the lack of oversight led to data entry errors and workflow bottlenecks.",
+                "solution": "Introduced an optional 'Reviewer' role that can be added to any signer in the workflow. The feature was seamlessly integrated into the existing UI to ensure high adoptability with minimal user training.",
+                "achievements": "Significantly improved document accuracy and reduced the error rate of finalized envelopes by catching discrepancies early in the process.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Add-Reviewer/1.webp",
+                        "caption": "Add Recipients- Add Reviewer"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Add-Reviewer/2.webp",
+                        "caption": "Add Recipients- Choose Reviewer"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Add-Reviewer/3.webp",
+                        "caption": "Add Recipients- Display Reviewer"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Add-Reviewer/5.webp",
+                        "caption": "Vault - Envelopes & Projects with Reviewer"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Add-Reviewer/4.webp",
+                        "caption": "Reviewer- View Envelope"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-8",
+                "title": "Unique Custom ID",
+                "problemStatement": "Enterprise clients lacked a standardized way to track documents using internal naming conventions, requiring a customizable ID system to align with organizational taxonomies like department codes and fiscal years.",
+                "solution": "Designed a centralized configuration interface that allows administrators to build dynamic, custom ID formats using variables. The entire state management for ID creation was consolidated into a single, streamlined view.",
+                "achievements": "Empowered enterprise users to automate document indexing, ensuring consistent organization across thousands of envelopes and simplifying cross-departmental tracking.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Unique-Custom-ID/1.webp",
+                        "caption": "Settings"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Unique-Custom-ID/2.webp",
+                        "caption": "Custom ID Envelope Sesttings"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Unique-Custom-ID/3.webp",
+                        "caption": "ID Customization"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Unique-Custom-ID/4.webp",
+                        "caption": "Unique Custom ID - Updated"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Unique-Custom-ID/5.webp",
+                        "caption": "Vault - Display ID"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-9",
+                "title": "Privacy & Security",
+                "problemStatement": "The introduction of biometric and passkey authentication requirements necessitated a more robust and organized approach to user security management.",
+                "solution": "Designed a centralized Security and Privacy hub that consolidates all authentication methods and privacy settings into a single, intuitive interface, rather than treating them as isolated features.",
+                "achievements": "Simplified the user journey for sensitive security configurations, reducing cognitive load and empowering users to manage their account protection with greater confidence and speed.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Privacy-and-Security/1.webp",
+                        "caption": "Privacy & Security"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-10",
+                "title": "Async Processing",
+                "problemStatement": "Long-running tasks such as document signing and bulk downloads utilized blocking UI patterns, forcing users to wait and preventing them from performing other actions within the app.",
+                "solution": "Designed an asynchronous background task manager with a non-intrusive popover notification system, allowing users to monitor progress while continuing their workflow uninterrupted.",
+                "achievements": "Massively improved multi-tasking efficiency and reduced idle time, particularly for power users managing multiple concurrent background processes.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Async-Process/1.webp",
+                        "caption": "Vault - Async Processing"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Async-Process/3.webp",
+                        "caption": "Vault - Async Processing"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Async-Process/4.webp",
+                        "caption": "Vault - Async Processing"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Async-Process/2.webp",
+                        "caption": "Vault - Async Processing"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-11",
+                "title": "Notification Panel - V1.0",
+                "problemStatement": "The platform lacked a centralized notification system, forcing users to manually search for updates and actionable items, which created significant workflow delays.",
+                "solution": "Designed a context-aware notification panel that categorizes alerts into actionable tasks, informational updates, and system alerts. The UI dynamically adjusts based on the notification type to present the most relevant next steps.",
+                "achievements": "Transformed notifications into an interactive hub, allowing users to execute tasks directly from the panel. This streamlined the workflow and drastically reduced the time spent navigating the system to locate pending actions.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Notification-Panel/2.webp",
+                        "caption": "Notification Panel - Default"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Notification-Panel/3.webp",
+                        "caption": "Notification Panel - Page"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/Notification-Panel/1.webp",
+                        "caption": "Notification Settings"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-12",
+                "title": "AI Assign Label (Conceptual)",
+                "problemStatement": "Users were burdened by the manual task of searching for and assigning labels to every incoming envelope, creating a repetitive and time-consuming workflow.",
+                "solution": "Designed an AI-driven suggestion engine that automatically identifies and recommends relevant labels for envelopes, featuring a streamlined 'one-click' assignment interface.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Assign-Label/1.webp",
+                        "caption": "Vault - AI Suggest Label"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Assign-Label/1.webp",
+                        "caption": "Assign Label"
+                    }
+                ]
+            },
+            {
+                "id": "web-project-13",
+                "title": "AI Document Maker (Conceptual)",
+                "problemStatement": "Users faced a fragmented workflow by having to use external editors, while the manual process of drafting professional documents from scratch was time-consuming and prone to formatting errors.",
+                "solution": "Developed a native, benchmarked document editor featuring an integrated AI-generative engine. This enables users to generate complete documents from a single prompt and perform high-fidelity edits within the 'Zafer' ecosystem before saving or routing for signature.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Doc-Maker/1.webp",
+                        "caption": "View Document"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Doc-Maker/3.webp",
+                        "caption": "Edit Document"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Doc-Maker/6.webp",
+                        "caption": "AI Document Maker - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Doc-Maker/4.webp",
+                        "caption": "AI Document Maker - II"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Doc-Maker/5.webp",
+                        "caption": "AI Document Maker - III"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/web/AI-Doc-Maker/2.webp",
+                        "caption": "View AI Generated Document"
+                    }
+                ]
+            }
+        ],
+        "Website": [
+            {
+                "id": "website-project-1",
+                "title": "Website V3.0",
+                "problemStatement": "The V.20 website content was not clear enough for users to understand the value proposition.",
+                "solution": "The whole website was redesigned to be more user-friendly and to better communicate the value proposition.",
+                "achievements": "Improve content hierarchy which resulted in clear communication of the value proposition for new customers as well as stakeholders.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/website/V3.webp",
+                        "caption": "Website V3.0 - Showcase"
+                    }
+                ]
+            },
+            {
+                "id": "website-project-2",
+                "title": "Website V2.0",
+                "problemStatement": "The content hierarchy was not clear enough for users to understand the value proposition and it had previous branding",
+                "solution": "The whole site was rebranded with a new logo and color scheme to match the new brand identity.",
+                "achievements": "Rebranded the website communicated the purpose of Zafer to users.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/website/V2.webp",
+                        "caption": "Website V2.0 - Showcase"
+                    }
+                ]
+            }
+        ],
+        "iOS": [
+            {
+                "id": "ios-project-1",
+                "title": "Scanner",
+                "problemStatement": "Mobile users lacked an integrated method to digitize physical documents, creating a high-friction workflow where users had to leave the app to scan and upload files manually.",
+                "solution": "Developed a native document scanner within the Zafer mobile app that combines standard camera functionality with specialized document processing features, enabling users to capture, edit, and convert physical papers into digital envelopes.",
+                "achievements": "Drastically reduced the time and friction required to initiate signing workflows on the go, resulting in a more efficient 'paper-to-digital' transition for mobile-first users.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/1.webp",
+                        "caption": "Scanner view - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/19.webp",
+                        "caption": "Scanner view - II"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/9.webp",
+                        "caption": "Multiple captures"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/16.webp",
+                        "caption": "Multiple Captures - Management"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/8.webp",
+                        "caption": "Add scribble"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/3.webp",
+                        "caption": "Add text"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/4.webp",
+                        "caption": "Enter text"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/6.webp",
+                        "caption": "Crop - Basic"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/7.webp",
+                        "caption": "Crop - Advanced"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/14.webp",
+                        "caption": "Brightness & Contrast"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/15.webp",
+                        "caption": "Filters"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/20.webp",
+                        "caption": "Capture ID card - Front"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/21.webp",
+                        "caption": "Capture ID card - Back"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/10.webp",
+                        "caption": "Edit ID capture - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/11.webp",
+                        "caption": "Edit ID capture - II"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/12.webp",
+                        "caption": "Edit ID capture - III"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/13.webp",
+                        "caption": "Edit ID capture - IV"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/22.webp",
+                        "caption": "Capture Signature or Seal"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/17.webp",
+                        "caption": "Edit signature - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/18.webp",
+                        "caption": "Edit signature - II"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-2",
+                "title": "Project View",
+                "problemStatement": "Users needed a way to process high-volume document requests involving complex, nested folder hierarchies, which traditional flat-file signing workflows could not support.",
+                "solution": "Designed a seamless folder management and navigation system that allows users to upload entire directory structures and batch-sign documents while maintaining clear visibility of the file hierarchy.",
+                "achievements": "Enabled enterprise-scale document processing by simplifying complex data management, allowing users to execute high-volume signing tasks without the cognitive overhead of tracking individual files manually.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/1.webp",
+                        "caption": "Vault"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/2.webp",
+                        "caption": "Projects - Overview"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/4.webp",
+                        "caption": "Projects - Files (Folder structure)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/5.webp",
+                        "caption": "Projects - Files (Signing order)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/6.webp",
+                        "caption": "Projects - Attachments"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/7.webp",
+                        "caption": "Signing View - (First document)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/8.webp",
+                        "caption": "Signing View - (Middle document)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/9.webp",
+                        "caption": "Signing View - (Last document)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/10.webp",
+                        "caption": "Files Status (Signing order)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/11.webp",
+                        "caption": "Approved document"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/12.webp",
+                        "caption": "Rejected document"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Project-Signing/13.webp",
+                        "caption": "Sent back document"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-3",
+                "title": "Envelope Workflow",
+                "problemStatement": "Mobile users lacked visibility into the document signing lifecycle, making it impossible to track recipient progress or identify bottlenecks while away from their desktops.",
+                "solution": "Introduced an intuitive, flowchart-inspired tracking UI optimized for mobile screens. This system visualizes complex multi-signer workflows, displaying real-time statuses and branching logic through a clean, interactive map.",
+                "achievements": "Significantly improved transparency and user trust by providing a clear 'birds-eye view' of the document journey, reducing the need for manual follow-ups and status inquiries.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/14.webp",
+                        "caption": "Envelope Workflow"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/1.webp",
+                        "caption": "Envelope Activity"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/13.webp",
+                        "caption": "Symbol Meanings"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/10.webp",
+                        "caption": "Single User Step"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/12.webp",
+                        "caption": "Multiple User Step"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/11.webp",
+                        "caption": "Bulk Step"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/2.webp",
+                        "caption": "CC Step"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/3.webp",
+                        "caption": "Delegations Step [1:1]"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/4.webp",
+                        "caption": "Delegations Step [1:N]"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/5.webp",
+                        "caption": "Delegations Step [N:1]"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/6.webp",
+                        "caption": "Delegations Step [N:N]"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/7.webp",
+                        "caption": "Protected Step (Password & KBA)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/8.webp",
+                        "caption": "Protected Step (Password only)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Workflow/9.webp",
+                        "caption": "Protected Step (KBA only)"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-4",
+                "title": "AI Envelope Translator",
+                "problemStatement": "Users faced challenges understanding legal or official documents sent in foreign languages, leading to delays, confusion, and potential errors during the signing process.",
+                "solution": "Integrated an AI-powered translation engine with an intuitive language picker, allowing users to instantly translate envelope content into their local language without leaving the interface.",
+                "achievements": "Enhanced global accessibility and user confidence by removing language barriers, resulting in faster document turnaround times and a significant reduction in cross-border communication friction.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Translator/2.webp",
+                        "caption": "AI Translator - Options"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Translator/6.webp",
+                        "caption": "Select Language"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Translator/7.webp",
+                        "caption": "Translate To"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Translator/5.webp",
+                        "caption": "Languages Selected"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Translator/8.webp",
+                        "caption": "Translated envelope"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Translator/10.webp",
+                        "caption": "See original envelope"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Translator/1.webp",
+                        "caption": "Add as attachment"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Translator/3.webp",
+                        "caption": "Save - Local"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Translator/4.webp",
+                        "caption": "Save - My Files"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-5",
+                "title": "AI Envelope Summarizer",
+                "problemStatement": "Users struggled to quickly understand the key points of complex documents, leading to delays and potential errors during the signing process.",
+                "solution": "Developed an AI-powered envelope summarizer that automatically extracts and presents the most relevant information from documents, such as dates, parties, and key clauses, in a concise and easy-to-read format.",
+                "achievements": "Enabled users to quickly grasp the essential details of documents, streamlining the signing process and reducing the time and effort required to review complex contracts.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Summarizer/4.webp",
+                        "caption": "AI Summarizer - Options"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Summarizer/3.webp",
+                        "caption": "Generating Summary"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Summarizer/1.webp",
+                        "caption": "Generated Summary"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Summarizer/2.webp",
+                        "caption": "Generated Summary - Options"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-6",
+                "title": "AI Autofill Envelope",
+                "problemStatement": "Users often had to manually enter information into envelopes, leading to errors and delays in the signing process.",
+                "solution": "Developed an AI-powered envelope autofiller that automatically populates envelope fields based on the document content, such as parties, dates, and key clauses, reducing the time and effort required to prepare envelopes.",
+                "achievements": "Enabled users to quickly and accurately prepare envelopes, streamlining the signing process and reducing the time and effort required to prepare envelopes.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Autofill/4.webp",
+                        "caption": "AI Autofill - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Autofill/1.webp",
+                        "caption": "Enter prompt"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Autofill/2.webp",
+                        "caption": "Generating text"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Autofill/3.webp",
+                        "caption": "Display generated text"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-7",
+                "title": "AI Grammar Checker",
+                "problemStatement": "Manual data entry often led to grammatical and spelling errors in legal documents, undermining the professional credibility of the sender and risking misunderstandings.",
+                "solution": "Integrated an AI-powered 'One-Click Correct' feature that identifies linguistic errors in real-time and allows users to apply professional-grade corrections instantly within the editor.",
+                "achievements": "Significantly improved document quality and professional standards while reducing the time users spent on manual proofreading and editing.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Grammar-Check/1.webp",
+                        "caption": "AI Grammar Checker - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Grammar-Check/4.webp",
+                        "caption": "Checking grammer"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Grammar-Check/2.webp",
+                        "caption": "Corrected grammer"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Grammar-Check/3.webp",
+                        "caption": "View original text"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-8",
+                "title": "AI Support Bot",
+                "problemStatement": "The platform lacked an efficient way for users to resolve minor issues instantly, often requiring manual intervention from the support team.",
+                "solution": "Developed a custom AI-powered support bot utilizing modern AI design guidelines to ensure a seamless, intuitive, and conversational user experience.",
+                "achievements": "Enabled users to resolve minor issues independently and instantly, significantly reducing the volume of support tickets and improving the overall speed of resolution.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Support-Bot/4.webp",
+                        "caption": "AI Support Bot - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Support-Bot/5.webp",
+                        "caption": "AI Support Bot - II"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Support-Bot/3.webp",
+                        "caption": "History - Swipe actions"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Support-Bot/2.webp",
+                        "caption": "Rename chat"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/AI-Support-Bot/1.webp",
+                        "caption": "Delete chat"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-9",
+                "title": "In-app Purchases",
+                "problemStatement": "Mobile users lacked a centralized way to manage their subscriptions, resulting in a fragmented experience when trying to identify their current plan, upgrade, or modify their billing status.",
+                "solution": "Designed an intuitive, native in-app purchase and subscription management interface, benchmarked against industry leaders to ensure a frictionless checkout and plan-switching experience.",
+                "achievements": "Streamlined the monetization lifecycle within the app, reducing support inquiries related to billing and increasing the likelihood of plan upgrades through a clear, transparent comparison layout.",
+                "media": [
+
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/In-app-purchases/6.webp",
+                        "caption": "Feautre display"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/In-app-purchases/4.webp",
+                        "caption": "Choose plan"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/In-app-purchases/5.webp",
+                        "caption": "Purchased plan"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/In-app-purchases/1.webp",
+                        "caption": "Individual plan"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/In-app-purchases/2.webp",
+                        "caption": "Business plan"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/In-app-purchases/3.webp",
+                        "caption": "Enterprise plan"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-10",
+                "title": "Privacy & Security",
+                "problemStatement": "The introduction of biometric and passkey authentication requirements necessitated a more robust and organized approach to user security management.",
+                "solution": "Designed a centralized Security and Privacy hub that consolidates all authentication methods and privacy settings into a single, intuitive interface, rather than treating them as isolated features.",
+                "achievements": "Simplified the user journey for sensitive security configurations, reducing cognitive load and empowering users to manage their account protection with greater confidence and speed.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/12.webp",
+                        "caption": "Privacy & Security"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/6.webp",
+                        "caption": "OTP - Disabled"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/4.webp",
+                        "caption": "OTP - Enabled (Add mobile number)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/5.webp",
+                        "caption": "OTP - Enabled (Verify mobile)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/11.webp",
+                        "caption": "OTP - Enabled (Enter OTP)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/3.webp",
+                        "caption": "OTP - Enabled (Alternative email)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/1.webp",
+                        "caption": "OTP - Enabled (Enter email)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/10.webp",
+                        "caption": "OTP - Enabled (Verify email)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/9.webp",
+                        "caption": "Passkey - Disabled"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/7.webp",
+                        "caption": "Passkey - Enabled (Add device)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/2.webp",
+                        "caption": "Passkey - Enabled (Device name)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Privacy-and-Security/8.webp",
+                        "caption": "Passkey - Enabled (Manage devices)"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-11",
+                "title": "Business Card",
+                "problemStatement": "Enterprise users lacked a professional, digital method to share their business credentials and contact details within the platform, hindering networking and organizational transparency.",
+                "solution": "Designed a digital business card interface inspired by high-end physical cards, featuring granular privacy controls that allow users to toggle the visibility of specific professional data points.",
+                "achievements": "Empowered users with a professional digital identity that balances information sharing with personal privacy, facilitating smoother business interactions and internal networking.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Business-Card/2.webp",
+                        "caption": "Business card- Default"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Business-Card/1.webp",
+                        "caption": "Business card - Expanded"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Business-Card/3.webp",
+                        "caption": "Manage business card details"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-12",
+                "title": "Async Processing",
+                "problemStatement": "Long-running tasks such as document signing and bulk downloads utilized blocking UI patterns, forcing users to wait and preventing them from performing other actions within the app.",
+                "solution": "Designed an asynchronous background task manager with a non-intrusive popover notification system, allowing users to monitor progress while continuing their workflow uninterrupted.",
+                "achievements": "Massively improved multi-tasking efficiency and reduced idle time, particularly for power users managing multiple concurrent background processes.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Async-Process/4.webp",
+                        "caption": "Approving envelope"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Async-Process/1.webp",
+                        "caption": "Rejecting envelope"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Async-Process/2.webp",
+                        "caption": "Sending back envelope"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Async-Process/3.webp",
+                        "caption": "Multiple envelope processing"
+                    }
+                ]
+            },
+            {
+                "id": "ios-project-13",
+                "title": "Notification Panel",
+                "problemStatement": "The platform lacked a centralized notification system, forcing users to manually search for updates and actionable items, which created significant workflow delays.",
+                "solution": "Designed a context-aware notification panel that categorizes alerts into actionable tasks, informational updates, and system alerts. The UI dynamically adjusts based on the notification type to present the most relevant next steps.",
+                "achievements": "Transformed notifications into an interactive hub, allowing users to execute tasks directly from the panel. This streamlined the workflow and drastically reduced the time spent navigating the system to locate pending actions.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Notification-Panel/1.webp",
+                        "caption": "Notification panel"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Notification-Panel/2.webp",
+                        "caption": "Notification settings"
+                    }
+                ]
+            }
+        ],
+        "Android": [
+            {
+                "id": "android-project-1",
+                "title": "Project View",
+                "problemStatement": "Users needed a way to process high-volume document requests involving complex, nested folder hierarchies, which traditional flat-file signing workflows could not support.",
+                "solution": "Designed a seamless folder management and navigation system that allows users to upload entire directory structures and batch-sign documents while maintaining clear visibility of the file hierarchy.",
+                "achievements": "Enabled enterprise-scale document processing by simplifying complex data management, allowing users to execute high-volume signing tasks without the cognitive overhead of tracking individual files manually.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/1.webp",
+                        "caption": "Vault"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/2.webp",
+                        "caption": "Projects - Overview"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/3.webp",
+                        "caption": "Projects - Files (Folder structure)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/4.webp",
+                        "caption": "Projects - Files (Signing order)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/5.webp",
+                        "caption": "Projects - Attachments"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/6.webp",
+                        "caption": "Signing View - (First document)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/7.webp",
+                        "caption": "Signing View - (Middle document)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/8.webp",
+                        "caption": "Signing View - (Last document)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/12.webp",
+                        "caption": "Files Status (Signing order)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/9.webp",
+                        "caption": "Approved document"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/10.webp",
+                        "caption": "Rejected document"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Project-Signing/11.webp",
+                        "caption": "Sent back document"
+                    }
+                ]
+            },
+            {
+                "id": "android-project-2",
+                "title": "Envelope Workflow",
+                "problemStatement": "Mobile users lacked visibility into the document signing lifecycle, making it impossible to track recipient progress or identify bottlenecks while away from their desktops.",
+                "solution": "Introduced an intuitive, flowchart-inspired tracking UI optimized for mobile screens. This system visualizes complex multi-signer workflows, displaying real-time statuses and branching logic through a clean, interactive map.",
+                "achievements": "Significantly improved transparency and user trust by providing a clear 'birds-eye view' of the document journey, reducing the need for manual follow-ups and status inquiries.",
+                 "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/14.webp",
+                        "caption": "Envelope Workflow"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/1.webp",
+                        "caption": "Envelope Activity"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/13.webp",
+                        "caption": "Symbol Meanings"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/10.webp",
+                        "caption": "Single User Step"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/12.webp",
+                        "caption": "Multiple User Step"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/11.webp",
+                        "caption": "Bulk Step"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/5.webp",
+                        "caption": "CC Step"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/6.webp",
+                        "caption": "Delegations Step [1:1]"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/7.webp",
+                        "caption": "Delegations Step [1:N]"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/8.webp",
+                        "caption": "Delegations Step [N:1]"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/9.webp",
+                        "caption": "Delegations Step [N:N]"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/4.webp",
+                        "caption": "Protected Step (Password & KBA)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/2.webp",
+                        "caption": "Protected Step (Password only)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Envelope-Workflow/3.webp",
+                        "caption": "Protected Step (KBA only)"
+                    }
+                ]
+            },
+            {
+                "id": "android-project-3",
+                "title": "AI Envelope Translator",
+                "problemStatement": "Users faced challenges understanding legal or official documents sent in foreign languages, leading to delays, confusion, and potential errors during the signing process.",
+                "solution": "Integrated an AI-powered translation engine with an intuitive language picker, allowing users to instantly translate envelope content into their local language without leaving the interface.",
+                "achievements": "Enhanced global accessibility and user confidence by removing language barriers, resulting in faster document turnaround times and a significant reduction in cross-border communication friction.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Translator/2.webp",
+                        "caption": "AI Translator - Options"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Translator/6.webp",
+                        "caption": "Select Language"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Translator/7.webp",
+                        "caption": "Translate To"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Translator/5.webp",
+                        "caption": "Languages Selected"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Translator/8.webp",
+                        "caption": "Translated envelope"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Translator/9.webp",
+                        "caption": "See original envelope"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Translator/1.webp",
+                        "caption": "Add as attachment"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Translator/3.webp",
+                        "caption": "Save - Local"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Translator/4.webp",
+                        "caption": "Save - My Files"
+                    }
+                ]
+            },
+            {
+                "id": "android-project-4",
+                "title": "AI Envelope Summarizer",
+                "problemStatement": "Users struggled to quickly understand the key points of complex documents, leading to delays and potential errors during the signing process.",
+                "solution": "Developed an AI-powered envelope summarizer that automatically extracts and presents the most relevant information from documents, such as dates, parties, and key clauses, in a concise and easy-to-read format.",
+                "achievements": "Enabled users to quickly grasp the essential details of documents, streamlining the signing process and reducing the time and effort required to review complex contracts.",
+                 "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Summarizer/4.webp",
+                        "caption": "AI Summarizer - Options"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Summarizer/3.webp",
+                        "caption": "Generating Summary"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Summarizer/1.webp",
+                        "caption": "Generated Summary"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Summarizer/2.webp",
+                        "caption": "Generated Summary - Options"
+                    }
+                ]
+            },
+            {
+                "id": "android-project-5",
+                "title": "AI Autofill Envelope",
+                "problemStatement": "Users often had to manually enter information into envelopes, leading to errors and delays in the signing process.",
+                "solution": "Developed an AI-powered envelope autofiller that automatically populates envelope fields based on the document content, such as parties, dates, and key clauses, reducing the time and effort required to prepare envelopes.",
+                "achievements": "Enabled users to quickly and accurately prepare envelopes, streamlining the signing process and reducing the time and effort required to prepare envelopes.",
+               "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Autofill/4.webp",
+                        "caption": "AI Autofill - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Autofill/1.webp",
+                        "caption": "Enter prompt"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Autofill/2.webp",
+                        "caption": "Generating text"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Autofill/3.webp",
+                        "caption": "Display generated text"
+                    }
+                ]
+            },
+            {
+                "id": "android-project-6",
+                "title": "AI Grammar Checker",
+                "problemStatement": "Manual data entry often led to grammatical and spelling errors in legal documents, undermining the professional credibility of the sender and risking misunderstandings.",
+                "solution": "Integrated an AI-powered 'One-Click Correct' feature that identifies linguistic errors in real-time and allows users to apply professional-grade corrections instantly within the editor.",
+                "achievements": "Significantly improved document quality and professional standards while reducing the time users spent on manual proofreading and editing.",
+               "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Grammar-Check/4.webp",
+                        "caption": "AI Grammar Checker - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Grammar-Check/1.webp",
+                        "caption": "Checking grammer"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Grammar-Check/2.webp",
+                        "caption": "Corrected grammer"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Grammar-Check/3.webp",
+                        "caption": "View original text"
+                    }
+                ]
+            },
+            {
+                "id": "android-project-7",
+                "title": "AI Support Bot",
+                "problemStatement": "The platform lacked an efficient way for users to resolve minor issues instantly, often requiring manual intervention from the support team.",
+                "solution": "Developed a custom AI-powered support bot utilizing modern AI design guidelines to ensure a seamless, intuitive, and conversational user experience.",
+                "achievements": "Enabled users to resolve minor issues independently and instantly, significantly reducing the volume of support tickets and improving the overall speed of resolution.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Support-Bot/4.webp",
+                        "caption": "AI Support Bot - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Support-Bot/5.webp",
+                        "caption": "AI Support Bot - II"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Support-Bot/3.webp",
+                        "caption": "History - Swipe actions"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Support-Bot/2.webp",
+                        "caption": "Rename chat"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/AI-Support-Bot/1.webp",
+                        "caption": "Delete chat"
+                    }
+                ]
+            },
+            {
+                "id": "android-project-8",
+                "title": "Privacy & Security",
+                "problemStatement": "The introduction of biometric and passkey authentication requirements necessitated a more robust and organized approach to user security management.",
+                "solution": "Designed a centralized Security and Privacy hub that consolidates all authentication methods and privacy settings into a single, intuitive interface, rather than treating them as isolated features.",
+                "achievements": "Simplified the user journey for sensitive security configurations, reducing cognitive load and empowering users to manage their account protection with greater confidence and speed.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/12.webp",
+                        "caption": "Privacy & Security"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/6.webp",
+                        "caption": "OTP - Disabled"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/5.webp",
+                        "caption": "OTP - Enabled (Add mobile number)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/4.webp",
+                        "caption": "OTP - Enabled (Verify mobile)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/11.webp",
+                        "caption": "OTP - Enabled (Enter OTP)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/3.webp",
+                        "caption": "OTP - Enabled (Alternative email)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/1.webp",
+                        "caption": "OTP - Enabled (Enter email)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/10.webp",
+                        "caption": "OTP - Enabled (Verify email)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/9.webp",
+                        "caption": "Passkey - Disabled"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/7.webp",
+                        "caption": "Passkey - Enabled (Add device)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/2.webp",
+                        "caption": "Passkey - Enabled (Device name)"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Privacy-and-Security/8.webp",
+                        "caption": "Passkey - Enabled (Manage devices)"
+                    }
+                ]
+            },
+            {
+                "id": "android-project-9",
+                "title": "Business Card",
+                "problemStatement": "Enterprise users lacked a professional, digital method to share their business credentials and contact details within the platform, hindering networking and organizational transparency.",
+                "solution": "Designed a digital business card interface inspired by high-end physical cards, featuring granular privacy controls that allow users to toggle the visibility of specific professional data points.",
+                "achievements": "Empowered users with a professional digital identity that balances information sharing with personal privacy, facilitating smoother business interactions and internal networking.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Business-Card/3.webp",
+                        "caption": "Business card- Default"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Business-Card/1.webp",
+                        "caption": "Business card - Expanded"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Business-Card/2.webp",
+                        "caption": "Manage business card details"
+                    }
+                ]
+            },
+            {
+                "id": "android-project-10",
+                "title": "Async Processing",
+                "problemStatement": "Long-running tasks such as document signing and bulk downloads utilized blocking UI patterns, forcing users to wait and preventing them from performing other actions within the app.",
+                "solution": "Designed an asynchronous background task manager with a non-intrusive popover notification system, allowing users to monitor progress while continuing their workflow uninterrupted.",
+                "achievements": "Massively improved multi-tasking efficiency and reduced idle time, particularly for power users managing multiple concurrent background processes.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Async-Process/4.webp",
+                        "caption": "Approving envelope"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Async-Process/1.webp",
+                        "caption": "Rejecting envelope"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Async-Process/2.webp",
+                        "caption": "Sending back envelope"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Async-Process/3.webp",
+                        "caption": "Multiple envelope processing"
+                    }
+                ]
+            },
+            {
+                "id": "android-project-11",
+                "title": "Notification Panel",
+                "problemStatement": "The platform lacked a centralized notification system, forcing users to manually search for updates and actionable items, which created significant workflow delays.",
+                "solution": "Designed a context-aware notification panel that categorizes alerts into actionable tasks, informational updates, and system alerts. The UI dynamically adjusts based on the notification type to present the most relevant next steps.",
+                "achievements": "Transformed notifications into an interactive hub, allowing users to execute tasks directly from the panel. This streamlined the workflow and drastically reduced the time spent navigating the system to locate pending actions.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Notification-Panel/1.webp",
+                        "caption": "Notification panel"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/android/Notification-Panel/2.webp",
+                        "caption": "Notification settings"
+                    }
+                ]
+            }
+        ]
+    }
+},
+{
+    "companyId": "surge-work",
+    "companyName": "Surge Global ",
+    "companyLogo": "/surge-global/logos/surge-logo.webp",
+    "companyFavicon": "/surge-global/logos/surge-logo.webp",
+    "companyDescription": "During my internship, I worked on end-to-end design tasks including user journeys, sitemaps, and prototypes. I helped build UI component libraries to keep client branding consistent and designed the full flow for a dating app, moving from simple sketches to polished, interactive designs.",
+    "companyType": "Projects",
+    "role": "UI/UX Intern",
+    "timePeriod": "July 2022 – Dec 2022",
+    "projects": {
+         "Website": [
+            {
+                "id": "surge-project-1",
+                "title": "no cow Redesign",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/surge-global/website/4.webp",
+                        "caption": "no cow Redesign - Showcase"
+                    }
+                ]
+            }, 
+            {
+                "id": "surge-project-2",
+                "title": "Hello Tiger Redesign",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/surge-global/website/1.webp",
+                        "caption": "Hello Tiger Redesign - Showcase"
+                    }
+                ]
+            }, 
+            {
+                "id": "surge-project-3",
+                "title": "My Class Deisgn",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/surge-global/website/3.webp",
+                        "caption": "My Class Deisgn - Showcase"
+                    }
+                ]
+            }, 
+            {
+                "id": "surge-project-4",
+                "title": "McGees Redesign",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/surge-global/website/2.webp",
+                        "caption": "McGees Redesign - Showcase"
+                    }
+                ]
+            }, 
+            {
+                "id": "surge-project-5",
+                "title": "Special Mobil Redesign",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/surge-global/website/6.webp",
+                        "caption": "Special Mobil Redesign - Showcase"
+                    }
+                ]
+            } , 
+            {
+                "id": "surge-project-6",
+                "title": "Red Panda Redesign",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/surge-global/website/5.webp",
+                        "caption": "Red Panda Redesign - Showcase"
+                    }
+                ]
+            }           
+        ]
+    }
+},
+{
+    "companyId": "vetstoria-work",
+    "companyName": "Vetstoria",
+    "companyLogo": "/vetstoria/logos/full-logo.webp",
+    "companyFavicon": "/vetstoria/logos/favicon-logo.svg",
+    "companyDescription": "I built landing pages aimed at attracting new customers and improving user retention. I also developed simple proof-of-concept apps to test out new feature ideas and took part in design sprints to help update and improve the company’s branding.",
+    "companyType": "Product",
+    "role": "Web Development Intern",
+    "timePeriod": "July 2021 – June 2022",
+    "projects": {
+         "Web": [
+            {
+                "id": "vetstoria-project-1",
+                "title": "Clininc Dashboard Demo Development",
+                "problemStatement": "Prospective clinicians were unable to experience Vetstoria's value proposition prior to purchase, creating a hurdle in the sales cycle and slowing down user acquisition.",
+                "solution": "The team came up with building a HTML replicate of the existing vet clinician dashboard to display some of the crucial features that are provided to them. I was assigned to develop the V1.0 HTML prototype.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/vetstoria/web/1.webp",
+                        "caption": "Dashboard"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/vetstoria/web/3.webp",
+                        "caption": "Appointments"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/vetstoria/web/2.webp",
+                        "caption": "Settings- Manage Appointment Types"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/vetstoria/web/5.webp",
+                        "caption": "Settings- Manage Clinicians"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/vetstoria/web/4.webp",
+                        "caption": "Settings- Manage Slot Exclusions"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/vetstoria/web/6.webp",
+                        "caption": "Settings- Manage Appointment Screenings"
+                    }
+                ]
+            },
+            {
+                "id": "vetstoria-project-2",
+                "title": "Vetstoria UI/UX Guidelines Development",
+                "task": "Collaborated with the UI/UX Lead to establish comprehensive design guidelines for Vetsroia's booking tool and clinic dashboard. Developed high-fidelity HTML prototypes to validate design principles and ensure technical feasibility."
+            },
+            {
+                "id": "vetstoria-project-3",
+                "title": "Customer Acquisition Landing Page Development",
+                "task": "Contributed to a cross-functional team in developing a customer acquisition landing page featuring a dynamic vet-locator tool to help users find and book with Vetstoria-registered practices."
+            }
+        ]
+}
+}
+
+]
