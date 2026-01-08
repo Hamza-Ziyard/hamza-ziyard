@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <section className='max-w-[1800px] mx-auto'>
-      <div className="grid grid-cols-1 gap-4 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-start">
         {columns.map((columnProjects, colIndex) => (
           <div key={colIndex} className="flex flex-col gap-4">
             {columnProjects.map((project, index) => (

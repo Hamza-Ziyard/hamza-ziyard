@@ -1,6 +1,7 @@
 [
 {
     "companyId": "zafer-work",
+    "gradient":"bg-gradient-to-r from-[#F6F8FF] via-[#F9F9F9] to-[#F6F8FF]",
     "companyName": "Zafer (Previously known as ZorroSign)",
     "companyLogo": "/zafer/logos/logos_zafer-logo-full.svg",
     "companyFavicon": "/zafer/logos/logos_zafer-favicon-logo.svg",
@@ -1542,6 +1543,7 @@
 {
     "companyId": "surge-work",
     "companyName": "Surge Global ",
+    "gradient":"bg-gradient-to-r from-[#FFF3F3] via-[#F9F9F9] to-[#FFF3F3]",
     "companyLogo": "/surge-global/logos/surge-logo.webp",
     "companyFavicon": "/surge-global/logos/surge-logo.webp",
     "companyDescription": "During my internship, I worked on end-to-end design tasks including user journeys, sitemaps, and prototypes. I helped build UI component libraries to keep client branding consistent and designed the full flow for a dating app, moving from simple sketches to polished, interactive designs.",
@@ -1622,6 +1624,7 @@
 {
     "companyId": "vetstoria-work",
     "companyName": "Vetstoria",
+    "gradient":"bg-gradient-to-r from-[#FCF8FF] via-[#F9F9F9] to-[#F2FFF9]",
     "companyLogo": "/vetstoria/logos/full-logo.webp",
     "companyFavicon": "/vetstoria/logos/favicon-logo.svg",
     "companyDescription": "I built landing pages aimed at attracting new customers and improving user retention. I also developed simple proof-of-concept apps to test out new feature ideas and took part in design sprints to help update and improve the company’s branding.",
