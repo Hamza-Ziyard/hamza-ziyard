@@ -28,33 +28,4 @@ A premium, data-driven portfolio website built with React, Tailwind CSS, and Fra
    yarn build
    ```
 
-## Managing Content
-
-To add or update projects, edit `src/data/projects.js`.
-Each project object supports the following structure:
-
-```javascript
-{
-  id: "unique-id",
-  title: "Project Title",
-  // ... metadata
-  sections: {
-    cover: true,
-    summary: true,
-    uiDesigns: {
-      enabled: true,
-      images: []
-    },
-    wireframes: {
-      enabled: true, // Set to false to hide
-      images: []
-    },
-    redesign: {
-      enabled: true, // Set to false to hide
-      beforeImage: "...",
-      afterImage: "..."
-    }
-  }
-}
-```
-# hamza-ziyard
+### hamza-ziyard
