@@ -75,7 +75,7 @@ export default function ProjectCard({ project }) {
 
       {/* Reveal Overlay */}
       <div className="absolute bottom-0 left-0 right-0 flex flex-col justify-end p-4 opacity-0 transition-all duration-300 group-hover:opacity-100">
-        <div className="flex items-center flex-wrap gap-4 text-lg text-black font-normal">
+        <div className="flex items-center flex-wrap gap-4 text-sm text-black font-normal">
           {!project.isCompanyCard ? (
             <>
               <div className="px-3 py-1 bg-white rounded-sm shadow-[0_0px_20px_rgba(0,0,0,0.15)]">{project.title}</div>
