@@ -43,10 +43,10 @@ export default function About() {
         >
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex gap-4 shrink-0">
-              <img src="https://assets.hamzaziyard.com/about/hobbies/1.webp" alt="" className="w-70 h-80 object-cover rounded-2xl" />
+              <img src="https://assets.hamzaziyard.com/about/hobbies/3.webp" alt="" className="w-90 h-80 object-cover rounded-2xl" />
               <img src="https://assets.hamzaziyard.com/about/hobbies/4.webp" alt="" className="w-90 h-80 object-cover rounded-2xl" />
               <img src="https://assets.hamzaziyard.com/about/hobbies/5.webp" alt="" className="w-70 h-80 object-cover rounded-2xl" />
-              <img src="https://assets.hamzaziyard.com/about/hobbies/3.webp" alt="" className="w-90 h-80 object-cover rounded-2xl" />
+              <img src="https://assets.hamzaziyard.com/about/hobbies/1.webp" alt="" className="w-70 h-80 object-cover rounded-2xl" />
               <img src="https://assets.hamzaziyard.com/about/hobbies/6.webp" alt="" className="w-90 h-80 object-cover rounded-2xl" />
             </div>
           ))}
