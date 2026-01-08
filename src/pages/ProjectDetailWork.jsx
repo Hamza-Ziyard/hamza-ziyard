@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lottie from 'lottie-react';
 import companyWorkData from '../data/companyWork.json';
@@ -208,12 +208,14 @@ const MediaCarousel = ({ media, activeTab }) => {
 
 export default function ProjectDetailWork() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const companyData = useMemo(() => {
     return companyWorkData.find(c => c.companyId === id) || companyWorkData[0];
   }, [id]);
 
   const [activeProjectId, setActiveProjectId] = useState('');
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   const projectsByPlatform = companyData?.projects || {};
 
@@ -233,6 +235,15 @@ export default function ProjectDetailWork() {
       setActiveTab(tabs[0]);
     }
   }, [tabs, activeTab]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.pageYOffset > 500);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     if (currentProjects.length > 0) {
@@ -300,6 +311,21 @@ export default function ProjectDetailWork() {
     <div className="bg-white min-h-screen">
       <div className="max-w-[1800px] mx-auto px-6 md:px-12 py-12">
 
+        {/* Back Button */}
+        {/* <motion.button
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          onClick={() => navigate(-1)}
+          className="group flex items-center gap-2 px-6 pr-10 py-2 border border-neutral-200 rounded-full text-neutral-500 hover:text-black transition-colors mb-4 -ml-4"
+        >
+          <div className="p-2 rounded-full group-hover:bg-neutral-100 transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+          </div>
+          <span className="font-medium">Exit</span>
+        </motion.button> */}
+
         {/* Company Header */}
         <section className="mb-16 mt-8">
           <motion.div
@@ -342,7 +368,7 @@ export default function ProjectDetailWork() {
         {tabs.length > 0 && (
           <>
             {/* Navigation Tabs (Primary Filter) */}
-            <div className="sticky top-0 z-50 py-4 bg-white/80 backdrop-blur-xl border-b border-neutral-200">
+            <div className="sticky top-0 z-50 py-3 bg-white/80 backdrop-blur-xl border-b border-neutral-200">
               <div className="flex gap-2 overflow-x-auto p-1.5 no-scrollbar bg-neutral-100 border border-white/10 w-fit rounded-full">
                 {tabs.map((tab) => (
                   <button
@@ -365,7 +391,7 @@ export default function ProjectDetailWork() {
 
               {/* Side Navigation (Per Tab) */}
               <aside className="xl:w-72 shrink-0 pt-12 p-0">
-                <div className="xl:sticky xl:top-32">
+                <div className="xl:sticky xl:top-24">
                   <nav className="flex xl:flex-col overflow-x-auto xl:overflow-x-visible pb-4 xl:pb-0 gap-1.5 no-scrollbar">
                     {currentProjects.map((project) => (
                       <button
@@ -466,6 +492,33 @@ export default function ProjectDetailWork() {
           </>
         )}
       </div>
+
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-8 right-8 z-60 p-4 bg-black text-white rounded-full shadow-2xl border border-neutral-100 hover:scale-110 active:scale-95 transition-all group cursor-pointer"
+            aria-label="Back to top"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className=""
+            >
+              <path d="M18 15l-6-6-6 6" />
+            </svg>
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
