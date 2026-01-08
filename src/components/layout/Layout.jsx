@@ -15,7 +15,7 @@ export default function Layout() {
     <div className="min-h-screen">
       <Navbar />
       {!isProjectPage && <div className='h-20'></div>}
-      <main className="pt-2 pb-20 md:px-8 min-h-[91vh]">
+      <main className="pt-2 pb-20 md:px-8 min-h-[90vh]">
         <Outlet />
       </main>
       <footer className="py-10 text-center text-neutral-600 text-sm border-t border-white/5 mt-auto">

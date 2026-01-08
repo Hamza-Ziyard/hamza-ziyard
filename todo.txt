@@ -1,0 +1,110 @@
+
+            {
+                "id": "ios-project-1",
+                "title": "Scanner",
+                "problemStatement": "Mobile users lacked an integrated method to digitize physical documents, creating a high-friction workflow where users had to leave the app to scan and upload files manually.",
+                "solution": "Developed a native document scanner within the Zafer mobile app that combines standard camera functionality with specialized document processing features, enabling users to capture, edit, and convert physical papers into digital envelopes.",
+                "achievements": "Drastically reduced the time and friction required to initiate signing workflows on the go, resulting in a more efficient 'paper-to-digital' transition for mobile-first users.",
+                "media": [
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/1.webp",
+                        "caption": "Scanner view - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/19.webp",
+                        "caption": "Scanner view - II"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/9.webp",
+                        "caption": "Multiple captures"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/16.webp",
+                        "caption": "Multiple Captures - Management"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/8.webp",
+                        "caption": "Add scribble"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/3.webp",
+                        "caption": "Add text"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/4.webp",
+                        "caption": "Enter text"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/6.webp",
+                        "caption": "Crop - Basic"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/7.webp",
+                        "caption": "Crop - Advanced"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/14.webp",
+                        "caption": "Brightness & Contrast"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/15.webp",
+                        "caption": "Filters"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/20.webp",
+                        "caption": "Capture ID card - Front"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/21.webp",
+                        "caption": "Capture ID card - Back"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/10.webp",
+                        "caption": "Edit ID capture - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/11.webp",
+                        "caption": "Edit ID capture - II"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/12.webp",
+                        "caption": "Edit ID capture - III"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/13.webp",
+                        "caption": "Edit ID capture - IV"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/22.webp",
+                        "caption": "Capture Signature or Seal"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/17.webp",
+                        "caption": "Edit signature - I"
+                    },
+                    {
+                        "type": "image",
+                        "src": "/zafer/ios/Scanner/18.webp",
+                        "caption": "Edit signature - II"
+                    }
+                ]
+            },

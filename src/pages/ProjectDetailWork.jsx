@@ -309,7 +309,7 @@ export default function ProjectDetailWork() {
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="max-w-[1800px] mx-auto px-6 md:px-12 py-12">
+      <div className="max-w-[1920px] mx-auto px-6 md:px-12 py-12">
 
         {/* Back Button */}
         {/* <motion.button

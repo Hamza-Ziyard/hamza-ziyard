@@ -161,7 +161,7 @@ export default function ProjectDetail() {
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="max-w-[1800px] mx-auto px-6 md:px-12 py-12">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-12">
 
         {/* Project Header */}
         <section className="mb-16 mt-8 space-y-16">
