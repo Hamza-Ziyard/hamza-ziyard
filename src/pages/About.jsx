@@ -31,27 +31,34 @@ export default function About() {
         </div>
       </div>
 
-      <div className=" max-w-[1440px] mt-8 mx-auto overflow-hidden w-full relative mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <motion.div
-          className="flex gap-4 w-fit px-8"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            duration: 25,
-            ease: "linear",
-          }}
-        >
-          {[...Array(2)].map((_, i) => (
-            <div key={i} className="flex gap-4 shrink-0">
-              <img src="https://assets.hamzaziyard.com/about/hobbies/3.webp" alt="" className="w-90 h-80 object-cover rounded-2xl" />
-              <img src="https://assets.hamzaziyard.com/about/hobbies/4.webp" alt="" className="w-90 h-80 object-cover rounded-2xl" />
-              <img src="https://assets.hamzaziyard.com/about/hobbies/5.webp" alt="" className="w-70 h-80 object-cover rounded-2xl" />
-              <img src="https://assets.hamzaziyard.com/about/hobbies/1.webp" alt="" className="w-70 h-80 object-cover rounded-2xl" />
-              <img src="https://assets.hamzaziyard.com/about/hobbies/6.webp" alt="" className="w-90 h-80 object-cover rounded-2xl" />
-            </div>
-          ))}
-        </motion.div>
-      </div>
+      <motion.div
+        className="w-full"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+      >
+        <div className=" max-w-[1440px] mt-8 mx-auto overflow-hidden w-full relative mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <motion.div
+            className="flex gap-4 w-fit px-8"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              repeat: Infinity,
+              duration: 25,
+              ease: "linear",
+            }}
+          >
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="flex gap-4 shrink-0">
+                <img src="https://assets.hamzaziyard.com/about/hobbies/3.webp" alt="" className="w-90 h-80 object-cover rounded-2xl" />
+                <img src="https://assets.hamzaziyard.com/about/hobbies/4.webp" alt="" className="w-90 h-80 object-cover rounded-2xl" />
+                <img src="https://assets.hamzaziyard.com/about/hobbies/5.webp" alt="" className="w-70 h-80 object-cover rounded-2xl" />
+                <img src="https://assets.hamzaziyard.com/about/hobbies/1.webp" alt="" className="w-70 h-80 object-cover rounded-2xl" />
+                <img src="https://assets.hamzaziyard.com/about/hobbies/6.webp" alt="" className="w-90 h-80 object-cover rounded-2xl" />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
     </div>
   );
 }
