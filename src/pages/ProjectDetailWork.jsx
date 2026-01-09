@@ -48,10 +48,10 @@ const LottieRenderer = ({ url, aspectRatio = "aspect-video" }) => {
     }
   }, [inView, animationData]);
 
-  if (!animationData) return <div ref={containerRef} className={clsx("w-full bg-neutral-100 animate-pulse rounded-2xl", aspectRatio)} />;
+  if (!animationData) return <div ref={containerRef} className={clsx("w-full bg-surface animate-pulse rounded-2xl", aspectRatio)} />;
 
   return (
-    <div ref={containerRef} className={clsx("w-full flex items-center justify-center bg-neutral-50 rounded-2xl overflow-hidden border border-neutral-100", aspectRatio)}>
+    <div ref={containerRef} className={clsx("w-full flex items-center justify-center bg-surface rounded-2xl overflow-hidden border border-border/50", aspectRatio)}>
       <Lottie
         lottieRef={lottieRef}
         animationData={animationData}
@@ -71,7 +71,7 @@ const MediaItem = ({ media, isWeb }) => {
   if (media.type === 'image') {
     return (
       <div className={clsx(
-        "w-full overflow-hidden rounded-3xl md:rounded-4xl border-2 border-neutral-300 shadow-sm bg-[#F5F3F3]",
+        "w-full overflow-hidden rounded-3xl md:rounded-4xl border-2 border-border shadow-sm bg-surface",
         isWeb && "!border-0 md:rounded-xl p-3"
       )}>
         <img
@@ -90,7 +90,7 @@ const MediaItem = ({ media, isWeb }) => {
 
   if (media.type === 'video') {
     return (
-      <div className={clsx("w-full overflow-hidden rounded-2xl border border-neutral-100 shadow-sm bg-black", aspectRatio)}>
+      <div className={clsx("w-full overflow-hidden rounded-2xl border border-border/50 shadow-sm bg-black", aspectRatio)}>
         <video
           src={'https://assets.hamzaziyard.com' + media.src}
           className="w-full h-full object-contain"
@@ -149,7 +149,7 @@ const MediaCarousel = ({ media, activeTab }) => {
             className="w-full"
           >
             <MediaItem media={mediaItem} isWeb={activeTab === 'Web' || activeTab === 'Website'} />
-            <p className="text-center text-neutral-500 font-semibold mt-4 italic text-sm">{mediaItem.caption}</p>
+            <p className="text-center text-text-secondary font-semibold mt-4 italic text-sm">{mediaItem.caption}</p>
           </motion.div>
         ))}
       </div>
@@ -164,7 +164,7 @@ const MediaCarousel = ({ media, activeTab }) => {
           onClick={() => scroll('left')}
           disabled={!showLeftArrow}
           className={clsx(
-            "p-3 rounded-full bg-white shadow-xl border border-neutral-100 pointer-events-auto hover:scale-110 active:scale-95 disabled:opacity-0 disabled:scale-90",
+            "p-3 rounded-full bg-background shadow-xl border border-border/50 text-primary pointer-events-auto hover:scale-110 active:scale-95 disabled:opacity-0 disabled:scale-90",
             !showLeftArrow && "invisible"
           )}
         >
@@ -177,7 +177,7 @@ const MediaCarousel = ({ media, activeTab }) => {
           onClick={() => scroll('right')}
           disabled={!showRightArrow}
           className={clsx(
-            "p-3 rounded-full bg-white shadow-xl border border-neutral-100 pointer-events-auto hover:scale-110 active:scale-95 disabled:opacity-0 disabled:scale-90",
+            "p-3 rounded-full bg-background shadow-xl border border-border/50 text-primary pointer-events-auto hover:scale-110 active:scale-95 disabled:opacity-0 disabled:scale-90",
             !showRightArrow && "invisible"
           )}
         >
@@ -205,7 +205,7 @@ const MediaCarousel = ({ media, activeTab }) => {
             )}
           >
             <MediaItem media={mediaItem} isWeb={activeTab === 'Web' || activeTab === 'Website'} />
-            <p className="text-center text-neutral-500 font-semibold mt-4 italic text-sm">{mediaItem.caption}</p>
+            <p className="text-center text-text-secondary font-semibold mt-4 italic text-sm">{mediaItem.caption}</p>
           </motion.div>
         ))}
       </div>
@@ -318,14 +318,14 @@ export default function ProjectDetailWork() {
 
   if (!companyData) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-neutral-500">Company not found.</p>
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <p className="text-text-secondary">Company not found.</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-background min-h-screen">
       <div className="max-w-[1920px] mx-auto px-6 md:px-12 py-12">
 
         {/* Back Button */}
@@ -350,32 +350,32 @@ export default function ProjectDetailWork() {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col md:flex-row items-center md:items-start gap-12 text-center md:text-left"
           >
-            <div className="w-40 h-40 bg-neutral-50 rounded-[2.5rem] border border-neutral-100 flex items-center justify-center overflow-hidden shrink-0 shadow-sm transition-shadow hover:shadow-md">
+            <div className="w-40 h-40 bg-surface rounded-[2.5rem] border border-border/50 flex items-center justify-center overflow-hidden shrink-0 shadow-sm transition-shadow hover:shadow-md">
               <img src={'https://assets.hamzaziyard.com' + companyData.companyFavicon} alt={companyData.companyName} loading="lazy" className="w-24 h-24 object-contain" />
             </div>
             <div className="flex-1 space-y-6">
               <div className="flex flex-col md:flex-row items-center gap-4">
-                <h1 className="text-5xl md:text-5xl font-bold tracking-tight text-neutral-900">{companyData.companyName}</h1>
+                <h1 className="text-5xl md:text-5xl font-bold tracking-tight text-primary">{companyData.companyName}</h1>
               </div>
-              <p className="text-lg text-neutral-500 leading-relaxed font-light">{companyData.companyDescription}</p>
+              <p className="text-lg text-text-secondary leading-relaxed font-light">{companyData.companyDescription}</p>
               <div className="flex flex-wrap justify-center md:justify-start gap-12 pt-4">
                 <div className="space-y-1">
-                  <h4 className="text-sm text-neutral-500">Service</h4>
-                  <p className="text-lg font-bold text-neutral-800">{companyData.companyType}</p>
+                  <h4 className="text-sm text-text-secondary">Service</h4>
+                  <p className="text-lg font-bold text-primary">{companyData.companyType}</p>
                 </div>
                 {tabs.length > 0 && (
                   <div className="space-y-1">
-                    <h4 className="text-sm text-neutral-500">Platforms</h4>
-                    <p className="text-lg font-bold text-neutral-800">{[...new Set(tabs.map(t => t === 'Website' ? 'Web' : t))].join(', ')}</p>
+                    <h4 className="text-sm text-text-secondary">Platforms</h4>
+                    <p className="text-lg font-bold text-primary">{[...new Set(tabs.map(t => t === 'Website' ? 'Web' : t))].join(', ')}</p>
                   </div>
                 )}
                 <div className="space-y-1">
-                  <h4 className="text-sm text-neutral-500">Role</h4>
-                  <p className="text-lg font-bold text-neutral-800">{companyData.role}</p>
+                  <h4 className="text-sm text-text-secondary">Role</h4>
+                  <p className="text-lg font-bold text-primary">{companyData.role}</p>
                 </div>
                 <div className="space-y-1">
-                  <h4 className="text-sm text-neutral-500">Time period</h4>
-                  <p className="text-lg font-bold text-neutral-800">{companyData.timePeriod}</p>
+                  <h4 className="text-sm text-text-secondary">Time period</h4>
+                  <p className="text-lg font-bold text-primary">{companyData.timePeriod}</p>
                 </div>
               </div>
             </div>
@@ -385,8 +385,8 @@ export default function ProjectDetailWork() {
         {tabs.length > 0 && (
           <>
             {/* Navigation Tabs (Primary Filter) */}
-            <div className="sticky top-0 z-50 py-3 bg-white/80 backdrop-blur-xl border-b border-neutral-200">
-              <div className="flex gap-2 overflow-x-auto p-1.5 no-scrollbar bg-neutral-100 border border-white/10 w-fit rounded-full">
+            <div className="sticky top-0 z-50 py-3 bg-background/80 backdrop-blur-xl border-b border-border/50">
+              <div className="flex gap-2 overflow-x-auto p-1.5 no-scrollbar bg-surface/50 border border-border/50 w-fit rounded-full">
                 {tabs.map((tab) => (
                   <button
                     key={tab}
@@ -394,8 +394,8 @@ export default function ProjectDetailWork() {
                     className={clsx(
                       "px-5 py-2 rounded-full text-md transition-all duration-300 cursor-pointer",
                       activeTab === tab
-                        ? "bg-white text-black font-bold"
-                        : "text-neutral-700 hover:bg-white/5 font-medium"
+                        ? "bg-background text-primary font-bold shadow-sm"
+                        : "text-text-secondary hover:bg-background/20 font-medium"
                     )}
                   >
                     {tab}
@@ -418,17 +418,17 @@ export default function ProjectDetailWork() {
                           "shrink-0 text-left px-4 py-2 rounded-2xl text-base font-medium transition-all duration-300 group cursor-pointer",
                           activeProjectId === project.id
                             ? "text-blue-500"
-                            : "text-neutral-700 hover:text-neutral-800"
+                            : "text-text-secondary hover:text-primary"
                         )}
                       >
                         <div className="flex items-center justify-between gap-3">
                           <span className="truncate">{project.title}</span>
-                          <span className="text-neutral-400 text-sm font-normal">{project.media?.length || 0}</span>
+                          <span className="text-text-secondary/60 text-sm font-normal">{project.media?.length || 0}</span>
                         </div>
                       </button>
                     ))}
                     {currentProjects.length === 0 && (
-                      <div className="px-5 py-8 text-sm text-neutral-400 italic bg-neutral-50 rounded-2xl border border-dashed border-neutral-200 text-center">
+                      <div className="px-5 py-8 text-sm text-text-secondary italic bg-surface rounded-2xl border border-dashed border-border text-center">
                         No projects for {activeTab}
                       </div>
                     )}
@@ -457,43 +457,42 @@ export default function ProjectDetailWork() {
                           <div className="space-y-12">
                             <div className="space-y-4">
                               <div className="flex items-center gap-3">
-                                <span className="w-1 h-6 rounded-full bg-neutral-900"></span>
-                                <h2 className="text-3xl font-bold text-neutral-900 tracking-tight">{project.title}</h2>
+                                <span className="w-1 h-6 rounded-full bg-primary"></span>
+                                <h2 className="text-3xl font-bold text-primary tracking-tight">{project.title}</h2>
                               </div>
 
                               <div className="flex flex-col mt-8">
                                 {project.problemStatement && (
-                                  <div className=" grid grid-cols-1 md:grid-cols-4  border border-neutral-200 rounded-t-xl">
-                                    <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50  rounded-tl-xl">
+                                  <div className=" grid grid-cols-1 md:grid-cols-4  border border-border rounded-t-xl">
+                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-tl-xl uppercase tracking-wider text-[10px]">
                                       Problem statement :
                                     </h4>
-                                    <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-light col-span-3">{project.problemStatement}</p>
+                                    <p className="border-l border-border p-4 text-lg text-text-secondary leading-relaxed font-light col-span-3">{project.problemStatement}</p>
                                   </div>
                                 )}
                                 {project.solution && (
-                                  <div className=" grid grid-cols-1 md:grid-cols-4 border border-t-0 border-neutral-200  rounded-b-xl">
-                                    <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50 rounded-bl-xl">
+                                  <div className=" grid grid-cols-1 md:grid-cols-4 border border-t-0 border-border  rounded-b-xl">
+                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-bl-xl uppercase tracking-wider text-[10px]">
                                       Solution :
                                     </h4>
-                                    <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-light col-span-3">{project.solution}</p>
+                                    <p className="border-l border-border p-4 text-lg text-text-secondary leading-relaxed font-light col-span-3">{project.solution}</p>
                                   </div>
                                 )}
                                 {project.achievements && (
-                                  <div className=" grid grid-cols-1 md:grid-cols-4 border border-neutral-200 rounded-xl mt-4">
-                                    <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50  rounded-bl-xl rounded-tl-xl">
+                                  <div className=" grid grid-cols-1 md:grid-cols-4 border border-border rounded-xl mt-4 bg-primary/5">
+                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-bl-xl rounded-tl-xl uppercase tracking-wider text-[10px]">
                                       Impact & results :
                                     </h4>
-                                    <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-bold italic col-span-3">"{project.achievements}"</p>
+                                    <p className="border-l border-border p-4 text-lg text-primary leading-relaxed font-bold italic col-span-3">"{project.achievements}"</p>
                                   </div>
                                 )}
                                 {project.task && (
-                                  <div className=" grid grid-cols-1 md:grid-cols-4 border border-neutral-200 rounded-xl mt-4">
-                                    <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50  rounded-bl-xl rounded-tl-xl">
+                                  <div className=" grid grid-cols-1 md:grid-cols-4 border border-border rounded-xl mt-4">
+                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-bl-xl rounded-tl-xl uppercase tracking-wider text-[10px]">
                                       Task :
                                     </h4>
-                                    <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-light col-span-3">{project.task}</p>
+                                    <p className="border-l border-border p-4 text-lg text-text-secondary leading-relaxed font-light col-span-3">{project.task}</p>
                                   </div>
-
                                 )}
                               </div>
                             </div>
@@ -518,7 +517,7 @@ export default function ProjectDetailWork() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-8 right-8 z-60 p-4 bg-black text-white rounded-full shadow-2xl border border-neutral-100 hover:scale-110 active:scale-95 transition-all group cursor-pointer"
+            className="fixed bottom-8 right-8 z-60 p-4 bg-primary text-background rounded-full shadow-2xl border border-border/50 hover:scale-110 active:scale-95 transition-all group cursor-pointer"
             aria-label="Back to top"
           >
             <svg

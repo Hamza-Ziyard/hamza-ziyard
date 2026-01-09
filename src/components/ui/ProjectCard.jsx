@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
 import Lottie from 'lottie-react';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function ProjectCard({ project }) {
+  const { theme } = useTheme();
+  const isDarkMode = theme === 'dark';
   const lottieRef = useRef(null);
   const [animationData, setAnimationData] = useState(null);
   const containerRef = useRef(null);
@@ -46,7 +49,7 @@ export default function ProjectCard({ project }) {
   return (
     <Link
       to={project.isCompanyCard ? `/work/${project.id}` : `/project/${project.id}`}
-      className={`group relative block w-full overflow-hidden rounded-lg ${project.gradient || 'bg-neutral-50'} border py-24 px-10 border-white/5`}
+      className={`group relative block w-full overflow-hidden rounded-lg ${project.gradient || 'bg-surface'} border py-24 px-10 border-border/50 transition-colors duration-300`}
     >
       {/* Media */}
       <div ref={containerRef} className="w-full flex justify-center">
@@ -60,33 +63,33 @@ export default function ProjectCard({ project }) {
                 className={`${project.width || 'w-full'} ${project.height || 'h-auto'}`}
               />
             ) : (
-              <div className={`${project.width || 'w-full'} ${project.height || 'h-96'} bg-neutral-100/50 animate-pulse rounded-xl`}></div>
+              <div className={`${project.width || 'w-full'} ${project.height || 'h-96'} bg-surface/50 animate-pulse rounded-xl`}></div>
             )}
           </div>
         ) : (
           <img
-            src={'https://assets.hamzaziyard.com' + project.coverImage}
+            src={'https://assets.hamzaziyard.com' + (isDarkMode && project.isCompanyCard && project.favicon ? project.favicon : project.coverImage)}
             alt={project.title}
             loading="lazy"
-            className={`${project.width || 'w-full'} ${project.height || 'h-auto'} object-contain transition-transform duration-700 ease-out group-hover:scale-105`}
+            className={`${(isDarkMode && project.isCompanyCard && project.favicon) ? 'w-24 h-60' : (project.width || 'w-full')} ${(isDarkMode && project.isCompanyCard && project.favicon) ? 'h-24' : (project.height || 'h-auto')} object-contain transition-transform duration-700 ease-out group-hover:scale-105`}
           />
         )}
       </div>
 
       {/* Reveal Overlay */}
       <div className="absolute bottom-0 left-0 right-0 flex flex-col justify-end p-2 opacity-0 transition-all duration-300 group-hover:opacity-100">
-        <div className="flex items-center flex-wrap gap-2 text-sm text-black font-normal">
+        <div className="flex items-center flex-wrap gap-2 text-sm text-primary font-normal">
           {!project.isCompanyCard ? (
             <>
-              <div className="px-3 py-1 bg-white rounded-sm shadow-[0_0px_20px_rgba(0,0,0,0.15)]">{project.title}</div>
-              <div className="px-3 py-1 bg-white rounded-sm shadow-[0_0px_20px_rgba(0,0,0,0.15)]">{project.company}</div>
-              <div className="px-3 py-1 bg-white rounded-sm shadow-[0_0px_20px_rgba(0,0,0,0.15)]">{project.type}</div>
+              <div className="px-3 py-1 bg-background/90 backdrop-blur-md border border-border/50 rounded-sm shadow-xl">{project.title}</div>
+              <div className="px-3 py-1 bg-background/90 backdrop-blur-md border border-border/50 rounded-sm shadow-xl">{project.company}</div>
+              <div className="px-3 py-1 bg-background/90 backdrop-blur-md border border-border/50 rounded-sm shadow-xl">{project.type}</div>
             </>
           ) : (
             <>
-              <div className="px-3 py-1 bg-white rounded-sm shadow-[0_0px_20px_rgba(0,0,0,0.15)]">{project.company}</div>
-              <div className="px-3 py-1 bg-white rounded-sm shadow-[0_0px_20px_rgba(0,0,0,0.15)]">{project.role}</div>
-              <div className="px-3 py-1 bg-white rounded-sm shadow-[0_0px_20px_rgba(0,0,0,0.15)]">{project.timePeriod}</div>
+              <div className="px-3 py-1 bg-background/90 backdrop-blur-md border border-border/50 rounded-sm shadow-xl">{project.company}</div>
+              <div className="px-3 py-1 bg-background/90 backdrop-blur-md border border-border/50 rounded-sm shadow-xl">{project.role}</div>
+              <div className="px-3 py-1 bg-background/90 backdrop-blur-md border border-border/50 rounded-sm shadow-xl">{project.timePeriod}</div>
             </>
           )}
         </div>

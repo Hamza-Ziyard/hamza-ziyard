@@ -24,7 +24,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
           >
-            <p className="3xl:text-3xl text-2xl font-light text-neutral-600 leading-relaxed p-8">
+            <p className="3xl:text-3xl text-2xl font-light text-text-secondary leading-relaxed p-8">
               I design experiences where logic meets emotion. From untangling complex systems to crafting interfaces that feel effortless, I turn ideas, problems, and late-night thoughts into products people actually enjoy using.
             </p>
           </motion.div>

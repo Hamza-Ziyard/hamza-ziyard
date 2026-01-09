@@ -18,7 +18,7 @@ export default function Layout() {
       <main className="pt-2 pb-20 md:px-8 min-h-[90vh]">
         <Outlet />
       </main>
-      <footer className="py-10 text-center text-neutral-600 text-sm border-t border-white/5 mt-auto">
+      <footer className="py-10 text-center text-text-secondary text-sm border-t border-border/50 mt-auto">
         <p>© {new Date().getFullYear()} Designed & Built by Hamza Ziyard</p>
       </footer>
     </div>

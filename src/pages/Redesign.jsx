@@ -9,7 +9,7 @@ export default function Redesign() {
     <div className="space-y-20">
       <section className="py-10">
         <h1 className="text-5xl md:text-7xl font-bold mb-6">What If I <span className="text-blue-500">Redesigned</span> Today?</h1>
-        <p className="text-xl text-neutral-400 max-w-2xl">
+        <p className="text-xl text-text-secondary max-w-2xl">
           Explorations where I revisit past work with fresh eyes and new skills.
         </p>
       </section>
@@ -25,8 +25,8 @@ export default function Redesign() {
             transition={{ duration: 0.6 }}
           >
             <div className="mb-10 max-w-2xl">
-              <h2 className="text-3xl font-bold mb-4">{project.title}</h2>
-              <p className="text-neutral-400 text-lg">{project.sections.redesign.description}</p>
+              <h2 className="text-3xl font-bold mb-4 text-primary">{project.title}</h2>
+              <p className="text-text-secondary text-lg">{project.sections.redesign.description}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative items-center">
@@ -39,13 +39,13 @@ export default function Redesign() {
                   src={project.sections.redesign.beforeImage}
                   alt="Before redesign"
                   loading="lazy"
-                  className="w-full aspect-4/3 object-cover rounded-2xl border border-white/5 grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100"
+                  className="w-full aspect-4/3 object-cover rounded-2xl border border-border/20 grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100"
                 />
               </div>
 
               {/* Connector Arrow */}
-              <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-neutral-950 rounded-full items-center justify-center border border-white/10 z-10 shadow-xl">
-                <ArrowRight className="text-white" size={24} />
+              <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-surface rounded-full items-center justify-center border border-border/50 z-10 shadow-xl">
+                <ArrowRight className="text-primary" size={24} />
               </div>
 
               {/* After */}

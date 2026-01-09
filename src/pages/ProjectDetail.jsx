@@ -48,14 +48,14 @@ const LottieBlock = ({ url, height, caption }) => {
     }
   }, [inView, animationData]);
 
-  if (!animationData) return <div ref={containerRef} className={`bg-neutral-100 rounded-2xl animate-pulse ${height || 'h-96'}`}></div>;
+  if (!animationData) return <div ref={containerRef} className={`bg-surface rounded-2xl animate-pulse ${height || 'h-96'}`}></div>;
 
   return (
     <div className="space-y-4">
-      <div ref={containerRef} className={`bg-neutral-50 rounded-2xl overflow-hidden flex items-center justify-center ${height || 'h-auto'}`}>
+      <div ref={containerRef} className={`bg-surface rounded-2xl overflow-hidden flex items-center justify-center border border-border/50 ${height || 'h-auto'}`}>
         <Lottie lottieRef={lottieRef} animationData={animationData} loop={true} autoplay={false} className="w-full h-full" />
       </div>
-      {caption && <p className="text-sm text-neutral-400 font-medium text-center">{caption}</p>}
+      {caption && <p className="text-sm text-text-secondary font-medium text-center">{caption}</p>}
     </div>
   );
 };
@@ -160,7 +160,7 @@ export default function ProjectDetail() {
   }, [sections]);
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-background min-h-screen">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-12">
 
         {/* Project Header */}
@@ -172,34 +172,34 @@ export default function ProjectDetail() {
           >
             <div className="flex-1 space-y-6">
               <div className="flex flex-col md:flex-row items-center gap-4">
-                <h1 className="text-5xl md:text-5xl font-bold tracking-tight text-neutral-900">{project.title}</h1>
+                <h1 className="text-5xl md:text-5xl font-bold tracking-tight text-primary">{project.title}</h1>
               </div>
-              <p className="text-xl text-neutral-500 max-w-7xl leading-relaxed font-light">{project.summary}</p>
+              <p className="text-xl text-text-secondary max-w-7xl leading-relaxed font-light">{project.summary}</p>
               <div className="flex flex-wrap justify-center md:justify-start gap-12 pt-4">
                 <div className="space-y-1">
-                  <h4 className="text-sm text-neutral-500">Service</h4>
-                  <p className="text-lg font-bold text-neutral-800">{project.type}</p>
+                  <h4 className="text-sm text-text-secondary">Service</h4>
+                  <p className="text-lg font-bold text-primary">{project.type}</p>
                 </div>
                 <div className="space-y-1">
-                  <h4 className="text-sm text-neutral-500">Platforms</h4>
-                  <p className="text-lg font-bold text-neutral-800">{project.platforms}</p>
+                  <h4 className="text-sm text-text-secondary">Platforms</h4>
+                  <p className="text-lg font-bold text-primary">{project.platforms}</p>
                 </div>
                 <div className="space-y-1">
-                  <h4 className="text-sm text-neutral-500">Roles</h4>
-                  <p className="text-lg font-bold text-neutral-800">{project.role}</p>
+                  <h4 className="text-sm text-text-secondary">Roles</h4>
+                  <p className="text-lg font-bold text-primary">{project.role}</p>
                 </div>
                 <div className="space-y-1">
-                  <h4 className="text-sm text-neutral-500">Tools</h4>
+                  <h4 className="text-sm text-text-secondary">Tools</h4>
                   <div className="flex flex-wrap gap-2 pt-1 justify-center md:justify-start">
                     {project.tools.map(tool => (
-                      <span key={tool} className="px-3 py-0.5 bg-neutral-100 border border-neutral-200 rounded-full text-xs font-bold text-neutral-700">{tool}</span>
+                      <span key={tool} className="px-3 py-0.5 bg-surface border border-border rounded-full text-xs font-bold text-primary">{tool}</span>
                     ))}
                   </div>
                 </div>
                 {project.company && (
                   <div className="space-y-1">
-                    <h4 className="text-sm text-neutral-500">Company</h4>
-                    <p className="text-lg font-bold text-neutral-800">{project.company}</p>
+                    <h4 className="text-sm text-text-secondary">Company</h4>
+                    <p className="text-lg font-bold text-primary">{project.company}</p>
                   </div>
                 )}
               </div>
@@ -228,8 +228,8 @@ export default function ProjectDetail() {
 
         {/* Sticky Tab Navigation (Scroll Spy Style) */}
         {sections.length > 0 && (
-          <div className="sticky top-0 z-50 py-4 bg-white/80 backdrop-blur-xl border-b border-neutral-200 mb-12">
-            <div className="flex gap-2 overflow-x-auto p-1.5 no-scrollbar bg-neutral-100 border border-white/10 w-fit rounded-full">
+          <div className="sticky top-0 z-50 py-4 bg-background/80 backdrop-blur-xl border-b border-border/50 mb-12">
+            <div className="flex gap-2 overflow-x-auto p-1.5 no-scrollbar bg-surface/50 border border-border/50 w-fit rounded-full">
               {sections.map((section) => (
                 <button
                   key={section.id}
@@ -237,8 +237,8 @@ export default function ProjectDetail() {
                   className={clsx(
                     "px-5 py-2 rounded-full text-md transition-all duration-300 cursor-pointer whitespace-nowrap",
                     activeTab === section.id
-                      ? "bg-white text-black font-bold shadow-sm"
-                      : "text-neutral-700 hover:bg-white/5 font-medium"
+                      ? "bg-background text-primary font-bold shadow-sm"
+                      : "text-text-secondary hover:bg-background/20 font-medium"
                   )}
                 >
                   {section.label}
@@ -257,20 +257,20 @@ export default function ProjectDetail() {
               return (
                 <section key={sectionId} id={sectionId} className="scroll-mt-48 space-y-12">
                   <div className="flex items-center gap-3">
-                    <span className="w-1 h-6 rounded-full bg-neutral-900"></span>
-                    <h2 className="text-2xl font-bold text-neutral-900 tracking-tight">{section.title}</h2>
+                    <span className="w-1 h-6 rounded-full bg-primary"></span>
+                    <h2 className="text-2xl font-bold text-primary tracking-tight">{section.title}</h2>
                   </div>
                   <div className="space-y-16">
-                    {section.content && <p className="text-xl text-neutral-500 leading-relaxed max-w-4xl">{section.content}</p>}
+                    {section.content && <p className="text-xl text-text-secondary leading-relaxed max-w-4xl">{section.content}</p>}
                     {section.blocks?.map((block, idx) => {
                       if (block.type === 'text') {
-                        return <p key={idx} className="text-xl text-neutral-500 leading-relaxed max-w-4xl">{block.content}</p>;
+                        return <p key={idx} className="text-xl text-text-secondary leading-relaxed max-w-4xl">{block.content}</p>;
                       }
                       if (block.type === 'image') {
                         return (
                           <figure key={idx} className="space-y-4">
-                            <img src={block.url} alt={block.caption || ''} loading="lazy" className={`rounded-2xl border border-neutral-100 shadow-sm ${block.width === 'full' ? 'w-full' : 'max-w-4xl'}`} />
-                            {block.caption && <figcaption className="text-sm text-neutral-400 font-medium text-center">{block.caption}</figcaption>}
+                            <img src={block.url} alt={block.caption || ''} loading="lazy" className={`rounded-2xl border border-border/50 shadow-sm ${block.width === 'full' ? 'w-full' : 'max-w-4xl'}`} />
+                            {block.caption && <figcaption className="text-sm text-text-secondary font-medium text-center">{block.caption}</figcaption>}
                           </figure>
                         );
                       }
@@ -279,10 +279,10 @@ export default function ProjectDetail() {
                           <div key={idx} className={`grid gap-8 ${block.columns === 3 ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2'}`}>
                             {block.images.map((img, i) => (
                               <div key={i} className="space-y-2">
-                                <div className="rounded-2xl overflow-hidden border border-neutral-100 shadow-sm bg-neutral-50">
+                                <div className="rounded-2xl overflow-hidden border border-border/50 shadow-sm bg-surface">
                                   <img src={img.url} alt={img.caption || ''} loading="lazy" className="w-full h-auto object-cover transition-transform duration-700 hover:scale-[1.02]" />
                                 </div>
-                                {img.caption && <p className="text-sm text-neutral-400 text-center font-medium">{img.caption}</p>}
+                                {img.caption && <p className="text-sm text-text-secondary text-center font-medium">{img.caption}</p>}
                               </div>
                             ))}
                           </div>
@@ -293,12 +293,12 @@ export default function ProjectDetail() {
                       }
                       if (block.type === 'comparison') {
                         return (
-                          <div key={idx} className="bg-neutral-900 p-8 md:p-12 rounded-3xl border border-white/5">
-                            <p className="text-xl text-neutral-300 mb-12 max-w-3xl leading-relaxed">{block.content}</p>
+                          <div key={idx} className="bg-surface p-8 md:p-12 rounded-3xl border border-border/50">
+                            <p className="text-xl text-text-secondary mb-12 max-w-3xl leading-relaxed">{block.content}</p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                               <div className="space-y-4">
                                 <span className="inline-block px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-bold border border-rose-500/20">BEFORE</span>
-                                <img src={block.beforeImage} loading="lazy" className="rounded-xl w-full grayscale opacity-60 border border-white/5" />
+                                <img src={block.beforeImage} loading="lazy" className="rounded-xl w-full grayscale opacity-60 border border-border/20" />
                               </div>
                               <div className="space-y-4">
                                 <span className="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold border border-blue-500/20">AFTER</span>
@@ -319,16 +319,16 @@ export default function ProjectDetail() {
               {/* Legacy Redesign Fallback */}
               {project.sections?.redesign?.enabled && (
                 <section id="redesign" className="scroll-mt-48 space-y-12">
-                  <h2 className="text-3xl font-bold text-neutral-900 tracking-tight flex items-center gap-4">
+                  <h2 className="text-3xl font-bold text-primary tracking-tight flex items-center gap-4">
                     <span className="w-2 h-8 bg-rose-500 rounded-full"></span>
                     Redesign Exploration
                   </h2>
-                  <div className="bg-neutral-900 p-8 md:p-12 rounded-3xl border border-white/5">
-                    <p className="text-xl text-neutral-300 mb-12 max-w-3xl leading-relaxed">{project.sections.redesign.description}</p>
+                  <div className="bg-surface p-8 md:p-12 rounded-3xl border border-border/50">
+                    <p className="text-xl text-text-secondary mb-12 max-w-3xl leading-relaxed">{project.sections.redesign.description}</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="space-y-4">
                         <span className="inline-block px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-bold border border-rose-500/20">BEFORE</span>
-                        <img src={project.sections.redesign.beforeImage} loading="lazy" className="rounded-xl w-full grayscale opacity-60 border border-white/5" />
+                        <img src={project.sections.redesign.beforeImage} loading="lazy" className="rounded-xl w-full grayscale opacity-60 border border-border/20" />
                       </div>
                       <div className="space-y-4">
                         <span className="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold border border-blue-500/20">AFTER</span>
