@@ -50,7 +50,7 @@ export default function Home() {
   }, [filteredProjects, viewMode]);
 
   return (
-    <section className='pt-8'>
+    <section className='pt-0'>
       {/* Filter Bar */}
       {/* <div className="hidden lg:block w-fit mx-auto absolute inset-x-0 bottom-32 z-100 justify-center">
         <div className="flex gap-2 p-2 bg-surface/80 backdrop-blur-xl border border-border shadow-lg rounded-2xl">
