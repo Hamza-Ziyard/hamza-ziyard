@@ -350,14 +350,14 @@ export default function ProjectDetailWork() {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col md:flex-row items-center md:items-start gap-12 text-center md:text-left"
           >
-            <div className="w-40 h-40 bg-surface rounded-[2.5rem] border border-border/50 flex items-center justify-center overflow-hidden shrink-0 shadow-sm transition-shadow hover:shadow-md">
+            <div className="w-40 h-40 bg-surface/50 rounded-[2.5rem] border border-border/50 flex items-center justify-center overflow-hidden shrink-0 shadow-sm transition-shadow hover:shadow-md">
               <img src={'https://assets.hamzaziyard.com' + companyData.companyFavicon} alt={companyData.companyName} loading="lazy" className="w-24 h-24 object-contain" />
             </div>
             <div className="flex-1 space-y-6">
               <div className="flex flex-col md:flex-row items-center gap-4">
                 <h1 className="text-4xl leading-relaxed lg:text-5xl md:text-5xl font-bold tracking-tight text-primary">{companyData.companyName}</h1>
               </div>
-              <p className="text-base lg:text-lg text-text-secondary leading-relaxed font-light">{companyData.companyDescription}</p>
+              <p className="text-base lg:text-xl text-text-secondary leading-relaxed font-light">{companyData.companyDescription}</p>
               <div className="flex flex-wrap justify-center md:justify-start gap-12 pt-4">
                 <div className="space-y-1">
                   <h4 className="text-sm text-text-secondary">Service</h4>
@@ -384,30 +384,32 @@ export default function ProjectDetailWork() {
 
         {tabs.length > 0 && (
           <>
-            {/* Navigation Tabs (Primary Filter) */}
-            <div className="sticky top-0 z-50 py-3 bg-background/80 backdrop-blur-xl border-b border-border/50">
-              <div className="flex gap-2 overflow-x-auto p-1.5 no-scrollbar bg-surface/50 border border-border/50 w-fit rounded-full">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => handleTabChange(tab)}
-                    className={clsx(
-                      "px-5 py-2 rounded-full text-md transition-all duration-300 cursor-pointer",
-                      activeTab === tab
-                        ? "bg-background text-primary font-bold shadow-sm"
-                        : "text-text-secondary hover:bg-background/20 font-medium"
-                    )}
-                  >
-                    {tab}
-                  </button>
-                ))}
+            {/* Navigation Tabs (Primary Filter) - Only show if more than one tab exists */}
+            {tabs.length > 1 && (
+              <div className="sticky top-0 z-50 py-3 bg-background/90 backdrop-blur-xl border-b border-border/50">
+                <div className="flex gap-2 overflow-x-auto p-1.5 no-scrollbar bg-surface border border-border/50 w-fit rounded-full">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => handleTabChange(tab)}
+                      className={clsx(
+                        "px-3 py-1.5 lg:px-5 lg:py-2 rounded-full text-sm lg:text-lg transition-all duration-300 cursor-pointer",
+                        activeTab === tab
+                          ? "bg-background text-primary font-bold shadow-sm"
+                          : "text-text-secondary hover:bg-background/20 font-medium"
+                      )}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             <div className="flex flex-col xl:flex-row gap-8 xl:gap-16">
 
               {/* Side Navigation (Per Tab) */}
-              <aside className="xl:w-72 shrink-0 pt-12 p-0">
+              <aside className="xl:w-72 shrink-0 pt-6 lg:pt-12 p-0">
                 <div className="xl:sticky xl:top-24">
                   <nav className="flex xl:flex-col overflow-x-auto xl:overflow-x-visible pb-4 xl:pb-0 gap-1.5 no-scrollbar">
                     {currentProjects.map((project) => (
@@ -464,7 +466,7 @@ export default function ProjectDetailWork() {
                               <div className="flex flex-col mt-8">
                                 {project.problemStatement && (
                                   <div className=" grid grid-cols-1 md:grid-cols-4  border border-border rounded-t-xl">
-                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-tl-xl uppercase tracking-wider text-[10px]">
+                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-tl-xl ">
                                       Problem statement :
                                     </h4>
                                     <p className="border-l border-border p-4 text-lg text-text-secondary leading-relaxed font-light col-span-3">{project.problemStatement}</p>
@@ -472,15 +474,15 @@ export default function ProjectDetailWork() {
                                 )}
                                 {project.solution && (
                                   <div className=" grid grid-cols-1 md:grid-cols-4 border border-t-0 border-border  rounded-b-xl">
-                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-bl-xl uppercase tracking-wider text-[10px]">
+                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-bl-xl">
                                       Solution :
                                     </h4>
                                     <p className="border-l border-border p-4 text-lg text-text-secondary leading-relaxed font-light col-span-3">{project.solution}</p>
                                   </div>
                                 )}
                                 {project.achievements && (
-                                  <div className=" grid grid-cols-1 md:grid-cols-4 border border-border rounded-xl mt-4 bg-primary/5">
-                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-bl-xl rounded-tl-xl uppercase tracking-wider text-[10px]">
+                                  <div className=" grid grid-cols-1 md:grid-cols-4 border border-border rounded-xl mt-4">
+                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-bl-xl rounded-tl-xl">
                                       Impact & results :
                                     </h4>
                                     <p className="border-l border-border p-4 text-lg text-primary leading-relaxed font-bold italic col-span-3">"{project.achievements}"</p>
@@ -488,7 +490,7 @@ export default function ProjectDetailWork() {
                                 )}
                                 {project.task && (
                                   <div className=" grid grid-cols-1 md:grid-cols-4 border border-border rounded-xl mt-4">
-                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-bl-xl rounded-tl-xl uppercase tracking-wider text-[10px]">
+                                    <h4 className="font-semibold p-4 text-md text-text-secondary bg-surface rounded-bl-xl rounded-tl-xl">
                                       Task :
                                     </h4>
                                     <p className="border-l border-border p-4 text-lg text-text-secondary leading-relaxed font-light col-span-3">{project.task}</p>
