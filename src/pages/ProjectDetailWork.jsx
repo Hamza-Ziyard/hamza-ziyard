@@ -6,7 +6,7 @@ import companyWorkData from '../data/companyWork.json';
 import clsx from 'clsx';
 
 // Lottie Component with fetch support (similar to ProjectDetail)
-const LottieRenderer = ({ url }) => {
+const LottieRenderer = ({ url, aspectRatio = "aspect-video" }) => {
   const [animationData, setAnimationData] = useState(null);
   const lottieRef = useRef(null);
   const containerRef = useRef(null);
@@ -48,10 +48,10 @@ const LottieRenderer = ({ url }) => {
     }
   }, [inView, animationData]);
 
-  if (!animationData) return <div ref={containerRef} className="w-full aspect-video bg-neutral-100 animate-pulse rounded-2xl" />;
+  if (!animationData) return <div ref={containerRef} className={clsx("w-full bg-neutral-100 animate-pulse rounded-2xl", aspectRatio)} />;
 
   return (
-    <div ref={containerRef} className="w-full aspect-video flex items-center justify-center bg-neutral-50 rounded-2xl overflow-hidden border border-neutral-100">
+    <div ref={containerRef} className={clsx("w-full flex items-center justify-center bg-neutral-50 rounded-2xl overflow-hidden border border-neutral-100", aspectRatio)}>
       <Lottie
         lottieRef={lottieRef}
         animationData={animationData}
@@ -65,17 +65,25 @@ const LottieRenderer = ({ url }) => {
 
 // Media Item Component
 const MediaItem = ({ media, isWeb }) => {
+  const isMobile = media.src.toLowerCase().includes('ios') || media.src.toLowerCase().includes('android');
+  const aspectRatio = isWeb ? "aspect-video" : (isMobile ? "aspect-[9/19.5]" : "aspect-video");
+
   if (media.type === 'image') {
     return (
       <div className={clsx(
         "w-full overflow-hidden rounded-lg md:rounded-4xl border-2 border-neutral-300 shadow-sm bg-[#F5F3F3]",
-        isWeb && "!border-0 md:rounded-xl p-3"
+        isWeb && "!border-0 md:rounded-xl p-3",
+        aspectRatio
       )}>
         <img
           src={'https://assets.hamzaziyard.com' + media.src}
           alt=""
           loading="lazy"
-          className="w-full h-auto object-contain"
+          className="w-full h-full object-contain"
+          onLoad={(e) => {
+            // Remove fixed aspect ratio once loaded if we want to allow natural height
+            // But for now, keeping it fixed prevents layout shifts entirely
+          }}
         />
       </div>
     );
@@ -83,10 +91,10 @@ const MediaItem = ({ media, isWeb }) => {
 
   if (media.type === 'video') {
     return (
-      <div className="w-full overflow-hidden rounded-2xl border border-neutral-100 shadow-sm bg-black">
+      <div className={clsx("w-full overflow-hidden rounded-2xl border border-neutral-100 shadow-sm bg-black", aspectRatio)}>
         <video
           src={'https://assets.hamzaziyard.com' + media.src}
-          className="w-full h-auto"
+          className="w-full h-full object-contain"
           autoPlay
           muted
           loop
@@ -98,7 +106,7 @@ const MediaItem = ({ media, isWeb }) => {
   }
 
   if (media.type === 'lottie') {
-    return <LottieRenderer url={'https://assets.hamzaziyard.com' + media.src} />;
+    return <LottieRenderer url={'https://assets.hamzaziyard.com' + media.src} aspectRatio={aspectRatio} />;
   }
 
   return null;
@@ -248,9 +256,14 @@ export default function ProjectDetailWork() {
   // Removed redundant useEffect: activeProjectId is now handled by ScrollSpy
 
   // Enhanced Scroll Spy logic for both platforms and projects
+  const isScrollingRef = useRef(false);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        // Skip updates if a manual scroll is in progress
+        if (isScrollingRef.current) return;
+
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (entry.target.dataset.type === 'project') {
@@ -262,19 +275,15 @@ export default function ProjectDetailWork() {
         });
       },
       {
-        // Use a centered trigger point for more reliable switching
         rootMargin: '-20% 0px -70% 0px',
         threshold: 0
       }
     );
 
-    // Observe all projects across all platforms
     tabs.forEach(tab => {
-      // Observe the platform container
       const platformEl = document.getElementById(`platform-${tab}`);
       if (platformEl) observer.observe(platformEl);
 
-      // Observe individual projects within this platform
       (projectsByPlatform[tab] || []).forEach(project => {
         const projectEl = document.getElementById(project.id);
         if (projectEl) observer.observe(projectEl);
@@ -287,31 +296,25 @@ export default function ProjectDetailWork() {
   const scrollToProject = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 140; // Adjust for sticky header
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+      isScrollingRef.current = true;
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActiveProjectId(id);
+
+      // Release scroll lock after animation finishes
+      setTimeout(() => { isScrollingRef.current = false; }, 800);
     }
   };
 
   const handleTabChange = (tab) => {
     const element = document.getElementById(`platform-${tab}`);
     if (element) {
-      const offset = 100; // Adjust for sticky header
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      isScrollingRef.current = true;
+      setActiveTab(tab);
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+      // Release scroll lock after animation finishes
+      setTimeout(() => { isScrollingRef.current = false; }, 800);
     }
-    setActiveTab(tab);
   };
 
   if (!companyData) {
