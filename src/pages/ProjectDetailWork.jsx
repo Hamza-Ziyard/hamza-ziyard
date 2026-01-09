@@ -355,9 +355,9 @@ export default function ProjectDetailWork() {
             </div>
             <div className="flex-1 space-y-6">
               <div className="flex flex-col md:flex-row items-center gap-4">
-                <h1 className="text-5xl md:text-5xl font-bold tracking-tight text-primary">{companyData.companyName}</h1>
+                <h1 className="text-4xl leading-relaxed lg:text-5xl md:text-5xl font-bold tracking-tight text-primary">{companyData.companyName}</h1>
               </div>
-              <p className="text-lg text-text-secondary leading-relaxed font-light">{companyData.companyDescription}</p>
+              <p className="text-base lg:text-lg text-text-secondary leading-relaxed font-light">{companyData.companyDescription}</p>
               <div className="flex flex-wrap justify-center md:justify-start gap-12 pt-4">
                 <div className="space-y-1">
                   <h4 className="text-sm text-text-secondary">Service</h4>

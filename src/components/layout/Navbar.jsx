@@ -36,10 +36,10 @@ export default function Navbar() {
         : "bg-transparent border-b border-transparent"
     )}>
 
-      <div className=" px-6 py-3 flex justify-between gap-8 pointer-events-auto">
-        <div className='flex gap-6 items-center'>
+      <div className="md:px-2 lg:px-6 py-3 flex justify-between gap-8 pointer-events-auto">
+        <div className='flex gap-4 lg:gap-6 items-center'>
 
-          <div className='text-xl font-bold text-primary'>
+          <div className='hidden lg:block text-xl font-bold text-primary'>
             <Link
               key={"logo"}
               to={"/"}
@@ -47,17 +47,25 @@ export default function Navbar() {
               hamza.ziyard
             </Link>
           </div>
-          <div className='text-sm font-bold flex items-center gap-3 border border-green-500/30 text-green-600 dark:text-green-400 px-4 pr-5 py-1.5 rounded-full bg-green-500/5'>
+          <div className='lg:hidden font-bold text-primary'>
+            <Link
+              key={"logo"}
+              to={"/"}
+            >
+              h.z
+            </Link>
+          </div>
+          <div className='text-sm font-bold flex items-center gap-3 border border-green-500/30 text-green-600 dark:text-green-400 px-2 md:px-4 lg:pr-5 py-1.5 rounded-full bg-green-500/5'>
             <div className='relative flex h-2.5 w-2.5'>
               <div className='absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping'></div>
               <div className='relative inline-flex h-2.5 w-2.5 bg-green-500 rounded-full'></div>
             </div>
-            Open to work
+            <span className='hidden lg:inline'>Open to work</span>
           </div>
 
         </div>
-        <div className='flex items-center gap-8'>
-          <div className='flex gap-8'>
+        <div className='flex items-center gap-6 lg:gap-8'>
+          <div className='flex gap-6 lg:gap-8'>
             {navItems.map((item) => {
               const isActive = location.pathname === item.path;
               return (
@@ -84,7 +92,7 @@ export default function Navbar() {
 
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-surface transition-colors duration-300 text-primary"
+            className="lg:p-1 rounded-full hover:bg-surface transition-colors duration-300 text-primary"
             aria-label="Toggle theme"
           >
             <AnimatePresence mode="wait" initial={false}>

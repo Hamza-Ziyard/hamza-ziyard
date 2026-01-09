@@ -23,7 +23,7 @@ export default function Resume() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="max-w-5xl mx-auto py-20 px-6 sm:px-10 border border-border rounded-2xl mt-4 shadow-lg"
+      className="max-w-5xl mx-4 lg:mx-auto py-20 px-6 sm:px-10 border border-border rounded-2xl mt-4 shadow-lg"
     >
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start mb-12 border-b border-border pb-8">
