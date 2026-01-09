@@ -245,44 +245,49 @@ export default function ProjectDetailWork() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (currentProjects.length > 0) {
-      setActiveProjectId(currentProjects[0].id);
-    } else {
-      setActiveProjectId('');
-    }
-  }, [currentProjects]);
+  // Removed redundant useEffect: activeProjectId is now handled by ScrollSpy
 
-  // Scroll Spy logic
+  // Enhanced Scroll Spy logic for both platforms and projects
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveProjectId(entry.target.id);
+            if (entry.target.dataset.type === 'project') {
+              setActiveProjectId(entry.target.id);
+            } else if (entry.target.dataset.type === 'platform') {
+              setActiveTab(entry.target.dataset.platform);
+            }
           }
         });
       },
       {
-        // Creates a narrow trigger band near the top of the screen (around 150px down)
-        // This ensures the update happens exactly when the project title hits the focus area
-        rootMargin: '-150px 0px -80% 0px',
+        // Use a centered trigger point for more reliable switching
+        rootMargin: '-20% 0px -70% 0px',
         threshold: 0
       }
     );
 
-    currentProjects.forEach((project) => {
-      const element = document.getElementById(project.id);
-      if (element) observer.observe(element);
+    // Observe all projects across all platforms
+    tabs.forEach(tab => {
+      // Observe the platform container
+      const platformEl = document.getElementById(`platform-${tab}`);
+      if (platformEl) observer.observe(platformEl);
+
+      // Observe individual projects within this platform
+      (projectsByPlatform[tab] || []).forEach(project => {
+        const projectEl = document.getElementById(project.id);
+        if (projectEl) observer.observe(projectEl);
+      });
     });
 
     return () => observer.disconnect();
-  }, [currentProjects, activeTab]);
+  }, [tabs, projectsByPlatform]);
 
   const scrollToProject = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 120; // Adjust for header
+      const offset = 140; // Adjust for sticky header
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -295,8 +300,18 @@ export default function ProjectDetailWork() {
   };
 
   const handleTabChange = (tab) => {
+    const element = document.getElementById(`platform-${tab}`);
+    if (element) {
+      const offset = 100; // Adjust for sticky header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
     setActiveTab(tab);
-    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   if (!companyData) {
@@ -420,73 +435,74 @@ export default function ProjectDetailWork() {
               </aside>
 
               {/* Main Content Area */}
-              <main className="flex-1 space-y-48 mb-64 pt-0 xl:pt-14">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeTab}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="space-y-32"
-                  >
-                    {currentProjects.map((project) => (
-                      <section
-                        key={project.id}
-                        id={project.id}
-                        className="scroll-mt-32 space-y-16"
-                      >
-                        <div className="space-y-12">
-                          <div className="space-y-4">
-                            <div className="flex items-center gap-3">
-                              <span className="w-1 h-6 rounded-full bg-neutral-900"></span>
-                              <h2 className="text-3xl font-bold text-neutral-900 tracking-tight">{project.title}</h2>
+              <main className="flex-1 mb-64 pt-0 xl:pt-14">
+                <div className="space-y-64">
+                  {tabs.map((tab) => (
+                    <div
+                      key={tab}
+                      id={`platform-${tab}`}
+                      data-type="platform"
+                      data-platform={tab}
+                      className="space-y-32 scroll-mt-32"
+                    >
+                      {projectsByPlatform[tab].map((project) => (
+                        <section
+                          key={project.id}
+                          id={project.id}
+                          data-type="project"
+                          className="scroll-mt-32 space-y-16"
+                        >
+                          <div className="space-y-12">
+                            <div className="space-y-4">
+                              <div className="flex items-center gap-3">
+                                <span className="w-1 h-6 rounded-full bg-neutral-900"></span>
+                                <h2 className="text-3xl font-bold text-neutral-900 tracking-tight">{project.title}</h2>
+                              </div>
+
+                              <div className="flex flex-col mt-8">
+                                {project.problemStatement && (
+                                  <div className=" grid grid-cols-1 md:grid-cols-4  border border-neutral-200 rounded-t-xl">
+                                    <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50  rounded-tl-xl">
+                                      Problem statement :
+                                    </h4>
+                                    <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-light col-span-3">{project.problemStatement}</p>
+                                  </div>
+                                )}
+                                {project.solution && (
+                                  <div className=" grid grid-cols-1 md:grid-cols-4 border border-t-0 border-neutral-200  rounded-b-xl">
+                                    <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50 rounded-bl-xl">
+                                      Solution :
+                                    </h4>
+                                    <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-light col-span-3">{project.solution}</p>
+                                  </div>
+                                )}
+                                {project.achievements && (
+                                  <div className=" grid grid-cols-1 md:grid-cols-4 border border-neutral-200 rounded-xl mt-4">
+                                    <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50  rounded-bl-xl rounded-tl-xl">
+                                      Impact & results :
+                                    </h4>
+                                    <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-bold italic col-span-3">"{project.achievements}"</p>
+                                  </div>
+                                )}
+                                {project.task && (
+                                  <div className=" grid grid-cols-1 md:grid-cols-4 border border-neutral-200 rounded-xl mt-4">
+                                    <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50  rounded-bl-xl rounded-tl-xl">
+                                      Task :
+                                    </h4>
+                                    <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-light col-span-3">{project.task}</p>
+                                  </div>
+
+                                )}
+                              </div>
                             </div>
 
-                            <div className="flex flex-col mt-8">
-                              {project.problemStatement && (
-                                <div className=" grid grid-cols-1 md:grid-cols-4  border border-neutral-200 rounded-t-xl">
-                                  <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50  rounded-tl-xl">
-                                    Problem statement :
-                                  </h4>
-                                  <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-light col-span-3">{project.problemStatement}</p>
-                                </div>
-                              )}
-                              {project.solution && (
-                                <div className=" grid grid-cols-1 md:grid-cols-4 border border-t-0 border-neutral-200  rounded-b-xl">
-                                  <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50 rounded-bl-xl">
-                                    Solution :
-                                  </h4>
-                                  <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-light col-span-3">{project.solution}</p>
-                                </div>
-                              )}
-                              {project.achievements && (
-                                <div className=" grid grid-cols-1 md:grid-cols-4 border border-neutral-200 rounded-xl mt-4">
-                                  <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50  rounded-bl-xl rounded-tl-xl">
-                                    Impact & results :
-                                  </h4>
-                                  <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-bold italic col-span-3">"{project.achievements}"</p>
-                                </div>
-
-                              )}
-                              {project.task && (
-                                <div className=" grid grid-cols-1 md:grid-cols-4 border border-neutral-200 rounded-xl mt-4">
-                                  <h4 className="font-semibold p-4 text-md text-neutral-600 bg-neutral-50  rounded-bl-xl rounded-tl-xl">
-                                    Task :
-                                  </h4>
-                                  <p className="border-l border-neutral-200 p-4 text-lg text-neutral-600 leading-relaxed font-light col-span-3">{project.task}</p>
-                                </div>
-
-                              )}
-                            </div>
+                            <MediaCarousel media={project.media} activeTab={tab} />
                           </div>
-
-                          <MediaCarousel media={project.media} activeTab={activeTab} />
-                        </div>
-                      </section>
-                    ))}
-                  </motion.div>
-                </AnimatePresence>
+                        </section>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </main>
             </div>
           </>

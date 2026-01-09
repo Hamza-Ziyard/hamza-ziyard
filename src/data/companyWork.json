@@ -458,7 +458,7 @@
         ],
         "iOS": [
             {
-                "id": "ios-project-2",
+                "id": "ios-project-1",
                 "title": "Project View",
                 "problemStatement": "Users needed a way to process high-volume document requests involving complex, nested folder hierarchies, which traditional flat-file signing workflows could not support.",
                 "solution": "Designed a seamless folder management and navigation system that allows users to upload entire directory structures and batch-sign documents while maintaining clear visibility of the file hierarchy.",
@@ -527,7 +527,7 @@
                 ]
             },
             {
-                "id": "ios-project-3",
+                "id": "ios-project-2",
                 "title": "Envelope Workflow",
                 "problemStatement": "Mobile users lacked visibility into the document signing lifecycle, making it impossible to track recipient progress or identify bottlenecks while away from their desktops.",
                 "solution": "Introduced an intuitive, flowchart-inspired tracking UI optimized for mobile screens. This system visualizes complex multi-signer workflows, displaying real-time statuses and branching logic through a clean, interactive map.",
@@ -606,7 +606,7 @@
                 ]
             },
             {
-                "id": "ios-project-4",
+                "id": "ios-project-3",
                 "title": "AI Envelope Translator",
                 "problemStatement": "Users faced challenges understanding legal or official documents sent in foreign languages, leading to delays, confusion, and potential errors during the signing process.",
                 "solution": "Integrated an AI-powered translation engine with an intuitive language picker, allowing users to instantly translate envelope content into their local language without leaving the interface.",
@@ -660,7 +660,7 @@
                 ]
             },
             {
-                "id": "ios-project-5",
+                "id": "ios-project-4",
                 "title": "AI Envelope Summarizer",
                 "problemStatement": "Users struggled to quickly understand the key points of complex documents, leading to delays and potential errors during the signing process.",
                 "solution": "Developed an AI-powered envelope summarizer that automatically extracts and presents the most relevant information from documents, such as dates, parties, and key clauses, in a concise and easy-to-read format.",
@@ -689,7 +689,7 @@
                 ]
             },
             {
-                "id": "ios-project-6",
+                "id": "ios-project-5",
                 "title": "AI Autofill Envelope",
                 "problemStatement": "Users often had to manually enter information into envelopes, leading to errors and delays in the signing process.",
                 "solution": "Developed an AI-powered envelope autofiller that automatically populates envelope fields based on the document content, such as parties, dates, and key clauses, reducing the time and effort required to prepare envelopes.",
@@ -718,7 +718,7 @@
                 ]
             },
             {
-                "id": "ios-project-7",
+                "id": "ios-project-6",
                 "title": "AI Grammar Checker",
                 "problemStatement": "Manual data entry often led to grammatical and spelling errors in legal documents, undermining the professional credibility of the sender and risking misunderstandings.",
                 "solution": "Integrated an AI-powered 'One-Click Correct' feature that identifies linguistic errors in real-time and allows users to apply professional-grade corrections instantly within the editor.",
@@ -747,7 +747,7 @@
                 ]
             },
             {
-                "id": "ios-project-8",
+                "id": "ios-project-7",
                 "title": "AI Support Bot",
                 "problemStatement": "The platform lacked an efficient way for users to resolve minor issues instantly, often requiring manual intervention from the support team.",
                 "solution": "Developed a custom AI-powered support bot utilizing modern AI design guidelines to ensure a seamless, intuitive, and conversational user experience.",
@@ -781,7 +781,7 @@
                 ]
             },
             {
-                "id": "ios-project-9",
+                "id": "ios-project-8",
                 "title": "In-app Purchases",
                 "problemStatement": "Mobile users lacked a centralized way to manage their subscriptions, resulting in a fragmented experience when trying to identify their current plan, upgrade, or modify their billing status.",
                 "solution": "Designed an intuitive, native in-app purchase and subscription management interface, benchmarked against industry leaders to ensure a frictionless checkout and plan-switching experience.",
@@ -821,7 +821,7 @@
                 ]
             },
             {
-                "id": "ios-project-10",
+                "id": "ios-project-9",
                 "title": "Privacy & Security",
                 "problemStatement": "The introduction of biometric and passkey authentication requirements necessitated a more robust and organized approach to user security management.",
                 "solution": "Designed a centralized Security and Privacy hub that consolidates all authentication methods and privacy settings into a single, intuitive interface, rather than treating them as isolated features.",
@@ -890,7 +890,7 @@
                 ]
             },
             {
-                "id": "ios-project-11",
+                "id": "ios-project-10",
                 "title": "Business Card",
                 "problemStatement": "Enterprise users lacked a professional, digital method to share their business credentials and contact details within the platform, hindering networking and organizational transparency.",
                 "solution": "Designed a digital business card interface inspired by high-end physical cards, featuring granular privacy controls that allow users to toggle the visibility of specific professional data points.",
@@ -914,7 +914,7 @@
                 ]
             },
             {
-                "id": "ios-project-12",
+                "id": "ios-project-11",
                 "title": "Async Processing",
                 "problemStatement": "Long-running tasks such as document signing and bulk downloads utilized blocking UI patterns, forcing users to wait and preventing them from performing other actions within the app.",
                 "solution": "Designed an asynchronous background task manager with a non-intrusive popover notification system, allowing users to monitor progress while continuing their workflow uninterrupted.",
@@ -943,7 +943,7 @@
                 ]
             },
             {
-                "id": "ios-project-13",
+                "id": "ios-project-12",
                 "title": "Notification Panel",
                 "problemStatement": "The platform lacked a centralized notification system, forcing users to manually search for updates and actionable items, which created significant workflow delays.",
                 "solution": "Designed a context-aware notification panel that categorizes alerts into actionable tasks, informational updates, and system alerts. The UI dynamically adjusts based on the notification type to present the most relevant next steps.",
