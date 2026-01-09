@@ -71,9 +71,8 @@ const MediaItem = ({ media, isWeb }) => {
   if (media.type === 'image') {
     return (
       <div className={clsx(
-        "w-full overflow-hidden rounded-lg md:rounded-4xl border-2 border-neutral-300 shadow-sm bg-[#F5F3F3]",
-        isWeb && "!border-0 md:rounded-xl p-3",
-        aspectRatio
+        "w-full overflow-hidden rounded-3xl md:rounded-4xl border-2 border-neutral-300 shadow-sm bg-[#F5F3F3]",
+        isWeb && "!border-0 md:rounded-xl p-3"
       )}>
         <img
           src={'https://assets.hamzaziyard.com' + media.src}
