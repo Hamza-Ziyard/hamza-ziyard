@@ -64,21 +64,23 @@ const LottieRenderer = ({ url, aspectRatio = "aspect-video" }) => {
 };
 
 // Media Item Component
-const MediaItem = ({ media, isWeb }) => {
+const MediaItem = ({ media, isWeb, onClick }) => {
   const isMobile = media.src.toLowerCase().includes('ios') || media.src.toLowerCase().includes('android');
   const aspectRatio = isWeb ? "aspect-video" : (isMobile ? "aspect-[9/19.5]" : "aspect-video");
 
   if (media.type === 'image') {
     return (
-      <div className={clsx(
-        "w-full overflow-hidden rounded-3xl md:rounded-4xl border-2 border-border shadow-sm bg-surface",
-        isWeb && "!border-0 md:rounded-xl p-3"
-      )}>
+      <div
+        onClick={onClick}
+        className={clsx(
+          "w-full overflow-hidden rounded-3xl md:rounded-4xl border-2 border-border shadow-sm bg-surface cursor-pointer group/media",
+          isWeb && "!border-0 md:rounded-xl p-3"
+        )}>
         <img
           src={'https://assets.hamzaziyard.com' + media.src}
           alt={media.caption || "Project media"}
           loading="lazy"
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain "
           onLoad={(e) => {
             // Remove fixed aspect ratio once loaded if we want to allow natural height
             // But for now, keeping it fixed prevents layout shifts entirely
@@ -112,7 +114,7 @@ const MediaItem = ({ media, isWeb }) => {
 };
 
 // Media Carousel Component with Arrow Navigation
-const MediaCarousel = ({ media, activeTab }) => {
+const MediaCarousel = ({ media, activeTab, onMediaClick }) => {
   const scrollRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
@@ -148,7 +150,7 @@ const MediaCarousel = ({ media, activeTab }) => {
             transition={{ duration: 0.6 }}
             className="w-full"
           >
-            <MediaItem media={mediaItem} isWeb={activeTab === 'Web' || activeTab === 'Website'} />
+            <MediaItem media={mediaItem} isWeb={activeTab === 'Web' || activeTab === 'Website'} onClick={() => onMediaClick(idx, media)} />
             <p className="text-center text-text-secondary font-semibold mt-4 italic text-sm">{mediaItem.caption}</p>
           </motion.div>
         ))}
@@ -204,12 +206,158 @@ const MediaCarousel = ({ media, activeTab }) => {
                 : "xl:w-[calc((100%-6rem)/6)] lg:w-[calc((100%-6rem)/5)] md:w-[calc((100%-6rem)/3)] w-[calc((100%-6rem)/2)]"
             )}
           >
-            <MediaItem media={mediaItem} isWeb={activeTab === 'Web' || activeTab === 'Website'} />
+            <MediaItem media={mediaItem} isWeb={activeTab === 'Web' || activeTab === 'Website'} onClick={() => onMediaClick(idx, media)} />
             <p className="text-center text-text-secondary font-semibold mt-4 italic text-sm">{mediaItem.caption}</p>
           </motion.div>
         ))}
       </div>
     </div>
+  );
+};
+
+// Media Modal Component for Expanded View
+const MediaModal = ({ isOpen, onClose, mediaList, initialIndex }) => {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+
+  useEffect(() => {
+    if (isOpen) {
+      setCurrentIndex(initialIndex);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [initialIndex, isOpen]);
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, currentIndex, mediaList]);
+
+  if (!isOpen || !mediaList || mediaList.length === 0) return null;
+
+  const handleNext = () => setCurrentIndex((prev) => (prev + 1) % mediaList.length);
+  const handlePrev = () => setCurrentIndex((prev) => (prev - 1 + mediaList.length) % mediaList.length);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-background/95 backdrop-blur-xl p-4 md:p-12"
+      onClick={onClose}
+    >
+      {/* Close Button */}
+      <button
+        onClick={onClose}
+        className="absolute top-8 right-8 p-3 rounded-full bg-surface border border-border/50 text-primary hover:scale-110 active:scale-95 transition-all z-110"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+      </button>
+
+      {/* Main Content */}
+      <div className="relative w-full max-w-7xl flex-1 flex flex-col items-center justify-center gap-8" onClick={(e) => e.stopPropagation()}>
+
+        {/* Navigation Arrows */}
+        {mediaList.length > 1 && (
+          <>
+            <button
+              onClick={handlePrev}
+              className="absolute left-0 lg:-left-20 top-1/2 -translate-y-1/2 p-4 rounded-full bg-surface border border-border/50 text-primary hover:scale-110 active:scale-95 transition-all z-110 hidden md:block"
+            >
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute right-0 lg:-right-20 top-1/2 -translate-y-1/2 p-4 rounded-full bg-surface border border-border/50 text-primary hover:scale-110 active:scale-95 transition-all z-110 hidden md:block"
+            >
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
+          </>
+        )}
+
+        <div className="relative w-full h-full flex flex-col items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-full h-full flex flex-col items-center justify-center p-4"
+            >
+              <div className="relative group/expanded">
+                {mediaList[currentIndex].type === 'image' ? (
+                  <img
+                    src={'https://assets.hamzaziyard.com' + mediaList[currentIndex].src}
+                    alt={mediaList[currentIndex].caption}
+                    className="max-w-full max-h-[60vh] md:max-h-[70vh] object-contain rounded-2xl shadow-2xl border border-border/50 bg-surface"
+                    loading="lazy"
+                  />
+                ) : mediaList[currentIndex].type === 'video' ? (
+                  <video
+                    src={'https://assets.hamzaziyard.com' + mediaList[currentIndex].src}
+                    className="max-w-full max-h-[60vh] md:max-h-[70vh] object-contain rounded-2xl shadow-2xl border border-border/50 bg-black"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                ) : (
+                  <div className="w-full max-w-3xl aspect-video">
+                    <LottieRenderer url={'https://assets.hamzaziyard.com' + mediaList[currentIndex].src} />
+                  </div>
+                )}
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-8 text-center"
+              >
+                <h3 className="text-xl font-bold text-primary mb-2 line-clamp-1">{mediaList[currentIndex].caption}</h3>
+                <p className="text-text-secondary font-medium">{currentIndex + 1} / {mediaList.length}</p>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Thumbnail Carousel */}
+        {mediaList.length > 1 && (
+          <div className="w-full max-w-4xl px-4 pb-4">
+            <div className="flex gap-4 overflow-x-auto no-scrollbar py-4 justify-center">
+              {mediaList.map((item, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={clsx(
+                    "relative shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all duration-300",
+                    currentIndex === idx
+                      ? "border-primary scale-110 shadow-lg"
+                      : "border-transparent opacity-40 hover:opacity-100"
+                  )}
+                >
+                  {item.type === 'image' ? (
+                    <img src={'https://assets.hamzaziyard.com' + item.src} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full bg-surface flex items-center justify-center text-text-secondary text-xs uppercase font-bold">
+                      {item.type}
+                    </div>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </motion.div>
   );
 };
 
@@ -223,6 +371,15 @@ export default function ProjectDetailWork() {
   const [activeProjectId, setActiveProjectId] = useState('');
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [modalState, setModalState] = useState({ isOpen: false, mediaList: [], initialIndex: 0 });
+
+  const openModal = (index, list) => {
+    setModalState({ isOpen: true, mediaList: list, initialIndex: index });
+  };
+
+  const closeModal = () => {
+    setModalState(prev => ({ ...prev, isOpen: false }));
+  };
 
   useEffect(() => {
     if (companyData) {
@@ -505,7 +662,7 @@ export default function ProjectDetailWork() {
                               </div>
                             </div>
 
-                            <MediaCarousel media={project.media} activeTab={tab} />
+                            <MediaCarousel media={project.media} activeTab={tab} onMediaClick={openModal} />
                           </div>
                         </section>
                       ))}
@@ -517,6 +674,15 @@ export default function ProjectDetailWork() {
           </>
         )}
       </div>
+
+      <AnimatePresence>
+        <MediaModal
+          isOpen={modalState.isOpen}
+          onClose={closeModal}
+          mediaList={modalState.mediaList}
+          initialIndex={modalState.initialIndex}
+        />
+      </AnimatePresence>
 
       <AnimatePresence>
         {showBackToTop && (
