@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function Resume() {
+  useEffect(() => {
+    document.title = "Resume | Hamza Ziyard";
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -275,7 +280,7 @@ export default function Resume() {
             </h2>
             <div className="space-y-8">
               <div>
-                  <h3 className="font-bold text-text-primary text-xl">
+                <h3 className="font-bold text-text-primary text-xl">
                   B.Sc. (Hons) in Computer Science
                 </h3>
                 <p className="font-bold text-base text-text-secondary mt-1">

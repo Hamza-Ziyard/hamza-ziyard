@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import originalProjects from '../data/projects.json';
 import companyWorkData from '../data/companyWork.json';
 import ProjectCard from '../components/ui/ProjectCard';
@@ -8,6 +8,10 @@ export default function Home() {
   const [selectedCompany, setSelectedCompany] = useState('All companies');
   const [selectedType, setSelectedType] = useState('All types');
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
+
+  useEffect(() => {
+    document.title = "Hamza Ziyard | Product Designer & Creative Developer";
+  }, []);
 
   const companyCards = useMemo(() => companyWorkData.map(company => ({
     id: company.companyId,

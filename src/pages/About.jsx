@@ -2,36 +2,36 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const HOBBIES = [
-{
-  url: "https://assets.hamzaziyard.com/about/hobbies/3.webp",
-  title: "Gaming",
-  description: "Button-masher by heart, strategist on good days Not a pro, just vibing.",
-  width: "w-90"
-},
-{
-  url: "https://assets.hamzaziyard.com/about/hobbies/4.webp",
-  title: "2D Art & Sketching",
-  description: "Turning random ideas into lines, faces, and sometimes actual art",
-  width: "w-90"
-},
-{
-  url: "https://assets.hamzaziyard.com/about/hobbies/5.webp",
-  title: "Foodie",
-  description: "Always down to explore new flavors… especially if biriyani is involved",
-  width: "w-70"
-},
-{
-  url: "https://assets.hamzaziyard.com/about/hobbies/1.webp",
-  title: "Cat Lover",
-  description: "Professional cat spotter & part-time cat entertainer",
-  width: "w-70"
-},
-{
-  url: "https://assets.hamzaziyard.com/about/hobbies/6.webp",
-  title: "Swimming",
-  description: "Chasing peace underwater and speed… occasionally",
-  width: "w-90"
-}
+  {
+    url: "https://assets.hamzaziyard.com/about/hobbies/3.webp",
+    title: "Gaming",
+    description: "Button-masher by heart, strategist on good days Not a pro, just vibing.",
+    width: "w-90"
+  },
+  {
+    url: "https://assets.hamzaziyard.com/about/hobbies/4.webp",
+    title: "2D Art & Sketching",
+    description: "Turning random ideas into lines, faces, and sometimes actual art",
+    width: "w-90"
+  },
+  {
+    url: "https://assets.hamzaziyard.com/about/hobbies/5.webp",
+    title: "Foodie",
+    description: "Always down to explore new flavors… especially if biriyani is involved",
+    width: "w-70"
+  },
+  {
+    url: "https://assets.hamzaziyard.com/about/hobbies/1.webp",
+    title: "Cat Lover",
+    description: "Professional cat spotter & part-time cat entertainer",
+    width: "w-70"
+  },
+  {
+    url: "https://assets.hamzaziyard.com/about/hobbies/6.webp",
+    title: "Swimming",
+    description: "Chasing peace underwater and speed… occasionally",
+    width: "w-90"
+  }
 
 ];
 
@@ -39,6 +39,10 @@ export default function About() {
   const scrollRef = useRef(null);
   const [isInteracting, setIsInteracting] = useState(false);
   const [selectedHobby, setSelectedHobby] = useState(null);
+
+  useEffect(() => {
+    document.title = "About | Hamza Ziyard";
+  }, []);
 
   const mouseStartX = useRef(0);
   const scrollLeftStart = useRef(0);
@@ -132,7 +136,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
           >
-            <img src="https://assets.hamzaziyard.com/about/me-animated.webp" alt="" className='max-h-[50vh] lg:block hidden rounded-2xl' />
+            <img src="https://assets.hamzaziyard.com/about/me-animated.webp" alt="Hamza Ziyard - Product Designer" className='max-h-[50vh] lg:block hidden rounded-2xl' />
           </motion.div>
         </div>
         <div className="flex-1">

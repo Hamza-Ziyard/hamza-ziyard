@@ -76,7 +76,7 @@ const MediaItem = ({ media, isWeb }) => {
       )}>
         <img
           src={'https://assets.hamzaziyard.com' + media.src}
-          alt=""
+          alt={media.caption || "Project media"}
           loading="lazy"
           className="w-full h-full object-contain"
           onLoad={(e) => {
@@ -223,6 +223,12 @@ export default function ProjectDetailWork() {
   const [activeProjectId, setActiveProjectId] = useState('');
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    if (companyData) {
+      document.title = `${companyData.companyName} | Hamza Ziyard`;
+    }
+  }, [companyData]);
 
   const projectsByPlatform = companyData?.projects || {};
 

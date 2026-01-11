@@ -1,0 +1,24 @@
+# Hamza Ziyard
+
+Hamza Ziyard is a Product Designer & Creative Developer who specializes in designing experiences where logic meets emotion. He turns complex systems into effortless, enjoyable interfaces.
+
+## Professional Profile
+- **Role**: Product Designer & Creative Developer
+- **Location**: Based in Sri Lanka
+- **Experience**: iOS Design, Android Design, Web Design, Creative Development
+
+## Core Skills
+- **Design**: UI/UX, Product Strategy, Visual Design, Systems Design
+- **Development**: React, Next.js, Framer Motion, Frontend Engineering
+- **Tools**: Figma, Adobe Suite, VS Code, Git
+
+## Key Projects
+- **Company Work**: Various projects across different industries, optimizing user journeys and brand identities.
+- **Independent Projects**: Exploring the boundaries of design and code through innovative web experiences.
+
+## Hobbies & Interests
+- gaming, 2D Art & Sketching, Photography (Foodie), Swimming, and Cat Lover.
+
+## Contact & Links
+- **Website**: [hamzaziyard.com](https://hamzaziyard.com)
+- **Resume**: [hamzaziyard.com/resume](https://hamzaziyard.com/resume)

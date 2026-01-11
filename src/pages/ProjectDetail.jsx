@@ -98,6 +98,13 @@ const InlineLottie = ({ animationData }) => {
 export default function ProjectDetail() {
   const { id } = useParams();
   const project = projects.find(p => p.id === id);
+
+  useEffect(() => {
+    if (project) {
+      document.title = `${project.title} | Hamza Ziyard`;
+    }
+  }, [project]);
+
   if (!project) return <Navigate to="/" replace />;
 
   const sections = useMemo(() => {
@@ -269,7 +276,7 @@ export default function ProjectDetail() {
                       if (block.type === 'image') {
                         return (
                           <figure key={idx} className="space-y-4">
-                            <img src={block.url} alt={block.caption || ''} loading="lazy" className={`rounded-2xl border border-border/50 shadow-sm ${block.width === 'full' ? 'w-full' : 'max-w-4xl'}`} />
+                            <img src={block.url} alt={block.caption || 'Project visual'} loading="lazy" className={`rounded-2xl border border-border/50 shadow-sm ${block.width === 'full' ? 'w-full' : 'max-w-4xl'}`} />
                             {block.caption && <figcaption className="text-sm text-text-secondary font-medium text-center">{block.caption}</figcaption>}
                           </figure>
                         );
@@ -280,7 +287,7 @@ export default function ProjectDetail() {
                             {block.images.map((img, i) => (
                               <div key={i} className="space-y-2">
                                 <div className="rounded-2xl overflow-hidden border border-border/50 shadow-sm bg-surface">
-                                  <img src={img.url} alt={img.caption || ''} loading="lazy" className="w-full h-auto object-cover transition-transform duration-700 hover:scale-[1.02]" />
+                                  <img src={img.url} alt={img.caption || 'Project gallery image'} loading="lazy" className="w-full h-auto object-cover transition-transform duration-700 hover:scale-[1.02]" />
                                 </div>
                                 {img.caption && <p className="text-sm text-text-secondary text-center font-medium">{img.caption}</p>}
                               </div>
@@ -298,11 +305,11 @@ export default function ProjectDetail() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                               <div className="space-y-4">
                                 <span className="inline-block px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-bold border border-rose-500/20">BEFORE</span>
-                                <img src={block.beforeImage} loading="lazy" className="rounded-xl w-full grayscale opacity-60 border border-border/20" />
+                                <img src={block.beforeImage} alt="Design before redesign" loading="lazy" className="rounded-xl w-full grayscale opacity-60 border border-border/20" />
                               </div>
                               <div className="space-y-4">
                                 <span className="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold border border-blue-500/20">AFTER</span>
-                                <img src={block.afterImage} loading="lazy" className="rounded-xl w-full shadow-2xl border border-blue-500/10" />
+                                <img src={block.afterImage} alt="Design after redesign" loading="lazy" className="rounded-xl w-full shadow-2xl border border-blue-500/10" />
                               </div>
                             </div>
                           </div>
@@ -328,11 +335,11 @@ export default function ProjectDetail() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="space-y-4">
                         <span className="inline-block px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-bold border border-rose-500/20">BEFORE</span>
-                        <img src={project.sections.redesign.beforeImage} loading="lazy" className="rounded-xl w-full grayscale opacity-60 border border-border/20" />
+                        <img src={project.sections.redesign.beforeImage} alt="Original design" loading="lazy" className="rounded-xl w-full grayscale opacity-60 border border-border/20" />
                       </div>
                       <div className="space-y-4">
                         <span className="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold border border-blue-500/20">AFTER</span>
-                        <img src={project.sections.redesign.afterImage} loading="lazy" className="rounded-xl w-full shadow-2xl border border-blue-500/10" />
+                        <img src={project.sections.redesign.afterImage} alt="Redesigned version" loading="lazy" className="rounded-xl w-full shadow-2xl border border-blue-500/10" />
                       </div>
                     </div>
                   </div>
