@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, Linkedin, Mail } from 'lucide-react';
 import clsx from 'clsx';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -64,7 +64,7 @@ export default function Navbar() {
           </div>
 
         </div>
-        <div className='flex items-center gap-6 lg:gap-8'>
+        <div className='flex items-center gap-4 lg:gap-6'>
           <div className='flex gap-6 lg:gap-8'>
             {navItems.map((item) => {
               const isActive = location.pathname === item.path;
@@ -88,6 +88,25 @@ export default function Navbar() {
                 </Link>
               );
             })}
+          </div>
+
+          <div className="hidden md:flex items-center gap-6 border-l border-border pl-6 ml-2">
+            <a
+              href="https://linkedin.com/in/hamza-ziyard"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-secondary hover:text-primary transition-colors duration-300"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a
+              href="mailto:hamzaziyard.ux@gmail.com"
+              className="text-text-secondary hover:text-primary transition-colors duration-300"
+              aria-label="Email"
+            >
+              <Mail size={18} />
+            </a>
           </div>
 
           <button
