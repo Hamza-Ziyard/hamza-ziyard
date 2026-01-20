@@ -20,12 +20,12 @@ export default function Layout() {
         <Outlet />
       </main>
       <footer className="py-8 px-8 border-t border-border">
-        <div className="mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="mx-auto flex flex-col-reverse md:flex-row  justify-between items-center gap-6">
           <div className="flex flex-col items-center md:items-start gap-2">
             <p className="text-text-secondary text-sm">© {new Date().getFullYear()} Designed & Built by Hamza Ziyard</p>
           </div>
 
-          <div className="flex items-center gap-8">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
             <a
               href="https://www.linkedin.com/in/hamza-ziyard/"
               target="_blank"
