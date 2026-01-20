@@ -1,9 +1,9 @@
 # Hamza Ziyard
 
-Hamza Ziyard is a Product Designer & Creative Developer who specializes in designing experiences where logic meets emotion. He turns complex systems into effortless, enjoyable interfaces.
+Hamza Ziyard is a UI/UX Designer & Creative Developer who specializes in designing experiences where logic meets emotion. He turns complex systems into effortless, enjoyable interfaces.
 
 ## Professional Profile
-- **Role**: Product Designer & Creative Developer
+- **Role**: UI/UX Designer & Creative Developer
 - **Location**: Based in Sri Lanka
 - **Experience**: iOS Design, Android Design, Web Design, Creative Development
 
@@ -17,7 +17,7 @@ Hamza Ziyard is a Product Designer & Creative Developer who specializes in desig
 - **Independent Projects**: Exploring the boundaries of design and code through innovative web experiences.
 
 ## Hobbies & Interests
-- gaming, 2D Art & Sketching, Photography (Foodie), Swimming, and Cat Lover.
+- Gaming, 2D Art & Sketching, Photography, Foodie, Swimming, and Cat Lover.
 
 ## Contact & Links
 - **Website**: [hamzaziyard.com](https://hamzaziyard.com)
