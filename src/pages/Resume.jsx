@@ -28,302 +28,277 @@ export default function Resume() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="max-w-5xl mx-4 lg:mx-auto py-20 px-6 sm:px-10 border border-border rounded-2xl mt-4 shadow-lg"
+      className="max-w-4xl mx-4 lg:mx-auto py-16 px-6 sm:px-12 border border-border rounded-2xl mt-4 shadow-lg bg-background"
     >
       {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start mb-12 border-b border-border pb-8">
-        <div>
-          <h1 className="text-5xl md:text-6xl font-bold text-text-primary mb-2">
-            Hamza Ziyard
-          </h1>
-          <p className="text-xl md:text-2xl font-semibold text-text-primary">
-            UI/UX Designer
-          </p>
+      <div className="text-center mb-10 border-b border-border pb-8">
+        <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-3 tracking-tight">
+          Hamza Ziyard
+        </h1>
+        <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-sm md:text-base text-text-secondary mb-6">
+          <a href="tel:+94776145330" className="hover:text-text-primary transition-colors">
+            +94 776145330
+          </a>
+          <span>•</span>
+          <a
+            href="mailto:hamzaziyard.ux@gmail.com"
+            className="hover:text-text-primary transition-colors"
+          >
+            hamzaziyard.ux@gmail.com
+          </a>
+          <span>•</span>
+          <a
+            href="https://linkedin.com/in/hamza-ziyard"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-text-primary transition-colors"
+          >
+            linkedin.com/in/hamza-ziyard
+          </a>
+          <span>•</span>
+          <a
+            href="/"
+            rel="noopener noreferrer"
+            className="hover:text-text-primary transition-colors"
+          >
+            www.hamzaziyard.com
+          </a>
         </div>
-        <div className="mt-6 md:mt-0 md:text-right space-y-1 text-text-secondary text-sm md:text-base">
-          <p>
-            <a href="tel:+94776145330" className="hover:text-text-primary transition-colors">
-              +94 776145330
-            </a>
-          </p>
-          <p>
-            <a
-              href="mailto:hamzaziyard.ux@gmail.com"
-              className="hover:text-text-primary transition-colors"
-            >
-              hamzaziyard.ux@gmail.com
-            </a>
-          </p>
-          <p>
-            <a
-              href="https://linkedin.com/in/hamza-ziyard"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-text-primary transition-colors"
-            >
-              linkedin.com/in/hamza-ziyard
-            </a>
-          </p>
-          <p>
-            <a
-              href="/"
-              rel="noopener noreferrer"
-              className="hover:text-text-primary transition-colors"
-            >
-              www.hamzaziyard.com
-            </a>
-          </p>
+
+        {/* Download PDF Button at top */}
+        <div className="flex justify-center">
+          <a
+            href="https://assets.hamzaziyard.com/CV/resume/Hamza%20Ziyard-CV.pdf"
+            download="Hamza_Ziyard_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-background hover:opacity-90 transition-all rounded-md font-bold text-sm shadow-md"
+          >
+            <span>Download PDF Resume</span>
+          </a>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {/* Left Column - Main Content */}
-        <div className="lg:col-span-2 space-y-12">
-          {/* Intro */}
-          <motion.section variants={itemVariants}>
-            <p className="text-base leading-relaxed text-text-secondary">
-              UI/UX Designer with 4+ years of experience in product design, accessibility, and
-              interactive prototyping. Proven ability to improve user engagement, streamline user
-              journeys, and collaborate with cross-functional teams to deliver high-quality
-              digital experiences.
+      <div className="space-y-10">
+        {/* Intro */}
+        <motion.section variants={itemVariants}>
+          <p className="text-base leading-relaxed text-text-secondary">
+            UI/UX Designer with 4+ years of experience across product design, accessibility, and multilingual interface design. Experienced in leading design system initiatives, running stakeholder-driven redesigns, and using AI-assisted workflows to speed up design-to-development handoff. Comfortable collaborating with engineering teams on Agile delivery and contributing to accessibility and performance NFRs.
+          </p>
+        </motion.section>
+
+        {/* Skills */}
+        <motion.section variants={itemVariants}>
+          <h2 className="text-xs uppercase tracking-widest font-bold text-[#5169F6] dark:text-[#7C8FFF] mb-4">
+            SKILLS
+          </h2>
+          <div className="space-y-2 text-sm md:text-base leading-relaxed">
+            <p>
+              <span className="font-bold text-text-primary">Core UX & Research:</span>{" "}
+              <span className="text-text-secondary">
+                User research, Usability testing, Wireframing, Prototyping (interactive), Information architecture, User flows / journey mapping, Heuristic evaluation, Data-driven design / analytics understanding, Multilingual Design
+              </span>
             </p>
-          </motion.section>
+            <p>
+              <span className="font-bold text-text-primary">Design:</span>{" "}
+              <span className="text-text-secondary">
+                Figma, Sketch, Adobe XD, Canva
+              </span>
+            </p>
+            <p>
+              <span className="font-bold text-text-primary">Design Systems and Libraries:</span>{" "}
+              <span className="text-text-secondary">
+                Component libraries, iOS HCI guidelines, Android Material Design guidelines
+              </span>
+            </p>
+            <p>
+              <span className="font-bold text-text-primary">Web & No-Code Tools:</span>{" "}
+              <span className="text-text-secondary">
+                Webflow, Framer, WordPress
+              </span>
+            </p>
+            <p>
+              <span className="font-bold text-text-primary">Programming Languages:</span>{" "}
+              <span className="text-text-secondary">
+                HTML, CSS, Javascript
+              </span>
+            </p>
+            <p>
+              <span className="font-bold text-text-primary">AI tools:</span>{" "}
+              <span className="text-text-secondary">
+                ChatGPT, Gemini, Claude, Github Co-pilot, Prompt Engineering
+              </span>
+            </p>
+            <p>
+              <span className="font-bold text-text-primary">Working knowledge of:</span>{" "}
+              <span className="text-text-secondary">
+                React JS, Next JS, Swift, and related front-end frameworks
+              </span>
+            </p>
+          </div>
+        </motion.section>
 
-          {/* Work Experience */}
-          <motion.section variants={itemVariants}>
-            <h2 className="text-sm uppercase tracking-widest font-bold text-[#5169F6] dark:text-[#7C8FFF] mb-5">
-              Work Experience
-            </h2>
+        {/* Work Experience */}
+        <motion.section variants={itemVariants}>
+          <h2 className="text-xs uppercase tracking-widest font-bold text-[#5169F6] dark:text-[#7C8FFF] mb-6">
+            WORK EXPERIENCE
+          </h2>
 
-            <div className="space-y-12">
-              {/* Zafer */}
-              <div className="group">
-                <div className="flex flex-col sm:flex-row justify-between items-start mb-1">
-                  <h3 className="font-bold text-text-primary text-xl">
-                    Zafer • Colombo, Sri Lanka
-                  </h3>
-                  <span className="text-base font-bold text-text-primary sm:text-right">
-                    03/2024 - Present
-                  </span>
-                </div>
-                <p className="font-medium text-base text-text-secondary mb-4">
-                  UI/UX Designer • Full-time
-                </p>
-                <ul className="space-y-3 list-none text-sm md:text-base text-text-secondary">
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Introduced AI-driven design solutions, integrating modern AI design trends into the product experience.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Introduced platform-specific UI design practices by creating separate design systems for iOS and Android, aligned with respective HCI principles, Apple Human Interface Guidelines, and Material Design standards.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Redesigned the main product UI to elevate overall usability and engagement.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Implemented WCAG 2.1 standards to significantly improve product accessibility.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Led the website's UI overhaul, improving design-to-development collaboration and workflow.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Delivered an enterprise-ready white-label application in close partnership with development teams.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Streamlined user journeys through detailed interactive Figma prototypes.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Introduced a scalable, future-ready design guideline for the company to support consistency among current and upcoming designers.</span>
-                  </li>
-                </ul>
+          <div className="space-y-8">
+            {/* Self-Employed (Current) */}
+            <div>
+              <div className="flex flex-col sm:flex-row justify-between items-baseline mb-1">
+                <h3 className="font-bold text-text-primary text-base md:text-lg">
+                  Self-Employed
+                </h3>
+                <span className="text-sm font-bold text-text-primary sm:text-right">
+                  01/2026 - Present
+                </span>
               </div>
-
-              {/* Surge Global */}
-              <div className="group">
-                <div className="flex flex-col sm:flex-row justify-between items-start mb-1">
-                  <h3 className="font-bold text-text-primary text-xl">
-                    Surge Global • Colombo, Sri Lanka
-                  </h3>
-                  <span className="text-base font-bold text-text-primary sm:text-right">
-                    07/2022 - 12/2022
-                  </span>
-                </div>
-                <p className="font-medium text-base text-text-secondary mb-4">
-                  UI/UX Intern • Full-time
-                </p>
-                <ul className="space-y-3 list-none text-sm md:text-base text-text-secondary">
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Created user journeys, sitemaps, and prototypes to support clear and effective UX flows.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Enhanced client branding by developing detailed UI components and design prototypes.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Designed a complete dating app experience, delivering both low-fidelity and high-fidelity prototypes.</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Vetstoria */}
-              <div className="group">
-                <div className="flex flex-col sm:flex-row justify-between items-start mb-1">
-                  <h3 className="font-bold text-text-primary text-xl">
-                    Vetstoria • Colombo, Sri Lanka
-                  </h3>
-                  <span className="text-base font-bold text-text-primary sm:text-right">
-                    07/2021 - 07/2022
-                  </span>
-                </div>
-                <p className="font-medium text-base text-text-secondary mb-4">
-                  Web Development Intern • Full-time
-                </p>
-                <ul className="space-y-3 list-none text-sm md:text-base text-text-secondary">
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Designed customer acquisition landing pages to support improved user retention.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Developed proof-of-concept applications to explore and validate new feature ideas.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                    <span>Contributed to branding improvements through structured design sprints.</span>
-                  </li>
-                </ul>
-              </div>
+              <p className="font-semibold text-sm md:text-base text-text-primary mb-3">
+                UI/UX Designer and UI Developer • Freelancer
+              </p>
+              <ul className="space-y-2 list-disc list-inside text-sm md:text-base text-text-secondary leading-relaxed">
+                <li>Redesigned the ATM interface for DFCC Bank, delivering a multilingual version across Sinhala, Tamil, and English to serve a broader customer base</li>
+                <li>Designed and built Pockomint, a native iOS expense tracking app, from concept through a pre-launch beta, gathering direct user feedback that informed iterative design refinements</li>
+                <li>Partnered with a development team to turn a SaaS inventory concept into a build-ready prototype, closing usability gaps through direct stakeholder feedback</li>
+                <li>Used AI tools including GitHub Copilot to accelerate design and development iteration within Agile sprint cycles</li>
+              </ul>
             </div>
-          </motion.section>
-        </div>
 
-        {/* Right Column - Sidebar */}
-        <div className="space-y-12">
-          {/* Skills */}
-          <motion.section variants={itemVariants}>
-            <h2 className="text-sm uppercase tracking-widest font-bold text-[#5169F6] dark:text-[#7C8FFF] mb-5">
-              Skills
-            </h2>
-            <div className="space-y-5">
-              <div className="flex gap-3 text-base leading-relaxed">
-                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                <p>
-                  <span className="font-bold text-text-primary">Core UX & Research:</span>
-                  <span className="text-text-secondary ml-1">
-                    User research, Usability testing, Wireframing, Prototyping (interactive),
-                    Information architecture, User flows / journey mapping, Heuristic evaluation,
-                    Data-driven design / analytics understanding
-                  </span>
-                </p>
+            {/* Zafer */}
+            <div>
+              <div className="flex flex-col sm:flex-row justify-between items-baseline mb-1">
+                <h3 className="font-bold text-text-primary text-base md:text-lg">
+                  Zafer
+                </h3>
+                <div className="text-sm font-bold text-text-primary sm:text-right">
+                  <span>Colombo, Sri Lanka • </span>
+                  <span>03/2024 - 12/2025</span>
+                </div>
               </div>
-              <div className="flex gap-3 text-base leading-relaxed">
-                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                <p>
-                  <span className="font-bold text-text-primary">Design:</span>
-                  <span className="text-text-secondary ml-1">
-                    Figma, Sketch, Adobe XD, Canva
-                  </span>
-                </p>
-              </div>
-              <div className="flex gap-3 text-base leading-relaxed">
-                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                <p>
-                  <span className="font-bold text-text-primary">Design Systems:</span>
-                  <span className="text-text-secondary ml-1">
-                    Design systems, iOS HCI guidelines, Android Material Design guidelines
-                  </span>
-                </p>
-              </div>
-              <div className="flex gap-3 text-base leading-relaxed">
-                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                <p>
-                  <span className="font-bold text-text-primary">Web & No-Code Tools:</span>
-                  <span className="text-text-secondary ml-1">
-                    Webflow, Framer, WordPress
-                  </span>
-                </p>
-              </div>
-              <div className="flex gap-3 text-base leading-relaxed">
-                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                <p>
-                  <span className="font-bold text-text-primary">Programming Languages:</span>
-                  <span className="text-text-secondary ml-1">
-                    HTML, CSS, Javascript
-                  </span>
-                </p>
-              </div>
-              <div className="flex gap-3 text-base leading-relaxed">
-                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-primary shrink-0" />
-                <p>
-                  <span className="font-bold text-text-primary">AI tools:</span>
-                  <span className="text-text-secondary ml-1">
-                    ChatGPT, Gemini, Claude
-                  </span>
-                </p>
-              </div>
+              <p className="font-semibold text-sm md:text-base text-text-primary mb-3">
+                UI/UX Designer • Full-time
+              </p>
+              <ul className="space-y-2 list-disc list-inside text-sm md:text-base text-text-secondary leading-relaxed">
+                <li>Introduced separate iOS and Android design systems aligned to Apple HIG and Material Design, reducing design debt for future contributors</li>
+                <li>Led a full UI redesign after diagnosing usability and engagement gaps through direct stakeholder and client feedback sessions</li>
+                <li>Ran feedback sessions with stakeholders and clients to surface usability and engagement gaps, then translated findings into a full UI redesign</li>
+                <li>Implemented WCAG 2.1 accessibility standards across the product, closing gaps that would otherwise have blocked compliance</li>
+                <li>Restructured the design-to-development handoff workflow, cutting back-and-forth between design and engineering teams</li>
+                <li>Delivered an enterprise-grade white-label application in close partnership with a cross-functional team of around twenty across Android, iOS, and web, participating in Agile ceremonies and sprint reviews to translate ambiguous enterprise requirements into scalable, developer-ready designs</li>
+                <li>Extended the design system to support multilingual interfaces across English and Arabic, maintaining visual consistency across multiple features and screens</li>
+                <li>Authored a company-wide design guideline to keep future work consistent as the team scaled</li>
+                <li>Used Google Analytics to prioritize usability fixes based on real user behavior across freelance projects</li>
+              </ul>
             </div>
-          </motion.section>
 
-          {/* Education */}
-          <motion.section variants={itemVariants}>
-            <h2 className="text-sm uppercase tracking-widest font-bold text-[#5169F6] dark:text-[#7C8FFF] mb-5">
-              Education
-            </h2>
-            <div className="space-y-8">
-              <div>
-                <h3 className="font-bold text-text-primary text-xl">
+            {/* Self-Employed (2023 - 2024) */}
+            <div>
+              <div className="flex flex-col sm:flex-row justify-between items-baseline mb-1">
+                <h3 className="font-bold text-text-primary text-base md:text-lg">
+                  Self-Employed
+                </h3>
+                <span className="text-sm font-bold text-text-primary sm:text-right">
+                  10/2023 - 02/2024
+                </span>
+              </div>
+              <p className="font-semibold text-sm md:text-base text-text-primary mb-3">
+                UI/UX Designer and UI Developer • Freelancer
+              </p>
+              <ul className="space-y-2 list-disc list-inside text-sm md:text-base text-text-secondary leading-relaxed">
+                <li>Led UI design and front end direction for a wedding planning platform, working closely with developers and product managers to bring user flows to life</li>
+                <li>Designed and developed a startup company's main website in Webflow, owning the project from concept through launch</li>
+                <li>Built and deployed a WordPress website for a coding education client based on a provided design</li>
+              </ul>
+            </div>
+
+            {/* Surge Global */}
+            <div>
+              <div className="flex flex-col sm:flex-row justify-between items-baseline mb-1">
+                <h3 className="font-bold text-text-primary text-xl font-bold text-text-primary text-base md:text-lg">
+                  Surge Global
+                </h3>
+                <div className="text-sm font-bold text-text-primary sm:text-right">
+                  <span>Colombo, Sri Lanka • </span>
+                  <span>07/2022 - 12/2022</span>
+                </div>
+              </div>
+              <p className="font-semibold text-sm md:text-base text-text-primary mb-3">
+                UI/UX Intern • Full-time
+              </p>
+              <ul className="space-y-2 list-disc list-inside text-sm md:text-base text-text-secondary leading-relaxed">
+                <li>Built user journeys, sitemaps, and prototypes from scratch to bring structure to early-stage, undefined UX flows.</li>
+                <li>Translated client branding goals into concrete UI components and prototypes, closing the gap between brand direction and usable design.</li>
+                <li>Designed a full dating app experience end-to-end, from low-fidelity concepts through high-fidelity prototypes, to explore the product's viability.</li>
+              </ul>
+            </div>
+
+            {/* Vetstoria */}
+            <div>
+              <div className="flex flex-col sm:flex-row justify-between items-baseline mb-1">
+                <h3 className="font-bold text-text-primary text-base md:text-lg">
+                  Vetstoria
+                </h3>
+                <div className="text-sm font-bold text-text-primary sm:text-right">
+                  <span>Colombo, Sri Lanka • </span>
+                  <span>07/2021 - 06/2022</span>
+                </div>
+              </div>
+              <p className="font-semibold text-sm md:text-base text-text-primary mb-3">
+                Web Development Intern • Full-time
+              </p>
+              <ul className="space-y-2 list-disc list-inside text-sm md:text-base text-text-secondary leading-relaxed">
+                <li>Designed customer acquisition landing pages aimed at improving retention, using conversion-focused layout and messaging decisions.</li>
+                <li>Built proof-of-concept applications to test and validate new feature ideas before committing engineering resources.</li>
+                <li>Contributed to branding improvements through structured design sprints.</li>
+              </ul>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Education */}
+        <motion.section variants={itemVariants}>
+          <h2 className="text-xs uppercase tracking-widest font-bold text-[#5169F6] dark:text-[#7C8FFF] mb-6">
+            EDUCATION
+          </h2>
+          <div className="space-y-6">
+            <div>
+              <div className="flex flex-col sm:flex-row justify-between items-baseline mb-1">
+                <h3 className="font-bold text-text-primary text-base md:text-lg">
                   B.Sc. (Hons) in Computer Science
                 </h3>
-                <p className="font-bold text-base text-text-secondary mt-1">
-                  University of Westminster
-                </p>
-                <p className="font-bold text-base text-text-secondary mt-1">
+                <span className="text-sm font-bold text-text-primary sm:text-right">
                   08/2019 - 08/2023
-                </p>
-                <p className="textbase text-text-secondary mt-2">
-                  First Class Honors with Industrial Experience
-                </p>
+                </span>
               </div>
+              <p className="text-sm md:text-base text-text-secondary">
+                University of Westminster
+              </p>
+              <p className="text-sm md:text-base text-text-secondary mt-1">
+                First Class Honors with Industrial Experience
+              </p>
+            </div>
 
-              <div>
-                <h3 className="font-bold text-text-primary text-xl pt-4">
+            <div>
+              <div className="flex flex-col sm:flex-row justify-between items-baseline mb-1">
+                <h3 className="font-bold text-text-primary text-base md:text-lg">
                   A/L & O/L
                 </h3>
-                <p className="font-bold text-base text-text-secondary mt-1">
-                  Zahira College
-                </p>
-                <p className="font-bold text-base text-text-secondary mt-1">
-                  02/2009 - 09/2019
-                </p>
-                <p className="text-base text-text-secondary mt-2">
-                  Physical Science for A/L
-                </p>
+                <div className="text-sm font-bold text-text-primary sm:text-right">
+                  <span>Sri Lanka • </span>
+                  <span>02/2009 - 09/2019</span>
+                </div>
               </div>
+              <p className="text-sm md:text-base text-text-secondary">
+                Zahira College
+              </p>
+              <p className="text-sm md:text-base text-text-secondary mt-1">
+                Physical Science for A/L
+              </p>
             </div>
-          </motion.section>
-
-          {/* Download Button */}
-          <div className="pt-4">
-            <a
-              href="https://assets.hamzaziyard.com/CV/resume/Hamza%20Ziyard-CV.pdf"
-              download="Hamza_Ziyard_CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full text-center px-6 py-4 bg-primary text-background hover:opacity-90 transition-all rounded-sm font-bold text-sm  shadow-sm"
-            >
-              Download PDF
-            </a>
           </div>
-        </div>
+        </motion.section>
       </div>
     </motion.div>
   );
