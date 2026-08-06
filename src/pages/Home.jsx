@@ -2,13 +2,12 @@ import { useState, useMemo, useEffect } from 'react';
 import originalProjects from '../data/projects.json';
 import companyWorkData from '../data/companyWork.json';
 import ProjectCard from '../components/ui/ProjectCard';
+import HeroIntro from '../components/ui/HeroIntro';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Home() {
   const [selectedCompany, setSelectedCompany] = useState('All companies');
   const [selectedType, setSelectedType] = useState('All types');
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
-
   useEffect(() => {
     document.title = "Hamza Ziyard | Product Designer & Creative Developer";
   }, []);
@@ -41,30 +40,27 @@ export default function Home() {
     });
   }, [allProjects, selectedCompany, selectedType]);
 
-  // Distribute projects across columns for a masonry-like layout
   const columns = useMemo(() => {
-    if (viewMode === 'list') {
-      return [filteredProjects.map((p, i) => ({ ...p, filterIndex: i }))];
-    }
     const cols = [[], [], []];
     filteredProjects.forEach((project, index) => {
       cols[index % 3].push({ ...project, filterIndex: index });
     });
     return cols;
-  }, [filteredProjects, viewMode]);
+  }, [filteredProjects]);
 
   return (
     <section className='pt-0 px-6 max-w-[2800px] mx-auto'>
+      <HeroIntro />
       {/* Filter Bar */}
       {/* <div className="hidden lg:block w-fit mx-auto absolute inset-x-0 bottom-32 z-100 justify-center">
-        <div className="flex gap-2 p-2 bg-surface/80 backdrop-blur-xl border border-border shadow-lg rounded-2xl">
-          <div className="flex flex-col md:flex-row gap-2 items-start md:items-end border-r border-border pr-2">
+        <div className="flex gap-2 p-2 bg-surface/80 backdrop-blur-xl border border-border shadow-lg rounded-full">
+          <div className="flex flex-col md:flex-row gap-2 items-start md:items-end">
             <div className="flex flex-col gap-2">
               <div className="relative">
                 <select
                   value={selectedCompany}
                   onChange={(e) => setSelectedCompany(e.target.value)}
-                  className="appearance-none bg-background text-primary text-sm rounded-xl focus:ring-primary focus:border-primary block w-full md:w-56 p-3 pr-10 cursor-pointer hover:bg-surface transition-colors duration-200 outline-none font-medium"
+                  className="appearance-none bg-background text-primary text-sm rounded-full focus:ring-primary focus:border-primary block w-full md:w-56 p-3 pr-10 cursor-pointer hover:bg-surface transition-colors duration-200 outline-none font-medium"
                 >
                   {companies.map(company => (
                     <option key={company} value={company}>{company}</option>
@@ -83,7 +79,7 @@ export default function Home() {
                 <select
                   value={selectedType}
                   onChange={(e) => setSelectedType(e.target.value)}
-                  className="appearance-none bg-background text-primary text-sm rounded-xl focus:ring-primary focus:border-primary block w-full md:w-64 p-3 pr-10 cursor-pointer hover:bg-surface transition-colors duration-200 outline-none font-medium"
+                  className="appearance-none bg-background text-primary text-sm rounded-full focus:ring-primary focus:border-primary block w-full md:w-64 p-3 pr-10 cursor-pointer hover:bg-surface transition-colors duration-200 outline-none font-medium"
                 >
                   {types.map(type => (
                     <option key={type} value={type}>{type}</option>
@@ -109,32 +105,13 @@ export default function Home() {
             )}
           </div>
 
-          <div className="flex items-center bg-background/50 p-1 rounded-xl">
-            <button
-              onClick={() => setViewMode('grid')}
-              className={`p-2 rounded-lg transition-all duration-200 ${viewMode === 'grid' ? 'bg-background shadow-sm text-primary' : 'text-text-secondary hover:text-primary'}`}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-              </svg>
-            </button>
-            <button
-              onClick={() => setViewMode('list')}
-              className={`p-2 rounded-lg transition-all duration-200 ${viewMode === 'list' ? 'bg-background shadow-sm text-primary' : 'text-text-secondary hover:text-primary'}`}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-
         </div>
       </div> */}
 
-      <div className={`grid gap-4 items-start ${viewMode === 'grid' ? 'grid-cols-1 lg:grid-cols-3' : 'grid-cols-1'}`}>
-        <AnimatePresence mode="popLayout">
-          {columns.map((columnProjects, colIndex) => (
-            <div key={colIndex} className="flex flex-col gap-4">
+      <div className="grid gap-4 items-start grid-cols-1 lg:grid-cols-3">
+        {columns.map((columnProjects, colIndex) => (
+          <div key={colIndex} className="flex flex-col gap-4">
+            <AnimatePresence>
               {columnProjects.map((project) => (
                 <motion.div
                   key={project.id}
@@ -152,9 +129,9 @@ export default function Home() {
                   <ProjectCard project={project} />
                 </motion.div>
               ))}
-            </div>
-          ))}
-        </AnimatePresence>
+            </AnimatePresence>
+          </div>
+        ))}
       </div>
 
       {filteredProjects.length === 0 && (

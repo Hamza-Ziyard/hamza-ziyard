@@ -46,13 +46,16 @@ export default function ProjectCard({ project }) {
     }
   }, [animationData]);
 
+  const isSurge = project.id?.includes('surge') || project.company?.toLowerCase().includes('surge');
+  const isReducedFavicon = isDarkMode && project.isCompanyCard && project.favicon && !isSurge;
+
   return (
     <Link
       to={project.isCompanyCard ? `/work/${project.id}` : `/project/${project.id}`}
       className={`group relative block w-full overflow-hidden rounded-lg ${project.gradient || 'bg-surface'} border py-24 px-10 border-border/50 transition-colors duration-300`}
     >
       {/* Media */}
-      <div ref={containerRef} className="w-full flex justify-center">
+      <div ref={containerRef} className="w-full h-80 flex items-center justify-center">
         {project.lottie ? (
           <div className="w-full transition-transform duration-700 ease-out group-hover:scale-105">
             {animationData ? (
@@ -71,13 +74,13 @@ export default function ProjectCard({ project }) {
             src={'https://assets.hamzaziyard.com' + (isDarkMode && project.isCompanyCard && project.favicon ? project.favicon : project.coverImage)}
             alt={project.title}
             loading="lazy"
-            className={`${(isDarkMode && project.isCompanyCard && project.favicon) ? 'w-24 h-60' : (project.width || 'w-full')} ${(isDarkMode && project.isCompanyCard && project.favicon) ? 'h-24' : (project.height || 'h-auto')} object-contain transition-transform duration-700 ease-out group-hover:scale-105`}
+            className={`${isReducedFavicon ? 'w-24 h-24' : `${project.width || 'w-full'} ${project.height || 'h-auto'}`} object-contain transition-transform duration-700 ease-out group-hover:scale-105`}
           />
         )}
       </div>
 
-      {/* Reveal Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 flex flex-col justify-end p-2 lg:opacity-0 transition-all duration-300 group-hover:opacity-100">
+      {/* Tags Info */}
+      <div className="absolute bottom-0 left-0 right-0 flex flex-col justify-end p-2 transition-all duration-300">
         <div className="flex items-center flex-wrap gap-2 text-sm text-primary font-normal">
           {!project.isCompanyCard ? (
             <>

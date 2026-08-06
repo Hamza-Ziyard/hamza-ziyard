@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, Linkedin } from 'lucide-react';
 
 const HOBBIES = [
   {
@@ -34,6 +35,8 @@ const HOBBIES = [
   }
 
 ];
+
+
 
 export default function About() {
   const scrollRef = useRef(null);
@@ -141,14 +144,42 @@ export default function About() {
         </div>
         <div className="flex-1">
           <motion.div
-            className="w-full"
+            className="w-full  p-4 lg:p-8 pb-3 lg:pb-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
           >
-            <p className="3xl:text-3xl text-2xl font-light text-text-secondary leading-relaxed p-4 lg:p-8">
+            <p className="3xl:text-3xl text-2xl font-light text-text-secondary leading-relaxed">
               I design experiences where logic meets emotion. From untangling complex systems to crafting interfaces that feel effortless, I turn ideas, problems, and late-night thoughts into products people actually enjoy using.
             </p>
+
+
+              {/* Email & Linked Social Profiles List */}
+              <div
+                className="mt-6 flex flex-col gap-3"
+              >
+                <a
+                  href="mailto:hamzaziyard.ux@gmail.com"
+                  className="inline-flex items-center gap-2.5 text-text-secondary hover:text-text-primary transition-colors text-base font-normal w-fit group"
+                >
+                  <Mail size={18} className="text-text-secondary group-hover:text-primary transition-colors" />
+                  <span className="underline underline-offset-4 decoration-text-secondary/40 group-hover:decoration-text-primary">
+                    hamzaziyard.ux@gmail.com
+                  </span>
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/hamza-ziyard/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-text-secondary hover:text-text-primary transition-colors text-base font-normal w-fit group"
+                >
+                  <Linkedin size={18} className="text-text-secondary group-hover:text-primary transition-colors" />
+                  <span className="underline underline-offset-4 decoration-text-secondary/40 group-hover:decoration-text-primary">
+                    linkedin.com/in/hamza-ziyard
+                  </span>
+                </a>
+              </div>
           </motion.div>
         </div>
       </div>
