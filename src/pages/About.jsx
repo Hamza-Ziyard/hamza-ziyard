@@ -230,18 +230,17 @@ export default function About() {
               </div>
 
               {/* Education Section */}
-              <div className="mt-8 pt-4 border-t border-border">
-                <h3 className="text-2xl font-bold mb-6">
-                  My Education
+              <div className="mt-8 pt-6 border-t border-border">
+                <h3 className="text-xs uppercase tracking-wider font-semibold text-text-secondary mb-4">
+                  Education
                 </h3>
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
                     <div>
-                      <h4 className="text-base font-semibold text-text-primary">University of Westminster</h4>
-                      <p className="text-sm text-text-secondary">B.Sc. (Hons) in Computer Science</p>
-                      <p className="text-xs text-text-secondary/80 mt-0.5">First Class Honors with Industrial Experience</p>
+                      <h4 className="text-sm font-medium text-text-primary">University of Westminster</h4>
+                      <p className="text-xs text-text-secondary">B.Sc. (Hons) in Computer Science — First Class Honors</p>
                     </div>
-                    <span className="text-sm text-text-secondary">
+                    <span className="text-xs text-text-secondary">
                       2019 – 2023
                     </span>
                   </div>
