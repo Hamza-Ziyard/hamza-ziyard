@@ -49,7 +49,7 @@ export default function Home() {
   }, [filteredProjects]);
 
   return (
-    <section className='pt-0 px-6 max-w-[2800px] mx-auto'>
+    <section className='pt-0 px-6 max-w-700 mx-auto'>
       <HeroIntro />
       {/* Filter Bar */}
       {/* <div className="hidden lg:block w-fit mx-auto absolute inset-x-0 bottom-32 z-100 justify-center">
