@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function ContactModal({ isOpen, onClose }) {
+export default function ContactModal({ isOpen, onClose, initialMessage = '' }) {
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: '',
+    message: initialMessage,
   });
 
   // Handle escape key to close modal
@@ -26,8 +26,12 @@ export default function ContactModal({ isOpen, onClose }) {
     if (isOpen) {
       setStatus('idle');
       setErrorMessage('');
+      setFormData((prev) => ({
+        ...prev,
+        message: initialMessage,
+      }));
     }
-  }, [isOpen]);
+  }, [isOpen, initialMessage]);
 
   const handleChange = (e) => {
     setFormData((prev) => ({

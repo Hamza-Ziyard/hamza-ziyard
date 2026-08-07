@@ -8,6 +8,11 @@
     "companyType": "Product",
     "role": "UI/UX Designer",
     "timePeriod": "March 2024 – Dec 2025",
+    "summaryHighlights": [
+        "Established Apple HIG & Material Design systems, consolidating color styles from 450+ to 45 and mobile styles from 250+ to 45.",
+        "Tripled delivery efficiency and cut feature design turnaround time by 75%.",
+        "Resolved 80% of usability issues and enforced WCAG 2.1 accessibility across an enterprise white-label app for 20+ team members."
+    ],
     "projects": {
         "Web": [
             {
@@ -1439,6 +1444,10 @@
     "companyType": "Projects",
     "role": "UI/UX Intern",
     "timePeriod": "July 2022 – Dec 2022",
+    "summaryHighlights": [
+        "Delivered 6 full project concepts complete with user journeys, sitemaps, and base UI systems.",
+        "Translated client branding into high-fidelity interactive prototypes across web & mobile."
+    ],
     "projects": {
          "Website": [
             {
@@ -1519,6 +1528,10 @@
     "companyType": "Product",
     "role": "Web Development Intern",
     "timePeriod": "July 2021 – June 2022",
+    "summaryHighlights": [
+        "Designed conversion landing pages driving long-term clinic registration growth, with core components actively serving the main platform.",
+        "Built proof-of-concept web apps to validate feature ideas during structured design sprints."
+    ],
     "projects": {
          "Web": [
             {

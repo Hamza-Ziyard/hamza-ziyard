@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lottie from 'lottie-react';
 import companyWorkData from '../data/companyWork.json';
+import ContactModal from '../components/ui/ContactModal';
 import clsx from 'clsx';
 
 // Lottie Component with fetch support (similar to ProjectDetail)
@@ -372,6 +373,10 @@ export default function ProjectDetailWork() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [modalState, setModalState] = useState({ isOpen: false, mediaList: [], initialIndex: 0 });
+  const [showSummaryAlert, setShowSummaryAlert] = useState(false);
+  const [isSummaryModalOpen, setIsSummaryModalOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isExplicitlyDismissed, setIsExplicitlyDismissed] = useState(false);
 
   const openModal = (index, list) => {
     setModalState({ isOpen: true, mediaList: list, initialIndex: index });
@@ -380,6 +385,58 @@ export default function ProjectDetailWork() {
   const closeModal = () => {
     setModalState(prev => ({ ...prev, isOpen: false }));
   };
+
+  const openContactForm = () => {
+    setIsSummaryModalOpen(false);
+    setIsContactOpen(true);
+  };
+
+  const handleCloseSummaryModal = () => {
+    setIsSummaryModalOpen(false);
+    if (!isExplicitlyDismissed) {
+      setTimeout(() => {
+        setShowSummaryAlert(true);
+      }, 3000);
+    }
+  };
+
+  const handleCloseContactModal = () => {
+    setIsContactOpen(false);
+    if (!isExplicitlyDismissed) {
+      setTimeout(() => {
+        setShowSummaryAlert(true);
+      }, 3000);
+    }
+  };
+
+  // Trigger alert banner after 3 seconds if not already dismissed for this company
+  useEffect(() => {
+    setShowSummaryAlert(false);
+    const dismissed = sessionStorage.getItem(`dismissed_summary_alert_${id}`);
+    if (dismissed) {
+      setIsExplicitlyDismissed(true);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setShowSummaryAlert(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [id]);
+
+  const handleDismissAlert = () => {
+    setShowSummaryAlert(false);
+    setIsExplicitlyDismissed(true);
+    sessionStorage.setItem(`dismissed_summary_alert_${id}`, 'true');
+  };
+
+  const handleOpenSummaryModal = () => {
+    setShowSummaryAlert(false);
+    setIsSummaryModalOpen(true);
+  };
+
+
 
   useEffect(() => {
     if (companyData) {
@@ -676,13 +733,147 @@ export default function ProjectDetailWork() {
       </div>
 
       <AnimatePresence>
-        <MediaModal
-          isOpen={modalState.isOpen}
-          onClose={closeModal}
-          mediaList={modalState.mediaList}
-          initialIndex={modalState.initialIndex}
-        />
+        {modalState.isOpen && (
+          <MediaModal
+            isOpen={modalState.isOpen}
+            onClose={closeModal}
+            mediaList={modalState.mediaList}
+            initialIndex={modalState.initialIndex}
+          />
+        )}
       </AnimatePresence>
+
+      {/* Dismissible Alert Banner */}
+      <AnimatePresence>
+        {showSummaryAlert && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+            className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-50 w-[92vw] sm:w-auto max-w-fit bg-zinc-900 text-white border border-white/10 px-3.5 py-2.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl flex items-center justify-between gap-2.5 sm:gap-6 md:gap-12 whitespace-nowrap"
+          >
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+              <div className="w-5 h-5 sm:w-7 sm:h-7 text-white flex items-center justify-center shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              </div>
+              <p className="text-xs sm:text-sm font-medium truncate">
+                <span className="hidden lg:inline">Tired of scrolling? Get a quick summary of my work at {companyData.companyName}</span>
+                <span className="inline lg:hidden">Tired of scrolling?</span>
+              </p>
+            </div>
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+              <button
+                onClick={handleOpenSummaryModal}
+                className="px-3 py-1.5 sm:px-4 sm:py-1.5 bg-white text-black rounded-full text-xs sm:text-sm font-semibold hover:opacity-90 active:scale-95 transition-all cursor-pointer whitespace-nowrap shadow-md"
+              >
+                <span className="hidden sm:inline">View Summary</span>
+                <span className="inline sm:hidden">Summary</span>
+              </button>
+              <button
+                onClick={handleDismissAlert}
+                className="p-1 opacity-60 hover:opacity-100 rounded-full hover:bg-white/10 transition-all shrink-0"
+                aria-label="Dismiss alert"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Summary Dialog Modal */}
+      <AnimatePresence>
+        {isSummaryModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={handleCloseSummaryModal}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            />
+
+            {/* Modal Container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-2xl bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-2xl z-10 text-left space-y-6 max-h-[85vh] overflow-y-auto no-scrollbar"
+            >
+              {/* Close Button */}
+              <button
+                onClick={handleCloseSummaryModal}
+                type="button"
+                className="absolute top-5 right-5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
+                aria-label="Close modal"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {/* Header */}
+              <div className="flex lg:flex-row flex-col items-start gap-4 pr-8 pb-4 border-b border-border ">
+                <div className="w-12 h-12 bg-gray-50 dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 flex items-center justify-center overflow-hidden shrink-0">
+                  <img src={'https://assets.hamzaziyard.com' + companyData.companyFavicon} alt={companyData.companyName} className="w-7 h-7 object-contain" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-0.5">{companyData.companyName}</h3>
+                  <p className="text-xs text-gray-500 dark:text-zinc-400">{companyData.role} • {companyData.timePeriod}</p>
+                </div>
+              </div>
+
+              {/* Company Overview Paragraph */}
+              <div className="space-y-4">
+                <h4 className="font-bold">Overview</h4>
+                <p className="text-sm text-gray-600 dark:text-zinc-300 leading-relaxed">
+                  {companyData.companyDescription}
+                </p>
+              </div>
+
+              {/* Highlights & Impact Points */}
+              {companyData.summaryHighlights && companyData.summaryHighlights.length > 0 && (
+                <div className="space-y-4 pt-4">
+                  <h4 className="font-bold">Key Highlights & Metrics</h4>
+                  <ul className="space-y-2.5">
+                    {companyData.summaryHighlights.map((highlight, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm text-gray-600 dark:text-zinc-300 leading-relaxed">
+                        <span className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white mt-2 shrink-0"></span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Action Button */}
+              <div className="pt-3 flex items-center justify-center">
+                <button
+                  onClick={openContactForm}
+                  className="bg-[#1a1a1a] dark:bg-white dark:text-black text-white hover:opacity-90 transition-all font-semibold text-sm px-7 py-3 rounded-full shadow-md hover:scale-[1.02] duration-200 cursor-pointer"
+                >
+                  Have more questions?
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Contact Form Dialog */}
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={handleCloseContactModal}
+        initialMessage={`Hi Hamza, I was looking through your work at ${companyData.companyName} (${companyData.role}) and have a few questions for you:`}
+      />
 
       <AnimatePresence>
         {showBackToTop && (
