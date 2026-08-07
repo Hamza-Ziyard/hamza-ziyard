@@ -139,7 +139,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
           >
-            <img src="https://assets.hamzaziyard.com/about/me-animated.webp" alt="Hamza Ziyard - Product Designer" className='max-h-[50vh] lg:block hidden rounded-2xl' />
+            <img src="https://assets.hamzaziyard.com/about/me-animated.webp" alt="Hamza Ziyard - Product Designer" className='max-h-[50vh] xl:block hidden rounded-2xl' />
           </motion.div>
         </div>
         <div className="flex-1">
@@ -182,8 +182,8 @@ export default function About() {
               </div>
 
               {/* Work Experience Section */}
-              <div className="mt-10 pt-12 border-t border-border">
-                <h3 className="text-2xl font-bold mb-12">
+              <div className="mt-8 pt-4 border-t border-border">
+                <h3 className="text-2xl font-bold mb-6">
                   My Work Experience
                 </h3>
                 <div className="divide-y divide-border">
@@ -224,6 +224,25 @@ export default function About() {
                     </div>
                     <span className="text-sm text-text-secondary">
                       07/2021 – 06/2022
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Education Section */}
+              <div className="mt-8 pt-4 border-t border-border">
+                <h3 className="text-2xl font-bold mb-6">
+                  My Education
+                </h3>
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                    <div>
+                      <h4 className="text-base font-semibold text-text-primary">University of Westminster</h4>
+                      <p className="text-sm text-text-secondary">B.Sc. (Hons) in Computer Science</p>
+                      <p className="text-xs text-text-secondary/80 mt-0.5">First Class Honors with Industrial Experience</p>
+                    </div>
+                    <span className="text-sm text-text-secondary">
+                      2019 – 2023
                     </span>
                   </div>
                 </div>
