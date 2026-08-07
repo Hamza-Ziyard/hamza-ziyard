@@ -237,10 +237,10 @@ export default function About() {
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
                     <div>
-                      <h4 className="text-sm font-medium text-text-primary">University of Westminster</h4>
-                      <p className="text-xs text-text-secondary">B.Sc. (Hons) in Computer Science — First Class Honors</p>
+                      <h4 className="text-base font-semibold text-text-primary">University of Westminster</h4>
+                      <p className="text-sm text-text-secondary">B.Sc. (Hons) in Computer Science - First Class Honors</p>
                     </div>
-                    <span className="text-xs text-text-secondary">
+                    <span className="text-sm text-text-secondary">
                       2019 – 2023
                     </span>
                   </div>
