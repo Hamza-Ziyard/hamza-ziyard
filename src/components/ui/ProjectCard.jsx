@@ -52,21 +52,21 @@ export default function ProjectCard({ project }) {
   return (
     <Link
       to={project.isCompanyCard ? `/work/${project.id}` : `/project/${project.id}`}
-      className={`group relative block w-full overflow-hidden rounded-lg ${project.gradient || 'bg-surface'} border py-10 px-5 sm:py-24 sm:px-10 border-border/50 transition-colors duration-300`}
+      className={`group relative block w-full overflow-hidden rounded-lg ${project.gradient || 'bg-surface'} border py-10 px-5 md:py-14 lg:py-24 md:px-8 lg:px-10 border-border/50 transition-colors duration-300`}
     >
       {/* Media */}
-      <div ref={containerRef} className="w-full h-44 sm:h-80 flex items-center justify-center">
+      <div ref={containerRef} className="w-full h-44 md:h-56 lg:h-80 flex items-center justify-center">
         {project.lottie ? (
-          <div className="w-full max-h-24 max-w-[70%] sm:max-h-full sm:max-w-full flex justify-center items-center transition-transform duration-700 ease-out group-hover:scale-105">
+          <div className="w-full max-h-24 md:max-h-36 lg:max-h-full max-w-[70%] lg:max-w-full flex justify-center items-center transition-transform duration-700 ease-out group-hover:scale-105">
             {animationData ? (
               <Lottie
                 lottieRef={lottieRef}
                 animationData={animationData}
                 loop
-                className={`w-32 sm:${project.width || 'w-full'} h-20 sm:${project.height || 'h-auto'} object-contain`}
+                className={`w-32 md:w-44 lg:${project.width || 'w-full'} h-20 md:h-28 lg:${project.height || 'h-auto'} object-contain`}
               />
             ) : (
-              <div className={`w-32 sm:${project.width || 'w-full'} h-20 sm:${project.height || 'h-96'} bg-surface/50 animate-pulse rounded-xl`}></div>
+              <div className={`w-32 md:w-44 lg:${project.width || 'w-full'} h-20 md:h-28 lg:${project.height || 'h-96'} bg-surface/50 animate-pulse rounded-xl`}></div>
             )}
           </div>
         ) : (
@@ -74,7 +74,7 @@ export default function ProjectCard({ project }) {
             src={'https://assets.hamzaziyard.com' + (isDarkMode && project.isCompanyCard && project.favicon ? project.favicon : project.coverImage)}
             alt={project.title}
             loading="lazy"
-            className={`${isReducedFavicon ? 'w-12 h-12 sm:w-24 sm:h-24' : `w-32 sm:${project.width || 'w-60'} h-20 sm:${project.height || 'h-80'}`} object-contain transition-transform duration-700 ease-out group-hover:scale-105`}
+            className={`${isReducedFavicon ? 'w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24' : `w-32 md:w-44 lg:${project.width || 'w-60'} h-20 md:h-28 lg:${project.height || 'h-80'}`} object-contain transition-transform duration-700 ease-out group-hover:scale-105`}
           />
         )}
       </div>
