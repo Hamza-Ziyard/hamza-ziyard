@@ -1,24 +1,88 @@
 # Hamza Ziyard
 
-Hamza Ziyard is a UI/UX Designer & Creative Developer who specializes in designing experiences where logic meets emotion. He turns complex systems into effortless, enjoyable interfaces.
+Hamza Ziyard is a UI/UX Designer & UI Developer based in Sri Lanka who specializes in designing experiences where logic meets emotion. He turns complex systems into effortless, enjoyable interfaces.
 
 ## Professional Profile
-- **Role**: UI/UX Designer & Creative Developer
-- **Location**: Based in Sri Lanka
-- **Experience**: iOS Design, Android Design, Web Design, Creative Development
+- **Role**: UI/UX Designer & UI Developer
+- **Location**: Sri Lanka
+- **Contact**: hamzaziyard.ux@gmail.com | +94 77 614 5330
+- **LinkedIn**: [linkedin.com/in/hamza-ziyard](https://linkedin.com/in/hamza-ziyard)
+- **Website**: [hamzaziyard.com](https://hamzaziyard.com)
+- **Resume / CV**: [hamzaziyard.com/resume](https://hamzaziyard.com/resume) | [Download PDF CV](https://assets.hamzaziyard.com/CV/resume/Hamza%20Ziyard-CV.pdf)
+
+## Summary of Key Achievements & Impact
+- **DFCC Bank ATM Redesign**: Redesigned 700+ ATM screens across 150+ DFCC Bank ATMs into a seamless trilingual (English, Sinhala, Tamil) interface.
+- **Zafer (formerly ZorroSign)**: Established Apple HIG & Material Design systems, consolidating color styles from 450+ to 45 and mobile styles from 250+ to 45. Tripled delivery efficiency, cut turnaround time by 75%, and resolved 80% of usability issues while enforcing WCAG 2.1 accessibility.
+- **Pockomint**: Designed Pockomint (iOS expense tracking app) achieving 90% UI/UX satisfaction rating in beta testing.
+- **SaaS & AI Workflows**: Prototyped a 50+ screen SaaS inventory management system utilizing AI-driven workflows.
+
+## Work Experience
+
+### Freelance & Self-Employed (Neugine)
+- **Role**: UI/UX Designer & UI Developer
+- **Period**: 01/2026 – Present
+- **Highlights**:
+  - Redesigned 700+ ATM screens across 150+ DFCC Bank ATMs into an intuitive trilingual interface.
+  - Designed Pockomint iOS expense tracker, achieving 90% UI/UX satisfaction in beta.
+  - Prototyped a 50+ screen SaaS inventory system with AI-driven workflows.
+
+### Zafer (Formerly ZorroSign)
+- **Role**: UI/UX Designer
+- **Period**: 03/2024 – 12/2025
+- **Highlights**:
+  - Established Apple HIG & Material Design systems, consolidating color styles (450+ to 45) and mobile typography styles (250+ to 45).
+  - Tripled delivery efficiency and cut feature design turnaround time by 75%.
+  - Resolved 80% of usability issues and enforced WCAG 2.1 accessibility standards across enterprise white-label app for 20+ team members.
+  - Key projects: Web Dashboard Redesign, Signing View Redesign, Vault Redesign, Mobile Design System.
+
+### Self-Employed / Freelance
+- **Role**: UI/UX Designer & Developer
+- **Period**: 10/2023 – 02/2024
+- **Highlights**:
+  - Designed and developed 50+ screens across vendor and customer portals for a wedding platform.
+  - Built and launched startup websites using Webflow and client web solutions on WordPress.
+
+### Surge Global
+- **Role**: UI/UX Intern
+- **Period**: 07/2022 – 12/2022
+- **Highlights**:
+  - Delivered 6 full project concepts complete with user journeys, sitemaps, and base UI systems, translating client branding into high-fidelity interactive prototypes.
+
+### Vetstoria
+- **Role**: Web Development Intern
+- **Period**: 07/2021 – 06/2022
+- **Highlights**:
+  - Designed conversion landing pages driving long-term clinic registration growth, with core components actively serving the main platform.
+  - Built proof-of-concept web applications to validate feature ideas in structured design sprints.
+
+## Education
+
+### University of Westminster
+- **Degree**: B.Sc. (Hons) in Computer Science (First Class Honors with Industrial Experience)
+- **Period**: 2019 – 2023
+
+### Zahira College
+- **Qualification**: GCE A/L & O/L (Physical Science Stream)
+- **Period**: 2009 – 2019
 
 ## Core Skills
-- **Design**: UI/UX, Product Strategy, Visual Design, Systems Design
-- **Development**: React, Next.js, Framer Motion, Frontend Engineering
-- **Tools**: Figma, Adobe Suite, VS Code, Git
 
-## Key Projects
-- **Company Work**: Various projects across different industries, optimizing user journeys and brand identities.
-- **Independent Projects**: Exploring the boundaries of design and code through innovative web experiences.
+- **UX & Research**: User Research, Usability Testing, Wireframing, Prototyping, Information Architecture, Multilingual Design, Heuristic Evaluation.
+- **Design Systems**: Figma, Sketch, Adobe XD, Apple HIG, Material Design, Design Tokens, Component Libraries.
+- **Web & Frontend Tech**: HTML/CSS, JavaScript, React, Webflow, Framer, WordPress, Swift (Working knowledge).
+- **AI & Modern Workflows**: GitHub Copilot, ChatGPT, Claude, Prompt Engineering, Agile/Scrum Handoff.
 
 ## Hobbies & Interests
-- Gaming, 2D Art & Sketching, Photography, Foodie, Swimming, and Cat Lover.
+- Gaming (Button-masher by heart, strategist on good days)
+- 2D Art & Sketching (Turning random ideas into lines and art)
+- Foodie (Exploring new flavors, especially biriyani)
+- Cat Lover (Professional cat spotter & entertainer)
+- Swimming (Underwater peace & speed)
 
-## Contact & Links
-- **Website**: [hamzaziyard.com](https://hamzaziyard.com)
-- **Resume**: [hamzaziyard.com/resume](https://hamzaziyard.com/resume)
+## Portfolio Site Pages
+- **Home**: [https://hamzaziyard.com/](https://hamzaziyard.com/)
+- **About**: [https://hamzaziyard.com/about](https://hamzaziyard.com/about)
+- **Resume**: [https://hamzaziyard.com/resume](https://hamzaziyard.com/resume)
+- **Redesigns**: [https://hamzaziyard.com/redesigns](https://hamzaziyard.com/redesigns)
+- **Company Work Projects**: [https://hamzaziyard.com/work/zafer-work](https://hamzaziyard.com/work/zafer-work), [https://hamzaziyard.com/work/surge-global-work](https://hamzaziyard.com/work/surge-global-work), [https://hamzaziyard.com/work/vetstoria-work](https://hamzaziyard.com/work/vetstoria-work)
+
