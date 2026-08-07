@@ -180,6 +180,54 @@ export default function About() {
                   </span>
                 </a>
               </div>
+
+              {/* Work Experience Section */}
+              <div className="mt-10 pt-12 border-t border-border">
+                <h3 className="text-2xl font-bold mb-12">
+                  My Work Experience
+                </h3>
+                <div className="divide-y divide-border">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pb-4">
+                    <div>
+                      <h4 className="text-base font-semibold text-text-primary">Freelancing - Neugine</h4>
+                      <p className="text-sm text-text-secondary">UI/UX Designer & UI Developer</p>
+                    </div>
+                    <span className="text-sm text-text-secondary">
+                      01/2026 – Present
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 py-4">
+                    <div>
+                      <h4 className="text-base font-semibold text-text-primary">Zafer</h4>
+                      <p className="text-sm text-text-secondary">UI/UX Designer</p>
+                    </div>
+                    <span className="text-sm text-text-secondary">
+                      03/2024 – 12/2025
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 py-4">
+                    <div>
+                      <h4 className="text-base font-semibold text-text-primary">Surge Global</h4>
+                      <p className="text-sm text-text-secondary">UI/UX Intern</p>
+                    </div>
+                    <span className="text-sm text-text-secondary">
+                      07/2022 – 12/2022
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pt-4">
+                    <div>
+                      <h4 className="text-base font-semibold text-text-primary">Vetstoria</h4>
+                      <p className="text-sm text-text-secondary">Web Development Intern</p>
+                    </div>
+                    <span className="text-sm text-text-secondary">
+                      07/2021 – 06/2022
+                    </span>
+                  </div>
+                </div>
+              </div>
           </motion.div>
         </div>
       </div>
