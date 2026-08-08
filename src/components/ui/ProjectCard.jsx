@@ -49,14 +49,29 @@ export default function ProjectCard({ project }) {
   const isSurge = project.id?.includes('surge') || project.company?.toLowerCase().includes('surge');
   const isReducedFavicon = isDarkMode && project.isCompanyCard && project.favicon && !isSurge;
 
+  const isVideo = project.isVideo || (typeof project.coverImage === 'string' && project.coverImage.endsWith('.mp4'));
+
   return (
     <Link
-      to={project.isCompanyCard ? `/work/${project.id}` : `/project/${project.id}`}
+      to={project.link || (project.isCompanyCard ? `/work/${project.id}` : `/project/${project.id}`)}
       className={`group relative block w-full overflow-hidden rounded-lg ${project.gradient || 'bg-surface'} border py-10 px-5 md:py-14 lg:py-24 md:px-8 lg:px-10 border-border/50 transition-colors duration-300`}
     >
       {/* Media */}
-      <div ref={containerRef} className="w-full h-44 md:h-56 lg:h-80 flex items-center justify-center">
-        {project.lottie ? (
+      <div ref={containerRef} className="w-full h-52 md:h-64 lg:h-96 flex items-center justify-center">
+        {isVideo ? (
+          <div className="relative h-full aspect-[9/19.5] rounded-[24px] md:rounded-[32px] p-1 md:p-1.5 bg-black border border-zinc-800/50 shadow-lg transition-transform duration-700 ease-out group-hover:scale-105">
+            <div className="relative w-full h-full rounded-[20px] md:rounded-[27px] overflow-hidden bg-black flex items-center justify-center">
+              <video
+                src={project.coverImage.startsWith('http') ? project.coverImage : 'https://assets.hamzaziyard.com' + project.coverImage}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover rounded-[20px] md:rounded-[27px]"
+              />
+            </div>
+          </div>
+        ) : project.lottie ? (
           <div className="w-full max-h-24 md:max-h-36 lg:max-h-full max-w-[70%] lg:max-w-full flex justify-center items-center transition-transform duration-700 ease-out group-hover:scale-105">
             {animationData ? (
               <Lottie
@@ -71,7 +86,7 @@ export default function ProjectCard({ project }) {
           </div>
         ) : (
           <img
-            src={'https://assets.hamzaziyard.com' + (isDarkMode && project.isCompanyCard && project.favicon ? project.favicon : project.coverImage)}
+            src={project.coverImage.startsWith('http') ? project.coverImage : 'https://assets.hamzaziyard.com' + (isDarkMode && project.isCompanyCard && project.favicon ? project.favicon : project.coverImage)}
             alt={project.title}
             loading="lazy"
             className={`${isReducedFavicon ? 'w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24' : `w-32 md:w-44 lg:${project.width || 'w-60'} h-20 md:h-28 lg:${project.height || 'h-80'}`} object-contain transition-transform duration-700 ease-out group-hover:scale-105`}

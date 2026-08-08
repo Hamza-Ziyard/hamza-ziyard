@@ -27,7 +27,7 @@ export default function Home() {
     height: company.height || "h-80"
   })), []);
 
-  const allProjects = useMemo(() => [...companyCards, ...originalProjects], [companyCards]);
+  const allProjects = useMemo(() => [...originalProjects, ...companyCards], [companyCards]);
 
   const companies = useMemo(() => ['All companies', ...new Set(allProjects.map(p => p.company).filter(Boolean))], [allProjects]);
   const types = useMemo(() => ['All types', ...new Set(allProjects.map(p => p.type).filter(Boolean))], [allProjects]);

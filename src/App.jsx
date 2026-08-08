@@ -8,6 +8,7 @@ import ProjectDetail from './pages/ProjectDetail';
 import Admin from './pages/Admin';
 
 import ProjectDetailWork from './pages/ProjectDetailWork';
+import Pockomint from './pages/Pockomint';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="resume" element={<Resume />} />
         <Route path="redesigns" element={<Redesign />} />
+        <Route path="pockomint" element={<Pockomint />} />
         <Route path="project/:id" element={<ProjectDetail />} />
         <Route path="work/:id" element={<ProjectDetailWork />} />
         <Route path="admin" element={<Admin />} />

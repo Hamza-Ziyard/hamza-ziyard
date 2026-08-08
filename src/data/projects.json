@@ -1,2 +1,12 @@
 [
+  {
+    "id": "pockomint",
+    "title": "Pockomint",
+    "company": "Personal Project",
+    "type": "Mobile App",
+    "role": "Product Designer",
+    "coverImage": "https://assets.hamzaziyard.com/projects-for-fun/pockomint/hero.mp4",
+    "isVideo": true,
+    "link": "/pockomint"
+  }
 ]
