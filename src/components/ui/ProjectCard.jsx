@@ -59,15 +59,15 @@ export default function ProjectCard({ project }) {
       {/* Media */}
       <div ref={containerRef} className="w-full h-52 md:h-64 lg:h-96 flex items-center justify-center">
         {isVideo ? (
-          <div className="relative h-full aspect-[9/19.5] rounded-[24px] md:rounded-[32px] p-1 md:p-1.5 bg-black border border-zinc-800/50 shadow-lg transition-transform duration-700 ease-out group-hover:scale-105">
-            <div className="relative w-full h-full rounded-[20px] md:rounded-[27px] overflow-hidden bg-black flex items-center justify-center">
+          <div className="relative h-full aspect-[9/19.5] rounded-4xl p-1 md:p-1.5 bg-black border border-zinc-800/50 shadow-lg transition-transform duration-700 ease-out group-hover:scale-105">
+            <div className="relative w-full h-full rounded-3xl overflow-hidden bg-black flex items-center justify-center">
               <video
                 src={project.coverImage.startsWith('http') ? project.coverImage : 'https://assets.hamzaziyard.com' + project.coverImage}
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="w-full h-full object-cover rounded-[20px] md:rounded-[27px]"
+                className="w-full h-full object-cover rounded-2xl"
               />
             </div>
           </div>

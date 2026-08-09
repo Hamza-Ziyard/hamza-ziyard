@@ -17,20 +17,27 @@ import {
   Sparkles,
   Code2,
   Cpu,
-  Layers
+  Layers,
+  MessageCircle,
+  ArrowRight,
+  Megaphone,
+  BookOpenCheck,
+  CalendarDays
 } from 'lucide-react';
+import ContactModal from '../components/ui/ContactModal';
 
 const SECTIONS = [
   { id: 'the-hook', title: 'The Hook', num: '01' },
   { id: 'the-problem', title: 'The Problem', num: '02' },
   { id: 'design-approach', title: 'The Design Approach', num: '03' },
-  { id: 'meet-pocko', title: 'Meet Pocko', num: '04' },
-  { id: 'native-ios', title: 'Native iOS Components', num: '05' },
-  { id: 'designing-personalization', title: 'Personalization', num: '06' },
-  { id: 'validating-design', title: 'Validating the Design', num: '07' },
-  { id: 'building-without-swift', title: 'Building With AI', num: '08' },
-  { id: 'beyond-screen', title: 'Beyond the Screen', num: '09' },
-  { id: 'outcome', title: 'Outcome', num: '10' },
+  { id: 'early-stages', title: 'Early Stages & Evolution', num: '04' },
+  { id: 'meet-pocko', title: 'Meet Pocko', num: '05' },
+  { id: 'native-ios', title: 'Native iOS Components', num: '06' },
+  { id: 'designing-personalization', title: 'Personalization', num: '07' },
+  { id: 'validating-design', title: 'Validating the Design', num: '08' },
+  { id: 'building-without-swift', title: 'Building With AI', num: '09' },
+  { id: 'beyond-screen', title: 'Beyond the Screen', num: '10' },
+  { id: 'outcome', title: 'Outcome', num: '11' },
 ];
 
 const ImagePlaceholder = ({ label, description, aspectRatio = "aspect-video" }) => (
@@ -45,10 +52,97 @@ const ImagePlaceholder = ({ label, description, aspectRatio = "aspect-video" }) 
   </div>
 );
 
+const BeforeAfterShowcase = ({
+  beforeImage = "/pockomint-assets/old-pockomint.webp",
+  afterImage = "/pockomint-assets/new-home.webp"
+}) => {
+  return (
+    <figure className="space-y-3 pt-2">
+      {/* Single Unified Container */}
+      <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-purple-500/20 dark:border-purple-500/15 bg-gradient-to-b from-purple-50/40 via-indigo-50/20 to-slate-50/60 dark:from-purple-950/20 dark:via-indigo-950/10 dark:to-zinc-950/40 backdrop-blur-xl p-4 md:p-8">
+        {/* Ambient Mesh Background Glow */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+          <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px]" />
+          <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center relative z-10">
+          
+          {/* Left Side: Before */}
+          <div className="flex flex-col items-center justify-center space-y-3 w-full">
+            <span className="bg-background/80 border border-border/60 rounded-full px-4 py-1 text-xs font-semibold text-text-primary shadow-sm">
+              Before
+            </span>
+            <img
+              src={beforeImage}
+              alt="Before - Old Pockomint Interface"
+              loading="lazy"
+              className="max-h-[460px] md:max-h-[520px] w-full object-contain rounded-xl"
+            />
+          </div>
+
+          {/* Custom Long Transition Arrow SVG */}
+          <div className="flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none items-center justify-center">
+            <svg
+              width="96"
+              height="28"
+              viewBox="0 0 96 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="hidden md:block text-primary drop-shadow-lg"
+            >
+              <path
+                d="M4 14H90M90 14L76 4M90 14L76 24"
+                stroke="currentColor"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <svg
+              width="28"
+              height="70"
+              viewBox="0 0 28 70"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="block md:hidden text-primary drop-shadow-lg"
+            >
+              <path
+                d="M14 4V64M14 64L4 50M14 64L24 50"
+                stroke="currentColor"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+
+          {/* Right Side: After */}
+          <div className="flex flex-col items-center justify-center space-y-3 w-full">
+            <span className="bg-background/80 border border-border/60 rounded-full px-4 py-1 text-xs font-semibold text-text-primary shadow-sm">
+              After
+            </span>
+            <img
+              src={afterImage}
+              alt="After - New Pockomint Interface"
+              loading="lazy"
+              className="max-h-[460px] md:max-h-[520px] w-full object-contain rounded-xl"
+            />
+          </div>
+
+        </div>
+      </div>
+      <figcaption className="text-center text-text-secondary font-medium italic text-sm">
+        Evolution from initial v0.1 form-heavy prototype to shipping v1.0 gamified habit tracker
+      </figcaption>
+    </figure>
+  );
+};
+
 export default function Pockomint() {
   const [activeSection, setActiveSection] = useState('the-hook');
   const [showNav, setShowNav] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const dropdownRef = useRef(null);
   const isScrollingRef = useRef(false);
 
@@ -112,22 +206,26 @@ export default function Pockomint() {
 
   return (
     <div className="bg-background min-h-screen">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-8 md:py-16 space-y-12 md:space-y-16">
+      <div className="max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-12 py-8 space-y-12 md:space-y-16">
 
         {/* Hero Section */}
-        <section className="space-y-12">
+        <section>
           {/* Main Hero Container Card (pajelly.io/aby style) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative w-full rounded-3xl md:rounded-[36px] bg-surface/80 border border-border/60 overflow-hidden p-6 sm:p-12 md:p-16 flex items-center justify-center"
+            className="relative w-full max-w-[2000px] mx-auto rounded-2xl md:rounded-3xl overflow-hidden p-6 sm:p-10 flex flex-col items-center justify-center"
           >
-            {/* Subtle Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/5 via-transparent to-purple-500/5 pointer-events-none" />
+            {/* Ambient Mesh Gradient Background Overlay */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-60">
+              <div className="absolute -top-[20%] -left-[20%] w-[90%] h-[90%] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
+              <div className="absolute top-[20%] -right-[20%] w-[90%] h-[90%] bg-indigo-300/20 dark:bg-indigo-600/15 rounded-full blur-[130px]" style={{ animationDuration: '10s' }} />
+              <div className="absolute -bottom-[20%] left-[10%] w-[90%] h-[90%] bg-pink-300/20 dark:bg-violet-800/15 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '7s' }} />
+            </div>
 
-            {/* Centered Phone Showcase */}
-            <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[350px]">
+            {/* Top: Centered Phone Showcase in Pattern Background */}
+            <div className="relative z-10 w-full max-w-[280px] sm:max-w-[320px] md:max-w-[350px] py-4 md:py-16">
               {/* Subtle Black Phone Frame */}
               <div className="relative rounded-[40px] sm:rounded-[48px] p-2 bg-black border border-zinc-800/80 shadow-2xl">
                 <div className="relative aspect-[9/19.5] w-full rounded-[30px] sm:rounded-[38px] overflow-hidden bg-black flex items-center justify-center border border-zinc-900">
@@ -144,33 +242,27 @@ export default function Pockomint() {
             </div>
           </motion.div>
 
-          {/* Title, Subtitle & Metadata Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="space-y-10"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center gap-4 md:gap-5">
-                <img
-                  src="/pockomint-assets/Light_Logo.webp"
-                  alt="Pockomint Logo"
-                  className="w-12 h-12 md:w-16 md:h-16 block dark:hidden object-contain rounded-2xl shadow-sm border border-border/40"
-                />
-                <img
-                  src="/pockomint-assets/Dark_Logo.webp"
-                  alt="Pockomint Logo"
-                  className="w-12 h-12 md:w-16 md:h-16  hidden dark:block object-contain rounded-2xl shadow-sm border border-border/40"
-                />
-                <h1 className="text-4xl leading-tight md:text-5xl font-bold tracking-tight text-primary">
-                  Pockomint
-                </h1>
-              </div>
-              <p className="text-xl md:text-2xl text-text-secondary leading-relaxed font-light">
-                Designing and building a native iOS app that makes people actually want to track their money
-              </p>
+          {/* Logo, Title & Metadata (Displayed Below Hero Pattern Container) */}
+          <div className="w-full max-w-[1440px] mx-auto mt-16 space-y-8">
+            <div className="flex items-center gap-4 md:gap-5">
+              <img
+                src="/pockomint-assets/Light_Logo.webp"
+                alt="Pockomint Logo"
+                className="w-12 h-12 md:w-16 md:h-16 block dark:hidden object-contain rounded-2xl shadow-sm border border-border/40"
+              />
+              <img
+                src="/pockomint-assets/Dark_Logo.webp"
+                alt="Pockomint Logo"
+                className="w-12 h-12 md:w-16 md:h-16 hidden dark:block object-contain rounded-2xl shadow-sm border border-border/40"
+              />
+              <h1 className="text-4xl lg:text-5xl leading-tight font-bold tracking-tight text-primary">
+                Pockomint
+              </h1>
             </div>
+
+            <p className="text-xl md:text-2xl text-text-secondary leading-relaxed font-light">
+              Designing and building a native iOS app that makes people actually want to track their money
+            </p>
 
             <div className="flex flex-wrap justify-start gap-10 md:gap-16 pt-6 border-t border-border/50">
               <div className="space-y-1">
@@ -183,11 +275,12 @@ export default function Pockomint() {
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm text-text-secondary font-medium">Timeline</h4>
-                <p className="text-lg font-bold text-primary">Concept to App Store launch, including TestFlight beta</p>
+                <p className="text-lg font-bold text-primary">06 months</p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </section>
+        
 
         {/* Floating Minimal Pill Navigation with Section Counter & Dropdown Popover */}
         <AnimatePresence>
@@ -198,7 +291,7 @@ export default function Pockomint() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-50"
+              className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50"
             >
               {/* Dropdown Popover Menu */}
               <AnimatePresence>
@@ -243,7 +336,7 @@ export default function Pockomint() {
                 className="bg-zinc-900/95 hover:bg-zinc-900 text-white border border-white/15 dark:bg-zinc-100/95 dark:hover:bg-zinc-100 dark:text-zinc-900 dark:border-zinc-300 px-4 py-2.5 rounded-full shadow-2xl backdrop-blur-2xl flex items-center gap-3 cursor-pointer group transition-all active:scale-95"
               >
                 <span className="px-2.5 py-0.5 rounded-md bg-white/10 text-[11px] font-bold text-zinc-200 dark:bg-black/10 dark:text-zinc-800">
-                  {currentSectionObj?.num || '01'} / 10
+                  {currentSectionObj?.num || '01'} / {SECTIONS.length.toString().padStart(2, '0')}
                 </span>
                 <span className="text-xs sm:text-sm font-medium max-w-[150px] sm:max-w-[200px] truncate text-white dark:text-zinc-900">
                   {currentSectionObj?.title || 'The Hook'}
@@ -258,7 +351,7 @@ export default function Pockomint() {
         </AnimatePresence>
 
         {/* Main Case Study Sections Container */}
-        <main className="space-y-16 md:space-y-24">
+        <main className="max-w-[1440px] mx-auto space-y-16 md:space-y-24">
 
             {/* Section 1: The Hook */}
             <motion.section
@@ -284,12 +377,17 @@ export default function Pockomint() {
               </div>
 
               <figure className="space-y-3 pt-4">
-                <div className="overflow-hidden rounded-2xl md:rounded-3xl border border-border/60 bg-surface">
+                <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-purple-500/20 dark:border-purple-500/15 bg-gradient-to-b from-purple-50/40 via-indigo-50/20 to-slate-50/60 dark:from-purple-950/20 dark:via-indigo-950/10 dark:to-zinc-950/40 backdrop-blur-xl">
+                  {/* Ambient Mesh Background Glow */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+                    <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px]" />
+                    <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
+                  </div>
                   <img
                     src="/pockomint-assets/The Hook.webp"
                     alt="Pockomint habit-focused expense tracking interface"
                     loading="lazy"
-                    className="w-full h-auto object-contain"
+                    className="relative z-10 w-full h-auto object-contain"
                   />
                 </div>
                 <figcaption className="text-center text-text-secondary font-medium italic text-sm">
@@ -365,15 +463,20 @@ export default function Pockomint() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
                 <figure className="space-y-3">
-                  <div className="overflow-hidden rounded-2xl md:rounded-3xl border border-border/60 bg-surface p-3 md:p-4 flex items-center justify-center relative">
-                    <div className="absolute top-4 left-4 z-10 text-emerald-500">
+                  <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-purple-500/20 dark:border-purple-500/15 bg-gradient-to-b from-purple-50/40 via-indigo-50/20 to-slate-50/60 dark:from-purple-950/20 dark:via-indigo-950/10 dark:to-zinc-950/40 backdrop-blur-xl p-3 md:p-4 flex items-center justify-center">
+                    <div className="absolute top-4 left-4 z-20 text-emerald-500">
                       <CheckCircle2 size={36} />
+                    </div>
+                    {/* Ambient Mesh Background Glow */}
+                    <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+                      <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px]" />
+                      <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                     </div>
                     <img
                       src="/pockomint-assets/Add Expense.webp"
                       alt="Deliberate Check-in Add Expense UI"
                       loading="lazy"
-                      className="max-h-[480px] md:max-h-[540px] w-full object-contain"
+                      className="relative z-10 max-h-[480px] md:max-h-[540px] w-full object-contain"
                     />
                   </div>
                   <figcaption className="text-center text-text-secondary font-medium italic text-sm">
@@ -382,15 +485,20 @@ export default function Pockomint() {
                 </figure>
 
                 <figure className="space-y-3">
-                  <div className="overflow-hidden rounded-2xl md:rounded-3xl border border-border/60 bg-surface p-3 md:p-4 flex items-center justify-center relative">
-                    <div className="absolute top-4 left-4 z-10 text-emerald-500">
+                  <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-purple-500/20 dark:border-purple-500/15 bg-gradient-to-b from-purple-50/40 via-indigo-50/20 to-slate-50/60 dark:from-purple-950/20 dark:via-indigo-950/10 dark:to-zinc-950/40 backdrop-blur-xl p-3 md:p-4 flex items-center justify-center">
+                    <div className="absolute top-4 left-4 z-20 text-emerald-500">
                       <CheckCircle2 size={36} />
+                    </div>
+                    {/* Ambient Mesh Background Glow */}
+                    <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+                      <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px]" />
+                      <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                     </div>
                     <img
                       src="/pockomint-assets/Calender Cycles.webp"
                       alt="Custom Budget Cycles UI"
                       loading="lazy"
-                      className="max-h-[480px] md:max-h-[540px] w-full object-contain"
+                      className="relative z-10 max-h-[480px] md:max-h-[540px] w-full object-contain"
                     />
                   </div>
                   <figcaption className="text-center text-text-secondary font-medium italic text-sm">
@@ -399,15 +507,20 @@ export default function Pockomint() {
                 </figure>
 
                 <figure className="space-y-3">
-                  <div className="overflow-hidden rounded-2xl md:rounded-3xl border border-border/60 bg-surface p-3 md:p-4 flex items-center justify-center relative">
-                    <div className="absolute top-4 left-4 z-10 text-emerald-500">
+                  <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-purple-500/20 dark:border-purple-500/15 bg-gradient-to-b from-purple-50/40 via-indigo-50/20 to-slate-50/60 dark:from-purple-950/20 dark:via-indigo-950/10 dark:to-zinc-950/40 backdrop-blur-xl p-3 md:p-4 flex items-center justify-center">
+                    <div className="absolute top-4 left-4 z-20 text-emerald-500">
                       <CheckCircle2 size={36} />
+                    </div>
+                    {/* Ambient Mesh Background Glow */}
+                    <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+                      <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px]" />
+                      <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                     </div>
                     <img
                       src="/pockomint-assets/Template.webp"
                       alt="One-Tap Expense Templates UI"
                       loading="lazy"
-                      className="max-h-[480px] md:max-h-[540px] w-full object-contain"
+                      className="relative z-10 max-h-[480px] md:max-h-[540px] w-full object-contain"
                     />
                   </div>
                   <figcaption className="text-center text-text-secondary font-medium italic text-sm">
@@ -443,18 +556,49 @@ export default function Pockomint() {
               </div>
 
               <figure className="space-y-3 pt-4">
-                <div className="overflow-hidden rounded-2xl md:rounded-3xl border border-border/60 bg-surface p-2 md:p-4 flex items-center justify-center">
+                <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-purple-500/20 dark:border-purple-500/15 bg-gradient-to-b from-purple-50/40 via-indigo-50/20 to-slate-50/60 dark:from-purple-950/20 dark:via-indigo-950/10 dark:to-zinc-950/40 backdrop-blur-xl p-2 md:p-4 flex items-center justify-center">
+                  {/* Ambient Mesh Background Glow */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+                    <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px]" />
+                    <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
+                  </div>
                   <img
                     src="/pockomint-assets/Daily Habit.webp"
                     alt="Daily Habit Loop"
                     loading="lazy"
-                    className="w-full max-h-[750px] md:max-h-[900px] object-contain"
+                    className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
                   />
                 </div>
                 <figcaption className="text-center text-text-secondary font-medium italic text-sm">
                   Gamified daily habit loop
                 </figcaption>
               </figure>
+            </motion.section>
+
+            {/* Section 4: Early Stages & Evolution */}
+            <motion.section
+              id="early-stages"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="space-y-8 scroll-mt-28"
+            >
+              <div className="flex items-center gap-3">
+                <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary tracking-tight">
+                  Early Stages: Before & After Evolution
+                </h2>
+              </div>
+
+              <p className="text-lg md:text-xl text-text-secondary leading-relaxed font-light">
+                Pockomint evolved from rigid form-heavy wireframes into a fluid, habit-first native iOS application.
+              </p>
+
+              {/* Side-by-side Before & After Showcase */}
+              <div className="pt-2">
+                <BeforeAfterShowcase />
+              </div>
             </motion.section>
 
             {/* Section 4: Meet Pocko */}
@@ -486,8 +630,8 @@ export default function Pockomint() {
               </div>
 
               <figure className="space-y-3 pt-4">
-                <div className="overflow-hidden rounded-2xl md:rounded-3xl border border-border/60 bg-surface p-3 md:p-4 flex items-center justify-center relative">
-                  <div className="absolute top-4 right-4 z-10 bg-background/80 backdrop-blur-md border border-border/60 rounded-full px-3.5 py-1.5 text-xs text-text-secondary shadow-sm">
+                <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-purple-500/20 dark:border-purple-500/15 bg-gradient-to-b from-purple-50/40 via-indigo-50/20 to-slate-50/60 dark:from-purple-950/20 dark:via-indigo-950/10 dark:to-zinc-950/40 backdrop-blur-xl p-3 md:p-4 flex items-center justify-center">
+                  <div className="absolute top-4 right-4 z-20 bg-background/80 backdrop-blur-md border border-border/60 rounded-full px-3.5 py-1.5 text-xs text-text-secondary shadow-sm">
                     Illustrations drawn by{' '}
                     <a
                       href="https://www.linkedin.com/in/chamudirw/"
@@ -497,6 +641,11 @@ export default function Pockomint() {
                     >
                       Chamdi RW
                     </a>
+                  </div>
+                  {/* Ambient Mesh Background Glow */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+                    <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px]" />
+                    <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                   </div>
                   <img
                     src="/pockomint-assets/pocko.webp"
@@ -566,9 +715,23 @@ export default function Pockomint() {
                 </div>
               </div>
 
-              <div className="pt-4">
-                <ImagePlaceholder label="[Image Placeholder: Native iOS UI Components & SwiftUI Layouts]" description="Showcase of native HIG component usage, SwiftUI view architecture, and light/dark mode compliance" />
-              </div>
+              <figure className="space-y-3 pt-4">
+                <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-purple-500/20 dark:border-purple-500/15 bg-gradient-to-b from-purple-50/40 via-indigo-50/20 to-slate-50/60 dark:from-purple-950/20 dark:via-indigo-950/10 dark:to-zinc-950/40 backdrop-blur-xl p-2 md:p-4 flex items-center justify-center">
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+                    <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px]" />
+                    <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
+                  </div>
+                  <img
+                    src="/pockomint-assets/native components.webp"
+                    alt="Native iOS UI Components & SwiftUI Layouts"
+                    loading="lazy"
+                    className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
+                  />
+                </div>
+                <figcaption className="text-center text-text-secondary font-medium italic text-sm">
+                  Native iOS HIG UI components & SwiftUI view architecture
+                </figcaption>
+              </figure>
             </motion.section>
 
             {/* Section 6: Designing for Personalization */}
@@ -606,7 +769,7 @@ export default function Pockomint() {
                   </div>
 
                   <div className="p-6 rounded-2xl border border-gray-300 dark:border-zinc-800 space-y-3">
-                    <Calendar size={28} className="text-primary" />
+                    <CalendarDays size={28} className="text-primary" />
                     <h3 className="font-semibold text-primary">Monthly & Daily Views</h3>
                     <p className="text-sm text-text-secondary font-light leading-relaxed">Toggle seamlessly between monthly breakdowns and day-to-day entries.</p>
                   </div>
@@ -624,12 +787,17 @@ export default function Pockomint() {
               </div>
 
               <figure className="space-y-3 pt-4">
-                <div className="overflow-hidden rounded-2xl md:rounded-3xl border border-border/60 bg-surface p-3 md:p-4 flex items-center justify-center">
+                <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-purple-500/20 dark:border-purple-500/15 bg-gradient-to-b from-purple-50/40 via-indigo-50/20 to-slate-50/60 dark:from-purple-950/20 dark:via-indigo-950/10 dark:to-zinc-950/40 backdrop-blur-xl p-3 md:p-4 flex items-center justify-center">
+                  {/* Ambient Mesh Background Glow */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+                    <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px]" />
+                    <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
+                  </div>
                   <img
                     src="/pockomint-assets/App Customization.webp"
                     alt="App customization and personalization showcase"
                     loading="lazy"
-                    className="w-full max-h-[750px] md:max-h-[900px] object-contain"
+                    className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
                   />
                 </div>
                 <figcaption className="text-center text-text-secondary font-medium italic text-sm">
@@ -697,8 +865,25 @@ export default function Pockomint() {
                 This cycle of shipping, collecting real feedback, and iterating quickly is what the native-first foundation was built to support, and it's what let a two-person team ship a polished, accessible product on a tight timeline.
               </p>
 
-              <div className="pt-4">
-                <ImagePlaceholder label="[Image Placeholder: TestFlight Beta Feedback & Metrics]" description="Visual representation of TestFlight metrics, iPad layout refinements, and performance build progress" />
+              {/* Mini Contact Banner */}
+              <div className="pt-2">
+                <div className="w-full rounded-2xl bg-gray-100 dark:bg-zinc-900  p-5 md:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-left ">
+                  <div className="space-y-1 max-w-xl">
+                    <h3 className="text-base md:text-lg font-semibold text-primary tracking-tight">
+                      Interested in deep-diving into the Pockomint build & beta metrics?
+                    </h3>
+                    <p className="text-text-secondary text-xs md:text-sm font-light leading-relaxed">
+                      I'd love to chat about the iOS architecture, design decisions, and lessons learned.
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => setIsContactOpen(true)}
+                    className="inline-flex items-center justify-center shrink-0 bg-[#1a1a1a] dark:bg-[#262626] text-white hover:opacity-90 transition-all font-medium text-xs md:text-sm px-5 py-2.5 rounded-full shadow-sm hover:scale-[1.02] active:scale-[0.98] duration-200 cursor-pointer"
+                  >
+                    Get in Touch
+                  </button>
+                </div>
               </div>
             </motion.section>
 
@@ -797,54 +982,63 @@ export default function Pockomint() {
               <div className="flex items-center gap-3">
                 <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary tracking-tight">
-                  Beyond the Screen: Learning App Store Connect
+                  Beyond the Screen: Branding, Physical Assets & App Store Connect
                 </h2>
               </div>
 
               <div className="space-y-6 text-lg md:text-xl text-text-secondary leading-relaxed font-light">
                 <p>
-                  Designing the app was only half the job, getting it in front of people well was the other half. Working solo on the release side of Pockomint meant learning App Store Connect from the ground up: how builds move through review, how versioning and release notes work, and how the whole submission pipeline fits together.
+                  Designing the app was only half the job; getting it into the world thoughtfully was the other half. Working solo on the release side meant learning App Store Connect from the ground up—from build pipelines and review workflows to crafting storefront preview assets. The Pocko mascot was also designed to extend naturally beyond digital UI into physical brand merchandise and collateral, creating a cohesive brand universe.
                 </p>
                 <p>
-                  The more interesting design challenge turned out to be the App Store presence itself. The preview screenshots and video aren't just documentation, they're the first real impression of the product, often before someone ever opens the app. I treated that page as its own design surface: choosing which screens actually sell the daily habit loop and the Pocko mascot at a glance, sequencing screenshots so they tell a mini story rather than just showing features in order, and making sure the visual language matched the in-app experience so there's no disconnect between the promise and the product.
+                  The App Store presence was treated as its own design surface: choosing key screens that sell the habit loop at a glance, sequencing screenshots to tell a story, and aligning visual aesthetics so the marketing promise seamlessly matches the product.
                 </p>
-                <p>
-                  It reframed how I think about design work generally. A great interface can still underperform if the moment someone decides to download it is designed poorly. That handoff between marketing surface and product experience became something I now think about from day one, not as an afterthought at launch.
-                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <div className="p-8 rounded-2xl md:rounded-3xl border border-gray-300 dark:border-zinc-800 flex space-y-2 flex-col">
+                  <div className="space-y-4">
+                    <Sparkles size={36} className="text-primary" />
+                    <h3 className="text-md font-semibold text-primary">Custom Sticker Sets</h3>
+                  </div>
+                  <p className="text-text-secondary leading-relaxed font-light">
+                    Designed themed die-cut sticker sheets featuring Pocko in various states (celebrating streaks, holding coins, wearing hats) as rewards for beta testers and community members.
+                  </p>
+                </div>
+
+                <div className="p-8 rounded-2xl md:rounded-3xl border border-gray-300 dark:border-zinc-800 flex space-y-2 flex-col">
+                  <div className="space-y-4">
+                    <Megaphone size={36} className="text-primary" />
+                    <h3 className="text-md font-semibold text-primary">Social & Launch Collateral</h3>
+                  </div>
+                  <p className="text-text-secondary leading-relaxed font-light">
+                    Created high-resolution App Store preview banners, Product Hunt launch visuals, and animated promotional clips built using the same color system as the app.
+                  </p>
+                </div>
               </div>
 
               {/* iPhone App Store Showcase */}
               <figure className="space-y-3 pt-4">
-                <div className="overflow-hidden rounded-2xl md:rounded-3xl border border-border/60 p-4 md:p-8 flex items-center justify-center bg-[linear-gradient(to_bottom,rgb(236,228,255),rgb(249,249,249))] dark:bg-[linear-gradient(to_bottom,rgb(28,22,46),rgb(0,0,0))]">
+                <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-purple-500/20 dark:border-purple-500/15 p-4 md:p-8 flex items-center justify-center bg-gradient-to-b from-purple-50/40 via-indigo-50/20 to-slate-50/60 dark:from-purple-950/20 dark:via-indigo-950/10 dark:to-zinc-950/40 backdrop-blur-xl">
+                  {/* Ambient Mesh Background Glow */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+                    <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px]" />
+                    <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
+                  </div>
                   <img
                     src="/pockomint-assets/app ss ios.webp"
                     alt="Pockomint iPhone App Store screenshots showcase"
                     loading="lazy"
-                    className="w-full max-h-[750px] md:max-h-[900px] object-contain"
+                    className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
                   />
                 </div>
                 <figcaption className="text-center text-text-secondary font-medium italic text-sm">
                   iPhone App Store Connect screenshots and storefront sequence
                 </figcaption>
               </figure>
-
-              {/* iPad App Store Showcase */}
-              <figure className="space-y-3 pt-4">
-                <div className="overflow-hidden rounded-2xl md:rounded-3xl border border-border/60 p-4 md:p-8 flex items-center justify-center bg-[linear-gradient(to_bottom,rgb(236,228,255),rgb(249,249,249))] dark:bg-[linear-gradient(to_bottom,rgb(28,22,46),rgb(0,0,0))]">
-                  <img
-                    src="/pockomint-assets/app ss ipad.webp"
-                    alt="Pockomint iPad App Store screenshots showcase"
-                    loading="lazy"
-                    className="w-full max-h-[750px] md:max-h-[900px] object-contain"
-                  />
-                </div>
-                <figcaption className="text-center text-text-secondary font-medium italic text-sm">
-                  iPad App Store Connect screenshots and storefront sequence
-                </figcaption>
-              </figure>
             </motion.section>
 
-            {/* Section 9: Outcome */}
+            {/* Section 10: Outcome */}
             <motion.section
               id="outcome"
               initial={{ opacity: 0, y: 30 }}
@@ -855,37 +1049,59 @@ export default function Pockomint() {
             >
               <div className="flex items-center gap-3">
                 <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary tracking-tight">Outcome</h2>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary tracking-tight">
+                  Outcome & Key Takeaways
+                </h2>
               </div>
 
               <p className="text-lg md:text-xl text-text-secondary leading-relaxed font-light">
-                Pockomint launched on the App Store as a fully native iOS app, achieving:
+                Pockomint demonstrated that a small, focused team could take a product from initial concept to a published App Store app by grounding design choices in native platform conventions, designing a distinct brand identity around a mascot, and iterating directly on beta user feedback.
               </p>
 
-              <ul className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                 {[
-                  "A gamified daily habit loop (XP, streaks, badges, levels) alongside a Simple Mode for users who prefer a minimal experience",
-                  "Two features not found in researched competitor apps: expense templates and fully custom budget cycles",
-                  "A custom mascot, Pocko, designed to carry brand meaning without overwhelming the interface",
-                  "A native-first design system that delivered built-in accessibility and fast, feedback-driven iteration",
-                  "Measurable quality improvements through beta testing, including a major reduction in build-over-build bugs and app size cut roughly in half"
+                  {
+                    title: "Dual Habit Loop Experience",
+                    icon: <BookOpenCheck size={36} className="text-primary" />,
+                    desc: "A gamified daily habit loop (XP, streaks, badges, levels) alongside a Simple Mode for users who prefer a minimal experience."
+                  },
+                  {
+                    title: "Two Key Competitor Gaps Closed",
+                    icon: <Megaphone size={36} className="text-primary" />,
+                    desc: "Features missing from competitor apps: expense templates and fully custom, salary-aligned budget cycles."
+                  },
+                  {
+                    title: "Mascot-Centered Brand Identity",
+                    icon: <Palette size={36} className="text-primary" />,
+                    desc: "A custom mascot, Pocko, designed to carry brand meaning without overwhelming the native interface."
+                  },
+                  {
+                    title: "Native-First Design System",
+                    icon: <Layers size={36} className="text-primary" />,
+                    desc: "Built-in accessibility and fast, feedback-driven iteration powered by native platform conventions."
+                  }
                 ].map((point, index) => (
-                  <li key={index} className="flex items-start gap-4 text-base md:text-lg text-text-secondary font-light">
-                    <span className="w-2 h-2 rounded-full bg-primary mt-2.5 shrink-0" />
-                    <span>{point}</span>
-                  </li>
+                  <div key={index} className="p-8 rounded-2xl md:rounded-3xl border border-gray-300 dark:border-zinc-800 flex space-y-2 flex-col">
+                    <div className="space-y-4">
+                      {point.icon}
+                      <h3 className="text-md font-semibold text-primary">
+                        {point.title}
+                      </h3>
+                    </div>
+                    <p className="text-text-secondary leading-relaxed font-light">
+                      {point.desc}
+                    </p>
+                  </div>
                 ))}
-              </ul>
-
-              <div className="pt-6">
-                <ImagePlaceholder label="[Image Placeholder: App Store Launch & Final Product Showcase]" description="Hero gallery of final iPhone & iPad App Store screenshots showcasing Pockomint in action" />
               </div>
-
             </motion.section>
 
           </main>
 
       </div>
+
+      {/* Contact Modal */}
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} initialMessage="Hi Hamza, I'd like to know more about Pockomint!" />
     </div>
   );
 }
