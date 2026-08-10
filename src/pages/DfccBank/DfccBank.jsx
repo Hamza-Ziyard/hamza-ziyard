@@ -171,7 +171,7 @@ export default function DfccBank() {
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm text-text-secondary font-medium">Fleet Impact</h4>
-                <p className="text-lg font-bold text-primary">150+ ATMs & CRMs Nationwide</p>
+                <p className="text-lg font-bold text-primary">ATMs & CRMs Nationwide</p>
               </div>
             </div>
           </div>
@@ -730,8 +730,7 @@ export default function DfccBank() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
-              {/* Metric 1: Machine Fleet */}
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
               <div className="p-8 rounded-2xl md:rounded-3xl border border-gray-300 dark:border-zinc-800 flex space-y-8 flex-col">
                 <h3 className="text-md font-semibold text-primary">Nationwide Fleet</h3>
                 <span className="text-4xl md:text-5xl font-bold">
@@ -741,8 +740,6 @@ export default function DfccBank() {
                   Active across physical DFCC Bank ATMs and Cash Recycler Machines nationwide.
                 </p>
               </div>
-
-              {/* Metric 2: User Volume */}
               <div className="p-8 rounded-2xl md:rounded-3xl border border-gray-300 dark:border-zinc-800 flex space-y-8 flex-col">
                 <h3 className="text-md font-semibold text-primary">Daily Reach</h3>
                 <span className="text-4xl md:text-5xl font-bold">
@@ -753,7 +750,6 @@ export default function DfccBank() {
                 </p>
               </div>
 
-              {/* Metric 3: System Scale */}
               <div className="p-8 rounded-2xl md:rounded-3xl border border-gray-300 dark:border-zinc-800 flex space-y-8 flex-col">
                 <h3 className="text-md font-semibold text-primary">System Scale</h3>
                 <span className="text-4xl md:text-5xl font-bold">
@@ -764,7 +760,6 @@ export default function DfccBank() {
                 </p>
               </div>
 
-              {/* Metric 4: Localization */}
               <div className="p-8 rounded-2xl md:rounded-3xl border border-gray-300 dark:border-zinc-800 flex space-y-8 flex-col">
                 <h3 className="text-md font-semibold text-primary">Localization</h3>
                 <span className="text-4xl md:text-5xl font-bold">
@@ -774,7 +769,7 @@ export default function DfccBank() {
                   Fully adapted across English, Sinhala, and Tamil with clear visual hierarchy.
                 </p>
               </div>
-            </div>
+            </div> */}
 
             {/* Single Contact Banner before Closing */}
             <div className="pt-4">
