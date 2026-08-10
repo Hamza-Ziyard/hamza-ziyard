@@ -636,7 +636,7 @@ export default function DfccBank() {
                   src="https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/key-design-decisions.webp"
                   alt="DFCC Bank ATM Key Design Decisions Iconography & Logo System Showcase"
                   loading="lazy"
-                  className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain rounded-xl"
+                  className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
                 />
               </div>
               <figcaption className="text-center text-text-secondary font-medium italic text-sm">
@@ -701,7 +701,7 @@ export default function DfccBank() {
                   src="https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/localization.webp"
                   alt="DFCC Bank ATM Trilingual Localization across English, Sinhala, and Tamil"
                   loading="lazy"
-                  className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain rounded-xl"
+                  className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
                 />
               </div>
               <figcaption className="text-center text-text-secondary font-medium italic text-sm">

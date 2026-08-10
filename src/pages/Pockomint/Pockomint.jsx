@@ -704,7 +704,7 @@ export default function Pockomint() {
                       rel="noopener noreferrer"
                       className="underline hover:text-primary font-medium text-blue-500"
                     >
-                      Chamdi RW
+                      ChamdiRW
                     </a>
                   </div>
                   {/* Ambient Mesh Background Glow */}
