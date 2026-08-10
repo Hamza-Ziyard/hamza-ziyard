@@ -8,7 +8,7 @@ import ProjectDetail from './pages/ProjectDetail';
 import Admin from './pages/Admin';
 
 import ProjectDetailWork from './pages/ProjectDetailWork';
-import Pockomint from './pages/Pockomint';
+import Pockomint from './pages/Pockomint/Pockomint';
 
 function App() {
   return (

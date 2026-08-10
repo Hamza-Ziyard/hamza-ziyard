@@ -24,7 +24,8 @@ import {
   BookOpenCheck,
   CalendarDays
 } from 'lucide-react';
-import ContactModal from '../components/ui/ContactModal';
+import ContactModal from '../../components/ui/ContactModal';
+import AppViewsGalleryModal from './AppViewsGalleryModal';
 
 const SECTIONS = [
   { id: 'the-hook', title: 'The Hook', num: '01' },
@@ -143,12 +144,46 @@ export default function Pockomint() {
   const [showNav, setShowNav] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [showUiAlert, setShowUiAlert] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isExplicitlyDismissed, setIsExplicitlyDismissed] = useState(false);
+
   const dropdownRef = useRef(null);
   const isScrollingRef = useRef(false);
 
   useEffect(() => {
     document.title = "Pockomint Case Study | Hamza Ziyard";
   }, []);
+
+  // Trigger alert banner after 3 seconds on page load/refresh
+  useEffect(() => {
+    setShowUiAlert(false);
+
+    const timer = setTimeout(() => {
+      setShowUiAlert(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleDismissAlert = () => {
+    setShowUiAlert(false);
+    setIsExplicitlyDismissed(true);
+  };
+
+  const handleOpenGallery = () => {
+    setShowUiAlert(false);
+    setIsGalleryOpen(true);
+  };
+
+  const handleCloseGallery = () => {
+    setIsGalleryOpen(false);
+    if (!isExplicitlyDismissed) {
+      setTimeout(() => {
+        setShowUiAlert(true);
+      }, 3000);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -291,7 +326,7 @@ export default function Pockomint() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50"
+              className={`fixed ${showUiAlert ? 'bottom-8 md:bottom-20' : 'bottom-0 md:bottom-8'} left-1/2 -translate-x-1/2 z-50 transition-all duration-300`}
             >
               {/* Dropdown Popover Menu */}
               <AnimatePresence>
@@ -1099,6 +1134,52 @@ export default function Pockomint() {
           </main>
 
       </div>
+
+      {/* Dismissible Alert Banner */}
+      <AnimatePresence>
+        {showUiAlert && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+            className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-50 w-[92vw] sm:w-auto max-w-fit bg-zinc-900 text-white border border-white/10 px-3.5 py-2.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl flex items-center justify-between gap-2.5 sm:gap-6 md:gap-12 whitespace-nowrap transition-all duration-300"
+          >
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+              <div className="w-5 h-5 sm:w-7 sm:h-7 text-white flex items-center justify-center shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              </div>
+              <p className="text-xs sm:text-sm font-medium truncate">
+                <span className="hidden lg:inline">Bored of scrolling and reading the whole story? Just wanna see the UI?</span>
+                <span className="inline lg:hidden">Bored of scrolling?</span>
+              </p>
+            </div>
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+              <button
+                onClick={handleOpenGallery}
+                className="px-3 py-1.5 sm:px-4 sm:py-1.5 bg-white text-black rounded-full text-xs sm:text-sm font-semibold hover:opacity-90 active:scale-95 transition-all cursor-pointer whitespace-nowrap shadow-md"
+              >
+                <span className="hidden sm:inline">View UI Only</span>
+                <span className="inline sm:hidden">UI Only</span>
+              </button>
+              <button
+                onClick={handleDismissAlert}
+                className="p-1 opacity-60 hover:opacity-100 rounded-full hover:bg-white/10 transition-all shrink-0 cursor-pointer"
+                aria-label="Dismiss alert"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* UI Gallery Fullscreen Modal */}
+      <AppViewsGalleryModal isOpen={isGalleryOpen} onClose={handleCloseGallery} />
 
       {/* Contact Modal */}
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} initialMessage="Hi Hamza, I'd like to know more about Pockomint!" />
