@@ -246,7 +246,7 @@ export default function DfccBank() {
         </AnimatePresence>
 
         {/* Main Case Study Content Sections */}
-        <main className="max-w-[1440px] mx-auto space-y-16 md:space-y-44 py-16">
+        <main className="max-w-[1440px] mx-auto space-y-16 md:space-y-28 py-16">
 
           {/* Section 1: The Ask */}
           <motion.section
