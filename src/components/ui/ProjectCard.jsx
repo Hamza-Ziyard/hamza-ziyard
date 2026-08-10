@@ -96,9 +96,13 @@ export default function ProjectCard({ project }) {
             className={`${
               isReducedFavicon
                 ? 'w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24'
+                : project.isCompanyCard
+                ? 'w-48 md:w-56 lg:w-72 max-h-32 md:max-h-40 lg:max-h-48 object-contain'
+                : project.id === 'dfcc-bank'
+                ? 'w-auto max-w-full h-auto max-h-[220px] md:max-h-[300px] lg:max-h-[360px] object-contain border-black border-t-[6px] border-x-[6px]'
                 : project.width === 'w-full'
                 ? 'w-full h-full object-contain'
-                : `w-32 md:w-44 lg:${project.width || 'w-60'} h-20 md:h-28 lg:${project.height || 'h-80'}`
+                : `w-32 md:w-44 lg:${project.width || 'w-60'} h-20 md:h-28 lg:${project.height || 'h-80'} object-contain`
             } transition-transform duration-700 ease-out group-hover:scale-105`}
           />
         )}

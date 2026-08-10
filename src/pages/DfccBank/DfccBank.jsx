@@ -137,7 +137,7 @@ export default function DfccBank() {
                 src="https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/hero.webp"
                 alt="DFCC Bank ATM Redesign Final Screen Interface"
                 loading="eager"
-                className="w-full h-auto max-h-[600px] md:max-h-[750px] object-contain"
+                className="w-auto max-w-full h-auto max-h-[600px] md:max-h-[750px] object-contain border-black border-t-[6px] border-x-[6px]"
               />
             </div>
           </motion.div>
