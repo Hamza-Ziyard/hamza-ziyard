@@ -86,10 +86,20 @@ export default function ProjectCard({ project }) {
           </div>
         ) : (
           <img
-            src={project.coverImage.startsWith('http') ? project.coverImage : 'https://assets.hamzaziyard.com' + (isDarkMode && project.isCompanyCard && project.favicon ? project.favicon : project.coverImage)}
+            src={
+              project.coverImage.startsWith('http') || project.coverImage.startsWith('/dfcc-assets')
+                ? project.coverImage
+                : 'https://assets.hamzaziyard.com' + (isDarkMode && project.isCompanyCard && project.favicon ? project.favicon : project.coverImage)
+            }
             alt={project.title}
             loading="lazy"
-            className={`${isReducedFavicon ? 'w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24' : `w-32 md:w-44 lg:${project.width || 'w-60'} h-20 md:h-28 lg:${project.height || 'h-80'}`} object-contain transition-transform duration-700 ease-out group-hover:scale-105`}
+            className={`${
+              isReducedFavicon
+                ? 'w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24'
+                : project.width === 'w-full'
+                ? 'w-full h-full object-contain'
+                : `w-32 md:w-44 lg:${project.width || 'w-60'} h-20 md:h-28 lg:${project.height || 'h-80'}`
+            } transition-transform duration-700 ease-out group-hover:scale-105`}
           />
         )}
       </div>

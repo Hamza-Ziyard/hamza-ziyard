@@ -2,11 +2,22 @@
   {
     "id": "pockomint",
     "title": "Pockomint",
-    "company": "Personal Project",
+    "company": "Personal Project - Neugine",
     "type": "Mobile App",
     "role": "Product Designer",
     "coverImage": "https://assets.hamzaziyard.com/projects-for-fun/pockomint/hero.mp4",
     "isVideo": true,
     "link": "/pockomint"
+  },
+  {
+    "id": "dfcc-bank",
+    "title": "DFCC Bank ATM Redesign",
+    "company": "DFCC Bank",
+    "type": "ATM UI/UX Design",
+    "role": "Lead UI/UX Designer",
+    "coverImage": "https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/hero.webp",
+    "width": "w-full",
+    "height": "h-full",
+    "link": "/dfcc-bank"
   }
 ]

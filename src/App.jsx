@@ -9,6 +9,7 @@ import Admin from './pages/Admin';
 
 import ProjectDetailWork from './pages/ProjectDetailWork';
 import Pockomint from './pages/Pockomint/Pockomint';
+import DfccBank from './pages/DfccBank/DfccBank';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="resume" element={<Resume />} />
         <Route path="redesigns" element={<Redesign />} />
         <Route path="pockomint" element={<Pockomint />} />
+        <Route path="dfcc-bank" element={<DfccBank />} />
         <Route path="project/:id" element={<ProjectDetail />} />
         <Route path="work/:id" element={<ProjectDetailWork />} />
         <Route path="admin" element={<Admin />} />
