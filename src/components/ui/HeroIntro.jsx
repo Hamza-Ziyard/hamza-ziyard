@@ -397,7 +397,7 @@ export default function HeroIntro() {
 
         {/* Greeting Title */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary tracking-tight mb-3 pt-2">
-          Hello! I'm Hamza,
+          Hello! I'm Hamza
         </h1>
 
         {/* Tagline / Experience Intro */}
