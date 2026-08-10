@@ -416,7 +416,7 @@ export default function Pockomint() {
         </AnimatePresence>
 
         {/* Main Case Study Sections Container */}
-        <main className="max-w-[1440px] mx-auto space-y-16 md:space-y-56 py-16">
+        <main className="max-w-[1440px] mx-auto space-y-16 md:space-y-32 py-16">
 
             {/* Section 1: The Hook */}
             <motion.section
