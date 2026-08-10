@@ -54,8 +54,8 @@ const ImagePlaceholder = ({ label, description, aspectRatio = "aspect-video" }) 
 );
 
 const BeforeAfterShowcase = ({
-  beforeImage = "/pockomint-assets/old-pockomint.webp",
-  afterImage = "/pockomint-assets/new-home.webp"
+  beforeImage = "https://assets.hamzaziyard.com/projects-for-fun/pockomint/old-pockomint.webp",
+  afterImage = "https://assets.hamzaziyard.com/projects-for-fun/pockomint/new-home.webp"
 }) => {
   return (
     <figure className="space-y-3 pt-2">
@@ -260,9 +260,9 @@ export default function Pockomint() {
             </div>
 
             {/* Top: Centered Phone Showcase in Pattern Background */}
-            <div className="relative z-10 w-full max-w-[280px] sm:max-w-[320px] md:max-w-[350px] py-4 md:py-16">
+            <div className="relative z-10 w-full max-w-[280px] sm:max-w-[320px] md:max-w-[350px] pt-4 md:pt-12 pb-6 md:pb-10 flex flex-col items-center gap-8">
               {/* Subtle Black Phone Frame */}
-              <div className="relative rounded-[40px] sm:rounded-[48px] p-2 bg-black border border-zinc-800/80 shadow-2xl">
+              <div className="relative rounded-[40px] sm:rounded-[48px] p-2 bg-black border border-zinc-800/80 shadow-2xl w-full">
                 <div className="relative aspect-[9/19.5] w-full rounded-[30px] sm:rounded-[38px] overflow-hidden bg-black flex items-center justify-center border border-zinc-900">
                   <video
                     src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/hero.mp4"
@@ -274,6 +274,25 @@ export default function Pockomint() {
                   />
                 </div>
               </div>
+
+              {/* Get App Button centered under Phone */}
+              <a
+                href="https://apple.co/4fS3kJm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block transition-transform hover:scale-105 active:scale-95 shadow-xl rounded-xl overflow-hidden"
+              >
+                <img
+                  src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/get-app-black.svg"
+                  alt="Get Pockomint on App Store"
+                  className="h-12 sm:h-14 w-auto block dark:hidden"
+                />
+                <img
+                  src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/get-app-white.svg"
+                  alt="Get Pockomint on App Store"
+                  className="h-12 sm:h-14 w-auto hidden dark:block"
+                />
+              </a>
             </div>
           </motion.div>
 
@@ -281,12 +300,12 @@ export default function Pockomint() {
           <div className="w-full max-w-[1440px] mx-auto mt-16 space-y-8">
             <div className="flex items-center gap-4 md:gap-5">
               <img
-                src="/pockomint-assets/Light_Logo.webp"
+                src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/Light_Logo.webp"
                 alt="Pockomint Logo"
                 className="w-12 h-12 md:w-16 md:h-16 block dark:hidden object-contain rounded-2xl shadow-sm border border-border/40"
               />
               <img
-                src="/pockomint-assets/Dark_Logo.webp"
+                src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/Dark_Logo.webp"
                 alt="Pockomint Logo"
                 className="w-12 h-12 md:w-16 md:h-16 hidden dark:block object-contain rounded-2xl shadow-sm border border-border/40"
               />
@@ -311,6 +330,17 @@ export default function Pockomint() {
               <div className="space-y-1">
                 <h4 className="text-sm text-text-secondary font-medium">Timeline</h4>
                 <p className="text-lg font-bold text-primary">06 months</p>
+              </div>
+               <div className="space-y-1">
+                <h4 className="text-sm text-text-secondary font-medium">Visit Pockomint</h4>
+                <a
+                href="https://pockomint.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block transition-transform hover:scale-105 active:scale-95 text-blue-500 font-bold text-lg"
+              >
+                https://pockomint.app/
+              </a>
               </div>
             </div>
           </div>
@@ -419,7 +449,7 @@ export default function Pockomint() {
                     <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                   </div>
                   <img
-                    src="/pockomint-assets/The Hook.webp"
+                    src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/The Hook.webp"
                     alt="Pockomint habit-focused expense tracking interface"
                     loading="lazy"
                     className="relative z-10 w-full h-auto object-contain"
@@ -508,7 +538,7 @@ export default function Pockomint() {
                       <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                     </div>
                     <img
-                      src="/pockomint-assets/Add Expense.webp"
+                      src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/Add Expense.webp"
                       alt="Deliberate Check-in Add Expense UI"
                       loading="lazy"
                       className="relative z-10 max-h-[480px] md:max-h-[540px] w-full object-contain"
@@ -530,7 +560,7 @@ export default function Pockomint() {
                       <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                     </div>
                     <img
-                      src="/pockomint-assets/Calender Cycles.webp"
+                      src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/Calender Cycles.webp"
                       alt="Custom Budget Cycles UI"
                       loading="lazy"
                       className="relative z-10 max-h-[480px] md:max-h-[540px] w-full object-contain"
@@ -552,7 +582,7 @@ export default function Pockomint() {
                       <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                     </div>
                     <img
-                      src="/pockomint-assets/Template.webp"
+                      src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/Template.webp"
                       alt="One-Tap Expense Templates UI"
                       loading="lazy"
                       className="relative z-10 max-h-[480px] md:max-h-[540px] w-full object-contain"
@@ -598,7 +628,7 @@ export default function Pockomint() {
                     <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                   </div>
                   <img
-                    src="/pockomint-assets/Daily Habit.webp"
+                    src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/Daily Habit.webp"
                     alt="Daily Habit Loop"
                     loading="lazy"
                     className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
@@ -683,7 +713,7 @@ export default function Pockomint() {
                     <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                   </div>
                   <img
-                    src="/pockomint-assets/pocko.webp"
+                    src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/pocko.webp"
                     alt="Pocko character development and expressions"
                     loading="lazy"
                     className="w-full max-h-[750px] md:max-h-[900px] object-contain"
@@ -757,7 +787,7 @@ export default function Pockomint() {
                     <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                   </div>
                   <img
-                    src="/pockomint-assets/native components.webp"
+                    src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/native components.webp"
                     alt="Native iOS UI Components & SwiftUI Layouts"
                     loading="lazy"
                     className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
@@ -829,7 +859,7 @@ export default function Pockomint() {
                     <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                   </div>
                   <img
-                    src="/pockomint-assets/App Customization.webp"
+                    src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/App Customization.webp"
                     alt="App customization and personalization showcase"
                     loading="lazy"
                     className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
@@ -1061,7 +1091,7 @@ export default function Pockomint() {
                     <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-indigo-400/20 dark:bg-indigo-600/15 rounded-full blur-[100px]" />
                   </div>
                   <img
-                    src="/pockomint-assets/app ss ios.webp"
+                    src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/app ss ios.webp"
                     alt="Pockomint iPhone App Store screenshots showcase"
                     loading="lazy"
                     className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"

@@ -9,141 +9,141 @@ const APP_VIEWS = [
     id: 'home',
     title: 'Home Dashboard',
     caption: 'Primary dashboard with quick transaction logging, daily streak mascot, and spend summary.',
-    darkSrc: '/pockomint-assets/app_views/dark/Home - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Home - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Home - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Home - Light.webp'
   },
   {
     id: 'calendar-1',
     title: 'Calendar View (Month)',
     caption: 'Monthly calendar heatmap displaying expense density and daily spending totals at a glance.',
-    darkSrc: '/pockomint-assets/app_views/dark/Calendar I - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Calendar I - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Calendar I - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Calendar I - Light.webp'
   },
   {
     id: 'calendar-2',
     title: 'Calendar View (Day Detail)',
     caption: 'Day-by-day itemized timeline view for reviewing specific transactions per date.',
-    darkSrc: '/pockomint-assets/app_views/dark/Calendar II - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Calendar II - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Calendar II - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Calendar II - Light.webp'
   },
   {
     id: 'view-expense',
     title: 'Expense Details',
     caption: 'Detailed transaction breakdown with timestamp, payment method, category tag, and notes.',
-    darkSrc: '/pockomint-assets/app_views/dark/View Expense - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/View Expense - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/View Expense - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/View Expense - Light.webp'
   },
   {
     id: 'analytics',
     title: 'Analytics Overview',
     caption: 'Interactive charts and period toggles visualizing short and long-term spending patterns.',
-    darkSrc: '/pockomint-assets/app_views/dark/Analytics - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Analytics - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Analytics - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Analytics - Light.webp'
   },
   {
     id: 'overall-insights',
     title: 'Overall Expense Insight',
     caption: 'High-level financial breakdown highlighting major spend categories and month-over-month trends.',
-    darkSrc: '/pockomint-assets/app_views/dark/Overall Expense Insight - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Overall Expense Insight - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Overall Expense Insight - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Overall Expense Insight - Light.webp'
   },
   {
     id: 'category-analytics',
     title: 'Category Analytics',
     caption: 'Granular analytics filtered by specific spending categories with percentage allocation.',
-    darkSrc: '/pockomint-assets/app_views/dark/Category Analytics - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Category Analytics - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Category Analytics - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Category Analytics - Light.webp'
   },
   {
     id: 'my-stats',
     title: 'Personal Stats & Badges',
     caption: 'Gamified stats dashboard tracking personal logging consistency, XP milestones, and level progress.',
-    darkSrc: '/pockomint-assets/app_views/dark/My Stats - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/My Stats - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/My Stats - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/My Stats - Light.webp'
   },
   {
     id: 'pocko-chat',
     title: 'Pocko Chat',
     caption: 'AI-driven companion offering personalized spending insights, answers, and encouragement.',
-    darkSrc: '/pockomint-assets/app_views/dark/Pocko Chat - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Pocko Chat - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Pocko Chat - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Pocko Chat - Light.webp'
   },
   {
     id: 'budget',
     title: 'Budget Management',
     caption: 'Monthly budget setup with real-time visual progress bars and remaining allowance indicators.',
-    darkSrc: '/pockomint-assets/app_views/dark/Budget - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Budget - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Budget - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Budget - Light.webp'
   },
   {
     id: 'budget-cycle',
     title: 'Custom Budget Cycles',
     caption: 'Tailored budget reset cycles matching paychecks (weekly, bi-weekly, or monthly).',
-    darkSrc: '/pockomint-assets/app_views/dark/Budget Cycle - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Budget Cycle- Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Budget Cycle - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Budget Cycle- Light.webp'
   },
   {
     id: 'streak',
     title: 'Streak & Habits',
     caption: 'Habit-building milestone screen rewarding daily check-ins with badges and streak multipliers.',
-    darkSrc: '/pockomint-assets/app_views/dark/Streak - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Streak - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Streak - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Streak - Light.webp'
   },
   {
     id: 'simple-mode-2',
     title: 'Simple Mode (Details)',
     caption: 'Minimalist list view prioritizing fast scanning and low cognitive load.',
-    darkSrc: '/pockomint-assets/app_views/dark/Simple Mode II - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Simple Mode II - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Simple Mode II - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Simple Mode II - Light.webp'
   },
   {
     id: 'multi-currency-1',
     title: 'Multi-Currency (Selection)',
     caption: 'Global currency support with live conversion rates and multi-currency expense entry.',
-    darkSrc: '/pockomint-assets/app_views/dark/Multi-currency I - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Multi-currency I - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Multi-currency I - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Multi-currency I - Light.webp'
   },
   {
     id: 'app-customization',
     title: 'App Customization',
     caption: 'Flexible theme options, custom accent colors, and mascot presentation toggles.',
-    darkSrc: '/pockomint-assets/app_views/dark/App Customization - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/App Customization - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/App Customization - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/App Customization - Light.webp'
   },
   {
     id: 'statement-detail',
     title: 'Statement Breakdown',
     caption: 'Exportable breakdown view ready for CSV or PDF sharing.',
-    darkSrc: '/pockomint-assets/app_views/dark/Statement Detail - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Statement Detail - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Statement Detail - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Statement Detail - Light.webp'
   },
   {
     id: 'template',
     title: 'Expense Templates',
     caption: 'One-tap logging presets for recurring expenses like subscriptions, coffee, or transit.',
-    darkSrc: '/pockomint-assets/app_views/dark/Template - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Template - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Template - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Template - Light.webp'
   },
   {
     id: 'notifications',
     title: 'Habit Notifications',
     caption: 'Gentle, customizable daily push notification triggers designed to maintain logging rituals.',
-    darkSrc: '/pockomint-assets/app_views/dark/Notifications - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/Notifications - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/Notifications - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/Notifications - Light.webp'
   },
   {
     id: 'icloud-sync',
     title: 'iCloud Synchronization',
     caption: 'Native iOS private cloud sync keeping data backed up and synced seamlessly across devices.',
-    darkSrc: '/pockomint-assets/app_views/dark/iCloud Sync - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/iCloud Sync - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/iCloud Sync - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/iCloud Sync - Light.webp'
   },
   {
     id: 'view-article',
     title: 'Financial Literacy Article',
     caption: 'In-app article reader providing bite-sized financial advice and money management guides.',
-    darkSrc: '/pockomint-assets/app_views/dark/View Article - Dark.webp',
-    lightSrc: '/pockomint-assets/app_views/light/View Article - Light.webp'
+    darkSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/dark/View Article - Dark.webp',
+    lightSrc: 'https://assets.hamzaziyard.com/projects-for-fun/pockomint/app_views/light/View Article - Light.webp'
   }
 ];
 
@@ -195,7 +195,25 @@ export default function AppViewsGalleryModal({ isOpen, onClose }) {
           <div className="flex items-center justify-between max-w-[1500px] mx-auto w-full">
             <h2 className="text-xl sm:text-2xl font-bold text-primary">Pockomint</h2>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <a
+                href="https://apple.co/4fS3kJm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block transition-transform hover:scale-105 active:scale-95 shrink-0"
+              >
+                <img
+                  src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/get-app-black.svg"
+                  alt="Get Pockomint"
+                  className="h-8 sm:h-9 w-auto block dark:hidden"
+                />
+                <img
+                  src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/get-app-white.svg"
+                  alt="Get Pockomint"
+                  className="h-8 sm:h-9 w-auto hidden dark:block"
+                />
+              </a>
+
               <button
                 onClick={toggleTheme}
                 className="p-2.5 rounded-full text-primary hover:bg-background transition-colors duration-300 cursor-pointer flex items-center justify-center"
