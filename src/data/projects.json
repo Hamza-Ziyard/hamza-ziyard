@@ -3,10 +3,12 @@
     "id": "pockomint",
     "title": "Pockomint",
     "company": "Personal Project - Neugine",
-    "type": "Mobile App",
+    "type": "iOS and iPadOS",
     "role": "Product Designer",
+    "summary": "A modern personal finance and expense tracking app designed to simplify budgeting and money management.",
     "coverImage": "https://assets.hamzaziyard.com/projects-for-fun/pockomint/hero.mp4",
     "isVideo": true,
+    "timePeriod": "06 months",
     "link": "/pockomint"
   },
   {
@@ -15,6 +17,8 @@
     "company": "DFCC Bank",
     "type": "ATM UI/UX Design",
     "role": "Lead UI/UX Designer",
+    "summary": "Next-generation ATM interface redesign focused on speed, accessibility, and intuitive touchscreen navigation.",
+    "timePeriod": "05 months",
     "coverImage": "https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/hero.webp",
     "link": "/dfcc-bank"
   }

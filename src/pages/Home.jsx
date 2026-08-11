@@ -19,6 +19,7 @@ export default function Home() {
     type: company.companyType,
     role: company.role,
     timePeriod: company.timePeriod,
+    summary: company.companyDescription,
     gradient: company.gradient || "bg-surface",
     coverImage: company.companyLogo,
     favicon: company.companyFavicon,
@@ -27,7 +28,18 @@ export default function Home() {
     height: company.height || "h-80"
   })), []);
 
-  const allProjects = useMemo(() => [...originalProjects, ...companyCards], [companyCards]);
+  const allProjects = useMemo(() => {
+    const combined = [...originalProjects, ...companyCards];
+    const preferredOrder = ['pockomint', 'dfcc-bank', 'zafer-work', 'surge-work', 'vetstoria-work'];
+    return combined.sort((a, b) => {
+      const indexA = preferredOrder.indexOf(a.id);
+      const indexB = preferredOrder.indexOf(b.id);
+      if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+      if (indexA !== -1) return -1;
+      if (indexB !== -1) return 1;
+      return 0;
+    });
+  }, [companyCards]);
 
   const companies = useMemo(() => ['All companies', ...new Set(allProjects.map(p => p.company).filter(Boolean))], [allProjects]);
   const types = useMemo(() => ['All types', ...new Set(allProjects.map(p => p.type).filter(Boolean))], [allProjects]);
@@ -108,7 +120,31 @@ export default function Home() {
         </div>
       </div> */}
 
-      <div className="grid gap-4 items-start grid-cols-1 lg:grid-cols-3">
+      {/* Mobile view: direct sequential list (1 -> 2 -> 3 -> 4 -> 5) */}
+      <div className="flex flex-col gap-4 lg:hidden">
+        <AnimatePresence>
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              layout
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.05,
+                layout: { duration: 0.4 }
+              }}
+              className="w-full"
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+
+      {/* Desktop view: 3 masonry columns */}
+      <div className="hidden lg:grid gap-8 items-start lg:grid-cols-2 xl:grid-cols-3">
         {columns.map((columnProjects, colIndex) => (
           <div key={colIndex} className="flex flex-col gap-4">
             <AnimatePresence>
