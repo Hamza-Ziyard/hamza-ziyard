@@ -633,14 +633,50 @@ export default function DfccBank() {
                   <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-rose-500/20 dark:bg-rose-600/20 rounded-full blur-[100px]" />
                 </div>
                 <img
-                  src="https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/key-design-decisions.webp"
-                  alt="DFCC Bank ATM Key Design Decisions Iconography & Logo System Showcase"
+                  src="https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/key-decision-states.webp"
+                  alt="DFCC Bank ATM transaction status feedback screens - Invalid Card, Incorrect Account Number, and Cash Deposited Successfully"
                   loading="lazy"
                   className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
                 />
               </div>
               <figcaption className="text-center text-text-secondary font-medium italic text-sm">
-                Custom iconography, fast action triggers, and integrated bank service logos
+                Clear visual status feedback for user actions, including error warnings, input validation, and successful transaction confirmations
+              </figcaption>
+            </figure>
+            <figure className="space-y-3 pt-4">
+              <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-red-500/20 dark:border-red-500/15 p-4 md:p-8 flex items-center justify-center bg-gradient-to-b from-red-50/40 via-rose-50/20 to-slate-50/60 dark:from-red-950/25 dark:via-rose-950/15 dark:to-zinc-950/40 backdrop-blur-xl">
+                {/* Ambient Mesh Background Glow */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+                  <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-red-400/20 dark:bg-red-600/20 rounded-full blur-[100px]" />
+                  <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-rose-500/20 dark:bg-rose-600/20 rounded-full blur-[100px]" />
+                </div>
+                <img
+                  src="https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/key-decision-icon-for-actions.webp"
+                  alt="DFCC Bank ATM action iconography showcase - Fast Cash confirmation, Account type selection, and Main menu options"
+                  loading="lazy"
+                  className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
+                />
+              </div>
+              <figcaption className="text-center text-text-secondary font-medium italic text-sm">
+                Custom action icons paired with clear labels for account types, primary transactions, and fast action triggers
+              </figcaption>
+            </figure>
+            <figure className="space-y-3 pt-4">
+              <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-red-500/20 dark:border-red-500/15 p-4 md:p-8 flex items-center justify-center bg-gradient-to-b from-red-50/40 via-rose-50/20 to-slate-50/60 dark:from-red-950/25 dark:via-rose-950/15 dark:to-zinc-950/40 backdrop-blur-xl">
+                {/* Ambient Mesh Background Glow */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+                  <div className="absolute -top-[30%] -left-[20%] w-[80%] h-[80%] bg-red-400/20 dark:bg-red-600/20 rounded-full blur-[100px]" />
+                  <div className="absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] bg-rose-500/20 dark:bg-rose-600/20 rounded-full blur-[100px]" />
+                </div>
+                <img
+                  src="https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/key-decision-netral-icons-and-logos.webp"
+                  alt="DFCC Bank ATM neutral iconography and third-party biller logos - System prompts, Cash retrieval, and Biller selection"
+                  loading="lazy"
+                  className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain"
+                />
+              </div>
+              <figcaption className="text-center text-text-secondary font-medium italic text-sm">
+                Neutral iconography for non-intrusive system alerts, physical cash collection prompts, and integrated third-party biller logos
               </figcaption>
             </figure>
           </motion.section>
