@@ -171,7 +171,7 @@ export default function DfccBank() {
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm text-text-secondary font-medium">Fleet Impact</h4>
-                <p className="text-lg font-bold text-primary">ATMs & CRMs Nationwide</p>
+                <p className="text-lg font-bold text-primary">180+ ATMs & CRMs Nationwide</p>
               </div>
             </div>
           </div>
@@ -571,8 +571,29 @@ export default function DfccBank() {
                   src="https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/test.webp"
                   alt="On-site physical ATM testing with simulated test data"
                   loading="lazy"
-                  className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain rounded-xl"
+                  className="relative z-10 w-full max-h-[750px] md:max-h-[900px] object-contain rounded-xl blur-md scale-[1.02]"
                 />
+
+                {/* Contact Overlay Mini-Banner */}
+                <div className="absolute inset-0 z-20 flex items-center justify-center p-4 bg-background/30 backdrop-blur-sm">
+                  <div className="max-w-md w-full rounded-2xl bg-surface/90 dark:bg-zinc-900/90 p-5 md:p-6 flex flex-col items-center text-center gap-4 border border-border backdrop-blur-md">
+                    <div className="space-y-1.5">
+                      <h3 className="text-base md:text-lg font-semibold text-primary tracking-tight">
+                        Want to learn more about the on-site hardware testing?
+                      </h3>
+                      <p className="text-text-secondary text-xs md:text-sm font-light leading-relaxed">
+                        Reach out to discuss details about physical ATM hardware integration and testing methodology.
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => setIsContactOpen(true)}
+                      className="inline-flex items-center justify-center shrink-0 bg-[#1a1a1a] dark:bg-[#262626] text-white hover:opacity-90 transition-all font-medium text-xs md:text-sm px-5 py-2.5 rounded-full shadow-sm hover:scale-[1.02] active:scale-[0.98] duration-200 cursor-pointer"
+                    >
+                      Get in Touch
+                    </button>
+                  </div>
+                </div>
               </div>
               <figcaption className="text-center text-text-secondary font-medium italic text-sm flex items-center justify-center gap-1.5">
                 <span className="inline-block w-2 h-2 rounded-full bg-amber-500 shrink-0" />
@@ -766,23 +787,23 @@ export default function DfccBank() {
               </p>
             </div>
 
-            {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
               <div className="p-8 rounded-2xl md:rounded-3xl border border-gray-300 dark:border-zinc-800 flex space-y-8 flex-col">
                 <h3 className="text-md font-semibold text-primary">Nationwide Fleet</h3>
                 <span className="text-4xl md:text-5xl font-bold">
-                  150+ <span className="text-xl md:text-2xl font-bold">ATMs & CRMs</span>
+                  180+ <span className="text-xl md:text-2xl font-bold">machines</span>
                 </span>
                 <p className="text-text-secondary leading-relaxed font-light">
-                  Active across physical DFCC Bank ATMs and Cash Recycler Machines nationwide.
+                  Active across physical DFCC Bank ATMs and CRMs nationwide.
                 </p>
               </div>
               <div className="p-8 rounded-2xl md:rounded-3xl border border-gray-300 dark:border-zinc-800 flex space-y-8 flex-col">
                 <h3 className="text-md font-semibold text-primary">Daily Reach</h3>
                 <span className="text-4xl md:text-5xl font-bold">
-                  100k+ <span className="text-xl md:text-2xl font-bold">daily users</span>
+                  90k+ <span className="text-xl md:text-2xl font-bold">daily users</span>
                 </span>
                 <p className="text-text-secondary leading-relaxed font-light">
-                  Serving DFCC account holders and shared interbank network customers daily.
+                  Serving DFCC account holders and shared interbank network customers daily which expands upto 120k+ on salary days.
                 </p>
               </div>
 
@@ -802,10 +823,10 @@ export default function DfccBank() {
                   03 <span className="text-xl md:text-2xl font-bold">languages</span>
                 </span>
                 <p className="text-text-secondary leading-relaxed font-light">
-                  Fully adapted across English, Sinhala, and Tamil with clear visual hierarchy.
+                  Fully adapted across English, Sinhala, and Tamil with clear visual hierarchy.DFCC later scaled this to 8 languages (adding French, Hindi, Russian, Mandarin, German) on top of the architecture provided.
                 </p>
               </div>
-            </div> */}
+            </div>
 
             {/* Single Contact Banner before Closing */}
             <div className="pt-4">

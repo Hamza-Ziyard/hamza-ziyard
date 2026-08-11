@@ -96,7 +96,7 @@ export default function Resume() {
               </div>
               <div className="md:col-span-7">
                 <p className="text-base text-text-secondary leading-relaxed">
-                  Redesigned <span className="font-semibold text-text-primary">700+ ATM screens</span> across <span className="font-semibold text-text-primary">150+ DFCC Bank ATMs</span> into a trilingual interface. Designed <span className="font-semibold text-text-primary">Pockomint</span> (iOS expense tracker) achieving <span className="font-semibold text-text-primary">90% UI/UX satisfaction</span> in beta. Prototyped a <span className="font-semibold text-text-primary">50+ screen SaaS inventory system</span> using AI-driven workflows.
+                  Redesigned <span className="font-semibold text-text-primary">700+ ATM screens</span> across <span className="font-semibold text-text-primary">180+ DFCC Bank ATMs</span> into a trilingual interface. Designed <span className="font-semibold text-text-primary">Pockomint</span> (iOS expense tracker) achieving <span className="font-semibold text-text-primary">90% UI/UX satisfaction</span> in beta. Prototyped a <span className="font-semibold text-text-primary">50+ screen SaaS inventory system</span> using AI-driven workflows.
                 </p>
               </div>
             </div>
