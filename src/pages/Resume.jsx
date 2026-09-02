@@ -110,7 +110,7 @@ export default function Resume() {
               </div>
               <div className="md:col-span-7">
                 <p className="text-base text-text-secondary leading-relaxed">
-                  Established Apple HIG & Material Design systems—consolidating color styles from <span className="font-semibold text-text-primary">450+ to 45</span> and mobile styles from <span className="font-semibold text-text-primary">250+ to 45</span>, <span className="font-semibold text-text-primary">tripling delivery efficiency</span> and cutting feature design turnaround time by <span className="font-semibold text-text-primary">75%</span>. Resolved <span className="font-semibold text-text-primary">80% of usability issues</span> and enforced WCAG 2.1 across an enterprise white-label app for <span className="font-semibold text-text-primary">20+ team members</span>.
+                  Established Apple HIG & Material Design systems, consolidating color styles from <span className="font-semibold text-text-primary">450+ to 45</span> and mobile styles from <span className="font-semibold text-text-primary">250+ to 45</span>, <span className="font-semibold text-text-primary">tripling delivery efficiency</span> and cutting feature design turnaround time by <span className="font-semibold text-text-primary">75%</span>. Resolved <span className="font-semibold text-text-primary">80% of usability issues</span> and enforced WCAG 2.1 across an enterprise white-label app for <span className="font-semibold text-text-primary">20+ team members</span>.
                 </p>
               </div>
             </div>

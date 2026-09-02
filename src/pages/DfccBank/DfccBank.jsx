@@ -23,15 +23,15 @@ import {
 import ContactModal from '../../components/ui/ContactModal';
 
 const SECTIONS = [
-  { id: 'the-ask', title: 'The Ask', num: '01' },
-  { id: 'research-proposal', title: 'Research & Proposal', num: '02' },
-  { id: 'getting-buy-in', title: 'Getting Buy-In', num: '03' },
+  { id: 'the-ask', title: 'The Challenge', num: '01' },
+  { id: 'research-proposal', title: 'Field Research', num: '02' },
+  { id: 'getting-buy-in', title: 'Stakeholder Buy-In', num: '03' },
   { id: 'constraints-scope', title: 'Constraints & Scope', num: '04' },
   { id: 'hardware-testing', title: 'Hardware Testing', num: '05' },
-  { id: 'key-decisions', title: 'Key Design Decisions', num: '06' },
-  { id: 'localization', title: 'Trilingual Localization', num: '07' },
-  { id: 'outcome', title: 'Outcome & Impact', num: '08' },
-  { id: 'closing', title: 'Closing', num: '09' },
+  { id: 'key-decisions', title: 'Key Decisions', num: '06' },
+  { id: 'localization', title: 'Trilingual System', num: '07' },
+  { id: 'outcome', title: 'Fleet Impact', num: '08' },
+  { id: 'closing', title: 'Closing Reflection', num: '09' },
 ];
 
 const ImagePlaceholder = ({ label, description, aspectRatio = "aspect-video" }) => (
@@ -122,7 +122,7 @@ export default function DfccBank() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative w-full max-w-[2000px] mx-auto rounded-2xl md:rounded-3xl overflow-hidden p-6 sm:p-10 flex flex-col items-center justify-center min-h-[380px] md:min-h-[480px]"
+            className="relative w-full max-w-[2000px] mx-auto rounded-2xl md:rounded-3xl overflow-hidden p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center min-h-[280px] md:min-h-[380px]"
           >
             {/* Ambient Mesh Gradient Background Overlay */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-60">
@@ -132,30 +132,31 @@ export default function DfccBank() {
             </div>
 
             {/* Main Hero Media */}
-            <div className="relative z-10 w-full max-w-5xl pt-4 md:pt-8 pb-6 md:pb-8 flex flex-col items-center gap-6">
+            <div className="relative z-10 w-full max-w-5xl pt-2 md:pt-4 pb-2 md:pb-4 flex flex-col items-center gap-4">
               <img
                 src="https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/hero.webp"
                 alt="DFCC Bank ATM Redesign Final Screen Interface"
                 loading="eager"
-                className="w-auto max-w-full h-auto max-h-[600px] md:max-h-[750px] object-contain border-black border-t-[6px] border-x-[6px]"
+                className="w-auto max-w-full h-auto max-h-[420px] md:max-h-[500px] object-contain border-black border-t-[6px] border-x-[6px]"
               />
             </div>
           </motion.div>
 
           {/* Header & Meta Information */}
           <div className="w-full max-w-[1440px] mx-auto mt-12 space-y-8">
-              <h1 className="text-4xl lg:text-5xl leading-tight font-bold tracking-tight text-primary">
-                DFCC Bank ATM Interface Redesign
-              </h1>
+            <h1 className="text-4xl lg:text-5xl leading-tight font-bold tracking-tight text-primary">
+              DFCC Bank - Nationwide ATM & CRM Interface Redesign
+            </h1>
 
             <p className="text-xl md:text-2xl text-text-secondary leading-relaxed font-light">
-              End-to-end redesign of DFCC Bank's nationwide ATM screen experience across two hardware models, localized into English, Sinhala, and Tamil.
+              End-to-end redesign of DFCC Bank's nationwide ATM screen experience across two hardware models, localized into English, Sinhala, and Tamil for 180+ machines.
             </p>
 
-            <div className="flex flex-wrap justify-start gap-10 md:gap-16 pt-6 border-t border-border/50">
+            {/* Project Meta Information */}
+            <div className="flex flex-wrap justify-start gap-10 md:gap-16 pt-6 dark:border-zinc-700">
               <div className="space-y-1">
                 <h4 className="text-sm text-text-secondary font-medium">Role</h4>
-                <p className="text-lg font-bold text-primary">UI/UX Designer</p>
+                <p className="text-lg font-bold text-primary">Lead UI/UX Designer</p>
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm text-text-secondary font-medium">Client</h4>
@@ -174,6 +175,7 @@ export default function DfccBank() {
                 <p className="text-lg font-bold text-primary">180+ ATMs & CRMs Nationwide</p>
               </div>
             </div>
+
           </div>
         </section>
 
@@ -234,7 +236,7 @@ export default function DfccBank() {
                   {currentSectionObj?.num || '01'} / {SECTIONS.length.toString().padStart(2, '0')}
                 </span>
                 <span className="text-xs sm:text-sm font-medium max-w-[150px] sm:max-w-[200px] truncate text-white dark:text-zinc-900">
-                  {currentSectionObj?.title || 'The Ask'}
+                  {currentSectionObj?.title || 'The Challenge'}
                 </span>
                 <ChevronUp
                   size={16}
@@ -246,7 +248,9 @@ export default function DfccBank() {
         </AnimatePresence>
 
         {/* Main Case Study Content Sections */}
-        <main className="max-w-[1440px] mx-auto space-y-16 md:space-y-28 py-16">
+        <main className="max-w-[1440px] mx-auto space-y-12 md:space-y-28 py-16">
+          
+        <hr className="border-t border-gray-300 dark:border-zinc-700" />
 
           {/* Section 1: The Ask */}
           <motion.section
@@ -259,7 +263,9 @@ export default function DfccBank() {
           >
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">The Ask</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">
+                The Challenge: Modernizing Legacy ATM Terminals
+              </h2>
             </div>
 
             <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
@@ -268,6 +274,8 @@ export default function DfccBank() {
               </p>
             </div>
           </motion.section>
+
+          <hr className="border-t border-gray-300 dark:border-zinc-700" />
 
           {/* Section 2: Research and Proposal */}
           <motion.section
@@ -280,7 +288,9 @@ export default function DfccBank() {
           >
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">Research and Proposal</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">
+                Research & Proposal: Site Visits & Glare Simulations
+              </h2>
             </div>
 
             <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
@@ -288,7 +298,7 @@ export default function DfccBank() {
                 Before proposing any direction, I visited real DFCC ATM sites to observe the existing interface firsthand and understand how customers were actually interacting with it. From there, I put together a proposal rather than jumping straight into full design work, giving DFCC a clear view of my thinking before any commitment was made.
               </p>
               <p>
-                As part of that proposal, I used AI-generated imagery to simulate how screen concepts would hold up in harsh real-world conditions—sunny glare, dust, and other environmental factors ATMs are regularly exposed to. This helped communicate not just what the design looked like, but how it would actually perform in the field.
+                As part of that proposal, I used AI-generated imagery to simulate how screen concepts would hold up in harsh real-world conditions (sunny glare, dust, and other environmental factors ATMs are regularly exposed to). This helped communicate not just what the design looked like, but how it would actually perform in the field.
               </p>
             </div>
 
@@ -387,6 +397,8 @@ export default function DfccBank() {
             </div>
           </motion.section>
 
+          <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
           {/* Section 3: Getting Buy-In */}
           <motion.section
             id="getting-buy-in"
@@ -398,7 +410,9 @@ export default function DfccBank() {
           >
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">Getting Buy-In</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">
+                Getting Buy-In & Cross-Functional Alignment
+              </h2>
             </div>
 
             <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
@@ -462,6 +476,8 @@ export default function DfccBank() {
             </div>
           </motion.section>
 
+          <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
           {/* Section 4: Constraints and Scope */}
           <motion.section
             id="constraints-scope"
@@ -473,7 +489,9 @@ export default function DfccBank() {
           >
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">Constraints and Scope</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">
+                Constraints & Scope: 2 Hardware Models & 3 Languages
+              </h2>
             </div>
 
             <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
@@ -506,6 +524,8 @@ export default function DfccBank() {
             </div>
           </motion.section>
 
+          <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
           {/* Section 5: Testing on Real Hardware */}
           <motion.section
             id="hardware-testing"
@@ -517,7 +537,9 @@ export default function DfccBank() {
           >
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">Testing on Real Hardware</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">
+                Hardware Testing: Live Machine Validation
+              </h2>
             </div>
 
             <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
@@ -602,6 +624,8 @@ export default function DfccBank() {
             </figure>
           </motion.section>
 
+          <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
           {/* Section 6: Key Design Decisions */}
           <motion.section
             id="key-decisions"
@@ -613,7 +637,9 @@ export default function DfccBank() {
           >
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">Key Design Decisions</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">
+                Key Decisions: Iconography & Fast Recognition
+              </h2>
             </div>
 
             <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
@@ -702,6 +728,8 @@ export default function DfccBank() {
             </figure>
           </motion.section>
 
+          <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
           {/* Section 7: Localization */}
           <motion.section
             id="localization"
@@ -713,7 +741,9 @@ export default function DfccBank() {
           >
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">Localization</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">
+                Trilingual Localization: Sinhala, Tamil & English
+              </h2>
             </div>
 
             <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
@@ -767,6 +797,8 @@ export default function DfccBank() {
             </figure>
           </motion.section>
 
+          <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
           {/* Section 8: Outcome */}
           <motion.section
             id="outcome"
@@ -778,7 +810,9 @@ export default function DfccBank() {
           >
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">Outcome</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">
+                Outcome: 180+ Machines Serving 90k+ Daily Users
+              </h2>
             </div>
 
             <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
@@ -850,6 +884,8 @@ export default function DfccBank() {
             </div>
           </motion.section>
 
+          <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
           {/* Section 9: Closing */}
           <motion.section
             id="closing"
@@ -861,7 +897,9 @@ export default function DfccBank() {
           >
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">Closing</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">
+                Closing Reflection
+              </h2>
             </div>
 
             <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">

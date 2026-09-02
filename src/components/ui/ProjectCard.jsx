@@ -152,7 +152,7 @@ export default function ProjectCard({ project }) {
         {/* Main headline text */}
         <h3 className="text-base md:text-xl font-semibold text-zinc-900 dark:text-zinc-100">
           {!project.isCompanyCard ? (
-            `${project.company || 'PROJECT'}`
+            `${project.title || project.company || 'PROJECT'}`
           ) : (
             `${project.company || 'COMPANY'}`
           )}

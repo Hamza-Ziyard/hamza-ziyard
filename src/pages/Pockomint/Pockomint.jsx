@@ -38,7 +38,7 @@ const SECTIONS = [
   { id: 'validating-design', title: 'Validating the Design', num: '08' },
   { id: 'building-without-swift', title: 'Building With AI', num: '09' },
   { id: 'beyond-screen', title: 'Beyond the Screen', num: '10' },
-  { id: 'outcome', title: 'Outcome', num: '11' },
+  { id: 'outcome', title: 'Outcome & Impact', num: '11' },
 ];
 
 const ImagePlaceholder = ({ label, description, aspectRatio = "aspect-video" }) => (
@@ -101,8 +101,8 @@ const BeforeAfterShowcase = ({
             </svg>
             <svg
               width="28"
-              height="70"
-              viewBox="0 0 28 70"
+              height="68"
+              viewBox="0 0 28 68"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className="block md:hidden text-primary drop-shadow-lg"
@@ -178,16 +178,10 @@ export default function Pockomint() {
 
   const handleCloseGallery = () => {
     setIsGalleryOpen(false);
-    if (!isExplicitlyDismissed) {
-      setTimeout(() => {
-        setShowUiAlert(true);
-      }, 3000);
-    }
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      // Toggle floating navigation bar visibility when scrolled past hero section
       const heroElement = document.getElementById('the-hook');
       if (heroElement) {
         setShowNav(window.scrollY >= heroElement.offsetTop - 300);
@@ -250,7 +244,7 @@ export default function Pockomint() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative w-full max-w-[2000px] mx-auto rounded-2xl md:rounded-3xl overflow-hidden p-6 sm:p-10 flex flex-col items-center justify-center"
+            className="relative w-full max-w-[2000px] mx-auto rounded-2xl md:rounded-3xl overflow-hidden p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center"
           >
             {/* Ambient Mesh Gradient Background Overlay */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-60">
@@ -260,17 +254,17 @@ export default function Pockomint() {
             </div>
 
             {/* Top: Centered Phone Showcase in Pattern Background */}
-            <div className="relative z-10 w-full max-w-[280px] sm:max-w-[320px] md:max-w-[350px] pt-4 md:pt-12 pb-6 md:pb-10 flex flex-col items-center gap-8">
+            <div className="relative z-10 w-full max-w-[220px] sm:max-w-[240px] md:max-w-[260px] pt-2 md:pt-4 pb-4 md:pb-6 flex flex-col items-center gap-5 md:gap-6">
               {/* Subtle Black Phone Frame */}
-              <div className="relative rounded-[40px] sm:rounded-[48px] p-2 bg-black border border-zinc-800/80 shadow-2xl w-full">
-                <div className="relative aspect-[9/19.5] w-full rounded-[30px] sm:rounded-[38px] overflow-hidden bg-black flex items-center justify-center border border-zinc-900">
+              <div className="relative rounded-[36px] sm:rounded-[42px] p-2 bg-black border border-zinc-800/80 shadow-2xl w-full">
+                <div className="relative aspect-[9/19.5] w-full rounded-[28px] sm:rounded-[34px] overflow-hidden bg-black flex items-center justify-center border border-zinc-900">
                   <video
                     src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/hero.mp4"
                     autoPlay
                     muted
                     loop
                     playsInline
-                    className="w-full h-full object-cover rounded-[30px] sm:rounded-[38px]"
+                    className="w-full h-full object-cover rounded-[28px] sm:rounded-[34px]"
                   />
                 </div>
               </div>
@@ -285,19 +279,19 @@ export default function Pockomint() {
                 <img
                   src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/get-app-black.svg"
                   alt="Get Pockomint on App Store"
-                  className="h-12 sm:h-14 w-auto block dark:hidden"
+                  className="h-10 sm:h-12 w-auto block dark:hidden"
                 />
                 <img
                   src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/get-app-white.svg"
                   alt="Get Pockomint on App Store"
-                  className="h-12 sm:h-14 w-auto hidden dark:block"
+                  className="h-10 sm:h-12 w-auto hidden dark:block"
                 />
               </a>
             </div>
           </motion.div>
 
           {/* Logo, Title & Metadata (Displayed Below Hero Pattern Container) */}
-          <div className="w-full max-w-[1440px] mx-auto mt-16 space-y-8">
+          <div className="w-full max-w-[1440px] mx-auto mt-10 md:mt-12 space-y-8">
             <div className="flex items-center gap-4 md:gap-5">
               <img
                 src="https://assets.hamzaziyard.com/projects-for-fun/pockomint/Light_Logo.webp"
@@ -310,37 +304,38 @@ export default function Pockomint() {
                 className="w-12 h-12 md:w-16 md:h-16 hidden dark:block object-contain rounded-2xl shadow-sm border border-border/40"
               />
               <h1 className="text-4xl lg:text-5xl leading-tight font-bold tracking-tight text-primary">
-                Pockomint
+                Pockomint - Native iOS Gamified Expense Tracker
               </h1>
             </div>
 
             <p className="text-xl md:text-2xl text-text-secondary leading-relaxed font-light">
-              Designing and building a native iOS app that makes people actually want to track their money
+              Designing and building an engaging personal finance iOS app in SwiftUI that turns daily money tracking from a chore into a rewarding habit.
             </p>
 
-            <div className="flex flex-wrap justify-start gap-10 md:gap-16 pt-6 border-t border-border/50">
+            {/* Project Meta Information */}
+            <div className="flex flex-wrap justify-start gap-10 md:gap-16 pt-6 dark:border-zinc-700">
               <div className="space-y-1">
                 <h4 className="text-sm text-text-secondary font-medium">Role</h4>
-                <p className="text-lg font-bold text-primary">UI/UX Design + SwiftUI Development</p>
+                <p className="text-lg font-bold text-primary">Product Designer & iOS Developer</p>
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm text-text-secondary font-medium">Platform</h4>
-                <p className="text-lg font-bold text-primary">iOS (iPhone & iPad)</p>
+                <p className="text-lg font-bold text-primary">iOS & iPadOS (SwiftUI)</p>
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm text-text-secondary font-medium">Timeline</h4>
                 <p className="text-lg font-bold text-primary">06 months</p>
               </div>
-               <div className="space-y-1">
-                <h4 className="text-sm text-text-secondary font-medium">Visit Pockomint</h4>
+              <div className="space-y-1">
+                <h4 className="text-sm text-text-secondary font-medium">Live App</h4>
                 <a
-                href="https://pockomint.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block transition-transform hover:scale-105 active:scale-95 text-blue-500 font-bold text-lg"
-              >
-                https://pockomint.app/
-              </a>
+                  href="https://pockomint.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block transition-transform hover:scale-105 active:scale-95 text-blue-500 font-bold text-lg"
+                >
+                  pockomint.app ↗
+                </a>
               </div>
             </div>
           </div>
@@ -415,8 +410,11 @@ export default function Pockomint() {
           )}
         </AnimatePresence>
 
+
         {/* Main Case Study Sections Container */}
-        <main className="max-w-[1440px] mx-auto space-y-16 md:space-y-32 py-16">
+        <main className="max-w-[1440px] mx-auto space-y-12 md:space-y-32 py-16">
+          
+        <hr className="border-t border-gray-300 dark:border-zinc-700" />
 
             {/* Section 1: The Hook */}
             <motion.section
@@ -429,10 +427,12 @@ export default function Pockomint() {
             >
               <div className="flex items-center gap-3">
                 <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">The Hook</h2>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">
+                  The Hook: Habit-First Expense Tracking
+                </h2>
               </div>
 
-              <div className="space-y-6 text-lg  text-text-secondary leading-relaxed font-light">
+              <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
                 <p>
                   Most expense trackers try to disappear. They auto-pull your bank data, quietly log it, and hope you never have to think about money. Pockomint does the opposite. It's built on a simple bet: people build better financial habits when they show up daily, not when an algorithm does it for them.
                 </p>
@@ -461,6 +461,8 @@ export default function Pockomint() {
               </figure>
             </motion.section>
 
+            <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
             {/* Section 2: The Problem */}
             <motion.section
               id="the-problem"
@@ -472,10 +474,12 @@ export default function Pockomint() {
             >
               <div className="flex items-center gap-3">
                 <span className="w-1.5 h-7 rounded-full bg-primary shrink-0" />
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">The Problem</h2>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight">
+                  The Problem: Over-Automation & Friction
+                </h2>
               </div>
 
-              <div className="space-y-6 text-lg  text-text-secondary leading-relaxed font-light">
+              <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
                 <p>
                   Before designing anything, I researched the existing expense tracker landscape to find where these apps were actually failing people.
                 </p>
@@ -522,7 +526,7 @@ export default function Pockomint() {
                 </div>
               </div>
 
-              <p className="text-lg  text-text-secondary leading-relaxed font-light">
+              <p className="text-lg text-text-secondary leading-relaxed font-light">
                 Pockomint was designed to close all three gaps at once, with a daily, deliberate check-in model instead of a passive automated one.
               </p>
 
@@ -595,6 +599,8 @@ export default function Pockomint() {
               </div>
             </motion.section>
 
+            <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
             {/* Section 3: The Design Approach */}
             <motion.section
               id="design-approach"
@@ -611,7 +617,7 @@ export default function Pockomint() {
                 </h2>
               </div>
 
-              <div className="space-y-6 text-lg  text-text-secondary leading-relaxed font-light">
+              <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
                 <p>
                   Instead of building around automation, I designed Pockomint around a small daily ritual. The app gently notifies users to log their spending each day, and gamifies that consistency with XP, streaks, badges, and levels. For users who don't want the game layer, a Simple Mode toggle strips it back to a clean, no-frills tracker.
                 </p>
@@ -640,6 +646,8 @@ export default function Pockomint() {
               </figure>
             </motion.section>
 
+            <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
             {/* Section 4: Early Stages & Evolution */}
             <motion.section
               id="early-stages"
@@ -656,7 +664,7 @@ export default function Pockomint() {
                 </h2>
               </div>
 
-              <p className="text-lg  text-text-secondary leading-relaxed font-light">
+              <p className="text-lg text-text-secondary leading-relaxed font-light">
                 Pockomint evolved from rigid form-heavy wireframes into a fluid, habit-first native iOS application.
               </p>
 
@@ -666,7 +674,9 @@ export default function Pockomint() {
               </div>
             </motion.section>
 
-            {/* Section 4: Meet Pocko */}
+            <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
+            {/* Section 5: Meet Pocko */}
             <motion.section
               id="meet-pocko"
               initial={{ opacity: 0, y: 30 }}
@@ -725,7 +735,9 @@ export default function Pockomint() {
               </figure>
             </motion.section>
 
-            {/* Section 5: Native iOS Components */}
+            <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
+            {/* Section 6: Native iOS Components */}
             <motion.section
               id="native-ios"
               initial={{ opacity: 0, y: 30 }}
@@ -741,7 +753,7 @@ export default function Pockomint() {
                 </h2>
               </div>
 
-              <p className="text-lg  text-text-secondary leading-relaxed font-light">
+              <p className="text-lg text-text-secondary leading-relaxed font-light">
                 As a two-person team, every design decision had to also be a velocity decision. I made an early call to build Pockomint entirely on native iOS components rather than custom UI, and it paid off in three concrete ways:
               </p>
 
@@ -799,7 +811,9 @@ export default function Pockomint() {
               </figure>
             </motion.section>
 
-            {/* Section 6: Designing for Personalization */}
+            <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
+            {/* Section 7: Designing for Personalization */}
             <motion.section
               id="designing-personalization"
               initial={{ opacity: 0, y: 30 }}
@@ -816,7 +830,7 @@ export default function Pockomint() {
               </div>
 
               <div className="space-y-8">
-                <p className="text-lg  text-text-secondary leading-relaxed font-light">
+                <p className="text-lg text-text-secondary leading-relaxed font-light">
                   Not every user wants the same app, so I designed Pockomint to bend around individual preferences rather than forcing one fixed layout on everyone.
                 </p>
 
@@ -846,7 +860,7 @@ export default function Pockomint() {
                   </div>
                 </div>
 
-                <p className="text-lg  text-text-secondary leading-relaxed font-light">
+                <p className="text-lg text-text-secondary leading-relaxed font-light">
                   Designing for this kind of flexibility is harder than designing a single fixed flow. Every customizable surface has to hold together visually no matter what combination a user picks, which meant building with a consistent underlying system rather than one-off screens. It's a detail that's easy to overlook, but it's what makes the app feel considered rather than generic.
                 </p>
               </div>
@@ -871,7 +885,9 @@ export default function Pockomint() {
               </figure>
             </motion.section>
 
-            {/* Section 7: Validating the Design */}
+            <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
+            {/* Section 8: Validating the Design */}
             <motion.section
               id="validating-design"
               initial={{ opacity: 0, y: 30 }}
@@ -887,7 +903,7 @@ export default function Pockomint() {
                 </h2>
               </div>
 
-              <p className="text-lg  text-text-secondary leading-relaxed font-light">
+              <p className="text-lg text-text-secondary leading-relaxed font-light">
                 Pockomint went through structured beta testing using Apple's TestFlight, gathering real feedback across iPhone and iPad from build to build.
               </p>
 
@@ -918,7 +934,7 @@ export default function Pockomint() {
                 <div className="p-8 rounded-2xl md:rounded-3xl border border-gray-300 dark:border-zinc-800 flex space-y-8 flex-col">
                   <h3 className="text-md font-semibold text-primary">TestFlight Iterations</h3>
                   <span className="text-4xl md:text-5xl font-bold">
-                    05 <span className="text-2xl md:text-3xl font-bold">builds</span>
+                    08 <span className="text-2xl md:text-3xl font-bold">builds</span>
                   </span>
                   <p className="text-text-secondary leading-relaxed font-light">
                     Direct beta UX feedback shaped iPad layouts and UI performance.
@@ -926,13 +942,13 @@ export default function Pockomint() {
                 </div>
               </div>
 
-              <p className="text-lg  text-text-secondary leading-relaxed font-light">
+              <p className="text-lg text-text-secondary leading-relaxed font-light">
                 This cycle of shipping, collecting real feedback, and iterating quickly is what the native-first foundation was built to support, and it's what let a two-person team ship a polished, accessible product on a tight timeline.
               </p>
 
               {/* Mini Contact Banner */}
               <div className="pt-2">
-                <div className="w-full rounded-2xl bg-gray-100 dark:bg-zinc-900  p-5 md:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-left ">
+                <div className="w-full rounded-2xl bg-gray-100 dark:bg-zinc-900 p-5 md:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-left border border-gray-200 dark:border-zinc-800">
                   <div className="space-y-1 max-w-xl">
                     <h3 className="text-base md:text-lg font-semibold text-primary tracking-tight">
                       Interested in deep-diving into the Pockomint build & beta metrics?
@@ -952,7 +968,9 @@ export default function Pockomint() {
               </div>
             </motion.section>
 
-            {/* Section 8: Building Without a Swift Background */}
+            <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
+            {/* Section 9: Building Without a Swift Background */}
             <motion.section
               id="building-without-swift"
               initial={{ opacity: 0, y: 30 }}
@@ -968,7 +986,7 @@ export default function Pockomint() {
                 </h2>
               </div>
 
-              <div className="space-y-6 text-lg  text-text-secondary leading-relaxed font-light">
+              <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
                 <p>
                   I came into Pockomint as a designer, not an engineer, and Swift wasn't a language I already knew. Rather than treating that as a blocker, I used it as an opportunity to close the gap between design and implementation myself, learning Swift and SwiftUI hands-on while building the actual product, using AI as a learning accelerator alongside that practice.
                 </p>
@@ -1028,14 +1046,16 @@ export default function Pockomint() {
                 ))}
               </div>
 
-              <div className="text-lg  text-text-secondary leading-relaxed font-light">
+              <div className="text-lg text-text-secondary leading-relaxed font-light">
                 <p>
                   The point wasn't to skip learning Swift, it was to learn it faster and more practically by building with it from day one. Closing the gap between design and implementation myself, rather than handing off specs and hoping the build matched intent, is a big part of why Pockomint feels as considered in code as it does in Figma.
                 </p>
               </div>
             </motion.section>
 
-            {/* Section 9: Beyond the Screen */}
+            <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
+            {/* Section 10: Beyond the Screen */}
             <motion.section
               id="beyond-screen"
               initial={{ opacity: 0, y: 30 }}
@@ -1051,9 +1071,9 @@ export default function Pockomint() {
                 </h2>
               </div>
 
-              <div className="space-y-6 text-lg  text-text-secondary leading-relaxed font-light">
+              <div className="space-y-6 text-lg text-text-secondary leading-relaxed font-light">
                 <p>
-                  Designing the app was only half the job; getting it into the world thoughtfully was the other half. Working solo on the release side meant learning App Store Connect from the ground up—from build pipelines and review workflows to crafting storefront preview assets. The Pocko mascot was also designed to extend naturally beyond digital UI into physical brand merchandise and collateral, creating a cohesive brand universe.
+                  Designing the app was only half the job; getting it into the world thoughtfully was the other half. Working solo on the release side meant learning App Store Connect from the ground up, from build pipelines and review workflows to crafting storefront preview assets. The Pocko mascot was also designed to extend naturally beyond digital UI into physical brand merchandise and collateral, creating a cohesive brand universe.
                 </p>
                 <p>
                   The App Store presence was treated as its own design surface: choosing key screens that sell the habit loop at a glance, sequencing screenshots to tell a story, and aligning visual aesthetics so the marketing promise seamlessly matches the product.
@@ -1103,7 +1123,9 @@ export default function Pockomint() {
               </figure>
             </motion.section>
 
-            {/* Section 10: Outcome */}
+            <hr className="border-t border-gray-300 dark:border-zinc-700" />
+
+            {/* Section 11: Outcome */}
             <motion.section
               id="outcome"
               initial={{ opacity: 0, y: 30 }}
@@ -1119,7 +1141,7 @@ export default function Pockomint() {
                 </h2>
               </div>
 
-              <p className="text-lg  text-text-secondary leading-relaxed font-light">
+              <p className="text-lg text-text-secondary leading-relaxed font-light">
                 Pockomint demonstrated that a small, focused team could take a product from initial concept to a published App Store app by grounding design choices in native platform conventions, designing a distinct brand identity around a mascot, and iterating directly on beta user feedback.
               </p>
 

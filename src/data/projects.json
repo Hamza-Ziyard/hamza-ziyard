@@ -1,11 +1,11 @@
 [
   {
     "id": "pockomint",
-    "title": "Pockomint",
-    "company": "Pockomint - Neugine",
-    "type": "iOS and iPadOS",
-    "role": "Product Designer",
-    "summary": "A modern personal finance and expense tracking app designed to simplify budgeting and money management.",
+    "title": "Pockomint - Native iOS Gamified Expense Tracker",
+    "company": "Pockomint",
+    "type": "iOS & iPadOS App",
+    "role": "Product Designer & iOS Developer",
+    "summary": "End-to-end product design & SwiftUI engineering for a gamified personal finance app built to turn daily money tracking into an engaging habit.",
     "coverImage": "https://assets.hamzaziyard.com/projects-for-fun/pockomint/hero.mp4",
     "isVideo": true,
     "timePeriod": "06 months",
@@ -13,11 +13,11 @@
   },
   {
     "id": "dfcc-bank",
-    "title": "DFCC Bank ATM Redesign",
+    "title": "DFCC Bank - Nationwide ATM & CRM Interface Redesign",
     "company": "DFCC Bank",
-    "type": "ATM UI/UX Design",
+    "type": "ATM UI/UX & Hardware Design",
     "role": "Lead UI/UX Designer",
-    "summary": "Next-generation ATM interface redesign focused on speed, accessibility, and intuitive touchscreen navigation.",
+    "summary": "End-to-end trilingual redesign deployed across 180+ ATM/CRM machines nationwide, validated through on-site physical hardware testing.",
     "timePeriod": "05 months",
     "coverImage": "https://assets.hamzaziyard.com/projects-for-fun/dfcc/dfcc-assets/hero.webp",
     "link": "/dfcc-bank"
