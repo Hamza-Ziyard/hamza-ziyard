@@ -6,15 +6,15 @@ import clsx from 'clsx';
 import { useTheme } from '../../context/ThemeContext';
 
 const navItems = [
-  { name: 'Work', path: '/' },
-  // { name: 'What if I redesigned today', path: '/redesigns' },
+  // { name: 'Work', path: '/' },
+  { name: 'What If', path: '/what-if' },
   { name: 'About', path: '/about' },
   { name: 'Resume', path: '/resume' },
 ];
 
 export default function Navbar() {
   const location = useLocation();
-  const isProjectPage = location.pathname.startsWith('/project/') || location.pathname.startsWith('/work/');
+  const isProjectPage = location.pathname.startsWith('/project/') || location.pathname.startsWith('/work/') || location.pathname.startsWith('/what-if/');
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
 

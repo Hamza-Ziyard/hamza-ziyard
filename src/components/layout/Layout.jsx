@@ -10,7 +10,7 @@ export default function Layout() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const isProjectPage = pathname.startsWith('/project/') || pathname.startsWith('/work/');
+  const isProjectPage = pathname.startsWith('/project/') || pathname.startsWith('/work/') || pathname.startsWith('/what-if/');
 
   return (
     <div className="min-h-screen flex flex-col">

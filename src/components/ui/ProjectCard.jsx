@@ -93,9 +93,9 @@ export default function ProjectCard({ project }) {
       </AnimatePresence>
 
       {/* Card Image Container */}
-      <div className={`relative block w-full overflow-hidden rounded-lg bg-gray-100 dark:bg-zinc-900 border-10 border-white dark:border-zinc-800 py-10 px-5 md:py-14 lg:py-24 md:px-8 lg:px-10 transition-colors duration-300`}>
+      <div className={`relative block w-full overflow-hidden rounded-lg bg-gray-100 dark:bg-zinc-900 border-10 border-white dark:border-zinc-800 ${project.fullBleed ? 'p-0' : 'py-10 px-5 md:py-14 lg:py-24 md:px-8 lg:px-10'} transition-colors duration-300`}>
         {/* Media */}
-        <div ref={containerRef} className="w-full h-52 md:h-64 lg:h-96 xl:h-100  flex items-center justify-center">
+        <div ref={containerRef} className={project.fullBleed ? "w-full aspect-[16/9] flex items-center justify-center overflow-hidden" : "w-full h-52 md:h-64 lg:h-96 xl:h-100 flex items-center justify-center"}>
           {isVideo ? (
             <div className="relative h-full aspect-[9/19.5] rounded-2xl lg:rounded-4xl p-1 md:p-1.5 bg-black border border-zinc-800/50 shadow-lg transition-transform duration-700 ease-out group-hover:scale-105">
               <div className="relative w-full h-full lg:rounded-3xl overflow-hidden bg-black flex items-center justify-center">
@@ -132,7 +132,9 @@ export default function ProjectCard({ project }) {
               alt={project.title}
               loading="lazy"
               className={`${
-                isReducedFavicon
+                project.fullBleed
+                  ? 'w-full h-full object-cover'
+                  : isReducedFavicon
                   ? 'w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24'
                   : project.isCompanyCard
                   ? 'w-48 md:w-56 lg:w-72 max-h-32 md:max-h-40 lg:max-h-48 object-contain'
@@ -152,7 +154,7 @@ export default function ProjectCard({ project }) {
         {/* Main headline text */}
         <h3 className="text-base md:text-xl font-semibold text-zinc-900 dark:text-zinc-100">
           {!project.isCompanyCard ? (
-            `${project.title || project.company || 'PROJECT'}`
+            `${project.coverTitle || project.title || project.company || 'PROJECT'}`
           ) : (
             `${project.company || 'COMPANY'}`
           )}

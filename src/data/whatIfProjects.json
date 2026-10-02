@@ -1,0 +1,132 @@
+[
+  {
+    "id": "lanka-metro",
+    "title": "Redesigning Lanka Metro - P1",
+    "coverTitle": "Lanka Metro App Re-Design",
+    "subtitle": "Four decisions, backed by research, not just taste.",
+    "company": "Lanka Metro",
+    "type": "What If Series",
+    "role": "Product Designer (Concept)",
+    "platforms": "iOS & Android",
+    "tools": ["Figma", "UX Research", "Design Heuristics"],
+    "timePeriod": "Part 01",
+    "part": "Part 01",
+    "postedDate": "Oct 2, 2026",
+    "summary": "Lanka Metro is a Sri Lankan metro bus tracking and payment app. The goal wasn't a reskin. It was to question four core decisions and rebuild them with evidence.",
+    "disclaimer": "This is an independent, conceptual redesign created for educational and design study purposes. It is not affiliated with, sponsored by, or endorsed by Lanka Metro or any related entity.",
+    "coverImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/Redesign%20P1%20Cover.webp",
+    "thumbnail": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/Thumbnail-%20Lanka%20Metro.webp",
+    "width": "w-full",
+    "fullBleed": true,
+    "badge": "What If Series 01",
+    "sections": [
+      {
+        "id": "home-flow",
+        "title": "1. Home & Discovery Flow",
+        "label": "Home Flow",
+        "problem": {
+          "label": "Problem: the home screen answers the wrong question.",
+          "text": "The app opens on the e-wallet. To see where your bus is, you go through Journeys and then search: three taps."
+        },
+        "whyItMatters": {
+          "citation": "Nielsen Norman Group, Flexibility and Efficiency of Use.",
+          "text": "Every extra step between a user and their core task adds friction. In transit, a few seconds can mean a missed bus."
+        },
+        "problemImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/Old%20Journey%20Flow.webp",
+        "problemImageCaption": "Old home screen journey with numbered tap path (1, 2, 3) leading to final bus visibility",
+        "fix": {
+          "label": "Fix: map first, and only the bus that matters.",
+          "text": "The map is now home. Nothing was removed: payment methods moved to Profile, and the balance stays visible on the map. It opens on your closest bus with only its route drawn, and other buses are one swipe away (progressive disclosure). Crowding shows as a glow, green for plenty of seats and yellow for filling fast (visibility of system status), and the yellow is a caution, so red stays reserved for real alerts."
+        },
+        "newFeature": {
+          "label": "New: Mark as Boarded.",
+          "text": "Cash rides never touch the wallet, so this lets riders log them and keep their travel history complete."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/New%20Journey%20Flow.webp",
+        "fixImageCaption": "Annotated tracker screen with on-image callouts highlighting map-first experience and status cues",
+        "legend": {
+          "title": "Figure Legend (Annotated Screenshot)",
+          "items": [
+            { "element": "Wallet balance", "description": "Visible on the map, so you know you can ride before you board." },
+            { "element": "Closest bus", "description": "Highlighted on the map and in the sheet, with only its route drawn." },
+            { "element": "Other buses", "description": "Listed in the sheet and drawn on the map only when selected." },
+            { "element": "Alerts", "description": "A persistent icon with a count for service disruptions." },
+            { "element": "ETA", "description": "The largest text, for the most time-sensitive fact." },
+            { "element": "Seats remaining", "description": "Yellow, matching the crowding glow on the bus." },
+            { "element": "Mark as Boarded", "description": "Logs cash-paid travels to your history." }
+          ]
+        }
+      },
+      {
+        "id": "pass-architecture",
+        "title": "2. Pass Information Architecture",
+        "label": "Pass Architecture",
+        "problem": {
+          "label": "Problem: an empty passes screen.",
+          "text": "One active pass and a large illustration, with no way to browse other pass types."
+        },
+        "whyItMatters": {
+          "citation": "Nielsen, Recognition over Recall.",
+          "text": "People choose faster by recognising than by decoding text."
+        },
+        "fix": {
+          "label": "Fix: identity first, detail on demand.",
+          "text": "Each pass type gets its own icon and colour, with just its name and price. \"View\" opens the full details."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/My%20PassesFlow.webp",
+        "fixImageCaption": "Recognition over recall: the icon and color identity do the instant filtering"
+      },
+      {
+        "id": "wallet-design",
+        "title": "3. Wallet Architecture & Flow",
+        "label": "Wallet Design",
+        "problem": {
+          "label": "Problem: a wallet designed like a ticket.",
+          "text": "It carries a Pass ID and validity dates, which a wallet doesn't need, while the balance sits at the very bottom under a large QR code. At LKR 0.00 nothing offers a top-up."
+        },
+        "whyItMatters": {
+          "citation": "Nielsen, Match between System and Real World and Aesthetic and Minimalist Design.",
+          "text": "The irrelevant details were competing with the relevant ones."
+        },
+        "fix": {
+          "label": "Fix: one sheet that answers three questions in order.",
+          "text": ""
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/Wallet.webp",
+        "fixImageCaption": "Before and after wallet comparison: Can I pay? (Balance), What if I can't? (Top Up), How do I board? (QR tile)",
+        "comparisonTable": {
+          "kept": [
+            "QR expiry timer",
+            "A clear boarding action"
+          ],
+          "changed": [
+            "Ticket metadata replaced by a brand card",
+            "Balance moved to the top, Top Up beside it",
+            "Transactions link replaced by Recent Travels, with a payment-type icon on each trip"
+          ]
+        }
+      },
+      {
+        "id": "color-hierarchy",
+        "title": "4. Alert Color & Hierarchy",
+        "label": "Color Hierarchy",
+        "problem": {
+          "label": "Problem: red on almost everything.",
+          "text": "When every surface is red, red stops signalling anything. Research by Mehta and Zhu, cited in Frontiers in Psychology, links red to avoidance behavior."
+        },
+        "fix": {
+          "label": "Fix: red only where it means something.",
+          "text": "Active pass, alerts and errors get red. Everything else uses a neutral palette."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/Excessive-red.webp",
+        "fixImageCaption": "V1 vs V2 interface comparison: limiting red strictly to critical alert states while adopting a neutral palette"
+      },
+      {
+        "id": "reflection",
+        "title": "5. Reflection",
+        "label": "Reflection",
+        "reflection": "Every decision here, from moving the map to the front, to revealing detail only on demand, to saving red for real alerts, answers one question: does this shorten the distance between the user and what they came to do? Good UI isn't about polish. It's about removing friction, and being able to explain why."
+      }
+    ]
+  }
+]

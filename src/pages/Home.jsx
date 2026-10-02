@@ -1,4 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import originalProjects from '../data/projects.json';
 import companyWorkData from '../data/companyWork.json';
 import ProjectCard from '../components/ui/ProjectCard';
@@ -62,7 +64,55 @@ export default function Home() {
 
   return (
     <section className='pt-0 px-6 max-w-700 mx-auto'>
+
+      {/* What If Series Promotional Banner */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="w-full mb-10 flex justify-center"
+      >
+        <Link
+          to="/what-if"
+          className="group relative block w-full lg:w-3/5 p-[3px] rounded-full overflow-hidden shadow-xl"
+        >
+          {/* Subtle static border background ring */}
+          <div className="absolute inset-0 rounded-full bg-zinc-300 dark:bg-zinc-800" />
+
+          {/* Animated Light Beam Traveling Around Outer Perimeter */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{
+              duration: 3.5,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute inset-[-200%] pointer-events-none bg-[conic-gradient(from_0deg,transparent_0_300deg,#18181b_340deg,#000000_360deg)] dark:bg-[conic-gradient(from_0deg,transparent_0_300deg,#ffffff_340deg,#f4f4f5_360deg)]"
+          />
+
+          {/* Banner Inner Content */}
+          <div className="relative z-10 w-full h-full rounded-full bg-zinc-900 dark:bg-gray-100 p-4">
+            <div className="relative flex flex-row items-center justify-between gap-6 overflow-hidden">
+              {/* Left Content */}
+              <div className="relative z-10 flex-1 text-left pl-6">
+                <h2 className="text-xl font-semibold tracking-tight text-white dark:text-black text-center lg:text-left">
+                  <span className="opacity-70">What If Series :</span> A deep dive into everyday apps, questioning UX decisions and rebuilding them with usability heuristics.
+                </h2>
+              </div>
+
+              {/* Right Action / Button */}
+              <div className="relative z-10 shrink-0">
+                <span className="hidden lg:inline-flex items-center gap-2 px-5 py-3 rounded-full dark:bg-zinc-900 bg-zinc-100 text-black dark:text-white font-semibold text-sm shadow-md">
+                  Explore
+                </span>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </motion.div>
+
       <HeroIntro />
+
       {/* Filter Bar */}
       {/* <div className="hidden lg:block w-fit mx-auto absolute inset-x-0 bottom-32 z-100 justify-center">
         <div className="flex gap-2 p-2 bg-surface/80 backdrop-blur-xl border border-border shadow-lg rounded-full">

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Resume from './pages/Resume';
 import Redesign from './pages/Redesign';
+import WhatIf, { WhatIfDetail } from './pages/WhatIf';
 import ProjectDetail from './pages/ProjectDetail';
 import Admin from './pages/Admin';
 
@@ -18,6 +19,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="resume" element={<Resume />} />
+        <Route path="what-if" element={<WhatIf />} />
+        <Route path="what-if/:id" element={<WhatIfDetail />} />
         <Route path="redesigns" element={<Redesign />} />
         <Route path="pockomint" element={<Pockomint />} />
         <Route path="dfcc-bank" element={<DfccBank />} />

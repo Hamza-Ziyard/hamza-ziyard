@@ -98,12 +98,22 @@ const InlineLottie = ({ animationData }) => {
 export default function ProjectDetail() {
   const { id } = useParams();
   const project = projects.find(p => p.id === id);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
     if (project) {
       document.title = `${project.title} | Hamza Ziyard`;
     }
   }, [project]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.pageYOffset > 500);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   if (!project) return <Navigate to="/" replace />;
 
@@ -349,6 +359,33 @@ export default function ProjectDetail() {
           )}
         </main>
       </div>
+
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-8 right-8 z-60 p-4 bg-primary text-background rounded-full shadow-2xl border border-border/50 hover:scale-110 active:scale-95 transition-all group cursor-pointer"
+            aria-label="Back to top"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className=""
+            >
+              <path d="M18 15l-6-6-6 6" />
+            </svg>
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

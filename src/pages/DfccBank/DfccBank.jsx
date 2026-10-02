@@ -51,6 +51,7 @@ export default function DfccBank() {
   const [showNav, setShowNav] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   const dropdownRef = useRef(null);
   const isScrollingRef = useRef(false);
@@ -61,6 +62,8 @@ export default function DfccBank() {
 
   useEffect(() => {
     const handleScroll = () => {
+      setShowBackToTop(window.pageYOffset > 500);
+
       const heroElement = document.getElementById('the-ask');
       if (heroElement) {
         setShowNav(window.scrollY >= heroElement.offsetTop - 300);
@@ -911,6 +914,33 @@ export default function DfccBank() {
 
         </main>
       </div>
+
+      {/* Floating Back to Top Button */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-8 right-8 z-60 p-4 bg-primary text-background rounded-full shadow-2xl border border-border/50 hover:scale-110 active:scale-95 transition-all group cursor-pointer"
+            aria-label="Back to top"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M18 15l-6-6-6 6" />
+            </svg>
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       {/* Contact Modal */}
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} initialMessage="Hi Hamza, I'd like to talk about your DFCC Bank ATM design work!" />
