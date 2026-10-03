@@ -35,7 +35,7 @@
         "problemImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/Old%20Journey%20Flow.webp",
         "problemImageCaption": "Old home screen journey with numbered tap path (1, 2, 3) leading to final bus visibility",
         "fix": {
-          "label": "Fix: map first, and only the bus that matters.",
+          "label": "Fix: Map first, and only the bus that matters.",
           "text": "The map is now home. Nothing was removed: payment methods moved to Profile, and the balance stays visible on the map. It opens on your closest bus with only its route drawn, and other buses are one swipe away (progressive disclosure). Crowding shows as a glow, green for plenty of seats and yellow for filling fast (visibility of system status), and the yellow is a caution, so red stays reserved for real alerts."
         },
         "newFeature": {
@@ -62,7 +62,7 @@
         "title": "2. Pass Information Architecture",
         "label": "Pass Architecture",
         "problem": {
-          "label": "Problem: an empty passes screen.",
+          "label": "Problem: An empty passes screen.",
           "text": "One active pass and a large illustration, with no way to browse other pass types."
         },
         "whyItMatters": {
@@ -70,18 +70,18 @@
           "text": "People choose faster by recognising than by decoding text."
         },
         "fix": {
-          "label": "Fix: identity first, detail on demand.",
+          "label": "Fix: Identity first, detail on demand.",
           "text": "Each pass type gets its own icon and colour, with just its name and price. \"View\" opens the full details."
         },
         "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/My%20PassesFlow.webp",
-        "fixImageCaption": "Recognition over recall: the icon and color identity do the instant filtering"
+        "fixImageCaption": "Recognition over recall: The icon and color identity do the instant filtering"
       },
       {
         "id": "wallet-design",
         "title": "3. Wallet Architecture & Flow",
         "label": "Wallet Design",
         "problem": {
-          "label": "Problem: a wallet designed like a ticket.",
+          "label": "Problem: A wallet designed like a ticket.",
           "text": "It carries a Pass ID and validity dates, which a wallet doesn't need, while the balance sits at the very bottom under a large QR code. At LKR 0.00 nothing offers a top-up."
         },
         "whyItMatters": {
@@ -89,7 +89,7 @@
           "text": "The irrelevant details were competing with the relevant ones."
         },
         "fix": {
-          "label": "Fix: one sheet that answers three questions in order.",
+          "label": "Fix: One sheet that answers three questions in order.",
           "text": ""
         },
         "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/Wallet.webp",
@@ -111,15 +111,15 @@
         "title": "4. Alert Color & Hierarchy",
         "label": "Color Hierarchy",
         "problem": {
-          "label": "Problem: red on almost everything.",
+          "label": "Problem: Red on almost everything.",
           "text": "When every surface is red, red stops signalling anything. Research by Mehta and Zhu, cited in Frontiers in Psychology, links red to avoidance behavior."
         },
         "fix": {
-          "label": "Fix: red only where it means something.",
+          "label": "Fix: Red only where it means something.",
           "text": "Active pass, alerts and errors get red. Everything else uses a neutral palette."
         },
         "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/Excessive-red.webp",
-        "fixImageCaption": "V1 vs V2 interface comparison: limiting red strictly to critical alert states while adopting a neutral palette"
+        "fixImageCaption": "V1 vs V2 interface comparison: Limiting red strictly to critical alert states while adopting a neutral palette"
       },
       {
         "id": "reflection",
