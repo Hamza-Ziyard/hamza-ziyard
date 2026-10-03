@@ -1,8 +1,8 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import clsx from 'clsx';
-import { ArrowLeft, Image as ImageIcon, Info } from 'lucide-react';
+import { ArrowLeft, Image as ImageIcon, Info, ChevronUp, Check } from 'lucide-react';
 import whatIfProjects from '../../data/whatIfProjects.json';
 
 const ImagePlaceholder = ({ label, description, aspectRatio = "aspect-video" }) => (
@@ -21,6 +21,11 @@ export default function WhatIfDetail() {
   const { id } = useParams();
   const project = whatIfProjects.find((p) => p.id === id);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [showNav, setShowNav] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const dropdownRef = useRef(null);
+  const isScrollingRef = useRef(false);
 
   useEffect(() => {
     if (project) {
@@ -31,13 +36,24 @@ export default function WhatIfDetail() {
   useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.pageYOffset > 500);
+      setShowNav(window.pageYOffset > 250);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (!project) return <Navigate to="/what-if" replace />;
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isDropdownOpen]);
 
   const sections = useMemo(() => {
     if (!project || !Array.isArray(project.sections)) return [];
@@ -52,6 +68,7 @@ export default function WhatIfDetail() {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
+      isScrollingRef.current = true;
       const offset = 120; // Adjust for sticky header
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
@@ -61,6 +78,9 @@ export default function WhatIfDetail() {
         behavior: 'smooth',
       });
       setActiveTab(sectionId);
+      setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 800);
     }
   };
 
@@ -68,6 +88,7 @@ export default function WhatIfDetail() {
     if (sections.length > 0) {
       const observer = new IntersectionObserver(
         (entries) => {
+          if (isScrollingRef.current) return;
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               setActiveTab(entry.target.id);
@@ -88,6 +109,11 @@ export default function WhatIfDetail() {
       return () => observer.disconnect();
     }
   }, [sections]);
+
+  const activeSectionIdx = sections.findIndex((s) => s.id === activeTab);
+  const currentSectionObj = sections[activeSectionIdx >= 0 ? activeSectionIdx : 0];
+
+  if (!project) return <Navigate to="/what-if" replace />;
 
   return (
     <div className="bg-background min-h-screen">
@@ -116,7 +142,6 @@ export default function WhatIfDetail() {
             )}
           </div>
 
-
           {/* Title, Subtitle, & Intro */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -126,21 +151,15 @@ export default function WhatIfDetail() {
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary">
               {project.title}
             </h1>
-            {/* {project.subtitle && (
-              <p className="text-xl md:text-2xl text-primary font-medium">
-                {project.subtitle}
-              </p>
-            )} */}
             <p className="text-xl text-text-secondary leading-relaxed font-light pt-2">
               {project.summary}
             </p>
-
           </motion.div>
         </section>
 
-        {/* Sticky Tab Navigation (Scroll Spy Style) */}
+        {/* Sticky Tab Navigation (Scroll Spy Style - Desktop only) */}
         {sections.length > 0 && (
-          <div className="sticky top-0 z-50 py-4 bg-background/80 backdrop-blur-xl border-b border-border/50 mb-12">
+          <div className="hidden lg:block sticky top-0 z-40 py-4 bg-background/80 backdrop-blur-xl border-b border-border/50 mb-12">
             <div className="flex gap-2 overflow-x-auto p-1.5 no-scrollbar bg-surface/50 border border-border/50 w-fit rounded-full">
               {sections.map((section) => (
                 <button
@@ -159,6 +178,74 @@ export default function WhatIfDetail() {
             </div>
           </div>
         )}
+
+        {/* Floating Minimal Pill Navigation with Dropdown Popover (Mobile only - Pockomint style) */}
+        <AnimatePresence>
+          {showNav && sections.length > 0 && (
+            <motion.div
+              ref={dropdownRef}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300"
+            >
+              {/* Dropdown Popover Menu */}
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-72 max-h-80 overflow-y-auto no-scrollbar bg-zinc-900/95 text-white border border-white/15 dark:bg-zinc-100/95 dark:text-zinc-900 dark:border-zinc-300 p-2 rounded-2xl shadow-2xl backdrop-blur-2xl space-y-1"
+                  >
+                    {sections.map((section, idx) => (
+                      <button
+                        key={section.id}
+                        onClick={() => {
+                          scrollToSection(section.id);
+                          setIsDropdownOpen(false);
+                        }}
+                        className={clsx(
+                          "w-full text-left px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-between cursor-pointer",
+                          activeTab === section.id
+                            ? "bg-white text-black dark:bg-zinc-900 dark:text-white font-semibold shadow-sm"
+                            : "text-zinc-300 hover:text-white hover:bg-white/10 dark:text-zinc-700 dark:hover:text-zinc-900 dark:hover:bg-black/5"
+                        )}
+                      >
+                        <div className="flex items-center gap-2.5 truncate">
+                          <span className={clsx("text-[11px]", activeTab === section.id ? "text-black/60 dark:text-white/60" : "text-zinc-500 dark:text-zinc-400")}>
+                            {String(idx + 1).padStart(2, '0')}
+                          </span>
+                          <span className="truncate">{section.label}</span>
+                        </div>
+                        {activeTab === section.id && <Check size={14} className="shrink-0 text-black dark:text-white" />}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Main Floating Trigger Pill */}
+              <button
+                onClick={() => setIsDropdownOpen(prev => !prev)}
+                className="bg-zinc-900/95 hover:bg-zinc-900 text-white border border-white/15 dark:bg-zinc-100/95 dark:hover:bg-zinc-100 dark:text-zinc-900 dark:border-zinc-300 px-4 py-2.5 rounded-full shadow-2xl backdrop-blur-2xl flex items-center gap-3 cursor-pointer group transition-all active:scale-95"
+              >
+                <span className="px-2 py-0.5 rounded-md bg-white/10 text-[11px] font-bold text-zinc-200 dark:bg-black/10 dark:text-zinc-800">
+                  {String(activeSectionIdx >= 0 ? activeSectionIdx + 1 : 1).padStart(2, '0')} / {sections.length.toString().padStart(2, '0')}
+                </span>
+                <span className="text-xs sm:text-sm font-medium max-w-[150px] sm:max-w-[200px] truncate text-white dark:text-zinc-900">
+                  {currentSectionObj?.label || 'Overview'}
+                </span>
+                <ChevronUp
+                  size={16}
+                  className={clsx("text-zinc-400 transition-transform duration-300 group-hover:text-white dark:text-zinc-500 dark:group-hover:text-zinc-900", isDropdownOpen && "rotate-180")}
+                />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Main Content Area */}
         <main className="space-y-48 mb-64">
@@ -364,7 +451,7 @@ export default function WhatIfDetail() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-8 right-8 z-60 p-4 bg-primary text-background rounded-full shadow-2xl border border-border/50 hover:scale-110 active:scale-95 transition-all group cursor-pointer"
+            className="hidden md:flex items-center justify-center fixed bottom-8 right-8 z-60 p-4 bg-primary text-background rounded-full shadow-2xl border border-border/50 hover:scale-110 active:scale-95 transition-all group cursor-pointer"
             aria-label="Back to top"
           >
             <svg

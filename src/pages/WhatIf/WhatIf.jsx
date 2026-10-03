@@ -31,7 +31,7 @@ export default function WhatIf() {
         </div> */}
 
         {/* Channel Details Section */}
-        <div className="flex flex-row items-start sm:items-center gap-5 md:gap-7 pt-5 px-1 md:px-3">
+        <div className="flex flex-col md:flex-row items-start sm:items-center gap-5 md:gap-7 pt-5 px-1 md:px-3">
           {/* Avatar with memoji */}
           <div className="relative shrink-0 w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full p-1 bg-background border border-border shadow-sm">
             <div className="w-full h-full rounded-full bg-gray-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden">
@@ -47,18 +47,18 @@ export default function WhatIf() {
           <div className="flex-1 space-y-2.5 pt-1">
             {/* Channel Name & Verified Badge */}
             <div className="flex items-center gap-2 flex-wrap">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary">
+              <h1 className="text-2xl lg:text-4xl font-bold tracking-tight text-text-primary">
                 What If I Redesigned Apps
               </h1>
             </div>
 
             {/* Handle, Subscribers, Videos Stats */}
-            <div className="flex items-center gap-2 text-xs sm:text-lg text-text-secondary flex-wrap font-medium">
+            <div className="flex items-center gap-2 text-xs sm:text-lg lg:text-xl text-text-secondary flex-wrap font-medium">
               <span>{projects.length} case study</span>
             </div>
 
             {/* Description without more button */}
-            <div className="text-xs sm:text-lg text-text-secondary leading-relaxed">
+            <div className="text-xs sm:text-lg lg:text-xl text-text-secondary leading-relaxed">
               <p>The series where I take existing apps and redesign core flows grounded in usability heuristics and cognitive research.</p>
             </div>
 

@@ -74,10 +74,10 @@ export default function Home() {
       >
         <Link
           to="/what-if"
-          className="group relative block w-full lg:w-3/5 p-[3px] rounded-full overflow-hidden shadow-xl"
+          className="group relative block w-full lg:w-4/5 xl:w-3/5 p-[3px] md:rounded-full rounded-3xl overflow-hidden shadow-xl"
         >
           {/* Subtle static border background ring */}
-          <div className="absolute inset-0 rounded-full bg-zinc-300 dark:bg-zinc-800" />
+          <div className="absolute inset-0 md:rounded-full rounded-3xl bg-zinc-300 dark:bg-zinc-800" />
 
           {/* Animated Light Beam Traveling Around Outer Perimeter */}
           <motion.div
@@ -91,12 +91,14 @@ export default function Home() {
           />
 
           {/* Banner Inner Content */}
-          <div className="relative z-10 w-full h-full rounded-full bg-zinc-900 dark:bg-gray-100 p-4">
+          <div className="relative z-10 w-full h-full md:rounded-full rounded-3xl bg-zinc-900 dark:bg-gray-100 p-3 lg:p-4">
             <div className="relative flex flex-row items-center justify-between gap-6 overflow-hidden">
               {/* Left Content */}
-              <div className="relative z-10 flex-1 text-left pl-6">
-                <h2 className="text-xl font-semibold tracking-tight text-white dark:text-black text-center lg:text-left">
-                  <span className="opacity-70">What If Series :</span> A deep dive into everyday apps, questioning UX decisions and rebuilding them with usability heuristics.
+              <div className="relative z-10 flex-1 text-left px-2 sm:pl-6">
+                <h2 className="text-sm md:text-lg lg:text-xl font-semibold tracking-tight text-white dark:text-black text-center lg:text-left">
+                  <span className="opacity-70">What If Series:</span>{" "}
+                  <span className="inline md:hidden">Redesigning everyday apps with usability heuristics.</span>
+                  <span className="hidden md:inline">A deep dive into everyday apps, questioning UX decisions and rebuilding them with usability heuristics.</span>
                 </h2>
               </div>
 
