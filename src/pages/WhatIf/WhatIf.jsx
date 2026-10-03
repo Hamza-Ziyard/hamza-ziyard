@@ -59,7 +59,9 @@ export default function WhatIf() {
 
             {/* Description without more button */}
             <div className="text-xs sm:text-lg lg:text-xl text-text-secondary leading-relaxed">
-              <p>The series where I take existing apps and redesign core flows grounded in usability heuristics and cognitive research.</p>
+              <p>
+                An independent conceptual redesign series exploring core flows grounded in usability heuristics and cognitive research, created purely for educational and study purposes.
+              </p>
             </div>
 
           </div>
