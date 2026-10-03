@@ -70,7 +70,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="w-full mb-10 flex justify-center"
+        className="w-full lg:mb-4 xl:mb-8 flex justify-center"
       >
         <Link
           to="/what-if"
