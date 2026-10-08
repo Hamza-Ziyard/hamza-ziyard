@@ -79,7 +79,7 @@ export default function WhatIf() {
       <hr className="border-t border-border max-w-7xl mx-auto mb-10 md:mb-12" />
 
       {/* 2 column grid with vertical scroll */}
-      <div className="grid grid-cols-1 gap-8 lg:gap-10 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-7xl mx-auto">
         <AnimatePresence>
           {projects.map((project, index) => (
             <motion.div
