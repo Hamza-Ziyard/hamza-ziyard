@@ -152,29 +152,8 @@
     "badge": "What If Series 02",
     "sections": [
       {
-        "id": "navigation",
-        "title": "1. Navigation Architecture",
-        "label": "Navigation",
-        "problem": {
-          "label": "Problem: Three stacked navigation layers & an 11-item drawer.",
-          "text": "The original app buries everyday tasks under ads, three stacked navigation layers and an 11-item drawer."
-        },
-        "whyItMatters": {
-          "citation": "Material & Adobe navigation guidance, NN/g research.",
-          "text": "Material and Adobe recommend three to five labelled items, and NN/g found hidden navigation roughly halves discoverability, so only rare items (Terms, Privacy) stay in Profile."
-        },
-        "problemImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V1%20Navigation.webp",
-        "problemImageCaption": "V1 navigation: Three stacked layers and an 11-item drawer",
-        "fix": {
-          "label": "Fix: One labelled five-tab bar.",
-          "text": "Three stacked layers and an 11-item drawer become one labelled five-tab bar. Only rare items (Terms, Privacy) stay in Profile."
-        },
-        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V2%20Navigation.webp",
-        "fixImageCaption": "V2 navigation: One labelled five-tab bar"
-      },
-      {
         "id": "home",
-        "title": "2. Home",
+        "title": "1. Home Flow",
         "label": "Home",
         "problem": {
           "label": "Problem: Everyday tasks buried under ad carousel.",
@@ -303,8 +282,76 @@
         ]
       },
       {
+        "id": "shop",
+        "title": "2. Shop Flow",
+        "label": "Shop",
+        "problem": {
+          "label": "Problem: Webview wrapper of the web shop.",
+          "text": "A webview embedding of the desktop online store caused slow loading and disrupted mobile ergonomics."
+        },
+        "fix": {
+          "label": "Fix: Native device browsing built into the app.",
+          "text": "The webview of the web shop becomes native device browsing built into the app."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V1%20vs%20V2%20interface%20comparison-Shop%20Flow.webp",
+        "fixImageCaption": "V1 vs V2 interface comparison: Shop Flow",
+        "legend": {
+          "title": "Figure Legend (Shop Flow)",
+          "items": [
+            {
+              "element": "Contextual toolbar actions",
+              "description": "Page-specific top-bar actions to track orders and view cart, placed conveniently beside user profile."
+            },
+            {
+              "element": "Product categories",
+              "description": "Scannable horizontal category icons (Wi-Fi Devices, Power Backups, Laptops, IoT) leading directly into dedicated inner views."
+            },
+            {
+              "element": "Promotions & discounts banner",
+              "description": "Quick-glance promotional card highlighting ongoing seasonal offers, bundled deals, and accessory discounts."
+            },
+            {
+              "element": "Dynamic featured showcase",
+              "description": "Flexible marketing slot SLT can curate for featured products, new arrivals, bestsellers, or targeted promotions."
+            }
+          ]
+        }
+      },
+      {
+        "id": "new-service",
+        "title": "3. New Service Flow",
+        "label": "New Service",
+        "problem": {
+          "label": "Problem: Radio form requiring prior jargon knowledge.",
+          "text": "The radio form and Register button assumed users already understood what Megaline is without explanation."
+        },
+        "fix": {
+          "label": "Fix: A one-tap sheet with icons and plain descriptions.",
+          "text": "The radio form and Register button become a one-tap sheet. Each option has an icon, name and one-line description, so nobody needs to already know what Megaline is."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V1%20vs%20V2%20interface%20comparison-New%20Service%20Flow.webp",
+        "fixImageCaption": "V1 vs V2 interface comparison: New Service Flow",
+        "legend": {
+          "title": "Figure Legend (New Service Flow)",
+          "items": [
+            {
+              "element": "Plain-language descriptions",
+              "description": "Each option includes a clear one-line summary (e.g. 'High-speed home internet', 'Reliable home telephone service') so users don't need prior technical knowledge."
+            },
+            {
+              "element": "Clear icons",
+              "description": "Distinct, recognizable icons for each service type make options immediately identifiable and easy to scan."
+            },
+            {
+              "element": "Surfaced PEO TV option",
+              "description": "Brings the TV connection option front and center in the sheet so users looking for entertainment services don't find it buried."
+            }
+          ]
+        }
+      },
+      {
         "id": "bills",
-        "title": "3. Bills & Payment",
+        "title": "4. Bills & Payment",
         "label": "Bills",
         "problem": {
           "label": "Problem: Three separate tabs and paying an unfinalized figure.",
@@ -361,38 +408,6 @@
         }
       },
       {
-        "id": "new-service",
-        "title": "4. New Service Flow",
-        "label": "New Service",
-        "problem": {
-          "label": "Problem: Radio form requiring prior jargon knowledge.",
-          "text": "The radio form and Register button assumed users already understood what Megaline is without explanation."
-        },
-        "fix": {
-          "label": "Fix: A one-tap sheet with icons and plain descriptions.",
-          "text": "The radio form and Register button become a one-tap sheet. Each option has an icon, name and one-line description, so nobody needs to already know what Megaline is."
-        },
-        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V1%20vs%20V2%20interface%20comparison-New%20Service%20Flow.webp",
-        "fixImageCaption": "V1 vs V2 interface comparison: New Service Flow",
-        "legend": {
-          "title": "Figure Legend (New Service Flow)",
-          "items": [
-            {
-              "element": "Plain-language descriptions",
-              "description": "Each option includes a clear one-line summary (e.g. 'High-speed home internet', 'Reliable home telephone service') so users don't need prior technical knowledge."
-            },
-            {
-              "element": "Clear icons",
-              "description": "Distinct, recognizable icons for each service type make options immediately identifiable and easy to scan."
-            },
-            {
-              "element": "Surfaced PEO TV option",
-              "description": "Brings the TV connection option front and center in the sheet so users looking for entertainment services don't find it buried."
-            }
-          ]
-        }
-      },
-      {
         "id": "search",
         "title": "5. Search Flow",
         "label": "Search",
@@ -425,44 +440,8 @@
         }
       },
       {
-        "id": "shop",
-        "title": "6. Shop Flow",
-        "label": "Shop",
-        "problem": {
-          "label": "Problem: Webview wrapper of the web shop.",
-          "text": "A webview embedding of the desktop online store caused slow loading and disrupted mobile ergonomics."
-        },
-        "fix": {
-          "label": "Fix: Native device browsing built into the app.",
-          "text": "The webview of the web shop becomes native device browsing built into the app."
-        },
-        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V1%20vs%20V2%20interface%20comparison-Shop%20Flow.webp",
-        "fixImageCaption": "V1 vs V2 interface comparison: Shop Flow",
-        "legend": {
-          "title": "Figure Legend (Shop Flow)",
-          "items": [
-            {
-              "element": "Contextual toolbar actions",
-              "description": "Page-specific top-bar actions to track orders and view cart, placed conveniently beside user profile."
-            },
-            {
-              "element": "Product categories",
-              "description": "Scannable horizontal category icons (Wi-Fi Devices, Power Backups, Laptops, IoT) leading directly into dedicated inner views."
-            },
-            {
-              "element": "Promotions & discounts banner",
-              "description": "Quick-glance promotional card highlighting ongoing seasonal offers, bundled deals, and accessory discounts."
-            },
-            {
-              "element": "Dynamic featured showcase",
-              "description": "Flexible marketing slot SLT can curate for featured products, new arrivals, bestsellers, or targeted promotions."
-            }
-          ]
-        }
-      },
-      {
         "id": "profile",
-        "title": "7. Profile Flow",
+        "title": "6. Profile Flow",
         "label": "Profile",
         "problem": {
           "label": "Problem: 11-item side drawer competing with core tasks.",
@@ -477,7 +456,7 @@
       },
       {
         "id": "brand",
-        "title": "8. Brand: Light UI, Neon Accents",
+        "title": "7. Brand: Light UI, Neon Accents",
         "label": "Brand",
         "fix": {
           "label": "Fix: Speed and clarity both stay visible.",
@@ -488,7 +467,7 @@
       },
       {
         "id": "reflection",
-        "title": "9. Next Refinements & Validation",
+        "title": "8. Next Refinements & Validation",
         "label": "Refinements",
         "reflection": "Next refinements:\n• Data framing: show remaining everywhere, so the bar, ring and text agree.\n• Missing states: bill due, low data, the account view and the bill breakdown.\n• Legibility: raise small grey text to at least 11 pt and check 4.5:1 contrast.\n• Consistency: TV channel counts differ between screens, and Sign out and eBill are not visible in Profile.\n\nValidation:\nGive five people the same tasks on both versions (find remaining data, pay a bill, add a service) and record success, time and wrong taps."
       }
