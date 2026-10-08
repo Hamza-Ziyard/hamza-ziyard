@@ -128,5 +128,370 @@
         "reflection": "Every decision here, from moving the map to the front, to revealing detail only on demand, to saving red for real alerts, answers one question: does this shorten the distance between the user and what they came to do? Good UI isn't about polish. It's about removing friction, and being able to explain why."
       }
     ]
+  },
+  {
+    "id": "slt-mobitel",
+    "title": "Redesigning SLT Mobitel - P2",
+    "coverTitle": "SLT Mobitel App Re-Design",
+    "subtitle": "What if the app were organised around what people open it to do?",
+    "company": "SLT Mobitel",
+    "type": "What If Series",
+    "role": "UI/UX Designer (Concept)",
+    "platforms": "iOS & Android",
+    "tools": ["Figma", "Heuristic Evaluation", "WCAG", "UX Research"],
+    "timePeriod": "Part 02",
+    "part": "Part 02",
+    "postedDate": "Oct 12, 2026",
+    "summary": "The original app buries everyday tasks under ads, three stacked navigation layers and low-contrast screens. What if the app were organised around what people open it to do? V2 restructures navigation, home, service, billing, search and new-service flows.",
+    "method": "heuristic evaluation (Nielsen's heuristics, Material and Adobe navigation guidance, NN/g research, WCAG). No user testing yet.",
+    "disclaimer": "This is an independent, conceptual redesign created for educational and design study purposes. It is not affiliated with, sponsored by, or endorsed by SLT-Mobitel or Sri Lanka Telecom PLC.",
+    "coverImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/Redesign%20P2%20Cover.webp",
+    "thumbnail": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/Thumbnail-%20SLT%20Mobile.webp",
+    "width": "w-full",
+    "fullBleed": true,
+    "badge": "What If Series 02",
+    "sections": [
+      {
+        "id": "navigation",
+        "title": "1. Navigation Architecture",
+        "label": "Navigation",
+        "problem": {
+          "label": "Problem: Three stacked navigation layers & an 11-item drawer.",
+          "text": "The original app buries everyday tasks under ads, three stacked navigation layers and an 11-item drawer."
+        },
+        "whyItMatters": {
+          "citation": "Material & Adobe navigation guidance, NN/g research.",
+          "text": "Material and Adobe recommend three to five labelled items, and NN/g found hidden navigation roughly halves discoverability, so only rare items (Terms, Privacy) stay in Profile."
+        },
+        "problemImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V1%20Navigation.webp",
+        "problemImageCaption": "V1 navigation: Three stacked layers and an 11-item drawer",
+        "fix": {
+          "label": "Fix: One labelled five-tab bar.",
+          "text": "Three stacked layers and an 11-item drawer become one labelled five-tab bar. Only rare items (Terms, Privacy) stay in Profile."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V2%20Navigation.webp",
+        "fixImageCaption": "V2 navigation: One labelled five-tab bar"
+      },
+      {
+        "id": "home",
+        "title": "2. Home",
+        "label": "Home",
+        "problem": {
+          "label": "Problem: Everyday tasks buried under ad carousel.",
+          "text": "The original app buries everyday tasks under ads, hiding active plans and live usage behind extra taps."
+        },
+        "fix": {
+          "label": "Fix: Active plans and live usage front and center.",
+          "text": "The ad carousel is replaced with active plans and live usage. Progress bars and a \"43% remaining\" label put status where people look, rather than behind a tap."
+        },
+        "legend": {
+          "title": "Figure Legend (Home: Unlimited vs Limited)",
+          "image": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/Annotated%20Home%20States-Unlimited%20vs%20Limited%20active%20plans%2C%20live%20usage%2C%20and%20status%20cues.webp",
+          "imageCaption": "Annotated Home states: Unlimited vs Limited active plans, live usage, and status cues",
+          "items": [
+            {
+              "element": "Promotional banner carousel",
+              "description": "Clean top-slot promotional carousel reserved for marketing campaigns without burying or disrupting daily utility tasks."
+            },
+            {
+              "element": "Page-specific toolbar",
+              "description": "Streamlined header equipped with an account switcher dropdown, direct AI chat shortcut, and user profile avatar."
+            },
+            {
+              "element": "Active plans list with device visuals",
+              "description": "Displays all active SLT connections paired with realistic device graphics and quick summaries (e.g. '45.32 GB used', '65 channels active')."
+            },
+            {
+              "element": "Dynamic descriptions & status cues",
+              "description": "Service descriptions adapt to plan properties: capped plans feature a live visual progress bar and '43% left' label, while unlimited plans show total data consumed."
+            }
+          ]
+        },
+        "subsections": [
+          {
+            "id": "usage-wifi",
+            "title": "Wi-Fi Usage",
+            "problem": {
+              "label": "Problem: Four overlapping data buttons.",
+              "text": "Four overlapping data buttons created visual clutter without adapting to whether a plan was capped or unlimited."
+            },
+            "fix": {
+              "label": "Fix: One number and one adaptive action.",
+              "text": "Four overlapping data buttons become one number and one adaptive action: capped plans get Add More Data, unlimited plans get a different relevant action instead of a dead button."
+            },
+            "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V1%20vs%20V2%20interface%20comparison-Wifi%20Usage.webp",
+            "fixImageCaption": "V1 vs V2 interface comparison: Wifi Usage",
+            "legend": {
+              "title": "Figure Legend (Wi-Fi Usage: Unlimited vs Limited)",
+              "image": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/Annotated%20Wi-Fi%20states-Unlimited%20vs%20Limited%20adaptive%20actions%20and%20status%20cues.webp",
+              "imageCaption": "Annotated Wi-Fi states: Unlimited vs Limited adaptive actions and status cues",
+              "items": [
+                {
+                  "element": "Router visual",
+                  "description": "Image of the actual Wi-Fi device on Home; tapping it expands into a 3D render with device details"
+                },
+                {
+                  "element": "Wi-Fi-specific header action",
+                  "description": "A gift-box icon for gift-data actions, kept as a lower-priority, page-specific shortcut"
+                },
+                {
+                  "element": "Connection stability check",
+                  "description": "A quick speed-test style check, using a third-party service such as Google, to view live internet speed"
+                },
+                {
+                  "element": "Device management",
+                  "description": "New concept: a connected-devices view where you manage every device on the network, including limiting access per device and handling remote devices"
+                },
+                {
+                  "element": "Account and network details",
+                  "description": "Your specific internet and account details on hand, so you can reference them quickly if you need to contact an SLT representative"
+                },
+                {
+                  "element": "AI insight line",
+                  "description": "A short, usage-based sentence suggesting whether to upgrade or downgrade"
+                },
+                {
+                  "element": "Quota ring (capped plans)",
+                  "description": "A pie-style ring showing how much data remains"
+                },
+                {
+                  "element": "Adaptive primary action",
+                  "description": "The action changes with the plan type, like \"Add More Data\" for capped packages, rather than a fixed button regardless of fit"
+                }
+              ]
+            }
+          },
+          {
+            "id": "tv",
+            "title": "Peo TV",
+            "problem": {
+              "label": "Problem: The channel guide, a known pain point.",
+              "text": "The channel guide was difficult to navigate and access efficiently in the original app."
+            },
+            "fix": {
+              "label": "Fix: Tappable cards with dedicated detail views.",
+              "text": "The channel guide, a known pain point, is now a tappable card, alongside a new watch-time card, each opening its own detail view."
+            },
+            "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V1%20vs%20V2%20interface%20comparison-Peo%20TV.webp",
+            "fixImageCaption": "V1 vs V2 interface comparison: Peo TV",
+            "legend": {
+              "title": "Figure Legend (Peo TV)",
+              "items": [
+                {
+                  "element": "Contextual remote icon",
+                  "description": "Specific to PEO TV, this trailing top-bar icon opens a virtual remote to control the TV—a new concept for the app."
+                },
+                {
+                  "element": "PEO TV device visual",
+                  "description": "Image of the actual PEO TV device at home; tapping it expands into a 3D render with full device details."
+                },
+                {
+                  "element": "Daily average watch time insight",
+                  "description": "Glanceable insight into your daily average watch time; tapping it opens much more detailed viewing analytics."
+                },
+                {
+                  "element": "Channel guide card",
+                  "description": "A known pain point turned into a prominent tappable card with channel previews and a direct 'View Guide' button opening its own detail view."
+                },
+                {
+                  "element": "PEO TV details",
+                  "description": "Hardware and subscription status on hand, including connection health, total channel count, and package tier."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "bills",
+        "title": "3. Bills & Payment",
+        "label": "Bills",
+        "problem": {
+          "label": "Problem: Three separate tabs and paying an unfinalized figure.",
+          "text": "Three tabs (Summary, History, Methods) fragmented the experience, and in-progress cycles risked paying a figure that could still change."
+        },
+        "problemImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V1%20Bills.webp",
+        "problemImageCaption": "V1 bills: Three separate tabs and changing in-progress amounts",
+        "fix": {
+          "label": "Fix: One searchable list, adaptive amounts, and the wallet view.",
+          "text": "Three tabs (Summary, History, Methods) become one searchable list, grouped by year with the latest on top. Each row adapts to its state: a dash while the cycle is ongoing because the amount isn't final, a green \"Paid\" with the amount once settled, and red when due, which is when Pay appears. Nobody pays a figure that can still change."
+        },
+        "newFeature": {
+          "label": "New concept: The wallet view.",
+          "text": "A card icon in the top bar, specific to this screen, opens one place for money matters: live wallet balance, secondary Top Up and Send Money actions, adaptive payment status, user-named card details with expandable billing address, Auto-Pay for recurring bills, and the latest three receipts."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V2%20Bills.webp",
+        "fixImageCaption": "V2 bills: One searchable list, latest on top, and Pay appearing once due",
+        "legend": {
+          "title": "Figure Legend (Bills & Payment)",
+          "items": [
+            {
+              "element": "Custom trailing card icon",
+              "description": "Specific to the Bills view, this top-bar entry point opens the wallet balance, card details, and payment options in a single tap."
+            },
+            {
+              "element": "Adaptive bill cycle amount",
+              "description": "The bill row's amount adapts to its state: displays a dash while ongoing, and reveals the finalized amount once calculated."
+            },
+            {
+              "element": "Color-coded payment status",
+              "description": "Due amounts show in red and paid amounts show in green on grey, so status is readable at a glance without opening the bill."
+            },
+            {
+              "element": "Glanceable wallet balance",
+              "description": "Positioned at the top of the sheet so users can see at once whether they need to top up before settling bills."
+            },
+            {
+              "element": "Top Up & Send Money actions",
+              "description": "Quick actions deliberately given lower visual priority so they don't compete with the primary balance metric."
+            },
+            {
+              "element": "Adaptive payment status",
+              "description": "Dynamically updates to reflect reality—displaying an outstanding due bill or negative balance rather than always stating 'No Due'."
+            },
+            {
+              "element": "Card details, billing address & Auto-Pay",
+              "description": "Displays account nicknames and expands on tap to show full details (such as complete billing address), alongside an Auto-Pay toggle that quietly deducts recurring bills when covered by wallet balance."
+            },
+            {
+              "element": "Recent payment history",
+              "description": "Displays the latest three transactions for quick verification of recent billing activity."
+            }
+          ]
+        }
+      },
+      {
+        "id": "new-service",
+        "title": "4. New Service Flow",
+        "label": "New Service",
+        "problem": {
+          "label": "Problem: Radio form requiring prior jargon knowledge.",
+          "text": "The radio form and Register button assumed users already understood what Megaline is without explanation."
+        },
+        "fix": {
+          "label": "Fix: A one-tap sheet with icons and plain descriptions.",
+          "text": "The radio form and Register button become a one-tap sheet. Each option has an icon, name and one-line description, so nobody needs to already know what Megaline is."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V1%20vs%20V2%20interface%20comparison-New%20Service%20Flow.webp",
+        "fixImageCaption": "V1 vs V2 interface comparison: New Service Flow",
+        "legend": {
+          "title": "Figure Legend (New Service Flow)",
+          "items": [
+            {
+              "element": "Plain-language descriptions",
+              "description": "Each option includes a clear one-line summary (e.g. 'High-speed home internet', 'Reliable home telephone service') so users don't need prior technical knowledge."
+            },
+            {
+              "element": "Clear icons",
+              "description": "Distinct, recognizable icons for each service type make options immediately identifiable and easy to scan."
+            },
+            {
+              "element": "Surfaced PEO TV option",
+              "description": "Brings the TV connection option front and center in the sheet so users looking for entertainment services don't find it buried."
+            }
+          ]
+        }
+      },
+      {
+        "id": "search",
+        "title": "5. Search Flow",
+        "label": "Search",
+        "problem": {
+          "label": "Problem: Search didn't exist in V1.",
+          "text": "Search didn't exist in V1, forcing users to navigate multiple nested layers to locate packages or services."
+        },
+        "fix": {
+          "label": "Fix: Dedicated search destination with smart suggestions.",
+          "text": "Search didn't exist in V1. V2 adds it as its own destination: recent searches, app-wide search and a suggestions slot SLT can also use for promotions."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V2%20Search.webp",
+        "fixImageCaption": "V2 search: Recent searches, app-wide search and suggestions slot",
+        "legend": {
+          "title": "Figure Legend (Search Flow)",
+          "items": [
+            {
+              "element": "AI chat quick shortcut",
+              "description": "Page-specific top-bar chat bubble providing fast access to conversational AI assistance directly within search."
+            },
+            {
+              "element": "Recent searches",
+              "description": "Glanceable pills of recent queries ('where is my bill', 'Add data', 'Offers') allowing one-tap repeated lookups."
+            },
+            {
+              "element": "Curated & AI-based suggestions",
+              "description": "Versatile suggestion tiles that SLT can curate for promotions or power via AI based on predictive user habits ('Pay Bill', 'Change Package', 'Add Extra GB')."
+            }
+          ]
+        }
+      },
+      {
+        "id": "shop",
+        "title": "6. Shop Flow",
+        "label": "Shop",
+        "problem": {
+          "label": "Problem: Webview wrapper of the web shop.",
+          "text": "A webview embedding of the desktop online store caused slow loading and disrupted mobile ergonomics."
+        },
+        "fix": {
+          "label": "Fix: Native device browsing built into the app.",
+          "text": "The webview of the web shop becomes native device browsing built into the app."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V1%20vs%20V2%20interface%20comparison-Shop%20Flow.webp",
+        "fixImageCaption": "V1 vs V2 interface comparison: Shop Flow",
+        "legend": {
+          "title": "Figure Legend (Shop Flow)",
+          "items": [
+            {
+              "element": "Contextual toolbar actions",
+              "description": "Page-specific top-bar actions to track orders and view cart, placed conveniently beside user profile."
+            },
+            {
+              "element": "Product categories",
+              "description": "Scannable horizontal category icons (Wi-Fi Devices, Power Backups, Laptops, IoT) leading directly into dedicated inner views."
+            },
+            {
+              "element": "Promotions & discounts banner",
+              "description": "Quick-glance promotional card highlighting ongoing seasonal offers, bundled deals, and accessory discounts."
+            },
+            {
+              "element": "Dynamic featured showcase",
+              "description": "Flexible marketing slot SLT can curate for featured products, new arrivals, bestsellers, or targeted promotions."
+            }
+          ]
+        }
+      },
+      {
+        "id": "profile",
+        "title": "7. Profile Flow",
+        "label": "Profile",
+        "problem": {
+          "label": "Problem: 11-item side drawer competing with core tasks.",
+          "text": "An 11-item side drawer buried account settings and rarely used items alongside primary destinations."
+        },
+        "fix": {
+          "label": "Fix: Single Profile screen reached from top bar avatar.",
+          "text": "The 11-item side drawer becomes a single Profile screen, reached from the avatar in the top bar. Account details and settings live here, along with rarely used items like Terms and Privacy, so nothing competes with everyday tasks in the tab bar."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/V2%20Profile.webp",
+        "fixImageCaption": "V1 vs V2 interface comparison: Profile"
+      },
+      {
+        "id": "brand",
+        "title": "8. Brand: Light UI, Neon Accents",
+        "label": "Brand",
+        "fix": {
+          "label": "Fix: Speed and clarity both stay visible.",
+          "text": "SLT's identity is fibre-optic neon, signalling speed. V2 keeps the interface calm and light for clarity, and carries the brand through glowing hero art, green status rings and gradient accents, so speed and clarity both stay visible."
+        },
+        "fixImage": "https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/Branding.webp",
+        "fixImageCaption": "Brand design system: Light UI, fibre-optic neon accents, glowing hero art, and status rings"
+      },
+      {
+        "id": "reflection",
+        "title": "9. Next Refinements & Validation",
+        "label": "Refinements",
+        "reflection": "Next refinements:\n• Data framing: show remaining everywhere, so the bar, ring and text agree.\n• Missing states: bill due, low data, the account view and the bill breakdown.\n• Legibility: raise small grey text to at least 11 pt and check 4.5:1 contrast.\n• Consistency: TV channel counts differ between screens, and Sign out and eBill are not visible in Profile.\n\nValidation:\nGive five people the same tasks on both versions (find remaining data, pay a bill, add a service) and record success, time and wrong taps."
+      }
+    ]
   }
 ]

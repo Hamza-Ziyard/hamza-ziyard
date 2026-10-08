@@ -44,12 +44,19 @@ export default function WhatIfCard({ project }) {
       {/* Card Image Container */}
       <div className="relative block w-full overflow-hidden rounded-lg bg-gray-100 dark:bg-zinc-900 border-10 border-white dark:border-zinc-800 transition-colors duration-300">
         <div className="w-full aspect-[16/9] flex items-center justify-center overflow-hidden">
-          <img
-            src={project.thumbnail || project.coverImage}
-            alt={project.title}
-            loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
+          {(project.thumbnail || project.coverImage) ? (
+            <img
+              src={project.thumbnail || project.coverImage}
+              alt={project.title}
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center bg-surface p-6 text-center space-y-2">
+              <span className="text-xs uppercase tracking-wider font-semibold text-primary/70">{project.part || 'Part 2'}</span>
+              <p className="text-base font-bold text-primary">{project.coverTitle || project.title}</p>
+            </div>
+          )}
         </div>
       </div>
 

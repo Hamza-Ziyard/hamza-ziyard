@@ -9,7 +9,14 @@ export default function WhatIf() {
   }, []);
 
   const projects = useMemo(() => {
-    return whatIfProjects;
+    return [...whatIfProjects].sort((a, b) => {
+      const dateA = a.postedDate ? new Date(a.postedDate).getTime() : 0;
+      const dateB = b.postedDate ? new Date(b.postedDate).getTime() : 0;
+      if (!isNaN(dateA) && !isNaN(dateB) && dateA !== dateB) {
+        return dateB - dateA;
+      }
+      return whatIfProjects.indexOf(b) - whatIfProjects.indexOf(a);
+    });
   }, []);
 
   return (
@@ -54,7 +61,7 @@ export default function WhatIf() {
 
             {/* Handle, Subscribers, Videos Stats */}
             <div className="flex items-center gap-2 text-xs sm:text-lg lg:text-xl text-text-secondary flex-wrap font-medium">
-              <span>{projects.length} case study</span>
+              <span>{projects.length} {projects.length === 1 ? 'case study' : 'case studies'}</span>
             </div>
 
             {/* Description without more button */}

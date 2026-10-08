@@ -148,12 +148,23 @@ export default function WhatIfDetail() {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-4 text-left"
           >
+            {project.byline && (
+              <p className="text-sm md:text-base font-medium text-text-secondary">
+                {project.byline}
+              </p>
+            )}
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary">
               {project.title}
             </h1>
             <p className="text-xl text-text-secondary leading-relaxed font-light pt-2">
               {project.summary}
             </p>
+            {project.method && (
+              <p className="text-base md:text-lg text-text-secondary leading-relaxed pt-2">
+                <strong className="font-bold text-primary mr-2">Method:</strong>
+                {project.method}
+              </p>
+            )}
           </motion.div>
         </section>
 
@@ -287,6 +298,37 @@ export default function WhatIfDetail() {
                 </div>
 
                 <div className="space-y-16">
+                  {/* Images if present (e.g. [Image: V1 ...] [Image: V2 ...]) */}
+                  {section.images && (
+                    <div className={clsx(
+                      "grid gap-6",
+                      section.images.length > 1 ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1"
+                    )}>
+                      {section.images.map((img, idx) => (
+                        <div key={idx} className="space-y-2">
+                          {img.url ? (
+                            <img
+                              src={img.url}
+                              alt={img.label}
+                              className="w-full rounded-2xl border border-border/50 shadow-sm object-cover"
+                            />
+                          ) : (
+                            <ImagePlaceholder label={img.label} />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Section Text */}
+                  {section.text && (
+                    <div className="space-y-4">
+                      <p className="text-xl text-text-secondary leading-relaxed whitespace-pre-line">
+                        {section.text}
+                      </p>
+                    </div>
+                  )}
+
                   {/* Problem & Why it matters Sub-section */}
                   {section.problem && (
                     <div className="space-y-4">
@@ -368,7 +410,22 @@ export default function WhatIfDetail() {
 
                       {/* Figure Legend Table (Styled as in ProjectDetailWork) */}
                       {section.legend && (
-                        <div className="pt-4 space-y-4">
+                        <div className="pt-6 space-y-6">
+                          {section.legend.image && (
+                            <figure className="space-y-4">
+                              <img 
+                                src={section.legend.image} 
+                                alt={section.legend.imageCaption || section.legend.title}
+                                loading="lazy"
+                                className="w-full rounded-2xl border border-border/50 shadow-sm"
+                              />
+                              {section.legend.imageCaption && (
+                                <figcaption className="text-sm text-text-secondary font-medium text-center">
+                                  {section.legend.imageCaption}
+                                </figcaption>
+                              )}
+                            </figure>
+                          )}
                           <h4 className="text-base md:text-lg font-bold text-primary">
                             {section.legend.title}
                           </h4>
@@ -435,6 +492,134 @@ export default function WhatIfDetail() {
                           </div>
                         </div>
                       )}
+                    </div>
+                  )}
+
+                  {/* Subsections if present (e.g. TV and Wi-Fi Usage under Home) */}
+                  {section.subsections && (
+                    <div className="space-y-24 pt-12 border-t border-border/50">
+                      {section.subsections.map((sub, sIdx) => (
+                        <div key={sub.id || sIdx} id={sub.id} className="space-y-12">
+                          <div className="flex items-center gap-3">
+                            <span className="w-1 h-5 rounded-full bg-primary/70"></span>
+                            <h3 className="text-xl md:text-2xl font-bold text-primary tracking-tight">
+                              {sub.title}
+                            </h3>
+                          </div>
+
+                          <div className="space-y-16">
+                            {/* Problem */}
+                            {sub.problem && (
+                              <div className="space-y-4">
+                                <p className="text-xl text-text-secondary leading-relaxed">
+                                  <strong className="font-bold text-primary mr-2">
+                                    {sub.problem.label || "Problem:"}
+                                  </strong>
+                                  {sub.problem.text}
+                                </p>
+                                {sub.whyItMatters && (
+                                  <p className="text-xl text-text-secondary leading-relaxed">
+                                    <strong className="font-bold text-primary mr-2">Why it matters:</strong>
+                                    {sub.whyItMatters.citation && (
+                                      <em className="italic mr-1.5 text-primary">{sub.whyItMatters.citation}</em>
+                                    )}
+                                    {sub.whyItMatters.text}
+                                  </p>
+                                )}
+                                {sub.problemImage && (
+                                  <figure className="space-y-4 pt-4">
+                                    <img 
+                                      src={sub.problemImage} 
+                                      alt={sub.problemImageCaption || sub.title}
+                                      loading="lazy"
+                                      className="w-full rounded-2xl border border-border/50 shadow-sm"
+                                    />
+                                    {sub.problemImageCaption && (
+                                      <figcaption className="text-sm text-text-secondary font-medium text-center">
+                                        {sub.problemImageCaption}
+                                      </figcaption>
+                                    )}
+                                  </figure>
+                                )}
+                              </div>
+                            )}
+
+                            {/* Fix */}
+                            {sub.fix && (
+                              <div className="space-y-4">
+                                <p className="text-xl text-text-secondary leading-relaxed">
+                                  <strong className="font-bold text-primary mr-2">
+                                    {sub.fix.label || "Fix:"}
+                                  </strong>
+                                  {sub.fix.text}
+                                </p>
+                                {sub.fixImage && (
+                                  <figure className="space-y-4 pt-4">
+                                    <img 
+                                      src={sub.fixImage} 
+                                      alt={sub.fixImageCaption || sub.title}
+                                      loading="lazy"
+                                      className="w-full rounded-2xl border border-border/50 shadow-sm"
+                                    />
+                                    {sub.fixImageCaption && (
+                                      <figcaption className="text-sm text-text-secondary font-medium text-center">
+                                        {sub.fixImageCaption}
+                                      </figcaption>
+                                    )}
+                                  </figure>
+                                )}
+
+                                {/* Figure Legend Table */}
+                                {sub.legend && (
+                                  <div className="pt-6 space-y-6">
+                                    {sub.legend.image && (
+                                      <figure className="space-y-4">
+                                        <img 
+                                          src={sub.legend.image} 
+                                          alt={sub.legend.imageCaption || sub.legend.title}
+                                          loading="lazy"
+                                          className="w-full rounded-2xl border border-border/50 shadow-sm"
+                                        />
+                                        {sub.legend.imageCaption && (
+                                          <figcaption className="text-sm text-text-secondary font-medium text-center">
+                                            {sub.legend.imageCaption}
+                                          </figcaption>
+                                        )}
+                                      </figure>
+                                    )}
+                                    <h4 className="text-base md:text-lg font-bold text-primary">
+                                      {sub.legend.title}
+                                    </h4>
+                                    <div className="flex flex-col border border-border rounded-xl overflow-hidden">
+                                      {sub.legend.items.map((item, idx) => (
+                                        <div 
+                                          key={idx} 
+                                          className={clsx(
+                                            "grid grid-cols-1 md:grid-cols-4",
+                                            idx > 0 && "border-t border-border"
+                                          )}
+                                        >
+                                          <div className="p-4 bg-surface flex items-center gap-4 md:col-span-1">
+                                            <span className="w-8 h-8 rounded-full bg-black text-white border border-border flex items-center justify-center text-md font-bold shrink-0">
+                                              {idx + 1}
+                                            </span>
+                                            <h5 className="font-semibold text-sm md:text-base text-primary">
+                                              {item.element}
+                                            </h5>
+                                          </div>
+                                          <div className="border-t md:border-t-0 md:border-l border-border p-4 text-sm md:text-base text-text-secondary leading-relaxed font-light md:col-span-3 flex items-center">
+                                            <p>{item.description}</p>
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   )}
                 </div>
