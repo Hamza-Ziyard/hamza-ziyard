@@ -82,7 +82,7 @@ export default function WhatIfPlaylistCard() {
             />
 
             {/* Bottom-right playlist badge like YouTube ("X case studies") */}
-            <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md text-white font-semibold text-xs tracking-tight shadow-md border border-white/10">
+            <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-md text-white font-semibold text-xs tracking-tight shadow-md border border-white/10">
               <Play size={12} className="fill-white" />
               <span>{count} {count === 1 ? 'case study' : 'case studies'}</span>
             </div>
