@@ -106,11 +106,11 @@ export default function WhatIf() {
             >
               <Link
                 to={`/what-if/${project.id}`}
-                className={`group flex items-start gap-6 p-0 md:p-2 xl:p-4 hover:bg-black/5 hover:rounded-xl dark:hover:bg-white/5 transition-colors bg-border-100 ${index !== projects.length - 1 ? 'border-b border-border lg:pb-8!' : ''}`}
+                className={`group flex flex-col md:flex-row items-start gap-3 md:gap-6 p-0 md:p-2 xl:p-4 hover:bg-black/5 hover:rounded-xl dark:hover:bg-white/5 transition-colors bg-border-100 ${index !== projects.length - 1 ? 'border-b border-border lg:pb-8!' : ''}`}
               >
 
                 {/* Thumbnail */}
-                <div className="relative w-40 sm:w-48 md:w-64 aspect-video rounded-md overflow-hidden shrink-0 bg-gray-100 dark:bg-zinc-900 border-4 sm:border-6 border-white dark:border-zinc-800 shadow-sm transition-colors duration-300">
+                <div className="relative w-full sm:w-full md:w-64 aspect-video rounded-md overflow-hidden shrink-0 bg-gray-100 dark:bg-zinc-900 border-4 sm:border-6 border-white dark:border-zinc-800 shadow-sm transition-colors duration-300">
                   <img
                     src={project.coverImage}
                     alt={project.title}
