@@ -33,12 +33,12 @@ export default function WhatIf() {
   };
 
   return (
-    <div className="w-full max-w-500 mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4">
+    <div className="w-full max-w-500 mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-0">
       <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-10">
         
         {/* Left Sidebar (2/5): YouTube Playlist Hero Card & Details with full height styling */}
         <aside className="w-full lg:w-1/4 shrink-0 lg:sticky lg:top-24">
-          <div className="relative rounded-xl overflow-hidden p-5 md:p-6 xl:p-7 bg-linear-to-t from-gray-100 via-gray-100/90 to-gray-200/80 dark:from-zinc-900 dark:via-zinc-900/95 dark:to-zinc-950 border border-border flex flex-col justify-between lg:min-h-[calc(100vh-8rem)]">
+          <div className="relative rounded-xl overflow-hidden p-5 md:p-6 xl:p-7 bg-linear-to-t from-gray-100 via-gray-100/90 to-gray-200/80 dark:from-zinc-900 dark:via-zinc-900/95 dark:to-zinc-950 border border-border flex flex-col justify-between lg:min-h-[calc(100vh-13rem)]">
             <div>
               {/* Profile Pic Avatar */}
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-6 p-1 bg-white dark:bg-zinc-800 border border-border shadow-sm">

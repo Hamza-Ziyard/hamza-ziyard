@@ -16,7 +16,7 @@ export default function Layout() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       {!isProjectPage && <div className='h-20'></div>}
-      <main className="pt-2 pb-20 md:px-8 grow">
+      <main className="pt-2 pb-8 md:px-8 grow">
         <Outlet />
       </main>
       <footer className="py-8 px-8 border-t border-border">
