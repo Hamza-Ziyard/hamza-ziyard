@@ -256,7 +256,7 @@ export default function About() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <div className="max-w-[1440px] mt-8 mx-auto w-full relative mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="max-w-400 mt-8 mx-auto w-full relative mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div
             ref={scrollRef}
             className="flex gap-4 overflow-x-auto no-scrollbar px-8 pb-4 cursor-grab active:cursor-grabbing select-none"
