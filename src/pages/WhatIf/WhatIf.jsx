@@ -1,9 +1,12 @@
-import { useMemo, useEffect } from 'react';
-import whatIfProjects from '../../data/whatIfProjects.json';
-import WhatIfCard from '../../components/ui/WhatIfCard';
+import { useMemo, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Share } from 'lucide-react';
+import whatIfProjects from '../../data/whatIfProjects.json';
 
 export default function WhatIf() {
+  const [copied, setCopied] = useState(false);
+
   useEffect(() => {
     document.title = "What If? | Hamza Ziyard";
   }, []);
@@ -19,87 +22,132 @@ export default function WhatIf() {
     });
   }, []);
 
+  const firstProject = projects[0];
+
+  const handleShare = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
   return (
-    <section className="pt-0 px-4 md:px-6 max-w-700 mx-auto">
-      {/* YouTube Channel Style Banner & Profile Header */}
-      <motion.div
-        className="w-full max-w-7xl mx-auto pt-1 pb-10 md:pb-12"
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-      >
-        {/* Cover Banner Image */}
-        {/* <div className="w-full aspect-[4/1] min-h-[140px] max-h-[220px] md:max-h-[260px] rounded-2xl md:rounded-3xl overflow-hidden relative border border-border bg-gray-100 dark:bg-zinc-900">
-          <img
-            src="https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Redesigned%20Banner.webp"
-            alt="What If Series Banner"
-            className="w-full h-full object-cover"
-          />
-        </div> */}
+    <div className="w-full max-w-500 mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4">
+      <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-10">
+        
+        {/* Left Sidebar (2/5): YouTube Playlist Hero Card & Details with full height styling */}
+        <aside className="w-full lg:w-1/4 shrink-0 lg:sticky lg:top-24">
+          <div className="relative rounded-xl overflow-hidden p-5 md:p-6 xl:p-7 bg-linear-to-t from-gray-100 via-gray-100/90 to-gray-200/80 dark:from-zinc-900 dark:via-zinc-900/95 dark:to-zinc-950 border border-border flex flex-col justify-between lg:min-h-[calc(100vh-8rem)]">
+            <div>
+              {/* Profile Pic Avatar */}
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-6 p-1 bg-white dark:bg-zinc-800 border border-border shadow-sm">
+                <div className="w-full h-full rounded-full bg-gray-100 dark:bg-zinc-900 flex items-center justify-center overflow-hidden">
+                  <img
+                    src="/my-memoji/me.png"
+                    alt="Hamza Ziyard"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
 
-        {/* Channel Details Section */}
-        <div className="flex flex-col md:flex-row items-start sm:items-center gap-5 md:gap-7 pt-5 px-1 md:px-3">
-          {/* Avatar with memoji */}
-          <div className="relative shrink-0 w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full p-1 bg-background border border-border shadow-sm">
-            <div className="w-full h-full rounded-full bg-gray-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden">
-              <img
-                src="/my-memoji/me.png"
-                alt="Profile Memoji"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Info Column */}
-          <div className="flex-1 space-y-2.5 pt-1">
-            {/* Channel Name & Verified Badge */}
-            <div className="flex items-center gap-2 flex-wrap">
-              <h1 className="text-2xl lg:text-4xl font-bold tracking-tight text-text-primary">
-                What If I Redesigned Apps
+              {/* Playlist Title */}
+              <h1 className="text-xl xl:text-2xl font-bold tracking-tight text-text-primary mb-3 leading-tight">
+                What If I Redesigned Everyday Apps
               </h1>
-            </div>
 
-            {/* Handle, Subscribers, Videos Stats */}
-            <div className="flex items-center gap-2 text-xs sm:text-lg lg:text-xl text-text-secondary flex-wrap font-medium">
-              <span>{projects.length} {projects.length === 1 ? 'case study' : 'case studies'}</span>
-            </div>
+              {/* Metadata / Creator Info */}
+              <div className="text-xs sm:text-sm text-text-secondary font-medium mb-4">
+                <span>By Hamza Ziyard • {projects.length} {projects.length === 1 ? 'case study' : 'case studies'}</span>
+              </div>
 
-            {/* Description without more button */}
-            <div className="text-xs sm:text-lg lg:text-xl text-text-secondary leading-relaxed">
-              <p>
+              {/* Description */}
+              <p className="text-xs sm:text-sm text-text-secondary leading-relaxed mb-6">
                 An independent conceptual redesign series exploring core flows grounded in usability heuristics and cognitive research, created purely for educational and study purposes.
               </p>
+
+              {/* Share Button placed below description */}
+              <div className="flex items-center">
+                <button
+                  type="button"
+                  onClick={handleShare}
+                  className="inline-flex items-center justify-center gap-2 bg-[#1a1a1a] dark:bg-[#262626] text-white hover:opacity-90 transition-all font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full hover:scale-105 duration-200 cursor-pointer relative"
+                  title="Share playlist"
+                  aria-label="Share playlist"
+                >
+                  <Share size={14} />
+                  <span>Share</span>
+                  <AnimatePresence>
+                    {copied && (
+                      <motion.span
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{ opacity: 1, y: -28 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute left-1/2 -translate-x-1/2 px-2.5 py-1 text-[11px] bg-black text-white dark:bg-white dark:text-black rounded-md shadow-lg whitespace-nowrap font-semibold pointer-events-none"
+                      >
+                        Link copied!
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                </button>
+              </div>
             </div>
-
           </div>
-        </div>
-      </motion.div>
+        </aside>
 
-      {/* Separator */}
-      <hr className="border-t border-border max-w-7xl mx-auto mb-10 md:mb-12" />
-
-      {/* 2 column grid with vertical scroll */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-7xl mx-auto">
-        <AnimatePresence>
+        {/* Right List (3/5): YouTube Playlist Video Items */}
+        <div className="w-full lg:w-3/4 space-y-2 pb-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              layout
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.05,
-                layout: { duration: 0.4 },
-              }}
-              className="w-full"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: index * 0.05 }}
             >
-              <WhatIfCard project={project} />
+              <Link
+                to={`/what-if/${project.id}`}
+                className={`group flex items-start gap-6 p-0 md:p-2 xl:p-4 hover:bg-black/5 hover:rounded-xl dark:hover:bg-white/5 transition-colors bg-border-100 ${index !== projects.length - 1 ? 'border-b border-border lg:pb-8!' : ''}`}
+              >
+
+                {/* Thumbnail */}
+                <div className="relative w-40 sm:w-48 md:w-64 aspect-video rounded-md overflow-hidden shrink-0 bg-gray-100 dark:bg-zinc-900 border-4 sm:border-6 border-white dark:border-zinc-800 shadow-sm transition-colors duration-300">
+                  <img
+                    src={project.thumbnail || project.coverImage}
+                    alt={project.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                  {project.part && (
+                    <span className="absolute bottom-1.5 right-1.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-black/80 text-white backdrop-blur-xs">
+                      {project.part}
+                    </span>
+                  )}
+                </div>
+
+                {/* Details */}
+                <div className="flex-1 min-w-0 py-2 space-y-1.5">
+                  <h2 className="text-base sm:text-lg lg:text-xl font-semibold text-text-primary group-hover:text-blue-500 transition-colors leading-snug line-clamp-1">
+                    {project.title || project.coverTitle}
+                  </h2>
+
+                  {project.summary && (
+                    <p className="text-xs lg:text-sm text-text-secondary leading-relaxed line-clamp-1 sm:line-clamp-2">
+                      {project.summary}
+                    </p>
+                  )}
+
+
+
+                  <p className="text-xs lg:text-sm text-text-secondary font-medium">
+                    Hamza Ziyard
+                  </p>
+                </div>
+              </Link>
             </motion.div>
           ))}
-        </AnimatePresence>
+        </div>
+
       </div>
-    </section>
+    </div>
   );
 }

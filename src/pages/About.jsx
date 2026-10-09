@@ -131,7 +131,7 @@ export default function About() {
 
   return (
     <div className="relative">
-      <div className="max-w-[1440px] flex mx-auto py-8 lg:gap-20">
+      <div className="max-w-400 flex mx-auto py-8 lg:gap-20">
         <div>
           <motion.div
             className="w-full"

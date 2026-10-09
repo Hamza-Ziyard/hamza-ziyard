@@ -72,7 +72,7 @@ export default function Home() {
   }, [filteredProjects]);
 
   return (
-    <section className='pt-0 px-6 max-w-700 mx-auto'>
+    <section className='pt-0 px-6 max-w-500 mx-auto'>
 
       {/* What If Series Promotional Banner */}
       <motion.div
@@ -83,7 +83,7 @@ export default function Home() {
       >
         <Link
           to="/what-if"
-          className="group relative block w-full lg:w-4/5 xl:w-3/5 p-[3px] md:rounded-full rounded-3xl overflow-hidden shadow-xl"
+          className="group relative block w-full lg:w-4/5 p-[3px] md:rounded-full rounded-3xl overflow-hidden shadow-xl"
         >
           {/* Subtle static border background ring */}
           <div className="absolute inset-0 md:rounded-full rounded-3xl bg-zinc-300 dark:bg-zinc-800" />
