@@ -130,17 +130,19 @@ export default function WhatIf() {
                     {project.title || project.coverTitle}
                   </h2>
 
-                  {project.summary && (
-                    <p className="text-xs lg:text-sm text-text-secondary leading-relaxed line-clamp-1 sm:line-clamp-2">
-                      {project.summary}
-                    </p>
-                  )}
 
 
 
                   <p className="text-xs lg:text-sm text-text-secondary font-medium">
                     Hamza Ziyard {project.postedDate ? `• ${project.postedDate}` : ''}
                   </p>
+
+
+                  {project.summary && (
+                    <p className="text-xs lg:text-sm text-text-secondary leading-relaxed line-clamp-1 sm:line-clamp-2">
+                      {project.summary}
+                    </p>
+                  )}
                 </div>
               </Link>
             </motion.div>
