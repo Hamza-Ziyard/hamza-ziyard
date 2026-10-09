@@ -112,7 +112,7 @@ export default function WhatIf() {
                 {/* Thumbnail */}
                 <div className="relative w-40 sm:w-48 md:w-64 aspect-video rounded-md overflow-hidden shrink-0 bg-gray-100 dark:bg-zinc-900 border-4 sm:border-6 border-white dark:border-zinc-800 shadow-sm transition-colors duration-300">
                   <img
-                    src={project.thumbnail || project.coverImage}
+                    src={project.coverImage}
                     alt={project.title}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
