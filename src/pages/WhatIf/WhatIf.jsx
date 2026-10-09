@@ -139,7 +139,7 @@ export default function WhatIf() {
 
 
                   <p className="text-xs lg:text-sm text-text-secondary font-medium">
-                    Hamza Ziyard
+                    Hamza Ziyard {project.postedDate ? `• ${project.postedDate}` : ''}
                   </p>
                 </div>
               </Link>
