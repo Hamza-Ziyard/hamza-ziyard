@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import originalProjects from '../data/projects.json';
 import companyWorkData from '../data/companyWork.json';
 import ProjectCard from '../components/ui/ProjectCard';
+import WhatIfPlaylistCard from '../components/ui/WhatIfPlaylistCard';
 import HeroIntro from '../components/ui/HeroIntro';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -30,9 +31,17 @@ export default function Home() {
     height: company.height || "h-80"
   })), []);
 
+  const whatIfStackCard = useMemo(() => ({
+    id: 'what-if-playlist-stack',
+    title: 'What If Series',
+    isWhatIfStack: true,
+    company: 'What If Series',
+    type: 'Case Study Series',
+  }), []);
+
   const allProjects = useMemo(() => {
-    const combined = [...originalProjects, ...companyCards];
-    const preferredOrder = ['pockomint', 'dfcc-bank', 'zafer-work', 'surge-work', 'vetstoria-work'];
+    const combined = [whatIfStackCard, ...originalProjects, ...companyCards];
+    const preferredOrder = ['what-if-playlist-stack', 'pockomint', 'dfcc-bank', 'zafer-work', 'surge-work', 'vetstoria-work'];
     return combined.sort((a, b) => {
       const indexA = preferredOrder.indexOf(a.id);
       const indexB = preferredOrder.indexOf(b.id);
@@ -41,7 +50,7 @@ export default function Home() {
       if (indexB !== -1) return 1;
       return 0;
     });
-  }, [companyCards]);
+  }, [companyCards, whatIfStackCard]);
 
   const companies = useMemo(() => ['All companies', ...new Set(allProjects.map(p => p.company).filter(Boolean))], [allProjects]);
   const types = useMemo(() => ['All types', ...new Set(allProjects.map(p => p.type).filter(Boolean))], [allProjects]);
@@ -189,7 +198,11 @@ export default function Home() {
               }}
               className="w-full"
             >
-              <ProjectCard project={project} />
+              {project.isWhatIfStack ? (
+                <WhatIfPlaylistCard />
+              ) : (
+                <ProjectCard project={project} />
+              )}
             </motion.div>
           ))}
         </AnimatePresence>
@@ -214,7 +227,11 @@ export default function Home() {
                   }}
                   className="w-full"
                 >
-                  <ProjectCard project={project} />
+                  {project.isWhatIfStack ? (
+                    <WhatIfPlaylistCard />
+                  ) : (
+                    <ProjectCard project={project} />
+                  )}
                 </motion.div>
               ))}
             </AnimatePresence>

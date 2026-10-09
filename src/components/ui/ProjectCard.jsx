@@ -93,33 +93,33 @@ export default function ProjectCard({ project }) {
       </AnimatePresence>
 
       {/* Card Image Container */}
-      <div className={`relative block w-full overflow-hidden rounded-lg bg-gray-100 dark:bg-zinc-900 border-10 border-white dark:border-zinc-800 ${project.fullBleed ? 'p-0' : 'py-10 px-5 md:py-14 lg:py-24 md:px-8 lg:px-10'} transition-colors duration-300`}>
+      <div className="relative block w-full overflow-hidden rounded-lg bg-gray-100 dark:bg-zinc-900 border-10 border-white dark:border-zinc-800 transition-colors duration-300">
         {/* Media */}
-        <div ref={containerRef} className={project.fullBleed ? "w-full aspect-[16/9] flex items-center justify-center overflow-hidden" : "w-full h-52 md:h-64 lg:h-96 xl:h-100 flex items-center justify-center"}>
+        <div ref={containerRef} className="w-full aspect-[16/9] flex items-center justify-center overflow-hidden p-3 md:p-4">
           {isVideo ? (
-            <div className="relative h-full aspect-[9/19.5] rounded-2xl lg:rounded-4xl p-1 md:p-1.5 bg-black border border-zinc-800/50 shadow-lg transition-transform duration-700 ease-out group-hover:scale-105">
-              <div className="relative w-full h-full lg:rounded-3xl overflow-hidden bg-black flex items-center justify-center">
+            <div className="relative h-[85%] aspect-[9/19.5] rounded-2xl p-0.5 md:p-1 bg-black border border-zinc-800/50 shadow-lg transition-transform duration-700 ease-out">
+              <div className="relative w-full h-full rounded-xl overflow-hidden bg-black flex items-center justify-center">
                 <video
                   src={project.coverImage.startsWith('http') ? project.coverImage : 'https://assets.hamzaziyard.com' + project.coverImage}
                   autoPlay
                   muted
                   loop
                   playsInline
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-xl"
                 />
               </div>
             </div>
           ) : project.lottie ? (
-            <div className="w-full max-h-24 md:max-h-36 lg:max-h-full max-w-[70%] lg:max-w-full flex justify-center items-center transition-transform duration-700 ease-out group-hover:scale-105">
+            <div className="w-full h-full flex justify-center items-center transition-transform duration-700 ease-out group-hover:scale-105">
               {animationData ? (
                 <Lottie
                   lottieRef={lottieRef}
                   animationData={animationData}
                   loop
-                  className={`w-32 md:w-44 lg:${project.width || 'w-full'} h-20 md:h-28 lg:${project.height || 'h-auto'} object-contain`}
+                  className="w-full h-full max-h-28 md:max-h-32 object-contain"
                 />
               ) : (
-                <div className={`w-32 md:w-44 lg:${project.width || 'w-full'} h-20 md:h-28 lg:${project.height || 'h-96'} bg-gray-100 dark:bg-zinc-900 animate-pulse rounded-xl`}></div>
+                <div className="w-28 md:w-36 h-20 md:h-24 bg-gray-100 dark:bg-zinc-900 animate-pulse rounded-xl"></div>
               )}
             </div>
           ) : (
@@ -135,14 +135,12 @@ export default function ProjectCard({ project }) {
                 project.fullBleed
                   ? 'w-full h-full object-cover'
                   : isReducedFavicon
-                  ? 'w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24'
+                  ? 'w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain'
                   : project.isCompanyCard
-                  ? 'w-48 md:w-56 lg:w-72 max-h-32 md:max-h-40 lg:max-h-48 object-contain'
+                  ? 'max-w-[36%] max-h-[36%] object-contain'
                   : project.id === 'dfcc-bank'
-                  ? 'w-auto max-w-full h-52 md:h-64 lg:h-96 xl:h-100] object-contain border-black border-t-[6px] border-x-[6px]'
-                  : project.width === 'w-full'
-                  ? 'w-full h-full object-contain'
-                  : `w-32 md:w-44 lg:${project.width || 'w-60'} h-20 md:h-28 lg:${project.height || 'h-80'} object-contain`
+                  ? 'h-[75%] w-auto object-contain drop-shadow-md rounded-t-lg'
+                  : 'max-w-[65%] max-h-[65%] object-contain'
               } transition-transform duration-700 ease-out group-hover:scale-105`}
             />
           )}
