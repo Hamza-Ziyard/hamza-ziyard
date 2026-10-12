@@ -52,7 +52,7 @@ export const PAGE_METADATA = {
     title: 'What If? Redesign Series | Hamza Ziyard',
     description:
       'A design critique and redesign series exploring how everyday apps can be rebuilt with evidence, research, and heuristic evaluation.',
-    image: 'https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Lanka%20Metro%20Redesign/Redesign%20P1%20Cover.webp',
+    image: 'https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/Redesigned%20Banner.webp',
     url: 'https://hamzaziyard.com/what-if',
   },
   '/what-if/lanka-metro': {
