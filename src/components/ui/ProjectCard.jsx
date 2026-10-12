@@ -158,7 +158,7 @@ export default function ProjectCard({ project }) {
           )}
         </h3>
         {/* Subtitle / Metadata */}
-        <p className="text-md text-zinc-500 dark:text-zinc-400">
+        <p className="text-md text-zinc-500 dark:text-zinc-400 line-clamp-2">
           {project.summary || project.title || project.company}
         </p>
         <p className="text-sm text-zinc-500 dark:text-zinc-400">

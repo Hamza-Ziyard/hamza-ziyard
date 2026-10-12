@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import clsx from 'clsx';
 import { ArrowLeft, Image as ImageIcon, Info, ChevronUp, Check } from 'lucide-react';
 import whatIfProjects from '../../data/whatIfProjects.json';
+import ProjectCard from '../../components/ui/ProjectCard';
 
 const ImagePlaceholder = ({ label, description, aspectRatio = "aspect-video" }) => (
   <div className={`w-full ${aspectRatio} rounded-2xl md:rounded-3xl bg-surface border-2 border-dashed border-border/70 flex flex-col items-center justify-center p-6 text-center space-y-3 shadow-inner transition-colors hover:border-primary/40 group`}>
@@ -16,6 +17,8 @@ const ImagePlaceholder = ({ label, description, aspectRatio = "aspect-video" }) 
     </div>
   </div>
 );
+
+
 
 export default function WhatIfDetail() {
   const { id } = useParams();
@@ -54,6 +57,23 @@ export default function WhatIfDetail() {
     }
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isDropdownOpen]);
+
+  const otherCaseStudies = useMemo(() => {
+    return whatIfProjects
+      .filter((p) => p.id !== id)
+      .map((p) => ({
+        id: p.id,
+        title: p.coverTitle || p.title,
+        coverTitle: p.coverTitle,
+        company: p.company || 'What If Series',
+        type: p.type || 'What If Series',
+        timePeriod: p.part || p.timePeriod,
+        summary: p.summary,
+        coverImage: p.thumbnail || p.coverImage,
+        link: `/what-if/${p.id}`,
+        fullBleed: true,
+      }));
+  }, [id]);
 
   const sections = useMemo(() => {
     if (!project || !Array.isArray(project.sections)) return [];
@@ -628,6 +648,43 @@ export default function WhatIfDetail() {
           })}
         </main>
       </div>
+
+      {/* Read Other Case Studies Section - Full Width with bg-gray-100 */}
+      {otherCaseStudies.length > 0 && (
+        <section className="w-full bg-gray-100 dark:bg-zinc-900 border-t border-border/80 py-16 md:py-24">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-12 space-y-12">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <span className="w-1.5 h-6 rounded-full bg-primary"></span>
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary tracking-tight">
+                    Read Other Case Studies
+                  </h2>
+                </div>
+                {/* <p className="text-sm md:text-base text-text-secondary font-light">
+                  Explore other conceptual redesigns from the What If series.
+                </p> */}
+              </div>
+
+              <Link
+                to="/what-if"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-blue-500 transition-colors w-fit group"
+              >
+                <span>View all series</span>
+                <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+              {otherCaseStudies.map((study) => (
+                <div key={study.id} className="w-full">
+                  <ProjectCard project={study} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <AnimatePresence>
         {showBackToTop && (

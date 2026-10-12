@@ -2,9 +2,11 @@ import Navbar from './Navbar';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useLayoutEffect } from 'react';
 import { Linkedin, Mail } from 'lucide-react';
+import { usePageSEO } from '../seo/usePageSEO';
 
 export default function Layout() {
   const { pathname } = useLocation();
+  usePageSEO();
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
