@@ -69,6 +69,13 @@ export const PAGE_METADATA = {
     image: 'https://assets.hamzaziyard.com/projects-for-fun/What%20If%20Series/SLT%20Mobile%20Redesign/Redesign%20P2%20Cover.webp',
     url: 'https://hamzaziyard.com/what-if/slt-mobitel',
   },
+  '/what-if/echannelling': {
+    title: 'Redesigning eChannelling Mobile - P3 | Hamza Ziyard',
+    description:
+      'Independent concept redesign of Sri Lanka\'s leading doctor-booking app eChannelling — one job per screen, progressive disclosure, and Hick\'s law for elderly accessibility.',
+    image: 'https://assets.hamzaziyard.com/about/me-animated.webp',
+    url: 'https://hamzaziyard.com/what-if/echannelling',
+  },
   '/redesigns': {
     title: 'Redesigns & Concept Work | Hamza Ziyard',
     description:

@@ -188,28 +188,6 @@ export default function WhatIfDetail() {
           </motion.div>
         </section>
 
-        {/* Sticky Tab Navigation (Scroll Spy Style - Desktop only) */}
-        {sections.length > 0 && (
-          <div className="hidden lg:block sticky top-0 z-40 py-4 bg-background/80 backdrop-blur-xl border-b border-border/50 mb-12">
-            <div className="flex gap-2 overflow-x-auto p-1.5 no-scrollbar bg-surface/50 border border-border/50 w-fit rounded-full">
-              {sections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => scrollToSection(section.id)}
-                  className={clsx(
-                    "px-5 py-2 rounded-full text-md transition-all duration-300 cursor-pointer whitespace-nowrap",
-                    activeTab === section.id
-                      ? "bg-background text-primary font-bold shadow-sm"
-                      : "text-text-secondary hover:bg-background/20 font-medium"
-                  )}
-                >
-                  {section.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
         {/* Floating Minimal Pill Navigation with Dropdown Popover (Mobile only - Pockomint style) */}
         <AnimatePresence>
           {showNav && sections.length > 0 && (
@@ -219,7 +197,7 @@ export default function WhatIfDetail() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300"
+              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300"
             >
               {/* Dropdown Popover Menu */}
               <AnimatePresence>
@@ -294,10 +272,36 @@ export default function WhatIfDetail() {
                       {section.title}
                     </h2>
                   </div>
-                  <div className="space-y-8">
-                    <p className="text-xl text-text-secondary leading-relaxed">
-                      {section.reflection}
-                    </p>
+                  <div className="space-y-6">
+                    {typeof section.reflection === 'string' &&
+                      section.reflection.split('\n\n').map((block, bIdx) => {
+                        const lines = block.split('\n');
+                        const isList = lines.some((l) => l.trim().startsWith('•') || l.trim().startsWith('-'));
+                        if (isList) {
+                          const nonBulletHeader = !lines[0].trim().startsWith('•') && !lines[0].trim().startsWith('-') ? lines[0] : null;
+                          const bulletLines = lines.filter((l) => l.trim().startsWith('•') || l.trim().startsWith('-'));
+                          return (
+                            <div key={bIdx} className="space-y-3">
+                              {nonBulletHeader && (
+                                <p className="text-xl font-medium text-primary">
+                                  {nonBulletHeader}
+                                </p>
+                              )}
+                              <ul className="space-y-2 list-disc pl-6 text-xl text-text-secondary leading-relaxed font-light">
+                                {bulletLines.map((line, lIdx) => {
+                                  const text = line.replace(/^[•\-]\s*/, '');
+                                  return <li key={lIdx}>{text}</li>;
+                                })}
+                              </ul>
+                            </div>
+                          );
+                        }
+                        return (
+                          <p key={bIdx} className="text-xl text-text-secondary leading-relaxed">
+                            {block}
+                          </p>
+                        );
+                      })}
                   </div>
                 </section>
               );
@@ -338,6 +342,23 @@ export default function WhatIfDetail() {
                         </div>
                       ))}
                     </div>
+                  )}
+
+                  {/* Single Image if present */}
+                  {section.image && (
+                    <figure className="space-y-4">
+                      <img 
+                        src={section.image} 
+                        alt={section.imageCaption || section.title}
+                        loading="lazy"
+                        className="w-full rounded-2xl border border-border/50 shadow-sm"
+                      />
+                      {section.imageCaption && (
+                        <figcaption className="text-sm text-text-secondary font-medium text-center">
+                          {section.imageCaption}
+                        </figcaption>
+                      )}
+                    </figure>
                   )}
 
                   {/* Section Text */}
@@ -412,14 +433,21 @@ export default function WhatIfDetail() {
                       )}
 
                       {/* Fix Image / Proposed Solution Image */}
-                      {section.fixImage && (
+                      {section.fixImage !== undefined && (
                         <figure className="space-y-4 pt-4">
-                          <img 
-                            src={section.fixImage} 
-                            alt={section.fixImageCaption || section.title}
-                            loading="lazy"
-                            className="w-full rounded-2xl border border-border/50 shadow-sm"
-                          />
+                          {section.fixImage ? (
+                            <img 
+                              src={section.fixImage} 
+                              alt={section.fixImageCaption || section.title}
+                              loading="lazy"
+                              className="w-full rounded-2xl border border-border/50 shadow-sm"
+                            />
+                          ) : (
+                            <ImagePlaceholder 
+                              label={section.fixImageCaption || `${section.title} - Solution Overview`}
+                              description="Redesigned interface showcase"
+                            />
+                          )}
                           {section.fixImageCaption && (
                             <figcaption className="text-sm text-text-secondary font-medium text-center">
                               {section.fixImageCaption}
@@ -427,91 +455,169 @@ export default function WhatIfDetail() {
                           )}
                         </figure>
                       )}
+                    </div>
+                  )}
 
-                      {/* Figure Legend Table (Styled as in ProjectDetailWork) */}
-                      {section.legend && (
-                        <div className="pt-6 space-y-6">
-                          {section.legend.image && (
-                            <figure className="space-y-4">
-                              <img 
-                                src={section.legend.image} 
-                                alt={section.legend.imageCaption || section.legend.title}
-                                loading="lazy"
-                                className="w-full rounded-2xl border border-border/50 shadow-sm"
-                              />
-                              {section.legend.imageCaption && (
-                                <figcaption className="text-sm text-text-secondary font-medium text-center">
-                                  {section.legend.imageCaption}
-                                </figcaption>
-                              )}
-                            </figure>
+                  {/* Figure Legend Table (Styled as in ProjectDetailWork) */}
+                  {section.legend && (
+                    <div className="pt-6 space-y-6">
+                      {section.legend.image !== undefined && (
+                        <figure className="space-y-4">
+                          {section.legend.image ? (
+                            <img 
+                              src={section.legend.image} 
+                              alt={section.legend.imageCaption || section.legend.title}
+                              loading="lazy"
+                              className="w-full rounded-2xl border border-border/50 shadow-sm"
+                            />
+                          ) : (
+                            <ImagePlaceholder 
+                              label={section.legend.imageCaption || section.legend.title}
+                              description="Numbered callout and UI element annotations"
+                            />
                           )}
-                          <h4 className="text-base md:text-lg font-bold text-primary">
-                            {section.legend.title}
-                          </h4>
-                          <div className="flex flex-col border border-border rounded-xl overflow-hidden">
-                            {section.legend.items.map((item, idx) => (
-                              <div 
-                                key={idx} 
-                                className={clsx(
-                                  "grid grid-cols-1 md:grid-cols-4",
-                                  idx > 0 && "border-t border-border"
-                                )}
-                              >
-                                <div className="p-4 bg-surface flex items-center gap-4 md:col-span-1">
-                                  <span className="w-8 h-8 rounded-full bg-black text-white border border-border flex items-center justify-center text-md font-bold shrink-0">
-                                    {idx + 1}
+                          {section.legend.imageCaption && (
+                            <figcaption className="text-sm text-text-secondary font-medium text-center">
+                              {section.legend.imageCaption}
+                            </figcaption>
+                          )}
+                        </figure>
+                      )}
+                      <h4 className="text-base md:text-lg font-bold text-primary">
+                        {section.legend.title}
+                      </h4>
+                      <div className="flex flex-col border border-border rounded-xl overflow-hidden">
+                        {section.legend.items.map((item, idx) => (
+                          <div 
+                            key={idx} 
+                            className={clsx(
+                              "grid grid-cols-1 md:grid-cols-4",
+                              idx > 0 && "border-t border-border"
+                            )}
+                          >
+                            <div className="p-4 bg-surface flex items-center gap-4 md:col-span-1">
+                              <span className="w-8 h-8 rounded-full bg-black text-white border border-border flex items-center justify-center text-md font-bold shrink-0">
+                                {idx + 1}
+                              </span>
+                              <h5 className="font-semibold text-sm md:text-base text-primary">
+                                {item.element}
+                              </h5>
+                            </div>
+                            <div className="border-t md:border-t-0 md:border-l border-border p-4 text-sm md:text-base text-text-secondary leading-relaxed font-light md:col-span-3 flex items-center">
+                              <p>{item.description}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Stage Comparison Table (Stage, V1, V2, Biggest Change) */}
+                  {section.stageTable && (
+                    <div className="pt-6 space-y-4">
+                      {section.stageTable.title && (
+                        <h4 className="text-base md:text-lg font-bold text-primary">
+                          {section.stageTable.title}
+                        </h4>
+                      )}
+                      <div className="border border-border rounded-2xl overflow-hidden shadow-sm">
+                        {/* Table Header */}
+                        <div className="hidden md:grid md:grid-cols-12 bg-surface border-b border-border text-md font-semibold text-text-secondary">
+                          <div className="p-4 md:col-span-3">Stage</div>
+                          <div className="p-4 md:col-span-3 border-l border-border">V1 (Original)</div>
+                          <div className="p-4 md:col-span-3 border-l border-border text-primary font-bold">V2 (Redesign)</div>
+                          <div className="p-4 md:col-span-3 border-l border-border">Biggest Change</div>
+                        </div>
+
+                        {/* Table Rows */}
+                        <div className="divide-y divide-border">
+                          {section.stageTable.rows.map((row, rIdx) => (
+                            <div
+                              key={rIdx}
+                              className="grid grid-cols-1 md:grid-cols-12 hover:bg-surface/40 transition-colors"
+                            >
+                              {/* Stage Column */}
+                              <div className="p-4 md:col-span-3 bg-surface/30 md:bg-transparent flex flex-col justify-center">
+                                <span className="text-xs font-semibold text-text-secondary md:hidden mb-1">
+                                  Stage
+                                </span>
+                                <h5 className="font-bold text-sm md:text-base text-primary">
+                                  {row.stage}
+                                </h5>
+                                {row.screens && (
+                                  <span className="text-xs text-text-secondary font-light mt-1">
+                                    {row.screens}
                                   </span>
-                                  <h5 className="font-semibold text-sm md:text-base text-primary">
-                                    {item.element}
-                                  </h5>
-                                </div>
-                                <div className="border-t md:border-t-0 md:border-l border-border p-4 text-sm md:text-base text-text-secondary leading-relaxed font-light md:col-span-3 flex items-center">
-                                  <p>{item.description}</p>
-                                </div>
+                                )}
                               </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
 
-                      {/* Comparison Table (for Wallet section - Styled as in ProjectDetailWork) */}
-                      {section.comparisonTable && (
-                        <div className="pt-6 space-y-4">
-                          <h4 className="text-base md:text-lg font-bold text-primary">
-                            Key Wallet Changes
-                          </h4>
-                          <div className="flex flex-col border border-border rounded-xl overflow-hidden">
-                            {/* Kept Row */}
-                            <div className="grid grid-cols-1 md:grid-cols-4">
-                              <div className="font-semibold p-4 text-sm md:text-base text-primary bg-surface flex items-center">
-                                <span>Kept in Redesign</span>
+                              {/* V1 Column */}
+                              <div className="p-4 md:col-span-3 border-t md:border-t-0 md:border-l border-border flex flex-col justify-center text-sm md:text-base text-text-secondary leading-relaxed font-light">
+                                <span className="text-xs font-semibold text-red-500/80 md:hidden mb-1">
+                                  V1 (Original)
+                                </span>
+                                <p>{row.v1}</p>
                               </div>
-                              <div className="border-t md:border-t-0 md:border-l border-border p-4 text-sm md:text-base text-text-secondary leading-relaxed font-light md:col-span-3">
-                                <ul className="space-y-1.5 list-disc pl-5">
-                                  {section.comparisonTable.kept.map((item, kIdx) => (
-                                    <li key={kIdx}>{item}</li>
-                                  ))}
-                                </ul>
+
+                              {/* V2 Column */}
+                              <div className="p-4 md:col-span-3 border-t md:border-t-0 md:border-l border-border flex flex-col justify-center text-sm md:text-base text-primary leading-relaxed font-normal bg-primary/[0.02] md:bg-transparent">
+                                <span className="text-xs font-semibold text-emerald-500/90 md:hidden mb-1">
+                                  V2 (Redesign)
+                                </span>
+                                <p>{row.v2}</p>
+                              </div>
+
+                              {/* Biggest Change Column */}
+                              <div className="p-4 md:col-span-3 border-t md:border-t-0 md:border-l border-border flex flex-col justify-center text-sm md:text-base text-text-secondary leading-relaxed font-light bg-surface/20 md:bg-transparent">
+                                <span className="text-xs font-semibold text-text-secondary md:hidden mb-1">
+                                  Biggest Change
+                                </span>
+                                <div className="flex items-start gap-1.5">
+                                  <span className="font-medium text-primary">{row.biggestChange}</span>
+                                </div>
                               </div>
                             </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
-                            {/* Changed Row */}
-                            <div className="grid grid-cols-1 md:grid-cols-4 border-t border-border">
-                              <div className="font-semibold p-4 text-sm md:text-base text-primary bg-surface flex items-center">
-                                <span>Changed & Replaced</span>
-                              </div>
-                              <div className="border-t md:border-t-0 md:border-l border-border p-4 text-sm md:text-base text-text-secondary leading-relaxed font-light md:col-span-3">
-                                <ul className="space-y-1.5 list-disc pl-5">
-                                  {section.comparisonTable.changed.map((item, cIdx) => (
-                                    <li key={cIdx}>{item}</li>
-                                  ))}
-                                </ul>
-                              </div>
-                            </div>
+                  {/* Comparison Table (for Wallet section - Styled as in ProjectDetailWork) */}
+                  {section.comparisonTable && (
+                    <div className="pt-6 space-y-4">
+                      <h4 className="text-base md:text-lg font-bold text-primary">
+                        Key Wallet Changes
+                      </h4>
+                      <div className="flex flex-col border border-border rounded-xl overflow-hidden">
+                        {/* Kept Row */}
+                        <div className="grid grid-cols-1 md:grid-cols-4">
+                          <div className="font-semibold p-4 text-sm md:text-base text-primary bg-surface flex items-center">
+                            <span>Kept in Redesign</span>
+                          </div>
+                          <div className="border-t md:border-t-0 md:border-l border-border p-4 text-sm md:text-base text-text-secondary leading-relaxed font-light md:col-span-3">
+                            <ul className="space-y-1.5 list-disc pl-5">
+                              {section.comparisonTable.kept.map((item, kIdx) => (
+                                <li key={kIdx}>{item}</li>
+                              ))}
+                            </ul>
                           </div>
                         </div>
-                      )}
+
+                        {/* Changed Row */}
+                        <div className="grid grid-cols-1 md:grid-cols-4 border-t border-border">
+                          <div className="font-semibold p-4 text-sm md:text-base text-primary bg-surface flex items-center">
+                            <span>Changed & Replaced</span>
+                          </div>
+                          <div className="border-t md:border-t-0 md:border-l border-border p-4 text-sm md:text-base text-text-secondary leading-relaxed font-light md:col-span-3">
+                            <ul className="space-y-1.5 list-disc pl-5">
+                              {section.comparisonTable.changed.map((item, cIdx) => (
+                                <li key={cIdx}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   )}
 
@@ -546,14 +652,21 @@ export default function WhatIfDetail() {
                                     {sub.whyItMatters.text}
                                   </p>
                                 )}
-                                {sub.problemImage && (
+                                {sub.problemImage !== undefined && (
                                   <figure className="space-y-4 pt-4">
-                                    <img 
-                                      src={sub.problemImage} 
-                                      alt={sub.problemImageCaption || sub.title}
-                                      loading="lazy"
-                                      className="w-full rounded-2xl border border-border/50 shadow-sm"
-                                    />
+                                    {sub.problemImage ? (
+                                      <img 
+                                        src={sub.problemImage} 
+                                        alt={sub.problemImageCaption || sub.title}
+                                        loading="lazy"
+                                        className="w-full rounded-2xl border border-border/50 shadow-sm"
+                                      />
+                                    ) : (
+                                      <ImagePlaceholder 
+                                        label={sub.problemImageCaption || `${sub.title} - V1 Interface`}
+                                        description="V1 legacy screen interface comparison"
+                                      />
+                                    )}
                                     {sub.problemImageCaption && (
                                       <figcaption className="text-sm text-text-secondary font-medium text-center">
                                         {sub.problemImageCaption}
@@ -573,14 +686,21 @@ export default function WhatIfDetail() {
                                   </strong>
                                   {sub.fix.text}
                                 </p>
-                                {sub.fixImage && (
+                                {sub.fixImage !== undefined && (
                                   <figure className="space-y-4 pt-4">
-                                    <img 
-                                      src={sub.fixImage} 
-                                      alt={sub.fixImageCaption || sub.title}
-                                      loading="lazy"
-                                      className="w-full rounded-2xl border border-border/50 shadow-sm"
-                                    />
+                                    {sub.fixImage ? (
+                                      <img 
+                                        src={sub.fixImage} 
+                                        alt={sub.fixImageCaption || sub.title}
+                                        loading="lazy"
+                                        className="w-full rounded-2xl border border-border/50 shadow-sm"
+                                      />
+                                    ) : (
+                                      <ImagePlaceholder 
+                                        label={sub.fixImageCaption || `${sub.title} - V2 Interface Showcase`}
+                                        description="V2 redesigned interface mockup"
+                                      />
+                                    )}
                                     {sub.fixImageCaption && (
                                       <figcaption className="text-sm text-text-secondary font-medium text-center">
                                         {sub.fixImageCaption}
@@ -592,14 +712,21 @@ export default function WhatIfDetail() {
                                 {/* Figure Legend Table */}
                                 {sub.legend && (
                                   <div className="pt-6 space-y-6">
-                                    {sub.legend.image && (
+                                    {sub.legend.image !== undefined && (
                                       <figure className="space-y-4">
-                                        <img 
-                                          src={sub.legend.image} 
-                                          alt={sub.legend.imageCaption || sub.legend.title}
-                                          loading="lazy"
-                                          className="w-full rounded-2xl border border-border/50 shadow-sm"
-                                        />
+                                        {sub.legend.image ? (
+                                          <img 
+                                            src={sub.legend.image} 
+                                            alt={sub.legend.imageCaption || sub.legend.title}
+                                            loading="lazy"
+                                            className="w-full rounded-2xl border border-border/50 shadow-sm"
+                                          />
+                                        ) : (
+                                          <ImagePlaceholder 
+                                            label={sub.legend.imageCaption || sub.legend.title}
+                                            description="Numbered callout and UI element annotations"
+                                          />
+                                        )}
                                         {sub.legend.imageCaption && (
                                           <figcaption className="text-sm text-text-secondary font-medium text-center">
                                             {sub.legend.imageCaption}
