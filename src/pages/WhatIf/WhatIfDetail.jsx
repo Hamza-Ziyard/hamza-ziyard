@@ -188,6 +188,29 @@ export default function WhatIfDetail() {
           </motion.div>
         </section>
 
+
+        {/* Sticky Tab Navigation (Scroll Spy Style - Desktop only) */}
+        {/* {sections.length > 0 && (
+          <div className="hidden lg:block sticky top-0 z-40 py-4 bg-background/80 backdrop-blur-xl border-b border-border/50 mb-12">
+            <div className="flex gap-2 overflow-x-auto p-1.5 no-scrollbar bg-surface/50 border border-border/50 w-fit rounded-full">
+              {sections.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => scrollToSection(section.id)}
+                  className={clsx(
+                    "px-5 py-2 rounded-full text-md transition-all duration-300 cursor-pointer whitespace-nowrap",
+                    activeTab === section.id
+                      ? "bg-background text-primary font-bold shadow-sm"
+                      : "text-text-secondary hover:bg-background/20 font-medium"
+                  )}
+                >
+                  {section.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )} */}
+
         {/* Floating Minimal Pill Navigation with Dropdown Popover (Mobile only - Pockomint style) */}
         <AnimatePresence>
           {showNav && sections.length > 0 && (
